@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://crxh6se4m0rxq"]
+[gd_scene load_steps=8 format=3 uid="uid://crxh6se4m0rxq"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_88mb6"]
+[ext_resource type="Script" path="res://Interactable.gd" id="2_5llq5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cebsl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -14,6 +15,11 @@ background_mode = 2
 sky = SubResource("Sky_ja0qp")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qep7p"]
+albedo_color = Color(0.0392157, 0.172549, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4fhih"]
 
 [node name="Main" type="Node3D"]
 
@@ -76,3 +82,12 @@ size = Vector3(1, 1, 0.2)
 
 [node name="ProtoController" parent="." instance=ExtResource("1_88mb6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6, 0.5, 6.3)
+
+[node name="CSGBox3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.09476, 0)
+use_collision = true
+material = SubResource("StandardMaterial3D_qep7p")
+script = ExtResource("2_5llq5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2"]
+shape = SubResource("SphereShape3D_4fhih")

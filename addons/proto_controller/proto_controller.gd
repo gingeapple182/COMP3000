@@ -52,12 +52,25 @@ var freeflying : bool = false
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var interact_ray = $Head/Camera3D/RayCast3D
 
 func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
 
+# Change scene
+func _input(event):
+	if event.is_action_pressed("switch_scene"):
+		get_tree().change_scene_to_file("res://Scenes/puzzle_test.tscn")
+	if event.is_action_pressed("interact"):
+		if interact_ray.is_colliding():
+			var collider = interact_ray.get_collider()
+			if collider.has_method("interact"):
+				print("object interacted")
+				collider.interact()
+		
+	
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
