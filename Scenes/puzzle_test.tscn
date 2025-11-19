@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cely1nigw5ulo"]
+
+[ext_resource type="Script" path="res://Scenes/PuzzleSceneController.gd" id="1_i4ntq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdgsg"]
+albedo_color = Color(1, 0.12549, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sfyb4"]
+material = SubResource("StandardMaterial3D_mdgsg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogmxa"]
+albedo_color = Color(0.0980392, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4neq0"]
+albedo_color = Color(1, 0.176471, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vudnq"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_evdfp"]
+size = Vector3(50, 1, 50)
+
+[node name="Puzzle_Test" type="Node3D"]
+script = ExtResource("1_i4ntq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 19.4698, 0)
+current = true
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 3.1, -1.8)
+mesh = SubResource("SphereMesh_sfyb4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766044, 0.492404, -0.413176, 0, 0.642788, 0.766044, 0.642788, -0.586824, 0.492404, -21.6372, 13.5293, 19.5135)
+light_energy = 0.411
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994761, 0)
+use_collision = true
+material = SubResource("StandardMaterial3D_ogmxa")
+
+[node name="CSGBox3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715248, 2.83184, -0.19825)
+use_collision = true
+material = SubResource("StandardMaterial3D_4neq0")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+visible = false
+use_collision = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_vudnq")
+
+[node name="Plane" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_evdfp")
+skeleton = NodePath("../..")
