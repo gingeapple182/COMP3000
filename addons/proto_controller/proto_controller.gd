@@ -53,6 +53,7 @@ var freeflying : bool = false
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 @onready var interact_ray = $Head/Camera3D/RayCast3D
+@onready var interact_label = $"../CanvasLayer/InteractLabel"
 
 func _ready() -> void:
 	check_input_mappings()
@@ -189,3 +190,13 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+
+func _process(delta):
+	if interact_ray.is_colliding():
+		var collider = interact_ray.get_collider()
+		if collider.has_method("interact"):
+			interact_label.visible = true
+		else:
+			interact_label.visible = false
+	else:
+		interact_label.visible = false

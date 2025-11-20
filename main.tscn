@@ -34,6 +34,12 @@ shadow_enabled = true
 use_collision = true
 size = Vector3(60, 1, 50)
 
+[node name="Floor2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7, 0)
+visible = false
+use_collision = true
+size = Vector3(60, 1, 50)
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
 
@@ -91,3 +97,21 @@ script = ExtResource("2_5llq5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2"]
 shape = SubResource("SphereShape3D_4fhih")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -11.5
+offset_right = 70.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+text = "Press F to interact"
