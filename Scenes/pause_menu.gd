@@ -33,10 +33,12 @@ func _on_button_reset_pressed() -> void:
 
 
 func _on_button_quit_pressed() -> void:
+	get_tree().paused = false
 	var scene = get_tree().current_scene.name
 	if scene == "Main":
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/landing_menu.tscn")
 	elif scene.begins_with("Puzzle_") or scene.begins_with("Level_"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
 
