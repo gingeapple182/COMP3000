@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://crxh6se4m0rxq"]
+[gd_scene load_steps=10 format=3 uid="uid://crxh6se4m0rxq"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_qh2xr"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_aomcw"]
 [ext_resource type="Script" path="res://Scripts/Interactable.gd" id="3_c2668"]
+[ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="4_2m2wd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cebsl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -117,3 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 text = "Press F to interact"
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_2m2wd")]
+process_mode = 3
+visible = false

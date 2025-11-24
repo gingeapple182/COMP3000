@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cely1nigw5ulo"]
+[gd_scene load_steps=11 format=3 uid="uid://cely1nigw5ulo"]
 
 [ext_resource type="Script" path="res://Scenes/PuzzleSceneController.gd" id="1_i4ntq"]
+[ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="2_g175n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n4eam"]
 size = Vector3(50, 1, 50)
@@ -75,5 +76,9 @@ offset_top = 21.0
 offset_right = 222.0
 offset_bottom = 88.0
 text = "Exit back to hub"
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_g175n")]
+process_mode = 3
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

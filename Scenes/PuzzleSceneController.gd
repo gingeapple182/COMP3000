@@ -2,7 +2,9 @@ extends Node3D
 
 @onready var camera = $Camera3D
 @onready var exit_button = $CanvasLayer/Button
+@onready var pause_menu = $PauseMenu
 
+var is_paused := false
 var grabbed: RigidBody3D = null
 var grab_offset: Vector3 = Vector3.ZERO
 const hover_height := 5.0
@@ -37,6 +39,10 @@ func _input(event):
 	if event.is_action_pressed("switch_scene"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		get_tree().change_scene_to_file("res://Scenes/main.tscn")
+
+	if event.is_action_pressed("pause"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		toggle_pause()
 
 	if event is InputEventMouseButton and event.pressed:
 		var hit = get_mouse_hit()
@@ -87,3 +93,9 @@ func _process(_delta: float) -> void:
 func _on_button_pressed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+
+
+func toggle_pause():
+	is_paused = not is_paused
+	get_tree().paused = is_paused
+	pause_menu.visible = is_paused
