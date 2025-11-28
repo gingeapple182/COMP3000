@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bd5m5eqerkpv8"]
 
-[ext_resource type="Script" path="res://Scenes/landing_menu.gd" id="1_havof"]
+[ext_resource type="Script" path="res://Scripts/landing_menu.gd" id="1_havof"]
 
 [node name="LandingMenu" type="Node3D"]
 script = ExtResource("1_havof")
@@ -111,6 +111,7 @@ theme_override_font_sizes/font_size = 30
 text = ">"
 
 [node name="Button_Return" type="Button" parent="CanvasLayer/LevelSelect"]
+layout_mode = 0
 offset_left = 21.0
 offset_top = 20.0
 offset_right = 195.0
@@ -127,6 +128,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings"]
+layout_mode = 0
 offset_left = 312.0
 offset_top = 137.0
 offset_right = 817.0
@@ -164,6 +166,7 @@ layout_mode = 2
 text = "Return to main menu"
 
 [node name="Button_Return" type="Button" parent="CanvasLayer/Settings"]
+layout_mode = 0
 offset_left = 21.0
 offset_top = 20.0
 offset_right = 195.0
@@ -180,6 +183,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Button_Return" type="Button" parent="CanvasLayer/Credits"]
+layout_mode = 0
 offset_left = 21.0
 offset_top = 20.0
 offset_right = 195.0
