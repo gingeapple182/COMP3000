@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c41h7yxkt3dte"]
+
+[ext_resource type="Material" uid="uid://dilx6dwg5rikb" path="res://Scenes/Assets/Materials/ceiling_light.tres" id="1_oesap"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b0q87"]
+
+[node name="CeilingLight" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1.13001, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_oesap")
+mesh = SubResource("BoxMesh_b0q87")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.6814, 0, 0, 0, 1, 0, -0.973444, 0)
+omni_range = 6.0

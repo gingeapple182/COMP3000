@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://crxh6se4m0rxq"]
+[gd_scene load_steps=12 format=3 uid="uid://crxh6se4m0rxq"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_qh2xr"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_aomcw"]
 [ext_resource type="Script" path="res://Scripts/Interactable.gd" id="3_c2668"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="4_2m2wd"]
+[ext_resource type="PackedScene" uid="uid://18x4vt0n1qhk" path="res://Scenes/Assets/desk.tscn" id="5_e2qkm"]
+[ext_resource type="PackedScene" uid="uid://cwtvuysuygpay" path="res://Scenes/office_hub_01.tscn" id="6_5lupv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cebsl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -33,67 +35,11 @@ environment = SubResource("Environment_jwtab")
 transform = Transform3D(-0.866027, 0.43301, -0.249997, -1.49013e-08, 0.499998, 0.866027, 0.499997, 0.750003, -0.433012, 0, 24.2, 0)
 shadow_enabled = true
 
-[node name="Floor" type="CSGBox3D" parent="."]
-use_collision = true
-size = Vector3(60, 1, 50)
-
-[node name="Floor2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7, 0)
-visible = false
-use_collision = true
-size = Vector3(60, 1, 50)
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-use_collision = true
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 15.75, 0, 3.35, -0.157502)
-size = Vector3(1, 6, 3.2)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D2"]
-transform = Transform3D(1.45, 0, 0, 0, 1.1, 0, 0, 0, 0.3, 0, -1.2, 0)
-operation = 2
-size = Vector3(1, 3.4, 1)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 15.75, 29.5, 3.35, -0.157502)
-size = Vector3(1, 6, 3.2)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 15.75, 14.9, 3.35, -17.4825)
-size = Vector3(1, 6, 1)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 15.75, -29.9, 3.35, -0.157502)
-size = Vector3(1, 6, 3.2)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 18.9, 0, 1, 0, -1, 0, -8.26145e-07, 0, 3.35, 24.4425)
-size = Vector3(1, 6, 3.2)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 18.9, 0, 1, 0, -1, 0, -8.26145e-07, 0, 3.35, -24.4575)
-size = Vector3(1, 6, 3.2)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 18.9, 0, 1, 0, -1, 0, -8.26145e-07, 15.12, 3.35, -9.3575)
-size = Vector3(1, 6, 1.6)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D7"]
-transform = Transform3D(1.4, 0, 0, 0, 4.29, 0, 6.66134e-16, 0, 1, 3.8147e-06, -1.4, -0.4)
-operation = 2
-size = Vector3(1, 1, 0.2)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D7"]
-transform = Transform3D(1.4, 0, 0, 0, 4.29, 0, 8.88178e-16, 0, 1, 2.86102e-06, -1.4, 0.314286)
-operation = 2
-size = Vector3(1, 1, 0.2)
-
 [node name="ProtoController" parent="." instance=ExtResource("2_aomcw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6, 0.5, 6.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8, 0.5, 6.3)
 
 [node name="CSGBox3D2" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.09476, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 2.09476, -1)
 use_collision = true
 material = SubResource("StandardMaterial3D_qep7p")
 script = ExtResource("3_c2668")
@@ -122,3 +68,13 @@ text = "Press F to interact"
 [node name="PauseMenu" parent="." instance=ExtResource("4_2m2wd")]
 process_mode = 3
 visible = false
+
+[node name="OfficeHub01" parent="." instance=ExtResource("6_5lupv")]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Desk" parent="Node" instance=ExtResource("5_e2qkm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.2, 0.500001, -16.2)
+
+[node name="Desk2" parent="Node" instance=ExtResource("5_e2qkm")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -21.4, 0.500001, -1)

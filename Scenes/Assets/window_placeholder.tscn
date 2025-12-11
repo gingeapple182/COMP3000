@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://s27ec6on768g"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vcqen"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpeld"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.188235)
+
+[node name="WindowPlaceholder" type="StaticBody3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_vcqen")
+material = SubResource("StandardMaterial3D_bpeld")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1.94781, -1.82456, 0, 1.63441, 2.17442, 0, 0, 0, 1.5, 0, 0, 0.00478069)
+text = "WINDOW"
