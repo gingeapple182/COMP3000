@@ -11,19 +11,19 @@ size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_df375"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wyxvq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtyj7"]
 albedo_color = Color(0, 0.632447, 0.519391, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4q4nm"]
-material = SubResource("StandardMaterial3D_wyxvq")
+material = SubResource("StandardMaterial3D_rtyj7")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ffyaw"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h7wpf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyodm"]
 albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_iake5"]
-material = SubResource("StandardMaterial3D_h7wpf")
+material = SubResource("StandardMaterial3D_iyodm")
 
 [node name="Puzzle_Test" type="Node3D"]
 script = ExtResource("1_i4ntq")

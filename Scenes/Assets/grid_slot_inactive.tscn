@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://0ltp5rltjb7a"]
+
+[ext_resource type="Script" path="res://Scripts/slots.gd" id="1_nno8i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87kpx"]
+albedo_color = Color(0.0352941, 0.360784, 0.0470588, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8i1vn"]
+size = Vector3(1.5, 1, 1.5)
+
+[node name="GridSlotInactive" type="CSGCombiner3D"]
+use_collision = true
+collision_mask = 3
+script = ExtResource("1_nno8i")
+active = false
+
+[node name="GridSlot" type="CSGBox3D" parent="."]
+size = Vector3(1.5, 0.25, 1.5)
+material = SubResource("StandardMaterial3D_87kpx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_8i1vn")

@@ -1,0 +1,114 @@
+[gd_scene load_steps=15 format=3 uid="uid://h5kp1pfgasbh"]
+
+[ext_resource type="Script" path="res://Scripts/puzzle_controller.gd" id="1_54mf1"]
+[ext_resource type="Script" path="res://Scripts/grid_manager.gd" id="1_a8pl4"]
+[ext_resource type="PackedScene" uid="uid://chdalqissc16x" path="res://Scenes/Assets/grid_slot_active.tscn" id="2_pxsq5"]
+[ext_resource type="PackedScene" uid="uid://0ltp5rltjb7a" path="res://Scenes/Assets/grid_slot_inactive.tscn" id="3_40yeu"]
+[ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="5_gj2ys"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x04p3"]
+albedo_color = Color(0.0823529, 0.74902, 0.176471, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xdopv"]
+material = SubResource("StandardMaterial3D_x04p3")
+size = Vector2(25, 25)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1gxiv"]
+size = Vector2(25, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5qq6x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wyxvq"]
+albedo_color = Color(0, 0.632447, 0.519391, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m0lng"]
+material = SubResource("StandardMaterial3D_wyxvq")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yn8r7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h7wpf"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_22nju"]
+material = SubResource("StandardMaterial3D_h7wpf")
+
+[node name="PuzzleBoard" type="Node3D"]
+script = ExtResource("1_54mf1")
+hover_height = 1.0
+
+[node name="GridManager" type="Node3D" parent="."]
+script = ExtResource("1_a8pl4")
+active_slot_scene = ExtResource("2_pxsq5")
+inactive_slot_scene = ExtResource("3_40yeu")
+tile_map_string = "10001
+01010
+00100
+01010
+10001"
+columns = 3
+
+[node name="Slots" type="Node3D" parent="."]
+
+[node name="Board" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+layers = 3
+mesh = SubResource("PlaneMesh_xdopv")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Board"]
+use_collision = true
+collision_mask = 3
+mesh = SubResource("PlaneMesh_1gxiv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.22657, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766044, 0.492404, -0.413176, -2.57132e-08, 0.642788, 0.766044, 0.642788, -0.586824, 0.492404, -21.6372, 13.5293, 19.5135)
+light_energy = 0.411
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Box" type="RigidBody3D" parent="Objects"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0.3, 6.8, 0)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Box"]
+shape = SubResource("BoxShape3D_5qq6x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/Box"]
+mesh = SubResource("BoxMesh_m0lng")
+
+[node name="Ball" type="RigidBody3D" parent="Objects"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 2.3, 6.8, 0)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Ball"]
+shape = SubResource("SphereShape3D_yn8r7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/Ball"]
+mesh = SubResource("SphereMesh_22nju")
+
+[node name="Ball2" type="RigidBody3D" parent="Objects"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 1.2, 10.1, 0.4)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Ball2"]
+shape = SubResource("SphereShape3D_yn8r7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/Ball2"]
+mesh = SubResource("SphereMesh_22nju")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 22.0
+offset_top = 21.0
+offset_right = 222.0
+offset_bottom = 88.0
+text = "Exit back to hub"
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_gj2ys")]
+process_mode = 3
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
