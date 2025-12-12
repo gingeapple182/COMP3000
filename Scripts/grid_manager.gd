@@ -111,3 +111,58 @@ func detect_hover_collision() -> Node3D:
 			return slot
 	
 	return null
+
+
+func snap_piece_to_slot(piece: RigidBody3D, slot: Node3D) -> void:
+	# Only snap to active, empty slots
+	if not slot.active:
+		return
+	if not slot.is_free():
+		return
+	
+	# Get the snap point inside the slot
+	var snap_point: Node3D = slot.get_node("SnapPoint")
+	
+	# Move piece into position
+	piece.global_transform.origin = snap_point.global_transform.origin
+	piece.linear_velocity = Vector3.ZERO
+	piece.angular_velocity = Vector3.ZERO
+	#piece.gravity_scale = 0.0
+	#piece.freeze = true  # lock in place until picked up again
+	
+	# Register occupancy on the slot
+	slot.set_piece(piece)
+
+
+func try_snap(piece: RigidBody3D) -> bool:
+	print("\n>>> try_snap() CALLED")
+	print("hovered_slot: ", hovered_slot)
+	if hovered_slot == null:
+		print("FAIL: hovered_slot is NULL")
+		return false
+	
+	if hovered_slot.current_piece != null:
+		print("FAIL: Slot already occupied")
+		return false
+	
+	var snap_pos = hovered_slot.get_snap_position()
+	print("Snapping to: ", snap_pos)
+	print("Piece BEFORE snap: ", piece.global_transform.origin)
+	
+	piece.global_transform.origin = snap_pos
+	print("Piece AFTER snap: ", piece.global_transform.origin)
+	#piece.freeze = true
+	#piece.gravity_scale = 0.0
+	piece.linear_velocity = Vector3.ZERO
+	piece.angular_velocity = Vector3.ZERO
+	
+	hovered_slot.set_piece(piece)  # ← use the helper
+	
+	return true
+
+
+func clear_piece_from_slots(piece: RigidBody3D) -> void:
+	for slot in slots_parent.get_children():
+		if slot.current_piece == piece:
+			slot.clear_piece(piece)
+			return

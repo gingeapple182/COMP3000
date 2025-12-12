@@ -26,6 +26,8 @@ func _input(event: InputEvent) -> void:
 		if hit and hit.collider is RigidBody3D:
 			grabbed = hit.collider
 			grab_offset = Vector3.ZERO
+			grid_manager.clear_piece_from_slots(grabbed)
+			grabbed.freeze = false
 			grabbed.gravity_scale = 0.0
 			grabbed.linear_velocity = Vector3.ZERO
 			
@@ -34,7 +36,18 @@ func _input(event: InputEvent) -> void:
 	# Drop
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		if grabbed:
-			grabbed.gravity_scale = 1.0
+			print("\n=== DROP EVENT ===")
+			print("Grabbed piece: ", grabbed)
+			print("Hovered slot at drop: ", grid_manager.hovered_slot)
+			
+			var snapped: bool = grid_manager.try_snap(grabbed)
+			print("Snapped result: ", snapped)
+			if not snapped: 
+				grabbed.gravity_scale = 1.0
+			#if grid_manager.try_snap(grabbed):
+			#	pass
+			#else:
+			#	grabbed.gravity_scale = 1.0
 			grabbed.linear_velocity = Vector3.ZERO
 			grabbed.angular_velocity = Vector3.ZERO
 		grabbed = null
@@ -45,19 +58,20 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta):
-	if grabbed:
-		var hit = get_mouse_hit()
-		if hit:
-			# Get the ground point under the mouse
-			var ground_pos = hit.position
-			var target_pos = ground_pos + Vector3.UP * hover_height
-			var current = grabbed.global_transform.origin
-			var new_pos = current.lerp(target_pos, lerp_speed * delta)
+	if grabbed == null:
+		return  # ← STOP applying movement completely once dropped
+	
+	var hit = get_mouse_hit()
+	if hit:
+		var ground_pos = hit.position
+		var target_pos = ground_pos + Vector3.UP * hover_height
+		var current = grabbed.global_transform.origin
+		var new_pos = current.lerp(target_pos, lerp_speed * delta)
+		
+		grabbed.global_transform.origin = new_pos
+		grabbed.linear_velocity = Vector3.ZERO
+		grabbed.angular_velocity = Vector3.ZERO
 
-			grabbed.global_transform.origin = new_pos
-			# Prevent weird physics behaviour while holding
-			grabbed.linear_velocity = Vector3.ZERO
-			grabbed.angular_velocity = Vector3.ZERO
 
 func get_mouse_hit():
 	var mouse_pos = get_viewport().get_mouse_position()

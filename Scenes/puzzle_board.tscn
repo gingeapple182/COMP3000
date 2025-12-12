@@ -40,11 +40,11 @@ hover_height = 1.0
 script = ExtResource("1_a8pl4")
 active_slot_scene = ExtResource("2_pxsq5")
 inactive_slot_scene = ExtResource("3_40yeu")
-tile_map_string = "10001
-01010
-00100
-01010
-10001"
+tile_map_string = "0000000
+0111110
+0111110
+0111110
+0000000"
 columns = 3
 
 [node name="Slots" type="Node3D" parent="."]
