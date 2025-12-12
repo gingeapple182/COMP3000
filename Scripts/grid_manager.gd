@@ -99,6 +99,8 @@ func detect_hover_collision() -> Node3D:
 	for slot in slots_parent.get_children():
 		if not slot.active:
 			continue
+		if slot.current_piece != null:
+			continue
 		
 		var tile_pos = slot.global_transform.origin
 		var piece_pos = held_piece.global_transform.origin
@@ -135,28 +137,27 @@ func snap_piece_to_slot(piece: RigidBody3D, slot: Node3D) -> void:
 
 
 func try_snap(piece: RigidBody3D) -> bool:
-	print("\n>>> try_snap() CALLED")
-	print("hovered_slot: ", hovered_slot)
 	if hovered_slot == null:
-		print("FAIL: hovered_slot is NULL")
 		return false
 	
 	if hovered_slot.current_piece != null:
-		print("FAIL: Slot already occupied")
 		return false
 	
-	var snap_pos = hovered_slot.get_snap_position()
-	print("Snapping to: ", snap_pos)
-	print("Piece BEFORE snap: ", piece.global_transform.origin)
+	var snap_pos: Vector3 = hovered_slot.get_snap_position()
+	var t := piece.global_transform
+	t.origin = snap_pos
+	t.basis = Basis() # resets to upright rotation
 	
-	piece.global_transform.origin = snap_pos
-	print("Piece AFTER snap: ", piece.global_transform.origin)
-	#piece.freeze = true
-	#piece.gravity_scale = 0.0
+	piece.set_deferred("global_transform", t)
+	
 	piece.linear_velocity = Vector3.ZERO
 	piece.angular_velocity = Vector3.ZERO
+	piece.gravity_scale = 0.0
 	
-	hovered_slot.set_piece(piece)  # ← use the helper
+	piece.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
+	piece.freeze = true
+	
+	hovered_slot.set_piece(piece)
 	
 	return true
 
