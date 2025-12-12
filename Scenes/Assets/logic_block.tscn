@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://hv0cidxt56rm"]
+
+[ext_resource type="Script" path="res://Scripts/logic_block.gd" id="1_md4jv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_liddr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h7wpf"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_tvq7x"]
+material = SubResource("StandardMaterial3D_h7wpf")
+
+[node name="LogicBlock" type="RigidBody3D"]
+script = ExtResource("1_md4jv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_liddr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_tvq7x")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
+text = "LABEL
+"
+font_size = 50
