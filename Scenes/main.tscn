@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://crxh6se4m0rxq"]
+[gd_scene load_steps=18 format=3 uid="uid://crxh6se4m0rxq"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_qh2xr"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_aomcw"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="4_2m2wd"]
 [ext_resource type="PackedScene" uid="uid://18x4vt0n1qhk" path="res://Scenes/Assets/desk.tscn" id="5_e2qkm"]
 [ext_resource type="PackedScene" uid="uid://cwtvuysuygpay" path="res://Scenes/office_hub_01.tscn" id="6_5lupv"]
+[ext_resource type="PackedScene" uid="uid://yx2gnipoumj1" path="res://Scenes/Assets/photo_frame.tscn" id="7_untni"]
+[ext_resource type="Texture2D" uid="uid://bt8sqaarhgm35" path="res://Scenes/Assets/images/portraits/roryPortrait.jpg" id="8_hlpnh"]
+[ext_resource type="Texture2D" uid="uid://c8dr3bs1jxjic" path="res://Scenes/Assets/images/portraits/laurenPortrait.jpg" id="8_m5v0v"]
+[ext_resource type="Texture2D" uid="uid://d4j2pw0ess56s" path="res://Scenes/Assets/images/portraits/jjPortrait.jpg" id="10_ht3cb"]
+[ext_resource type="Texture2D" uid="uid://12b5ocbodic" path="res://Scenes/Assets/images/portraits/vivianPortrait.jpg" id="11_nldl1"]
+[ext_resource type="PackedScene" uid="uid://bncfiuba1xc2i" path="res://Scenes/Assets/door_placeholder.tscn" id="12_w4s6r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cebsl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,7 +42,7 @@ transform = Transform3D(-0.866027, 0.43301, -0.249997, -1.49013e-08, 0.499998, 0
 shadow_enabled = true
 
 [node name="ProtoController" parent="." instance=ExtResource("2_aomcw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8, 0.5, 6.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2, 1.2, 21.5)
 
 [node name="CSGBox3D2" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 2.09476, -1)
@@ -71,10 +77,60 @@ visible = false
 
 [node name="OfficeHub01" parent="." instance=ExtResource("6_5lupv")]
 
-[node name="Node" type="Node" parent="."]
+[node name="Entryway" type="Node" parent="OfficeHub01"]
 
-[node name="Desk" parent="Node" instance=ExtResource("5_e2qkm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.2, 0.500001, -16.2)
+[node name="Desk2" parent="OfficeHub01/Entryway" instance=ExtResource("5_e2qkm")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1, 0, 2, 0, -4.37114e-08, -17.7, 0.500001, 13.4)
 
-[node name="Desk2" parent="Node" instance=ExtResource("5_e2qkm")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -21.4, 0.500001, -1)
+[node name="Desk3" parent="OfficeHub01/Entryway" instance=ExtResource("5_e2qkm")]
+transform = Transform3D(-1.5, 0, 1.50996e-07, 0, 1, 0, -2.26494e-07, 0, -1, -19.3, 0.5, 15.69)
+
+[node name="Label3D" type="Label3D" parent="OfficeHub01/Entryway"]
+transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, -18.3327, 2.4, 14.9093)
+text = "Reception desk
+- Will decide starting difficulty here"
+font_size = 50
+
+[node name="Tutorial" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
+transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -13.7, 2.47669, 1.1)
+is_open = true
+
+[node name="PhotoFrames" type="Node3D" parent="OfficeHub01/Tutorial"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5455, -2.27273, -1.45455)
+
+[node name="PhotoFrame" parent="OfficeHub01/Tutorial/PhotoFrames" instance=ExtResource("7_untni")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -17.2954, 3.60456, 5.25)
+portrait = ExtResource("8_m5v0v")
+
+[node name="PhotoFrame2" parent="OfficeHub01/Tutorial/PhotoFrames" instance=ExtResource("7_untni")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -20.1954, 3.60456, 5.25)
+portrait = ExtResource("8_hlpnh")
+
+[node name="PhotoFrame3" parent="OfficeHub01/Tutorial/PhotoFrames" instance=ExtResource("7_untni")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -23.2954, 3.60456, 5.25)
+portrait = ExtResource("10_ht3cb")
+
+[node name="PhotoFrame4" parent="OfficeHub01/Tutorial/PhotoFrames" instance=ExtResource("7_untni")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -26.3954, 3.60456, 5.25)
+portrait = ExtResource("11_nldl1")
+
+[node name="Desk2" parent="OfficeHub01/Tutorial" instance=ExtResource("5_e2qkm")]
+transform = Transform3D(-0.909091, 0, 7.94753e-08, 0, 0.909091, 0, -7.94753e-08, 0, -0.909091, -7, -1.79699, -1.81818)
+
+[node name="Backroom" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
+transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -13.7, 2.47669, -12.52)
+
+[node name="Desk" parent="OfficeHub01/Backroom" instance=ExtResource("5_e2qkm")]
+transform = Transform3D(-3.97376e-08, 0, -0.909091, 0, 0.909091, 0, 0.909091, 0, -3.97376e-08, -7.72727, -1.79699, -15.6364)
+
+[node name="Area01" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
+transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -5.4, 2.47669, 13.8739)
+
+[node name="Area02" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
+transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -5.3, 2.47669, -0.912855)
+
+[node name="Area03" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
+transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -5.4, 2.47669, -13.0961)
+
+[node name="Area04" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
+transform = Transform3D(-4.80825e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.80825e-08, -9.6, 2.47669, -17.1961)
