@@ -341,6 +341,26 @@ Feedback system
   * Office audio - (soft background)printer beeps, coffee pot brewing, keyboard typing
   * Puzzle audio - harsher beeps for incorrect, light trills for successes
 
+# Assets needed
+| **Urgent (Core Gameplay)** | Done | **Essential (Readability / Flow)** | Done | **Nice to Haves (Polish)** | Done | **UI / Usability** | Done |
+|----------------------------|------|------------------------------------|------|---------------------------|------|--------------------|------|
+| Logic block – AND          | [ ]  | Logic block – OR                   | [ ]  | Logic block – XOR         | [ ]  | Interact prompt    | [ ]  |
+| Logic block – NOT          | [ ]  | Input block (0 / 1)                | [ ]  | NAND / NOR blocks         | [ ]  | Hover highlight    | [ ]  |
+| Puzzle grid / board        | [ ]  | Output indicator (light/screen)    | [ ]  | Cable / wire visuals      | [ ]  | Success indicator | [ ]  |
+| Puzzle desk base           | [ ]  | Desk interaction hotspot           | [ ]  | Animated door (later)     | [ ]  | Failure indicator | [ ]  |
+| Block snap points          | [ ]  | Door placeholder (open/closed)     | [ ]  | Powered doors             | [ ]  | Tutorial arrows   | [ ]  |
+| Puzzle completion trigger | [ ]  | Level unlock logic                 | [ ]  | Ambient props (plants)    | [ ]  | Tutorial signage  | [ ]  |
+
+| **Clutter / Environment (Usability Dressing)** | Done | **Structural / World Assets** | Done | **Lighting / Mood** | Done | **Audio (Placeholder)** | Done |
+|-----------------------------------------------|------|-------------------------------|------|---------------------|------|-------------------------|------|
+| Office chair                                  | [ ]  | Walls material                | [ ]  | Ceiling light prefab| [ ]  | Button click sound      | [ ]  |
+| Filing cabinet                               | [ ]  | Carpet material               | [ ]  | Desk lamp           | [ ]  | Puzzle success sound    | [ ]  |
+| Photo frames                                 | [ ]  | Ceiling tile material         | [ ]  | Emergency light     | [ ]  | Puzzle fail sound       | [ ]  |
+| Side desks                                   | [ ]  | Door material                 | [ ]  | Indicator glow      | [ ]  | Door open/close sound   | [ ]  |
+| Shelving units                               | [ ]  | Window glass material         | [ ]  | Highlight light     | [ ]  | Ambient office hum      | [ ]  |
+| Whiteboards / notice boards                  | [ ]  | Skirting / trim               | [ ]  | Room fill light     | [ ]  | UI confirm sound        | [ ]  |
+
+
 ### **References**
 
 ![alt text](image.png)
