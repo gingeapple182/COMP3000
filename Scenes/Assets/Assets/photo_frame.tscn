@@ -2,10 +2,10 @@
 
 [ext_resource type="Material" uid="uid://s1d6xwnxcy80" path="res://Scenes/Assets/Materials/wood.tres" id="1_gamf1"]
 [ext_resource type="Script" path="res://Scripts/AssetScripts/photo_frame.gd" id="1_yfor6"]
-[ext_resource type="Material" uid="uid://dvwehwrxkwfob" path="res://Scenes/Assets/Materials/PhotoMaterial.tres" id="3_2c77n"]
+[ext_resource type="Material" uid="uid://6g6qqreggcpr" path="res://Scenes/Assets/Materials/noticeboard.tres" id="3_qgbm4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_amx2l"]
-material = ExtResource("3_2c77n")
+material = ExtResource("3_qgbm4")
 size = Vector2(0.9, 0.9)
 
 [node name="PhotoFrame" type="Node3D"]
