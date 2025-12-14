@@ -1,17 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://crxh6se4m0rxq"]
+[gd_scene load_steps=20 format=3 uid="uid://crxh6se4m0rxq"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_qh2xr"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_aomcw"]
 [ext_resource type="Script" path="res://Scripts/Interactable.gd" id="3_c2668"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="4_2m2wd"]
-[ext_resource type="PackedScene" uid="uid://18x4vt0n1qhk" path="res://Scenes/Assets/desk.tscn" id="5_e2qkm"]
+[ext_resource type="PackedScene" uid="uid://18x4vt0n1qhk" path="res://Scenes/Assets/Assets/desk.tscn" id="5_e2qkm"]
 [ext_resource type="PackedScene" uid="uid://cwtvuysuygpay" path="res://Scenes/office_hub_01.tscn" id="6_5lupv"]
-[ext_resource type="PackedScene" uid="uid://yx2gnipoumj1" path="res://Scenes/Assets/photo_frame.tscn" id="7_untni"]
+[ext_resource type="PackedScene" uid="uid://yx2gnipoumj1" path="res://Scenes/Assets/Assets/photo_frame.tscn" id="7_untni"]
 [ext_resource type="Texture2D" uid="uid://bt8sqaarhgm35" path="res://Scenes/Assets/images/portraits/roryPortrait.jpg" id="8_hlpnh"]
 [ext_resource type="Texture2D" uid="uid://c8dr3bs1jxjic" path="res://Scenes/Assets/images/portraits/laurenPortrait.jpg" id="8_m5v0v"]
 [ext_resource type="Texture2D" uid="uid://d4j2pw0ess56s" path="res://Scenes/Assets/images/portraits/jjPortrait.jpg" id="10_ht3cb"]
 [ext_resource type="Texture2D" uid="uid://12b5ocbodic" path="res://Scenes/Assets/images/portraits/vivianPortrait.jpg" id="11_nldl1"]
-[ext_resource type="PackedScene" uid="uid://bncfiuba1xc2i" path="res://Scenes/Assets/door_placeholder.tscn" id="12_w4s6r"]
+[ext_resource type="PackedScene" uid="uid://bncfiuba1xc2i" path="res://Scenes/Assets/Assets/door_placeholder.tscn" id="12_w4s6r"]
+[ext_resource type="PackedScene" uid="uid://xf3y70bw7j1e" path="res://Scenes/Assets/Assets/noticeboard.tscn" id="13_n8f0u"]
+[ext_resource type="FontFile" uid="uid://bwbipxb1wjho4" path="res://Scenes/Assets/Fonts/AppleStormRg.otf" id="14_yvqja"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cebsl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -35,7 +37,19 @@ albedo_color = Color(0.0392157, 0.172549, 1, 1)
 script = ExtResource("1_qh2xr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 environment = SubResource("Environment_jwtab")
+camera_attributes = null
+compositor = null
+script = null
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866027, 0.43301, -0.249997, -1.49013e-08, 0.499998, 0.866027, 0.499997, 0.750003, -0.433012, 0, 24.2, 0)
@@ -91,6 +105,39 @@ text = "Reception desk
 - Will decide starting difficulty here"
 font_size = 50
 
+[node name="Noticeboard" parent="OfficeHub01/Entryway" instance=ExtResource("13_n8f0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6, 2.3, 6.1)
+notes = Array[String](["WELCOME
+
+You are currently in the main office hub.
+", "NEXT STEPS
+
+• Go to reception
+• Start tutorial
+• Skip to level areas
+", "DEV CHECK
+
+Is the intended player path obvious without UI?
+", "TODO
+
+• Hook up reception interaction
+• Confirm spawn orientation
+", "LEVEL ACCESS
+
+Tutorial should be clearly recommended first.
+", "FLOW NOTE
+
+Avoid players wandering into later areas too early.
+", "POLISH LATER
+
+Add signage or floor guidance if needed.
+", "PURPOSE
+
+This area sets player expectations.
+"])
+note_font = ExtResource("14_yvqja")
+font_size = 70
+
 [node name="Tutorial" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
 transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -13.7, 2.47669, 1.1)
 is_open = true
@@ -117,20 +164,68 @@ portrait = ExtResource("11_nldl1")
 [node name="Desk2" parent="OfficeHub01/Tutorial" instance=ExtResource("5_e2qkm")]
 transform = Transform3D(-0.909091, 0, 7.94753e-08, 0, 0.909091, 0, -7.94753e-08, 0, -0.909091, -7, -1.79699, -1.81818)
 
-[node name="Backroom" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
-transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -13.7, 2.47669, -12.52)
+[node name="Noticeboard" parent="OfficeHub01/Tutorial" instance=ExtResource("13_n8f0u")]
+transform = Transform3D(-3.97376e-08, 0, -0.909091, 0, 0.909091, 0, 0.909091, 0, -3.97376e-08, -0.181819, 0.0211911, -4.63636)
+notes = Array[String](["TRAINING ROOM
 
-[node name="Desk" parent="OfficeHub01/Backroom" instance=ExtResource("5_e2qkm")]
-transform = Transform3D(-3.97376e-08, 0, -0.909091, 0, 0.909091, 0, 0.909091, 0, -3.97376e-08, -7.72727, -1.79699, -15.6364)
+Introductory logic exercises.
+", "OBJECTIVES
+
+• Learn block placement
+• Observe outputs
+• Complete first puzzle
+", "LOGIC TYPES
+
+• AND
+• OR
+• NOT
+", "DEV TODO
+
+Ensure snapping feedback is clear.
+", "DEV TODO
+
+Output indicator must be readable at a glance.
+", "PLAYER EXPECTATION
+
+No prior logic knowledge required.
+", "USABILITY TEST
+
+Do players understand what to do without hints?
+", "DESIGN GOAL
+
+This room should feel safe and guided.
+"])
+note_font = ExtResource("14_yvqja")
+font_size = 70
 
 [node name="Area01" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
 transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -5.4, 2.47669, 13.8739)
+is_open = true
+
+[node name="Noticeboard" parent="OfficeHub01/Area01" instance=ExtResource("13_n8f0u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.181818, 0, -4.54546)
 
 [node name="Area02" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
 transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -5.3, 2.47669, -0.912855)
+is_open = true
+
+[node name="Noticeboard" parent="OfficeHub01/Area02" instance=ExtResource("13_n8f0u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.090909, 0, 3.54545)
 
 [node name="Area03" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
 transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -5.4, 2.47669, -13.0961)
 
+[node name="Noticeboard" parent="OfficeHub01/Area03" instance=ExtResource("13_n8f0u")]
+transform = Transform3D(-1, 0, -6.77326e-08, 0, 1, 0, 6.77326e-08, 0, -1, 3.90909, 0, 3.63636)
+
 [node name="Area04" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
+transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -13.7, 2.47669, -12.52)
+
+[node name="Desk" parent="OfficeHub01/Area04" instance=ExtResource("5_e2qkm")]
+transform = Transform3D(-3.97376e-08, 0, -0.909091, 0, 0.909091, 0, 0.909091, 0, -3.97376e-08, -7.72727, -1.79699, -4.81822)
+
+[node name="Noticeboard" parent="OfficeHub01/Area04" instance=ExtResource("13_n8f0u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.272727, 0, -5.18182)
+
+[node name="Backroom" parent="OfficeHub01" instance=ExtResource("12_w4s6r")]
 transform = Transform3D(-4.80825e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.80825e-08, -9.6, 2.47669, -17.1961)

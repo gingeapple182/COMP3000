@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://xf3y70bw7j1e"]
+
+[ext_resource type="Script" path="res://Scripts/noticeboard.gd" id="1_h6hac"]
+[ext_resource type="PackedScene" uid="uid://cem1gu0pomcly" path="res://Scenes/Assets/Assets/notice_note.tscn" id="2_6glhc"]
+[ext_resource type="Material" uid="uid://6g6qqreggcpr" path="res://Scenes/Assets/Materials/noticeboard.tres" id="3_pwv0g"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_amx2l"]
+material = ExtResource("3_pwv0g")
+size = Vector2(0.9, 0.9)
+
+[node name="Noticeboard" type="Node3D"]
+script = ExtResource("1_h6hac")
+
+[node name="Board" type="CSGBox3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("3_pwv0g")
+size = Vector3(1, 1, 0.1)
+material = ExtResource("3_pwv0g")
+
+[node name="BoardBacking" type="MeshInstance3D" parent="Board"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+material_override = ExtResource("3_pwv0g")
+mesh = SubResource("PlaneMesh_amx2l")
+skeleton = NodePath("../..")
+
+[node name="Notes" type="Node3D" parent="."]
+
+[node name="NoticeNote1" parent="Notes" instance=ExtResource("2_6glhc")]
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, -0.9, 0.6, 0.1)
+
+[node name="NoticeNote2" parent="Notes" instance=ExtResource("2_6glhc")]
+transform = Transform3D(1, 2.08616e-07, 0, -2.08616e-07, 1, 0, 0, 0, 1, -0.6, 0, 0.1)
+
+[node name="NoticeNote3" parent="Notes" instance=ExtResource("2_6glhc")]
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 0, 0.5, 0.1)
+
+[node name="NoticeNote4" parent="Notes" instance=ExtResource("2_6glhc")]
+transform = Transform3D(1, 2.08616e-07, 0, -2.08616e-07, 1, 0, 0, 0, 1, 0.6, 0.1, 0.1)
+
+[node name="NoticeNote7" parent="Notes" instance=ExtResource("2_6glhc")]
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 0.9, -0.5, 0.1)
+
+[node name="NoticeNote8" parent="Notes" instance=ExtResource("2_6glhc")]
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, -1.1, -0.5, 0.1)
+
+[node name="NoticeNote5" parent="Notes" instance=ExtResource("2_6glhc")]
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 1.1, 0.5, 0.1)
+
+[node name="NoticeNote6" parent="Notes" instance=ExtResource("2_6glhc")]
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 0.1, -0.4, 0.1)

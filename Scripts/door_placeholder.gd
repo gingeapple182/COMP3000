@@ -1,6 +1,12 @@
 extends Node3D
 
-@export var is_open: bool = false
+@export var is_open := false:
+	set(value):
+		if is_open == value:
+			return
+		is_open = value
+		if is_inside_tree():
+			_apply_state()
 
 @onready var panel: CSGBox3D = $CSGBox3D
 
@@ -13,13 +19,13 @@ func _ready() -> void:
 
 func _apply_state() -> void:
 	if is_open:
-		# Door OPEN
+		print("[ROOM] Opening room:", name)
 		panel.visible = false
 		panel.use_collision = false
 		## so in here i want the code to check child nodes and enable them all
 		set_children_enabled(true)
 	else:
-		# Door CLOSED
+		print("[ROOM] Closing room:", name)
 		panel.visible = true
 		panel.use_collision = true
 		## so in here i want the code to check child nodes and disable them all
@@ -27,6 +33,8 @@ func _apply_state() -> void:
 
 
 func set_children_enabled(enabled: bool) -> void:
+	var togglied := 0
+	
 	for child in get_children():
 		if child == panel:
 			continue
@@ -38,3 +46,15 @@ func set_children_enabled(enabled: bool) -> void:
 				if enabled
 				else Node.PROCESS_MODE_DISABLED
 			)
+			togglied += 1
+		
+		if child is not Node3D:
+			push_warning("[ROOM] Non-Node3D child found in room: " + child.name) 
+	
+	print(
+		"[ROOM] ",
+		"Enabled" if enabled else "Disabled",
+		" ", togglied,
+		" room node(s) in ",
+		name
+	)
