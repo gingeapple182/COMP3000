@@ -1,0 +1,10 @@
+Assets:
+
+Fonts:
+
+Thin Pencil Handwriting:
+	https://www.dafont.com/thin-pencil-handwriting.font?l[]=10
+Easy going stroke:
+	https://www.dafont.com/easy-going-stroke.font?l[]=10
+AppleStorm:
+	https://www.dafont.com/applestorm.font?l[]=10
