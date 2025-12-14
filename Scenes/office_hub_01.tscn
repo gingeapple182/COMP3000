@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cwtvuysuygpay"]
 
 [ext_resource type="Material" uid="uid://cul2i8fiv6l8d" path="res://Scenes/Assets/Materials/carpet.tres" id="1_1ae3g"]
-[ext_resource type="PackedScene" uid="uid://s27ec6on768g" path="res://Scenes/Assets/window_placeholder.tscn" id="1_hv1j8"]
+[ext_resource type="PackedScene" uid="uid://s27ec6on768g" path="res://Scenes/Assets/Assets/window_placeholder.tscn" id="1_hv1j8"]
 [ext_resource type="Material" uid="uid://cnghavpj0bxwn" path="res://Scenes/Assets/Materials/ceiling.tres" id="2_tylp4"]
 [ext_resource type="Material" uid="uid://s1d6xwnxcy80" path="res://Scenes/Assets/Materials/wood.tres" id="3_gpnao"]
 [ext_resource type="Material" uid="uid://jow0fiogn263" path="res://Scenes/Assets/Materials/walls.tres" id="5_re3xs"]
