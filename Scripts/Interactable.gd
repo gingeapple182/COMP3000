@@ -46,8 +46,8 @@ func handle_scene_action() -> void:
 	if ceiling:
 		ceiling.visible = false
 	
-	GameManager.set_return_scene(load("res://Scenes/main.tscn"))
-	get_tree().change_scene_to_packed(target_scene)
+	GameManager.set_return_scene_with_id("hub_01")
+	GameManager.change_scene("puzzle_board")
 
 func handle_door_action() -> void:
 	if target_door.is_empty():

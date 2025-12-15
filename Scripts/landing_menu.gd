@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 ## -- Main menu -- ##
 func _on_button_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	GameManager.change_scene("hub_01")
 
 func _on_button_select_pressed() -> void:
 	show_level_select()
