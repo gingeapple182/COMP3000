@@ -448,6 +448,83 @@ Risk assessment carried out using a risk score matrix as provided here:
 | Content            |  Concepts not taught properly  | 2 | 4 | 8 | Medium |  Use structured progression, provide accessible guide explaining concepts and usage, research learning pedagogy  |
 | Content            |  Humour innapropriate  | 1 | 2 | 2 | Low |  Keep humour light-hearted, avoid sensitive topics, focus humour on office environment, not on people  |
 
+### File structure
+```text
+res://
+├─ addons/
+│  └─ proto_controller/
+│     ├─ proto_controller.gd
+│     └─ proto_controller.tscn
+│
+├─ Scenes/
+│  ├─ Assets/
+│  │  ├─ Assets/
+│  │  │  ├─ ceiling_light.tscn
+│  │  │  ├─ desk.tscn
+│  │  │  ├─ door_placeholder.tscn
+│  │  │  ├─ grid_slot_active.tscn
+│  │  │  ├─ grid_slot_inactive.tscn
+│  │  │  ├─ logic_block.tscn
+│  │  │  ├─ noticeboard.tscn
+│  │  │  ├─ notice_note.tscn
+│  │  │  ├─ photo_frame.tscn
+│  │  │  └─ window_placeholder.tscn
+│  │  │
+│  │  ├─ Fonts/
+│  │  │  ├─ AppleStormRg.otf
+│  │  │  ├─ Easy going stroke.ttf
+│  │  │  ├─ Thin Pencil Handwriting.otf
+│  │  │  └─ References.txt
+│  │  │
+│  │  ├─ images/
+│  │  │  └─ portraits/
+│  │  │
+│  │  ├─ Materials/
+│  │  │  ├─ carpet.tres
+│  │  │  ├─ ceiling.tres
+│  │  │  ├─ ceiling_light.tres
+│  │  │  ├─ metal.tres
+│  │  │  ├─ noticeboard.tres
+│  │  │  ├─ PhotoMaterial.tres
+│  │  │  ├─ walls.tres
+│  │  │  └─ wood.tres
+│  │  │
+│  │  ├─ Textures/
+│  │  │
+│  │  ├─ Button.tscn
+│  │  ├─ office_hub_01.tscn
+│  │  └─ References.txt
+│  │
+│  ├─ Menus/
+│  │
+│  ├─ Scenes/
+│  │  ├─ landing_menu.tscn
+│  │  ├─ main.tscn
+│  │  ├─ pause_menu.tscn
+│  │  ├─ puzzle_board.tscn
+│  │  └─ puzzle_test.tscn
+│
+├─ Scripts/
+│  ├─ AssetScripts/
+│  │  ├─ photo_frame.gd
+│  │  ├─ door_placeholder.gd
+│  │  ├─ grid_manager.gd
+│  │  ├─ Interactable.gd
+│  │  ├─ landing_menu.gd
+│  │  ├─ logic_block.gd
+│  │  ├─ main_scene.gd
+│  │  ├─ noticeboard.gd
+│  │  ├─ notice_note.gd
+│  │  ├─ pause_menu.gd
+│  │  ├─ PuzzleSceneController.gd
+│  │  ├─ puzzle_controller.gd
+│  │  └─ slots.gd
+│
+├─ icon.svg
+├─ image.png
+└─ README.md
+```
+
 
 </details>
 
