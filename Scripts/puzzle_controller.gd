@@ -5,14 +5,28 @@ extends Node3D
 
 var grabbed: RigidBody3D = null
 var grab_offset: Vector3 = Vector3.ZERO
+@export var office_hub: PackedScene
 @export var hover_height := 1.5
 @export var lerp_speed := 10.0
 
+@onready var pause_menu: Control = $PauseMenu
+var is_paused := false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Scene file path:", get_scene_file_path())
+	print("Node path:", get_path())
+	print("[PuzzleBoard READY] office_hub =", office_hub)
+	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		toggle_pause()
+	
 	if event is InputEventMouseButton and event.pressed:
 		var hit = get_mouse_hit()
 		if hit:
@@ -93,5 +107,12 @@ func get_mouse_hit():
 
 
 func _on_button_pressed() -> void:
+	print("[Puzzle BOARD] Exit button pressed")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	GameManager.return_to_scene()
+
+
+func toggle_pause():
+	is_paused = not is_paused
+	get_tree().paused = is_paused
+	pause_menu.visible = is_paused

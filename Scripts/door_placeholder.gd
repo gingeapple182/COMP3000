@@ -17,6 +17,9 @@ func _ready() -> void:
 # All direct children must be Node3D container nodes.
 # Do not place meshes, collisions, or logic directly under this node.
 
+func toggle_open() -> void:
+	is_open = not is_open
+
 func _apply_state() -> void:
 	if is_open:
 		print("[ROOM] Opening room:", name)
