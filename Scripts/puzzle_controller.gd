@@ -5,7 +5,6 @@ extends Node3D
 
 var grabbed: RigidBody3D = null
 var grab_offset: Vector3 = Vector3.ZERO
-@export var office_hub: PackedScene
 @export var hover_height := 1.5
 @export var lerp_speed := 10.0
 
@@ -17,7 +16,6 @@ var is_paused := false
 func _ready() -> void:
 	print("Scene file path:", get_scene_file_path())
 	print("Node path:", get_path())
-	print("[PuzzleBoard READY] office_hub =", office_hub)
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

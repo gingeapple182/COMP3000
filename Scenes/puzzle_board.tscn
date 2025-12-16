@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://h5kp1pfgasbh"]
+[gd_scene load_steps=10 format=3 uid="uid://h5kp1pfgasbh"]
 
 [ext_resource type="Script" path="res://Scripts/puzzle_controller.gd" id="1_54mf1"]
 [ext_resource type="Script" path="res://Scripts/grid_manager.gd" id="1_a8pl4"]
-[ext_resource type="PackedScene" uid="uid://crxh6se4m0rxq" path="res://Scenes/main.tscn" id="2_n8cf2"]
 [ext_resource type="PackedScene" uid="uid://chdalqissc16x" path="res://Scenes/Assets/Assets/grid_slot_active.tscn" id="2_pxsq5"]
 [ext_resource type="PackedScene" uid="uid://0ltp5rltjb7a" path="res://Scenes/Assets/Assets/grid_slot_inactive.tscn" id="3_40yeu"]
 [ext_resource type="PackedScene" uid="uid://hv0cidxt56rm" path="res://Scenes/Assets/Assets/logic_block.tscn" id="5_a0mmd"]
@@ -20,7 +19,6 @@ size = Vector2(25, 25)
 
 [node name="PuzzleBoard" type="Node3D"]
 script = ExtResource("1_54mf1")
-office_hub = ExtResource("2_n8cf2")
 hover_height = 1.0
 
 [node name="GridManager" type="Node3D" parent="."]
