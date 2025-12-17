@@ -4,7 +4,11 @@ extends RigidBody3D
 ## -- Visuals -- ##
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
-@onready var label_3d: Label3D = $Label3D
+@onready var label_3d: Label3D = $Editor/Label3D
+@onready var value_node: Node3D = $VALUE
+@onready var connector_node: Node3D = $CONNECTOR
+@onready var gate_node: Node3D = $GATE
+@onready var editor: Node3D = $Editor
 
 ## -- Block config -- ##
 enum BlockType { VALUE, GATE, CONNECTOR }
@@ -31,6 +35,51 @@ const DIR_RIGHT := 3
 ## -- Core -- ##
 
 func _ready() -> void:
+	editor.visible = false
+	value_node.visible = false
+	connector_node.visible = false
+	gate_node.visible = false
+	
+	for child in value_node.get_children():
+		if child is Node3D:
+			child.visible = false
+	for child in connector_node.get_children():
+		if child is Node3D:
+			child.visible = false
+	for child in gate_node.get_children():
+		if child is Node3D:
+			child.visible = false
+	
+	match block_type:
+		BlockType.VALUE:
+			value_node.visible = true
+			var v_name: String
+			if value:
+				v_name = "TRUE"
+			else:
+				v_name = "FALSE"
+			var v_node := value_node.get_node_or_null(v_name)
+			if v_node:
+				v_node.visible = true
+			else:
+				push_warning("Value visual not found: " + v_name)
+		BlockType.CONNECTOR:
+			connector_node.visible = true
+			var c_name := connector_type_name(connector_type)
+			var c_node := connector_node.get_node_or_null(c_name)
+			if c_node:
+				c_node.visible = true
+			else:
+				push_warning("Connector visual not found: " + c_name)
+		BlockType.GATE:
+			gate_node.visible = true
+			var g_name := gate_type_name(gate_type)
+			var g_node := gate_node.get_node_or_null(g_name)
+			if g_node:
+				g_node.visible = true
+			else:
+				push_warning("Gate visual not found: " + g_name)
+	
 	match block_type:
 		BlockType.VALUE:
 			if value:

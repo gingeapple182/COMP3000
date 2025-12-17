@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://h5kp1pfgasbh"]
+[gd_scene load_steps=13 format=3 uid="uid://h5kp1pfgasbh"]
 
 [ext_resource type="Script" path="res://Scripts/puzzle_controller.gd" id="1_54mf1"]
 [ext_resource type="Script" path="res://Scripts/grid_manager.gd" id="1_a8pl4"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://hv0cidxt56rm" path="res://Scenes/Assets/Assets/logic_block.tscn" id="5_a0mmd"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="5_gj2ys"]
 [ext_resource type="Theme" uid="uid://c5h5ivvy177xi" path="res://Resources/default_theme.tres" id="6_rg4rv"]
+[ext_resource type="PackedScene" uid="uid://kswxyqq8tn33" path="res://Scenes/Assets/Assets/tray.tscn" id="8_en2ls"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_soapa"]
+left_to_right = 0.0
+size = Vector3(4, 1, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x04p3"]
 albedo_color = Color(0.0823529, 0.74902, 0.176471, 1)
@@ -34,39 +39,29 @@ columns = 7
 
 [node name="Slots" type="Node3D" parent="."]
 
-[node name="Board" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-layers = 3
-mesh = SubResource("PlaneMesh_xdopv")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Board"]
-use_collision = true
-collision_mask = 3
-mesh = SubResource("PlaneMesh_1gxiv")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.22657, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.766044, 0.492404, -0.413176, -2.57132e-08, 0.642788, 0.766044, 0.642788, -0.586824, 0.492404, -21.6372, 13.5293, 19.5135)
-light_energy = 0.411
 
 [node name="Objects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5235, 0, -0.913332)
 
-[node name="LogicBlock" parent="Objects" instance=ExtResource("5_a0mmd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6562, 0)
+[node name="ValueBlock" parent="Objects" instance=ExtResource("5_a0mmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173931, 5.43614, 0.666306)
 value = true
 
-[node name="LogicBlock2" parent="Objects" instance=ExtResource("5_a0mmd")]
+[node name="LogicBlock(L_R)" parent="Objects" instance=ExtResource("5_a0mmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6562, 1.9)
 block_type = 2
 
-[node name="LogicBlock3" parent="Objects" instance=ExtResource("5_a0mmd")]
+[node name="LogicBlock(L_D)" parent="Objects" instance=ExtResource("5_a0mmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41835, 6.6562, 0.6)
 block_type = 2
 connector_type = 2
 
-[node name="LogicBlock4" parent="Objects" instance=ExtResource("5_a0mmd")]
+[node name="LogicBlock(D_R)" parent="Objects" instance=ExtResource("5_a0mmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09159, 6.6562, 0.6)
 block_type = 2
 connector_type = 3
@@ -96,6 +91,37 @@ text = "Test solution"
 [node name="PauseMenu" parent="." instance=ExtResource("5_gj2ys")]
 process_mode = 3
 visible = false
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(-0.866025, 0.5, 7.57103e-08, 0.5, 0.866025, -4.37114e-08, -8.74228e-08, 0, -1, -16.0749, 2.34551, 0)
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.583915, 0.357349, 0)
+operation = 2
+size = Vector3(10, 0.5, 9)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04065, 0.579266, 0)
+visible = false
+mesh = SubResource("PrismMesh_soapa")
+
+[node name="Tray" parent="Node3D" instance=ExtResource("8_en2ls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.3, 0)
+
+[node name="Board" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+layers = 3
+mesh = SubResource("PlaneMesh_xdopv")
+skeleton = NodePath("../..")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D/Board"]
+use_collision = true
+collision_mask = 3
+mesh = SubResource("PlaneMesh_1gxiv")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TestSolution" to="." method="_on_test_solution_pressed"]

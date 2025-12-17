@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://kswxyqq8tn33"]
+
+[ext_resource type="Material" uid="uid://dcqg58s0uvh5l" path="res://Scenes/Assets/Materials/metal.tres" id="1_1bbki"]
+[ext_resource type="Material" uid="uid://s1d6xwnxcy80" path="res://Scenes/Assets/Materials/wood.tres" id="2_ib1gq"]
+
+[node name="Tray" type="CSGCombiner3D"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(10, 1, 10)
+material = ExtResource("1_1bbki")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, -5)
+height = 10.0
+material = ExtResource("2_ib1gq")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 5)
+height = 10.0
+material = ExtResource("2_ib1gq")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -5, 0, 2.18557e-07)
+height = 10.0
+material = ExtResource("2_ib1gq")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 5, 0, -2.18557e-07)
+height = 10.0
+material = ExtResource("2_ib1gq")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+rings = 8
+material = ExtResource("2_ib1gq")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+rings = 8
+material = ExtResource("2_ib1gq")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+rings = 8
+material = ExtResource("2_ib1gq")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+rings = 8
+material = ExtResource("2_ib1gq")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+operation = 2
+size = Vector3(10, 0.75, 10)
+material = ExtResource("2_ib1gq")
