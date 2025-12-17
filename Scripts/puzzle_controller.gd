@@ -1,26 +1,50 @@
 extends Node3D
 
+## -- Scene refs -- ##
+
 @onready var camera: Camera3D = $Camera3D
 @onready var grid_manager: Node3D = $GridManager
+@onready var pause_menu: Control = $PauseMenu
 
+## --  Player interaction -- ##
 var grabbed: RigidBody3D = null
 var grab_offset: Vector3 = Vector3.ZERO
 @export var hover_height := 1.5
 @export var lerp_speed := 10.0
 
-@onready var pause_menu: Control = $PauseMenu
+## -- Puzzle state -- ##
+enum PuzzleState {
+	EDITING,
+	VALIDATING,
+	SOLVED
+}
+var puzzle_state: PuzzleState = PuzzleState.EDITING
 var is_paused := false
 
 
-# Called when the node enters the scene tree for the first time.
+## -- Core -- ##
+
 func _ready() -> void:
 	print("Scene file path:", get_scene_file_path())
 	print("Node path:", get_path())
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	grid_manager.set_slot_role(Vector2i(0, 0), grid_manager.SLOT_INPUT, true)
+	grid_manager.set_slot_role(Vector2i(0, 4), grid_manager.SLOT_OUTPUT)
 
+
+func _process(delta: float) -> void:
+	pass
+
+## ---------- ##
+
+
+## -- Input handling -- ##
 
 func _input(event: InputEvent) -> void:
+	if puzzle_state != PuzzleState.EDITING:
+		return
+	
 	if event.is_action_pressed("pause"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		toggle_pause()
@@ -44,30 +68,22 @@ func _input(event: InputEvent) -> void:
 			grabbed.linear_velocity = Vector3.ZERO
 			
 			grid_manager.held_piece = grabbed
-
+	
 	# Drop
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		if grabbed:
-			print("\n=== DROP EVENT ===")
-			print("Grabbed piece: ", grabbed)
-			print("Hovered slot at drop: ", grid_manager.hovered_slot)
-			
 			var snapped: bool = grid_manager.try_snap(grabbed)
-			print("Snapped result: ", snapped)
 			if not snapped: 
 				grabbed.gravity_scale = 1.0
-			#if grid_manager.try_snap(grabbed):
-			#	pass
-			#else:
-			#	grabbed.gravity_scale = 1.0
 			grabbed.linear_velocity = Vector3.ZERO
 			grabbed.angular_velocity = Vector3.ZERO
 		grabbed = null
 		grid_manager.held_piece = null
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+## -------------------- ##
+
+
+## -- Physics -- ##
 
 func _physics_process(delta):
 	if grabbed == null:
@@ -84,6 +100,10 @@ func _physics_process(delta):
 		grabbed.linear_velocity = Vector3.ZERO
 		grabbed.angular_velocity = Vector3.ZERO
 
+## ------------- ##
+
+
+## -- Raycasting for hits -- ##
 
 func get_mouse_hit():
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -103,14 +123,39 @@ func get_mouse_hit():
 	var result = space.intersect_ray(query)
 	return result
 
+## ------------------------- ##
+
+
+## -- Buttons -- ##
 
 func _on_button_pressed() -> void:
 	print("[Puzzle BOARD] Exit button pressed")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GameManager.return_to_scene()
 
+func _on_test_solution_pressed() -> void:
+	if puzzle_state != PuzzleState.EDITING:
+		return
+	
+	start_validation()
 
 func toggle_pause():
 	is_paused = not is_paused
 	get_tree().paused = is_paused
 	pause_menu.visible = is_paused
+
+## ------------- ##
+
+
+## -- Puzzle control -- ##
+
+func start_validation() -> void:
+	if puzzle_state != PuzzleState.EDITING:
+		return
+	
+	puzzle_state = PuzzleState.VALIDATING
+	print("[PUZZLE] Validation started")
+	
+	grid_manager.run_validation()
+
+## -------------------- ##

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://h5kp1pfgasbh"]
+[gd_scene load_steps=11 format=3 uid="uid://h5kp1pfgasbh"]
 
 [ext_resource type="Script" path="res://Scripts/puzzle_controller.gd" id="1_54mf1"]
 [ext_resource type="Script" path="res://Scripts/grid_manager.gd" id="1_a8pl4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0ltp5rltjb7a" path="res://Scenes/Assets/Assets/grid_slot_inactive.tscn" id="3_40yeu"]
 [ext_resource type="PackedScene" uid="uid://hv0cidxt56rm" path="res://Scenes/Assets/Assets/logic_block.tscn" id="5_a0mmd"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="5_gj2ys"]
+[ext_resource type="Theme" uid="uid://c5h5ivvy177xi" path="res://Resources/default_theme.tres" id="6_rg4rv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x04p3"]
 albedo_color = Color(0.0823529, 0.74902, 0.176471, 1)
@@ -25,11 +26,9 @@ hover_height = 1.0
 script = ExtResource("1_a8pl4")
 active_slot_scene = ExtResource("2_pxsq5")
 inactive_slot_scene = ExtResource("3_40yeu")
-tile_map_string = "0000000
-0111110
-0111110
-0111110
-0000000"
+tile_map_string = "11111
+11111
+11111"
 rows = 5
 columns = 7
 
@@ -56,26 +55,47 @@ light_energy = 0.411
 
 [node name="LogicBlock" parent="Objects" instance=ExtResource("5_a0mmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6562, 0)
+value = true
 
 [node name="LogicBlock2" parent="Objects" instance=ExtResource("5_a0mmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6562, 1.9)
-block_type = 1
+block_type = 2
 
 [node name="LogicBlock3" parent="Objects" instance=ExtResource("5_a0mmd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 6.6562, 0.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41835, 6.6562, 0.6)
 block_type = 2
+connector_type = 2
+
+[node name="LogicBlock4" parent="Objects" instance=ExtResource("5_a0mmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09159, 6.6562, 0.6)
+block_type = 2
+connector_type = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 offset_left = 22.0
-offset_top = 21.0
+offset_top = 22.0
 offset_right = 222.0
-offset_bottom = 88.0
+offset_bottom = 89.0
+theme = ExtResource("6_rg4rv")
 text = "Exit back to hub"
+
+[node name="TestSolution" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -222.0
+offset_top = 22.0
+offset_right = -22.0
+offset_bottom = 89.0
+grow_horizontal = 0
+theme = ExtResource("6_rg4rv")
+text = "Test solution"
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_gj2ys")]
 process_mode = 3
 visible = false
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TestSolution" to="." method="_on_test_solution_pressed"]
