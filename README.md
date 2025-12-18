@@ -215,6 +215,54 @@ These serve as the primary interaction for the player representing boolean logic
  - Inputs are read from the leftmost slots
  - Ouput is sent to rightmost slots
 
+#### Logic gate behaviours
+Signal collections rules
+ - Logic gates may receive input signals from adjacent slots only
+ - Valid input directions
+   - LEFT
+   - UP
+   - DOWN
+ - Diagonals are not permitted
+ - Inactive slots block signals
+ - Slots may only store ONE signal
+ - Signals cannot merge
+Gate input collection
+ - Valid incoming siganls collected before *evaluation*
+ - Evaluatin occurs after signal propogation stabilised
+Gate arity
+| Gate Type | Required Inputs |
+|----------|-----------------|
+| NOT      | Exactly 1       |
+| AND      | 2 or more       |
+| OR       | 2 or more       |
+| XOR      | 2 or more       |
+| NAND     | 2 or more       |
+| NOR      | 2 or more       |
+| XNOR     | 2 or more       |
+If a gate does not meet its input requirements, it produces no output
+- **AND** → true if *all* inputs are true  
+- **OR** → true if *any* input is true  
+- **XOR** → true if an odd number of inputs are true  
+- **NAND** → inverse of AND  
+- **NOR** → inverse of OR  
+- **XNOR** → inverse of XOR  
+- **NOT** → logical inversion of its single input  
+
+All gate behaviour mirrors real-world logic circuits and truth tables.
+
+Gate output rules
+ - Gates output signals only to the RIGHT
+ - Output occurs based on normal propogation rules
+ - Gates only output one signal
+
+Validation
+ - Validation is synchronous
+ - Propogation occurs first
+ - Gate evaluation comes after propgation stabilises
+ - Gates push another wave of propgation once evaluated
+ - Succesful validation to output changes puzzle into SOLVED state
+
+
 #### Goals
 Each puzzle will have its own context specific goals such as:
  - Produce an output of 1
