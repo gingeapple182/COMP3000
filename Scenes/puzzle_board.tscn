@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://h5kp1pfgasbh"]
+[gd_scene load_steps=14 format=3 uid="uid://h5kp1pfgasbh"]
 
 [ext_resource type="Script" path="res://Scripts/puzzle_controller.gd" id="1_54mf1"]
 [ext_resource type="Script" path="res://Scripts/grid_manager.gd" id="1_a8pl4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0ltp5rltjb7a" path="res://Scenes/Assets/Assets/grid_slot_inactive.tscn" id="3_40yeu"]
 [ext_resource type="PackedScene" uid="uid://hv0cidxt56rm" path="res://Scenes/Assets/Assets/logic_block.tscn" id="5_a0mmd"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="5_gj2ys"]
+[ext_resource type="PackedScene" uid="uid://c2c2hh56sjnw" path="res://Scenes/Assets/Assets/grid_slot_output.tscn" id="5_kf5ye"]
 [ext_resource type="Theme" uid="uid://c5h5ivvy177xi" path="res://Resources/default_theme.tres" id="6_rg4rv"]
 [ext_resource type="PackedScene" uid="uid://kswxyqq8tn33" path="res://Scenes/Assets/Assets/tray.tscn" id="8_en2ls"]
 
@@ -31,9 +32,10 @@ hover_height = 1.0
 script = ExtResource("1_a8pl4")
 active_slot_scene = ExtResource("2_pxsq5")
 inactive_slot_scene = ExtResource("3_40yeu")
-tile_map_string = "11111
-11111
-11111"
+output_slot_scene = ExtResource("5_kf5ye")
+tile_map_string = "11110
+11112
+11110"
 rows = 5
 columns = 7
 
@@ -56,6 +58,9 @@ value = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173931, 5.43614, 0.666306)
 value = true
 
+[node name="ValueBlock3" parent="Objects" instance=ExtResource("5_a0mmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173931, 5.43614, 0.666306)
+
 [node name="GateBlock(AND)" parent="Objects" instance=ExtResource("5_a0mmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173931, 5.43614, 0.666306)
 block_type = 1
@@ -68,6 +73,10 @@ value = true
 gate_type = 1
 
 [node name="LogicBlock(L_R)" parent="Objects" instance=ExtResource("5_a0mmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.103, 5.6562, 1.9)
+block_type = 2
+
+[node name="LogicBlock(L_R)4" parent="Objects" instance=ExtResource("5_a0mmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.103, 5.6562, 1.9)
 block_type = 2
 

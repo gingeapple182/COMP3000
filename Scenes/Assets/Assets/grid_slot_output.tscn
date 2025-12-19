@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2c2hh56sjnw"]
+
+[ext_resource type="Material" uid="uid://dilx6dwg5rikb" path="res://Scenes/Assets/Materials/ceiling_light.tres" id="1_ckajo"]
+[ext_resource type="Script" path="res://Scripts/slots.gd" id="1_jdvk0"]
+[ext_resource type="Material" uid="uid://ciekpfmvll1cq" path="res://Scenes/Assets/Materials/wire.tres" id="2_omee1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22rsa"]
+albedo_color = Color(0.0352941, 0.360784, 0.0470588, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2g23"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xydp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qiuyg"]
+size = Vector3(1.5, 1, 1.5)
+
+[node name="GridSlotOputput" type="CSGCombiner3D"]
+script = ExtResource("1_jdvk0")
+slot_role = 2
+
+[node name="GridSlot" type="CSGBox3D" parent="."]
+size = Vector3(1.5, 0.25, 1.5)
+material = SubResource("StandardMaterial3D_22rsa")
+
+[node name="CutoutBit" type="CSGBox3D" parent="GridSlot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+operation = 2
+size = Vector3(1.25, 1, 1.25)
+material = ExtResource("1_ckajo")
+
+[node name="Bumpers" type="Node3D" parent="GridSlot"]
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="GridSlot/Bumpers"]
+transform = Transform3D(-1.04907e-08, 0.724808, 0, -0.24, -3.16824e-08, 0, 0, 0, 0.114569, 0, 0, 0.748974)
+material = SubResource("StandardMaterial3D_o2g23")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="GridSlot/Bumpers"]
+transform = Transform3D(-1.04907e-08, 0.724808, 0, -0.24, -3.16824e-08, 0, 0, 0, 0.114569, 0, 0, -0.750675)
+material = SubResource("StandardMaterial3D_o2g23")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="GridSlot/Bumpers"]
+transform = Transform3D(-3.94087e-16, -3.16824e-08, 0.114569, -0.24, -3.16823e-08, 0, 1.04907e-08, -0.724808, -5.00795e-09, 0.749825, 0, -0.000850651)
+material = SubResource("StandardMaterial3D_o2g23")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="GridSlot/Bumpers"]
+transform = Transform3D(-3.94087e-16, -3.16824e-08, 0.114569, -0.24, -3.16823e-08, 0, 1.04907e-08, -0.724808, -5.00795e-09, -0.749825, 0, -0.000850585)
+material = SubResource("StandardMaterial3D_o2g23")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="GridSlot/Bumpers"]
+transform = Transform3D(0.171294, 0, 0, 0, 0.24893, 0, 0, 0, 0.167955, 0.72426, 0, -0.725846)
+radius = 0.481181
+radial_segments = 8
+rings = 8
+material = SubResource("StandardMaterial3D_4xydp")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="GridSlot/Bumpers"]
+transform = Transform3D(0.171294, 0, 0, 0, 0.24893, 0, 0, 0, 0.167955, -0.723144, 0.00973486, 0.721747)
+radius = 0.466287
+radial_segments = 8
+rings = 8
+material = SubResource("StandardMaterial3D_4xydp")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="GridSlot/Bumpers"]
+transform = Transform3D(-7.48749e-09, 0, -0.167955, 0, 0.24893, 0, 0.171294, 0, -7.34154e-09, 0.724354, 0, 0.721652)
+radius = 0.481181
+radial_segments = 8
+rings = 8
+material = SubResource("StandardMaterial3D_4xydp")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="GridSlot/Bumpers"]
+transform = Transform3D(-7.48749e-09, 0, -0.167955, 0, 0.24893, 0, 0.171294, 0, -7.34154e-09, -0.723239, 0.00973486, -0.725751)
+radius = 0.466287
+radial_segments = 8
+rings = 8
+material = SubResource("StandardMaterial3D_4xydp")
+
+[node name="SnapPoint" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 4.75, 0, 0, 0, 1, 0, 2.1, 0)
+shape = SubResource("BoxShape3D_qiuyg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.370581, 0, 0)
+size = Vector3(0.5, 0.5, 0.5)
+material = ExtResource("2_omee1")

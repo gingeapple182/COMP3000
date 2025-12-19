@@ -158,7 +158,10 @@ func start_validation() -> void:
 	
 	grid_manager.run_validation()
 	
-	set_puzzle_state(PuzzleState.EDITING)
+	if grid_manager.validate_outputs():
+		set_puzzle_state(PuzzleState.SOLVED)
+	else:
+		set_puzzle_state(PuzzleState.EDITING)
 
 func set_puzzle_state(new_state: PuzzleState) -> void:
 	if puzzle_state == new_state:

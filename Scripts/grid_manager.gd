@@ -3,6 +3,7 @@ extends Node3D
 ## -- Grid generation -- ##
 @export var active_slot_scene: PackedScene
 @export var inactive_slot_scene: PackedScene
+@export var output_slot_scene: PackedScene
 @export_multiline var tile_map_string: String = ""
 @export var rows: int = 1
 @export var columns: int = 1
@@ -97,23 +98,38 @@ func generate_grid():
 	
 	for r in range(rows_local):
 		for c in range(cols_local):
-			var use_active := true
+			var tile_value := 1
 			if tile_map.size() > 0:
 				if r < tile_map.size() and c < tile_map[r].size():
-					use_active = (tile_map[r][c] == 1)
+					tile_value = tile_map[r][c]
 			
-			var slot_scene: PackedScene = active_slot_scene
-			if not use_active:
-				slot_scene = inactive_slot_scene
+			var slot_instance: Node3D
 			
-			var slot_instance = active_slot_scene.instantiate() if use_active else inactive_slot_scene.instantiate()
-			if slot_instance is PackedScene:
-				push_error("Slot instance is still a PackedScene, instantiate() failed")
+			if tile_value == 0:
+				slot_instance = inactive_slot_scene.instantiate()
+				slot_instance.active = false
+				slot_instance.slot_role = SLOT_NORMAL
+			
+			elif tile_value == 1:
+				slot_instance = active_slot_scene.instantiate()
+				slot_instance.active = true
+				slot_instance.slot_role = SLOT_NORMAL
+			
+			elif tile_value == 2:
+				slot_instance = output_slot_scene.instantiate()
+				slot_instance.active = true
+				slot_instance.slot_role = SLOT_OUTPUT
+			
+			else:
+				slot_instance = inactive_slot_scene.instantiate()
+				slot_instance.active = false
+				slot_instance.slot_role = SLOT_NORMAL
 			
 			slot_instance.position = Vector3((float(c) - offset_x) * spacing, 0.0, (float(r) - offset_z) * spacing)
 			slot_instance.grid_position = Vector2i(r, c)
 			slots_parent.add_child(slot_instance)
 			slots.append(slot_instance)
+
 
 
 func parse_tile_map() -> Array:
@@ -126,10 +142,15 @@ func parse_tile_map() -> Array:
 		var row: Array = []
 		line = line.strip_edges()
 		for char in line:
-			var value := 1
-			if char != "1":
-				value = 0
-			row.append(value)
+			match char:
+				"0":
+					row.append(0) # inactive
+				"1":
+					row.append(1) # active
+				"2":
+					row.append(2) # output
+				_:
+					row.append(0) # fail safe
 		map.append(row)
 	return map
 
@@ -454,6 +475,29 @@ func run_validation() -> void:
 	debug_print_gate_inputs()
 
 
+func validate_outputs() -> bool:
+	var output := get_output_slots()
+	if output.size() == 0:
+		print("[OUTPUT VALIDATION] No output slots found")
+		return false
+	
+	var all_valid := true
+	
+	for slot in output:
+		if not slot.signal_present:
+			print("[OUTPUT INVALID] No signal at", slot.grid_position)
+			all_valid = false
+			continue
+		
+		if slot.signal_value != slot.expected_value:
+			print("[OUTPUT INVALID] At", slot.grid_position, "expected =", slot.expected_value, "got =", slot.signal_value)
+			all_valid = false
+			continue
+		
+		print("[OUTPUT VALID] At", slot.grid_position, "value =", slot.signal_value)
+	
+	return all_valid
+
 func propagate_from_slot(slot) -> Array:
 	var new_signal: Array = []
 	
@@ -545,19 +589,3 @@ func propagate_from_slot(slot) -> Array:
 	return new_signal
 
 ## -------------------------------- ##
-
-
-## -- Slot role assignment (temporary) -- ##
-
-#func set_slot_role(grid_pos: Vector2i, role: int, input_value: bool = false) -> void:
-	#for slot in slots:
-		#if slot.grid_position == grid_pos:
-			#slot.slot_role = role
-			#if role == slot.SlotRole.INPUT:
-				#slot.input_value = input_value
-			#print("[GridManager] set_slot_role OK:", grid_pos, " role=", role, " input=", input_value)
-			#return
-	#
-	#push_warning("[GridManager] set_slot_role FAILED: no slot at " + str(grid_pos))
-
-## -------------------------------------- ##

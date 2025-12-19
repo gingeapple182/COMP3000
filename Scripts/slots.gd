@@ -20,6 +20,7 @@ var target_y := 0.0
 ## -- Signal state -- ##
 var signal_present: bool = false
 var signal_value: bool = false
+@export var expected_value: bool = true
 
 ## -- Slot Roles -- ##
 enum SlotRole {
