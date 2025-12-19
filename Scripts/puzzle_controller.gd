@@ -19,6 +19,7 @@ enum PuzzleState {
 	SOLVED
 }
 var puzzle_state: PuzzleState = PuzzleState.EDITING
+
 var is_paused := false
 
 
@@ -29,8 +30,7 @@ func _ready() -> void:
 	print("Node path:", get_path())
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	grid_manager.set_slot_role(Vector2i(0, 0), grid_manager.SLOT_INPUT, true)
-	grid_manager.set_slot_role(Vector2i(0, 4), grid_manager.SLOT_OUTPUT)
+	print("[PUZZLE] Initial State →", PuzzleState.keys()[puzzle_state])
 
 
 func _process(delta: float) -> void:
@@ -153,9 +153,18 @@ func start_validation() -> void:
 	if puzzle_state != PuzzleState.EDITING:
 		return
 	
-	puzzle_state = PuzzleState.VALIDATING
-	print("[PUZZLE] Validation started")
+	set_puzzle_state(PuzzleState.VALIDATING)
+	print("[PUZZLE BOARD] Validation started")
 	
 	grid_manager.run_validation()
+	
+	set_puzzle_state(PuzzleState.EDITING)
+
+func set_puzzle_state(new_state: PuzzleState) -> void:
+	if puzzle_state == new_state:
+		return
+	
+	puzzle_state = new_state
+	print("[PUZZLE] State →", PuzzleState.keys()[puzzle_state])
 
 ## -------------------- ##

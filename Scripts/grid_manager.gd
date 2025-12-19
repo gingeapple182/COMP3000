@@ -26,6 +26,12 @@ enum Direction {
 	LEFT,
 	RIGHT
 }
+# - Validation helpers - #
+enum GateValidationResult {
+	VALID,
+	INVALID_TOO_FEW_INPUTS,
+	INVALID_TOO_MANY_INPUTS
+}
 
 func dir_to_offset(dir: int) -> Vector2i:
 	match dir:
@@ -40,6 +46,19 @@ func dir_to_offset(dir: int) -> Vector2i:
 		_:
 			return Vector2i.ZERO
 
+func opposite_dir(dir: int) -> int:
+	match dir:
+		Direction.UP:
+			return Direction.DOWN
+		Direction.DOWN:
+			return Direction.UP
+		Direction.LEFT:
+			return Direction.RIGHT
+		Direction.RIGHT:
+			return Direction.LEFT
+		_:
+			return -1
+
 
 ## -- Core -- ##
 
@@ -48,6 +67,7 @@ func _ready() -> void:
 	offset_z = (rows - 1) * 0.5
 	slots_parent = get_node("../Slots")
 	generate_grid()
+
 
 func _process(delta: float) -> void:
 	update_hover()
@@ -94,6 +114,7 @@ func generate_grid():
 			slot_instance.grid_position = Vector2i(r, c)
 			slots_parent.add_child(slot_instance)
 			slots.append(slot_instance)
+
 
 func parse_tile_map() -> Array:
 	var map: Array = []
@@ -173,6 +194,7 @@ func snap_piece_to_slot(piece: RigidBody3D, slot: Node3D) -> void:
 	# Register occupancy on the slot
 	slot.set_piece(piece)
 
+
 func try_snap(piece: RigidBody3D) -> bool:
 	if hovered_slot == null:
 		return false
@@ -198,6 +220,7 @@ func try_snap(piece: RigidBody3D) -> bool:
 	
 	return true
 
+
 func clear_piece_from_slots(piece: RigidBody3D) -> void:
 	for slot in slots_parent.get_children():
 		if slot.current_piece == piece:
@@ -215,6 +238,7 @@ func get_slot_at(pos: Vector2i) -> Node:
 			return slot
 	return null
 
+
 func get_neighbour(slot: Node, dir: int) -> Node:
 	var offset: Vector2i = dir_to_offset(dir)
 	if offset == Vector2i.ZERO:
@@ -231,12 +255,14 @@ func clear_all_signals() -> void:
 	for slot in slots:
 		slot.clear_signal()
 
+
 func get_input_slots() -> Array:
 	var inputs := []
 	for slot in slots:
 		if slot.slot_role == slot.SlotRole.INPUT:
 			inputs.append(slot)
 	return inputs
+
 
 func get_output_slots() -> Array:
 	var outputs := []
@@ -245,9 +271,11 @@ func get_output_slots() -> Array:
 			outputs.append(slot)
 	return outputs
 
+
 func inject_input_signals() -> void:
 	for slot in get_input_slots():
 		slot.set_signal(slot.input_value)
+
 
 func inject_value_blocks() -> void:
 	for slot in slots:
@@ -260,7 +288,7 @@ func inject_value_blocks() -> void:
 		var block: LogicBlock = slot.current_piece
 		if block.block_type != block.BlockType.VALUE:
 			continue
-
+		
 		slot.set_signal(block.value)
 		print(
 			"[Value Block]",
@@ -268,6 +296,138 @@ func inject_value_blocks() -> void:
 			"value =",
 			block.value
 		)
+
+
+func slot_has_signal(slot: Node) -> bool:
+	if slot == null:
+		return false
+	if not slot.active:
+		return false
+	if not slot.signal_present:
+		return false
+	if slot.current_piece == null:
+		return false
+	return true
+
+
+func collect_gate_inputs(slot: Node) -> Dictionary:
+	var result := {
+		"values": [],
+		"dirs": []
+	}
+	
+	if slot.current_piece == null:
+		return result
+	if not (slot.current_piece is LogicBlock):
+		return result
+	
+	var block: LogicBlock = slot.current_piece
+	if block.block_type != LogicBlock.BlockType.GATE:
+		return result
+	
+	var checks := [
+		Direction.LEFT,
+		Direction.UP,
+		Direction.DOWN
+	]
+	
+	for dir in checks:
+		var neighbour := get_neighbour(slot, dir)
+		if not slot_has_signal(neighbour):
+			continue
+		
+		if not neighbour_outputs_towards_gate(neighbour, dir):
+			continue
+		
+		result["values"].append(neighbour.signal_value)
+		result["dirs"].append(dir)
+	
+	return result
+
+
+func validate_gate_inputs(gate_type: int, input_values: Array) -> int:
+	var input_count := input_values.size()
+	if gate_type == LogicBlock.GateType.NOT:
+		if input_count < 1:
+			return GateValidationResult.INVALID_TOO_FEW_INPUTS
+		if input_count > 1:
+			return GateValidationResult.INVALID_TOO_MANY_INPUTS
+		return GateValidationResult.VALID
+	if input_count < 2:
+		return GateValidationResult.INVALID_TOO_FEW_INPUTS
+	return GateValidationResult.VALID
+
+
+func evaluate_gate(gate_type: int, input_values: Array) -> bool:
+	match gate_type:
+		LogicBlock.GateType.NOT:
+			# NOT: Opposite of input value
+			return not input_values[0]
+		LogicBlock.GateType.AND:
+			# AND: TRUE if all inputs TRUE
+			for v in input_values:
+				if v == false:
+					return false
+			return true
+		#LogicBlock.GateType.OR:
+		_:
+			return false
+
+
+func debug_print_gate_inputs() -> void:
+	for slot in slots:
+		if slot.current_piece == null:
+			continue
+		if not (slot.current_piece is LogicBlock):
+			continue
+		
+		var block: LogicBlock = slot.current_piece
+		if block.block_type != LogicBlock.BlockType.GATE:
+			continue
+		
+		var data := collect_gate_inputs(slot)
+		
+		#if data["values"].size() == 0:
+		#	continue
+		
+		var validation := validate_gate_inputs(block.gate_type, data["values"])
+		
+		match validation:
+			GateValidationResult.VALID:
+				print("[GATE VALID] ", block.gate_type_name(block.gate_type), " at ", slot.grid_position, " inputs = ", data["values"])
+			
+			GateValidationResult.INVALID_TOO_FEW_INPUTS:
+				print("[GATE INVALID] ", block.gate_type_name(block.gate_type), " at ", slot.grid_position, ": too few inputs (", data["values"].size(),")")
+			
+			GateValidationResult.INVALID_TOO_MANY_INPUTS:
+				print("[GATE INVALID] ", block.gate_type_name(block.gate_type), " at ", slot.grid_position, ": too many inputs (", data["values"].size(),")")
+
+
+func neighbour_outputs_towards_gate(neighbour: Node, dir_from_gate: int) -> bool:
+	if neighbour == null:
+		return false
+	if not neighbour.active:
+		return false
+	if neighbour.current_piece == null:
+		return true
+	if not (neighbour.current_piece is LogicBlock):
+		return false
+	
+	var block: LogicBlock = neighbour.current_piece
+	var required_output_dir := opposite_dir(dir_from_gate)
+	
+	match block.block_type:
+		LogicBlock.BlockType.VALUE:
+			# VALUE only outputs RIGHT
+			return required_output_dir == Direction.RIGHT
+		LogicBlock.BlockType.CONNECTOR:
+			return block.output_dirs.has(required_output_dir)
+		LogicBlock.BlockType.GATE:
+			# gates output RIGHT 
+			return required_output_dir == Direction.RIGHT
+	
+	return false
+
 
 ## -------------------- ##
 
@@ -284,13 +444,15 @@ func run_validation() -> void:
 	# Start propagation from ANY slot that currently has a signal
 	for slot in slots:
 		if slot.signal_present:
-			propagate_from_slot(slot)
+			queue.append(slot)
 	
 	while queue.size() > 0:
 		var current = queue.pop_front()
 		var new_signal := propagate_from_slot(current)
 		for s in new_signal:
 			queue.append(s)
+	debug_print_gate_inputs()
+
 
 func propagate_from_slot(slot) -> Array:
 	var new_signal: Array = []
@@ -317,6 +479,13 @@ func propagate_from_slot(slot) -> Array:
 		if target.signal_present:
 			return new_signal
 		
+		var incoming_dir: int = Direction.LEFT
+		if target.current_piece is LogicBlock:
+			var target_block: LogicBlock = target.current_piece
+			if not target_block.accept_input(incoming_dir):
+				print("  → blocked (invalid input direction)")
+				return new_signal
+		
 		target.set_signal(slot.signal_value)
 		print("  → propagated to", target.grid_position, "value =", target.signal_value)
 		new_signal.append(target)
@@ -336,10 +505,43 @@ func propagate_from_slot(slot) -> Array:
 			if target.signal_present:
 				continue
 			
+			var incoming_dir: int = opposite_dir(dir)
+			if target.current_piece is LogicBlock:
+				var target_block: LogicBlock = target.current_piece
+				if not target_block.accept_input(incoming_dir):
+					print("  → blocked (invalid input direction)")
+					continue
+			
 			target.set_signal(slot.signal_value)
 			print("  → propagated to", target.grid_position, "value =", target.signal_value)
 			new_signal.append(target)
 	
+	#  GATE blocks
+	if block.block_type == LogicBlock.BlockType.GATE:
+		var data := collect_gate_inputs(slot)
+		var inputs: Array = data["values"]
+		var validation := validate_gate_inputs(block.gate_type, inputs)
+		if validation != GateValidationResult.VALID:
+			return new_signal
+		var target := get_neighbour(slot, Direction.RIGHT)
+		if target == null:
+			return new_signal
+		if not target.active:
+			return new_signal
+		if target.signal_present:
+			return new_signal
+		
+		var incoming_dir := Direction.LEFT
+		if target.current_piece is LogicBlock:
+			var target_block: LogicBlock = target.current_piece
+			if not target_block.accept_input(incoming_dir):
+				return new_signal
+		
+		var output_value := evaluate_gate(block.gate_type, inputs)
+		target.set_signal(output_value)
+		print("[GATE OUTPUT] ", block.gate_type_name(block.gate_type), " at ", slot.grid_position, " → ", target.grid_position, " value = ", output_value)
+		new_signal.append(target)
+		return new_signal
 	return new_signal
 
 ## -------------------------------- ##
@@ -347,15 +549,15 @@ func propagate_from_slot(slot) -> Array:
 
 ## -- Slot role assignment (temporary) -- ##
 
-func set_slot_role(grid_pos: Vector2i, role: int, input_value: bool = false) -> void:
-	for slot in slots:
-		if slot.grid_position == grid_pos:
-			slot.slot_role = role
-			if role == slot.SlotRole.INPUT:
-				slot.input_value = input_value
-			print("[GridManager] set_slot_role OK:", grid_pos, " role=", role, " input=", input_value)
-			return
-	
-	push_warning("[GridManager] set_slot_role FAILED: no slot at " + str(grid_pos))
+#func set_slot_role(grid_pos: Vector2i, role: int, input_value: bool = false) -> void:
+	#for slot in slots:
+		#if slot.grid_position == grid_pos:
+			#slot.slot_role = role
+			#if role == slot.SlotRole.INPUT:
+				#slot.input_value = input_value
+			#print("[GridManager] set_slot_role OK:", grid_pos, " role=", role, " input=", input_value)
+			#return
+	#
+	#push_warning("[GridManager] set_slot_role FAILED: no slot at " + str(grid_pos))
 
 ## -------------------------------------- ##

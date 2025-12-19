@@ -92,7 +92,6 @@ outer_radius = 0.275
 material = ExtResource("2_8c1ep")
 
 [node name="CONNECTOR" type="Node3D" parent="."]
-visible = false
 
 [node name="L_U" type="Node3D" parent="CONNECTOR"]
 visible = false
@@ -220,7 +219,7 @@ mesh = SubResource("PrismMesh_fw87t")
 visible = false
 
 [node name="Arrow" type="Node3D" parent="CONNECTOR/D_R"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="ArrowStraight" type="CSGCylinder3D" parent="CONNECTOR/D_R/Arrow"]
 transform = Transform3D(-3.27835e-08, 0.75, 0, -0.75, -3.27835e-08, 0, 0, 0, 0.75, -0.2, 0.225, 0)
@@ -228,7 +227,7 @@ radius = 0.1
 height = 0.5
 
 [node name="ArrowStraight2" type="CSGCylinder3D" parent="CONNECTOR/D_R/Arrow"]
-transform = Transform3D(1.43301e-15, -3.27835e-08, 0.75, -0.75, -3.27835e-08, 0, 3.27835e-08, -0.75, -3.27835e-08, 0, 0.225, -0.1)
+transform = Transform3D(1.43301e-15, -3.27835e-08, -0.75, -0.75, -3.27835e-08, -1.58819e-22, -3.27835e-08, 0.75, -3.27835e-08, 0, 0.225, 0.1)
 radius = 0.1
 height = 0.25
 
@@ -242,7 +241,7 @@ radius = 0.08
 rings = 8
 
 [node name="Wire" type="Node3D" parent="CONNECTOR/D_R"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CONNECTOR/D_R/Wire"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.3, 0, 0)
@@ -251,7 +250,7 @@ height = 0.6
 material = ExtResource("2_tpvbb")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CONNECTOR/D_R/Wire"]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, -0.3)
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0.3)
 radius = 0.25
 height = 0.6
 material = ExtResource("2_tpvbb")
@@ -262,10 +261,9 @@ rings = 8
 material = ExtResource("2_tpvbb")
 
 [node name="U_R" type="Node3D" parent="CONNECTOR"]
-visible = false
 
 [node name="Arrow" type="Node3D" parent="CONNECTOR/U_R"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="ArrowStraight" type="CSGCylinder3D" parent="CONNECTOR/U_R/Arrow"]
 transform = Transform3D(-3.27835e-08, 0.75, 0, -0.75, -3.27835e-08, 0, 0, 0, 0.75, -0.2, 0.225, 0)
@@ -273,7 +271,7 @@ radius = 0.1
 height = 0.5
 
 [node name="ArrowStraight2" type="CSGCylinder3D" parent="CONNECTOR/U_R/Arrow"]
-transform = Transform3D(1.43301e-15, -3.27835e-08, -0.75, -0.75, -3.27835e-08, -1.58819e-22, -3.27835e-08, 0.75, -3.27835e-08, 0, 0.225, 0.1)
+transform = Transform3D(1.43301e-15, -3.27835e-08, 0.75, -0.75, -3.27835e-08, 0, 3.27835e-08, -0.75, -3.27835e-08, 0, 0.225, -0.1)
 radius = 0.1
 height = 0.25
 
@@ -287,7 +285,7 @@ radius = 0.08
 rings = 8
 
 [node name="Wire" type="Node3D" parent="CONNECTOR/U_R"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CONNECTOR/U_R/Wire"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.3, 0, 0)
@@ -296,7 +294,7 @@ height = 0.6
 material = ExtResource("2_tpvbb")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CONNECTOR/U_R/Wire"]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0.3)
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, -0.3)
 radius = 0.25
 height = 0.6
 material = ExtResource("2_tpvbb")
@@ -324,10 +322,52 @@ height = 0.75
 transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, 1, 4.37114e-08, -4.37114e-08, -2.1127e-08, 0.48333, 0)
 mesh = SubResource("PrismMesh_fw87t")
 
+[node name="Arrow" type="Node3D" parent="CONNECTOR"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="ArrowStraight" type="CSGCylinder3D" parent="CONNECTOR/Arrow"]
+transform = Transform3D(-3.27835e-08, 0.75, 0, -0.75, -3.27835e-08, 0, 0, 0, 0.75, -0.2, 0.225, 0)
+radius = 0.1
+height = 0.5
+
+[node name="ArrowStraight2" type="CSGCylinder3D" parent="CONNECTOR/Arrow"]
+transform = Transform3D(1.43301e-15, -3.27835e-08, 0.75, -0.75, -3.27835e-08, 0, 3.27835e-08, -0.75, -3.27835e-08, 0, 0.225, -0.1)
+radius = 0.1
+height = 0.25
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CONNECTOR/Arrow/ArrowStraight2"]
+transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, 1, 4.37114e-08, -4.37114e-08, -2.98023e-08, 0.225256, -1.11759e-08)
+mesh = SubResource("PrismMesh_fw87t")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CONNECTOR/Arrow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22, 0)
+radius = 0.08
+rings = 8
+
+[node name="Wire" type="Node3D" parent="CONNECTOR"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CONNECTOR/Wire"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.3, 0, 0)
+radius = 0.25
+height = 0.6
+material = ExtResource("2_tpvbb")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CONNECTOR/Wire"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, -0.3)
+radius = 0.25
+height = 0.6
+material = ExtResource("2_tpvbb")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CONNECTOR/Wire"]
+radius = 0.25
+rings = 8
+material = ExtResource("2_tpvbb")
+
 [node name="GATE" type="Node3D" parent="."]
-visible = false
 
 [node name="AND" type="Node3D" parent="GATE"]
+visible = false
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="GATE/AND"]
 mesh = SubResource("BoxMesh_o18ic")
@@ -382,6 +422,7 @@ height = 1.2
 material = ExtResource("2_tpvbb")
 
 [node name="NOT" type="Node3D" parent="GATE"]
+visible = false
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="GATE/NOT"]
 mesh = SubResource("BoxMesh_o18ic")
@@ -436,6 +477,7 @@ height = 1.2
 material = ExtResource("2_tpvbb")
 
 [node name="OR" type="Node3D" parent="GATE"]
+visible = false
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="GATE/OR"]
 mesh = SubResource("BoxMesh_o18ic")
@@ -489,6 +531,7 @@ height = 1.2
 material = ExtResource("2_tpvbb")
 
 [node name="Editor" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Editor"]
 mesh = SubResource("SphereMesh_tvq7x")

@@ -159,3 +159,17 @@ func setup_connector_dirs() -> void:
 			output_dirs.append(DIR_RIGHT)
 
 ## ----------------------- ##
+
+
+## -- Input validation -- ##
+
+func accept_input(from_dir: int) -> bool:
+	if block_type == BlockType.VALUE:
+		return false
+	if block_type == BlockType.CONNECTOR:
+		return input_dirs.has(from_dir)
+	if block_type == BlockType.GATE:
+		return (from_dir == DIR_LEFT or from_dir == DIR_DOWN or from_dir == DIR_UP)
+	return false
+
+## ---------------------- ##
