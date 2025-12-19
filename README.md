@@ -182,6 +182,25 @@ The puzzle scene placed before the player will contain:
 
 The grid will be viewable from a static top-down camera, with tiles highlighting when an object is hovering above them to provide tactile feedback for the player as they move the pices around the board.
 
+### Logic Gate Selection and Scope
+
+The game focuses on a set of logical operators that are commonly used in digital logic and introductory computer science education.
+
+The following logic gates are included as interactive puzzle components:
+| Gate Name | Connective Name        | Symbol | Behaviour Summary                                   |
+|-----------|------------------------|--------|-----------------------------------------------------|
+| AND       | Conjunction            | ∧      | Outputs true only when all input signals are true   |
+| OR        | Disjunction            | ∨      | Outputs true when at least one input signal is true |
+| NOT       | Negation               | ¬      | Outputs the opposite of its single input signal     |
+| NAND      | Alternative denial     | ⊼      | Outputs false only when all input signals are true  |
+| NOR       | Joint denial           | ⊽      | Outputs true only when all input signals are false  |
+| XOR       | Exclusive disjunction  | ⊕     | Outputs true when an odd number of inputs are true  |
+| XNOR      | Biconditional          | ↔      | Outputs true when all input signals are the same    |
+
+
+These gates were selected due to their relevance to real-world logic circuits, their recognisability to players, and their suitability for visual, grid-based puzzle mechanics. More formal propositional logic operators such as implication and non-implication are intentionally excluded, as they are less commonly used in practical computing contexts and are poorly suited to intuitive, visual puzzle mechanics. {1}
+
+
 #### Grid-snap
 The visible grid will be made up of multiple slot nodes arranged in rows and columns. <br/>
 Each slot will be a snap point that a logic piece can be placed into. <br/>
@@ -345,6 +364,107 @@ Feedback system
 </details>
 
 ---
+
+## Testing
+
+<details>
+ <summary>Click to expand</summary>
+
+### Testing overview and rationale
+Testing is treated as a continuous and iterative process throughout development, ensuring that core gameplay systems behave consistently, reliably, and in alignment with the project’s educational goals.
+
+Given the logic-driven nature of the puzzle mechanics, particular emphasis is placed on validating correctness of Boolean operations, signal propagation, and puzzle completion conditions before higher-level gameplay and presentation features are introduced.
+
+### Early system testing (logical)
+Early testing focuses on the foundational logic systems underpinning the game, specifically the behaviour of logic gates, grid-based signal propagation, and validation sequencing.
+
+During this stage, logic behaviour is tested in isolation using abstract grid representations rather than full in-engine visualisations. This approach allows signal flow, gate evaluation, and propagation order to be reasoned about deterministically, reducing ambiguity and aiding debugging during early development.
+A consistent symbolic notation is used across testing documentation to visualise grid states, logic components, and signal flow.
+Key:
+[ ] = Active slot
+[X] = Inactive slot
+
+[↑] = Signal propagates up
+[→] = Signal propagates right
+[↓] = Signal propagates down
+
+[V] = Value block: TRUE
+[F] = Value block: FALSE
+[O] = Output block
+
+[∧] = Logic block: AND
+[¬] = Logic block: NOT
+[∨] = Logic block: OR
+[⊼] = Logic block: NAND
+[⊽] = Logic block: NOR
+[⊕] = Logic block: XOR
+[↔] = Logic block: XNOR
+
+Logical testing example:
+```
+Test 1: Valid AND gate evaluation
+[V] [→] [↓] [ ] [ ]
+[X] [X] [∧] [→] [O]
+[V] [→] [↑] [ ] [ ]
+Console:
+[PUZZLE BOARD] Validation started
+[Value Block](0, 0)value =true
+[Value Block](2, 0)value =true
+  → propagated to(0, 1)value =true
+  → propagated to(2, 1)value =true
+  → propagated to(0, 2)value =true
+  → propagated to(2, 2)value =true
+  → propagated to(1, 2)value =true
+[GATE OUTPUT] AND at (1, 2) → (1, 3) value = true
+[GATE VALID] AND at (1, 2) inputs = [true, true]
+[PUZZLE] State →EDITING
+Result: Test SUCCESS
+
+Test 2: Incomplete AND gate evaluation
+[V] [→] [↓] [ ] [ ]
+[X] [X] [∧] [→] [O]
+[V] [→] [ ] [ ] [ ]
+Console:
+[PUZZLE BOARD] Validation started
+[Value Block](0, 0)value =true
+[Value Block](2, 0)value =true
+  → propagated to(0, 1)value =true
+  → propagated to(2, 1)value =true
+  → propagated to(0, 2)value =true
+  → propagated to(2, 2)value =true
+  → propagated to(1, 2)value =true
+[GATE OUTPUT] AND at (1, 2) → (1, 3) value = true
+[GATE VALID] AND at (1, 2) inputs = [true, true]
+[PUZZLE] State →EDITING
+Result: test FAILED
+```
+This test revealed a flaw in the signal flow where it was allowing a signal to enter an unoccupied slot. This behaviour is incorrect and was subsequently corrected
+After resolving the issue and rerunning Test 2:
+```
+Test 2: Incomplete AND gate evaluation
+[V] [→] [↓] [ ] [ ]
+[X] [X] [∧] [→] [O]
+[V] [→] [ ] [ ] [ ]
+Console:
+[PUZZLE BOARD] Validation started
+[Value Block](0, 0)value =true
+[Value Block](2, 0)value =true
+ → propagated to(0, 1)value =true
+ → propagated to(2, 1)value =true
+ → propagated to(0, 2)value =true
+ → propagated to(2, 2)value =true
+ → propagated to(1, 2)value =true
+[GATE INVALID] AND at (1, 2): too few inputs (1)
+[PUZZLE] State →EDITING
+Result: test SUCCESS
+```
+### Functional testing
+
+### Usability testing
+
+### Testing scope/limitations
+ 
+</details>
 
 ## **Story and Narrative Elements**
 
@@ -590,9 +710,18 @@ Initial:
 * No monetisation
 * Coursework prototype only
 
-Stretch goals:
+</details>
 
-* Post coursework submission, I may look into publicly releasing the game through Steam as a low cost early access puzzle game
-* Possible monetisation through level packs (new offices)
+---
+
+## **References**
+
+<details>
+<summary>Click to expand</summary>
+
+### **References**
+
+{1} https://en.wikipedia.org/wiki/Logical_connective
+
 
 </details>
