@@ -489,14 +489,15 @@ func validate_outputs() -> bool:
 			all_valid = false
 			continue
 		
-		if slot.signal_value != slot.expected_value:
-			print("[OUTPUT INVALID] At", slot.grid_position, "expected =", slot.expected_value, "got =", slot.signal_value)
+		if slot.signal_value != true:
+			print("[OUTPUT INVALID] At", slot.grid_position, "expected = TRUE got =", slot.signal_value)
 			all_valid = false
 			continue
 		
-		print("[OUTPUT VALID] At", slot.grid_position, "value =", slot.signal_value)
+		print("[OUTPUT VALID] At", slot.grid_position, "value = TRUE")
 	
 	return all_valid
+
 
 func propagate_from_slot(slot) -> Array:
 	var new_signal: Array = []
@@ -589,3 +590,11 @@ func propagate_from_slot(slot) -> Array:
 	return new_signal
 
 ## -------------------------------- ##
+
+## 
+func apply_level(level: LevelData) -> void:
+	# Inject tile map from level data
+	tile_map_string = level.tile_map
+	
+	# Rebuild grid using the new tile map
+	generate_grid()

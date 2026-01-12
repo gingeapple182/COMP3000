@@ -1,4 +1,13 @@
 extends Node3D
+## -- temp
+@export var debug_level: LevelData
+@export var current_level: LevelData
+@export var levels: Array[LevelData] = []
+var current_level_index: int = 0
+
+@onready var blocks_root: Node3D = $BlocksRoot
+@export var block_scene: PackedScene
+
 
 ## -- Scene refs -- ##
 
@@ -31,7 +40,10 @@ func _ready() -> void:
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	print("[PUZZLE] Initial State →", PuzzleState.keys()[puzzle_state])
-
+	if levels.size() > 0:
+		load_level(0)
+	if current_level:
+		spawn_blocks_for_level(current_level)
 
 func _process(delta: float) -> void:
 	pass
@@ -160,8 +172,10 @@ func start_validation() -> void:
 	
 	if grid_manager.validate_outputs():
 		set_puzzle_state(PuzzleState.SOLVED)
+		advance_level()
 	else:
 		set_puzzle_state(PuzzleState.EDITING)
+
 
 func set_puzzle_state(new_state: PuzzleState) -> void:
 	if puzzle_state == new_state:
@@ -171,3 +185,147 @@ func set_puzzle_state(new_state: PuzzleState) -> void:
 	print("[PUZZLE] State →", PuzzleState.keys()[puzzle_state])
 
 ## -------------------- ##
+
+func load_level(index: int) -> void:
+	if index < 0 or index >= levels.size():
+		print("[PUZZLE] Invalid level index:", index)
+		return
+	
+	current_level_index = index
+	current_level = levels[index]
+	
+	print("[PUZZLE] Loading level:", current_level.level_name)
+	
+	grid_manager.apply_level(current_level)
+	set_puzzle_state(PuzzleState.EDITING)
+
+func advance_level() -> void:
+	var next_index := current_level_index + 1
+	
+	if next_index >= levels.size():
+		print("[PUZZLE] All levels complete")
+		return
+	
+	print("[PUZZLE] Advancing to level", next_index)
+	load_level(next_index)
+
+func spawn_block(scene: PackedScene, position: Vector3) -> LogicBlock:
+	if scene == null:
+		return null
+ 
+	var block := scene.instantiate()
+	blocks_root.add_child(block)
+	block.global_transform.origin = position
+	return block
+
+func configure_block(block: LogicBlock, block_type: int, subtype) -> void:
+	block.block_type = block_type
+	
+	match block_type:
+		LogicBlock.BlockType.VALUE:
+			block.value = subtype  # bool
+		
+		LogicBlock.BlockType.GATE:
+			block.gate_type = subtype  # GateType enum
+		
+		LogicBlock.BlockType.CONNECTOR:
+			block.connector_type = subtype  # ConnectorType enum
+	
+	block.refresh_visuals()
+
+
+func spawn_configured_block(scene: PackedScene, position: Vector3, configure: Callable) -> void:
+	if scene == null:
+		return
+	
+	var block := scene.instantiate()
+	blocks_root.add_child(block)
+	block.global_transform.origin = position
+	
+	if configure:
+		configure.call(block)
+
+
+func spawn_blocks_for_level(level: LevelData) -> void:
+	var start_pos := Vector3(-6.0, 1.0, 0.0)
+	var spacing := 1.5
+	var index := 0
+	var block: LogicBlock
+	
+	# TRUE value blocks
+	for i in range(level.true_value_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.VALUE, true)
+		index += 1
+	
+	# FALSE value blocks
+	for i in range(level.false_value_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.VALUE, false)
+		index += 1
+	
+	# AND gates
+	for i in range(level.and_gate_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.AND)
+		index += 1
+	
+	# NOT gates
+	for i in range(level.not_gate_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.NOT)
+		index += 1
+	
+	# L_R connectors
+	for i in range(level.L_R_connector_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.L_R)
+		index += 1
+	
+	# L_U connectors
+	for i in range(level.L_U_connector_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.L_U)
+		index += 1
+	
+	# L_D connectors
+	for i in range(level.L_D_connector_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.L_D)
+		index += 1
+	
+	# U_R connectors
+	for i in range(level.U_R_connector_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.U_R)
+		index += 1
+	
+	# U_D connectors
+	for i in range(level.U_D_connector_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.U_D)
+		index += 1
+	
+	# D_R connectors
+	for i in range(level.D_R_connector_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.D_R)
+		index += 1
+	
+	# D_U connectors
+	for i in range(level.D_U_connector_count):
+		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		if block:
+			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.D_U)
+		index += 1
+	

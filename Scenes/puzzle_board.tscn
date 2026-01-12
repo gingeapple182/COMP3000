@@ -1,14 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://h5kp1pfgasbh"]
+[gd_scene load_steps=18 format=3 uid="uid://h5kp1pfgasbh"]
 
 [ext_resource type="Script" path="res://Scripts/puzzle_controller.gd" id="1_54mf1"]
 [ext_resource type="Script" path="res://Scripts/grid_manager.gd" id="1_a8pl4"]
+[ext_resource type="Script" path="res://Scripts/LevelData.gd" id="2_gqqr1"]
+[ext_resource type="Resource" uid="uid://dhpjlpx50xekd" path="res://Levels/level_02.tres" id="2_laves"]
 [ext_resource type="PackedScene" uid="uid://chdalqissc16x" path="res://Scenes/Assets/Assets/grid_slot_active.tscn" id="2_pxsq5"]
+[ext_resource type="Resource" uid="uid://b27tdk5gxl6dt" path="res://Levels/level_01.tres" id="2_s27bq"]
 [ext_resource type="PackedScene" uid="uid://0ltp5rltjb7a" path="res://Scenes/Assets/Assets/grid_slot_inactive.tscn" id="3_40yeu"]
 [ext_resource type="PackedScene" uid="uid://hv0cidxt56rm" path="res://Scenes/Assets/Assets/logic_block.tscn" id="5_a0mmd"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="5_gj2ys"]
 [ext_resource type="PackedScene" uid="uid://c2c2hh56sjnw" path="res://Scenes/Assets/Assets/grid_slot_output.tscn" id="5_kf5ye"]
 [ext_resource type="Theme" uid="uid://c5h5ivvy177xi" path="res://Resources/default_theme.tres" id="6_rg4rv"]
 [ext_resource type="PackedScene" uid="uid://kswxyqq8tn33" path="res://Scenes/Assets/Assets/tray.tscn" id="8_en2ls"]
+[ext_resource type="Material" uid="uid://c0nb2fvkkrq8g" path="res://Scenes/Assets/Materials/invisible.tres" id="9_2brsf"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_soapa"]
 left_to_right = 0.0
@@ -26,6 +30,10 @@ size = Vector2(25, 25)
 
 [node name="PuzzleBoard" type="Node3D"]
 script = ExtResource("1_54mf1")
+debug_level = ExtResource("2_laves")
+current_level = ExtResource("2_laves")
+levels = Array[ExtResource("2_gqqr1")]([ExtResource("2_s27bq"), ExtResource("2_laves")])
+block_scene = ExtResource("5_a0mmd")
 hover_height = 1.0
 
 [node name="GridManager" type="Node3D" parent="."]
@@ -49,6 +57,7 @@ transform = Transform3D(0.766044, 0.492404, -0.413176, -2.57132e-08, 0.642788, 0
 
 [node name="Objects" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5235, 0, -0.913332)
+visible = false
 
 [node name="ValueBlock" parent="Objects" instance=ExtResource("5_a0mmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173931, 5.43614, 0.666306)
@@ -131,17 +140,19 @@ visible = false
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(-0.866025, 0.5, 7.57103e-08, 0.5, 0.866025, -4.37114e-08, -8.74228e-08, 0, -1, -16.0749, 2.34551, 0)
+[node name="Ramp" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(-0.866025, 0.5, 7.57103e-08, 0.5, 0.866025, -4.37114e-08, -8.74228e-08, 0, -1, -14.8598, 2.34551, 0)
 use_collision = true
 size = Vector3(10, 1, 10)
+material = ExtResource("9_2brsf")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/CSGBox3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/Ramp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.583915, 0.357349, 0)
 operation = 2
 size = Vector3(10, 0.5, 9)
+material = ExtResource("9_2brsf")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D/CSGBox3D"]
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D/Ramp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04065, 0.579266, 0)
 visible = false
 mesh = SubResource("PrismMesh_soapa")
@@ -159,6 +170,8 @@ skeleton = NodePath("../..")
 use_collision = true
 collision_mask = 3
 mesh = SubResource("PlaneMesh_1gxiv")
+
+[node name="BlocksRoot" type="Node3D" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TestSolution" to="." method="_on_test_solution_pressed"]

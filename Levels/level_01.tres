@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://b27tdk5gxl6dt"]
+
+[ext_resource type="Script" path="res://Scripts/LevelData.gd" id="1_qwcqx"]
+
+[resource]
+script = ExtResource("1_qwcqx")
+level_name = "Intro Logic Puzzle 01"
+tile_map = "11100
+00112
+11100"
+description = ""
+true_value_count = 2
+false_value_count = 1
+and_gate_count = 1
+not_gate_count = 1
+or_gate_count = 0
+L_U_connector_count = 1
+L_R_connector_count = 4
+L_D_connector_count = 1
+D_U_connector_count = 1
+D_R_connector_count = 0
+U_R_connector_count = 0
+U_D_connector_count = 1

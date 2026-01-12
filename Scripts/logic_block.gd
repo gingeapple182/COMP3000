@@ -173,3 +173,6 @@ func accept_input(from_dir: int) -> bool:
 	return false
 
 ## ---------------------- ##
+
+func refresh_visuals() -> void:
+	_ready()
