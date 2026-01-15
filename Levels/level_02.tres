@@ -9,15 +9,15 @@ tile_map = "11112
 00100
 11100"
 description = ""
-true_value_count = 1
-false_value_count = 0
-and_gate_count = 0
-not_gate_count = 0
+true_value_count = 2
+false_value_count = 1
+and_gate_count = 1
+not_gate_count = 1
 or_gate_count = 0
-L_U_connector_count = 0
-L_R_connector_count = 0
-L_D_connector_count = 0
-D_U_connector_count = 0
+L_U_connector_count = 1
+L_R_connector_count = 4
+L_D_connector_count = 1
+D_U_connector_count = 1
 D_R_connector_count = 0
 U_R_connector_count = 0
-U_D_connector_count = 0
+U_D_connector_count = 1

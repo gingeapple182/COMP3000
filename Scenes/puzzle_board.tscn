@@ -138,40 +138,41 @@ text = "Test solution"
 process_mode = 3
 visible = false
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Elements" type="Node3D" parent="."]
 
-[node name="Ramp" type="CSGBox3D" parent="Node3D"]
+[node name="Ramp" type="CSGBox3D" parent="Elements"]
 transform = Transform3D(-0.866025, 0.5, 7.57103e-08, 0.5, 0.866025, -4.37114e-08, -8.74228e-08, 0, -1, -14.8598, 2.34551, 0)
 use_collision = true
 size = Vector3(10, 1, 10)
 material = ExtResource("9_2brsf")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D/Ramp"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Elements/Ramp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.583915, 0.357349, 0)
 operation = 2
 size = Vector3(10, 0.5, 9)
 material = ExtResource("9_2brsf")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D/Ramp"]
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Elements/Ramp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04065, 0.579266, 0)
 visible = false
 mesh = SubResource("PrismMesh_soapa")
 
-[node name="Tray" parent="Node3D" instance=ExtResource("8_en2ls")]
+[node name="Tray" parent="Elements" instance=ExtResource("8_en2ls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.3, 0)
 
-[node name="Board" type="MeshInstance3D" parent="Node3D"]
+[node name="Board" type="MeshInstance3D" parent="Elements"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 layers = 3
 mesh = SubResource("PlaneMesh_xdopv")
 skeleton = NodePath("../..")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D/Board"]
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Elements/Board"]
 use_collision = true
 collision_mask = 3
 mesh = SubResource("PlaneMesh_1gxiv")
 
-[node name="BlocksRoot" type="Node3D" parent="."]
+[node name="BlockSpawn" type="Node3D" parent="Elements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0816, 8.10958, -3.84854)
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TestSolution" to="." method="_on_test_solution_pressed"]

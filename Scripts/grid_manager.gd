@@ -442,6 +442,7 @@ func neighbour_outputs_towards_gate(neighbour: Node, dir_from_gate: int) -> bool
 			# VALUE only outputs RIGHT
 			return required_output_dir == Direction.RIGHT
 		LogicBlock.BlockType.CONNECTOR:
+			print("[DEBUG DIR CHECK]", "required =", required_output_dir, "output_dirs =", block.output_dirs)
 			return block.output_dirs.has(required_output_dir)
 		LogicBlock.BlockType.GATE:
 			# gates output RIGHT 

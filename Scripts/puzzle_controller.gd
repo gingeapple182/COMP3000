@@ -5,8 +5,8 @@ extends Node3D
 @export var levels: Array[LevelData] = []
 var current_level_index: int = 0
 
-@onready var blocks_root: Node3D = $BlocksRoot
 @export var block_scene: PackedScene
+@onready var block_spawn: Node3D = $Elements/BlockSpawn
 
 
 ## -- Scene refs -- ##
@@ -42,8 +42,8 @@ func _ready() -> void:
 	print("[PUZZLE] Initial State →", PuzzleState.keys()[puzzle_state])
 	if levels.size() > 0:
 		load_level(0)
-	if current_level:
-		spawn_blocks_for_level(current_level)
+	#if current_level:
+		#spawn_blocks_for_level(current_level)
 
 func _process(delta: float) -> void:
 	pass
@@ -196,7 +196,11 @@ func load_level(index: int) -> void:
 	
 	print("[PUZZLE] Loading level:", current_level.level_name)
 	
+	clear_level_blocks()
+	
 	grid_manager.apply_level(current_level)
+	spawn_blocks_for_level(current_level)
+	
 	set_puzzle_state(PuzzleState.EDITING)
 
 func advance_level() -> void:
@@ -214,7 +218,7 @@ func spawn_block(scene: PackedScene, position: Vector3) -> LogicBlock:
 		return null
  
 	var block := scene.instantiate()
-	blocks_root.add_child(block)
+	block_spawn.add_child(block)
 	block.global_transform.origin = position
 	return block
 
@@ -239,7 +243,7 @@ func spawn_configured_block(scene: PackedScene, position: Vector3, configure: Ca
 		return
 	
 	var block := scene.instantiate()
-	blocks_root.add_child(block)
+	block_spawn.add_child(block)
 	block.global_transform.origin = position
 	
 	if configure:
@@ -247,85 +251,112 @@ func spawn_configured_block(scene: PackedScene, position: Vector3, configure: Ca
 
 
 func spawn_blocks_for_level(level: LevelData) -> void:
-	var start_pos := Vector3(-6.0, 1.0, 0.0)
-	var spacing := 1.5
+	var start_pos := block_spawn.global_transform.origin
+	var blocks_per_row := 3
+	var x_spacing := 1.5
+	var z_spacing := 1.5
 	var index := 0
+	
 	var block: LogicBlock
 	
 	# TRUE value blocks
 	for i in range(level.true_value_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.VALUE, true)
 		index += 1
 	
 	# FALSE value blocks
 	for i in range(level.false_value_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.VALUE, false)
 		index += 1
 	
 	# AND gates
 	for i in range(level.and_gate_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.AND)
 		index += 1
 	
 	# NOT gates
 	for i in range(level.not_gate_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.NOT)
 		index += 1
 	
 	# L_R connectors
 	for i in range(level.L_R_connector_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.L_R)
 		index += 1
 	
 	# L_U connectors
 	for i in range(level.L_U_connector_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.L_U)
 		index += 1
 	
 	# L_D connectors
 	for i in range(level.L_D_connector_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.L_D)
 		index += 1
 	
 	# U_R connectors
 	for i in range(level.U_R_connector_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.U_R)
 		index += 1
 	
 	# U_D connectors
 	for i in range(level.U_D_connector_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.U_D)
 		index += 1
 	
 	# D_R connectors
 	for i in range(level.D_R_connector_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.D_R)
 		index += 1
 	
 	# D_U connectors
 	for i in range(level.D_U_connector_count):
-		block = spawn_block(block_scene, start_pos + Vector3(index * spacing, 0, 0))
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.CONNECTOR, LogicBlock.ConnectorType.D_U)
 		index += 1
-	
+
+
+func get_tray_spawn_position(start_pos: Vector3, index: int, blocks_per_row: int, x_spacing: float, z_spacing: float) -> Vector3:
+	var row := index / blocks_per_row
+	var col := index % blocks_per_row
+	var pos := start_pos
+	pos.x += col * x_spacing
+	pos.z += row * z_spacing 
+	return pos
+
+
+func clear_level_blocks() -> void:
+	for child in block_spawn.get_children():
+		child.queue_free()
