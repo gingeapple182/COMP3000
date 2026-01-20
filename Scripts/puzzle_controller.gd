@@ -14,6 +14,7 @@ var current_level_index: int = 0
 @onready var camera: Camera3D = $Camera3D
 @onready var grid_manager: Node3D = $GridManager
 @onready var pause_menu: Control = $PauseMenu
+@onready var level_complete: Control = $LevelComplete
 
 ## --  Player interaction -- ##
 var grabbed: RigidBody3D = null
@@ -172,7 +173,15 @@ func start_validation() -> void:
 	
 	if grid_manager.validate_outputs():
 		set_puzzle_state(PuzzleState.SOLVED)
-		advance_level()
+		var is_final_level := current_level_index >= levels.size() - 1
+		if is_final_level:
+			print("[PUZZLE] Final level completed")
+			level_complete.show_popup(level_complete.PopupMode.OFFICE_COMPLETE)
+		else:
+			level_complete.show_popup(level_complete.PopupMode.LEVEL_COMPLTE)
+		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		level_complete.visible = true
 	else:
 		set_puzzle_state(PuzzleState.EDITING)
 
@@ -205,18 +214,17 @@ func load_level(index: int) -> void:
 
 func advance_level() -> void:
 	var next_index := current_level_index + 1
-	
 	if next_index >= levels.size():
 		print("[PUZZLE] All levels complete")
+		level_complete.show_popup(level_complete.PopupMode.OFFICE_COMPLETE)
 		return
-	
 	print("[PUZZLE] Advancing to level", next_index)
 	load_level(next_index)
+
 
 func spawn_block(scene: PackedScene, position: Vector3) -> LogicBlock:
 	if scene == null:
 		return null
- 
 	var block := scene.instantiate()
 	block_spawn.add_child(block)
 	block.global_transform.origin = position
@@ -360,3 +368,7 @@ func get_tray_spawn_position(start_pos: Vector3, index: int, blocks_per_row: int
 func clear_level_blocks() -> void:
 	for child in block_spawn.get_children():
 		child.queue_free()
+
+
+func reload_current_level() -> void:
+	load_level(current_level_index)

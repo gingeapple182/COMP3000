@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://crxh6se4m0rxq"]
+[gd_scene load_steps=24 format=3 uid="uid://crxh6se4m0rxq"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_qh2xr"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_aomcw"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bncfiuba1xc2i" path="res://Scenes/Assets/Assets/door_placeholder.tscn" id="12_w4s6r"]
 [ext_resource type="PackedScene" uid="uid://xf3y70bw7j1e" path="res://Scenes/Assets/Assets/noticeboard.tscn" id="13_n8f0u"]
 [ext_resource type="FontFile" uid="uid://bwbipxb1wjho4" path="res://Scenes/Assets/Fonts/AppleStormRg.otf" id="14_yvqja"]
+[ext_resource type="Script" path="res://Scripts/LevelData.gd" id="17_xajek"]
+[ext_resource type="Resource" uid="uid://b27tdk5gxl6dt" path="res://Levels/Level_Tutorial/level_01.tres" id="18_y3gnq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cebsl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -194,6 +196,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14172, 0, 0)
 use_collision = true
 script = ExtResource("3_c2668")
 target_scene = ExtResource("4_k0pae")
+level_set = Array[ExtResource("17_xajek")]([ExtResource("18_y3gnq")])
 office_hub = NodePath("../../..")
 
 [node name="CSGBox3D2" type="CSGSphere3D" parent="OfficeHub01/Tutorial/Interactables/CSGCombiner3D"]

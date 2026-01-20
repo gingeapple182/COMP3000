@@ -5,6 +5,7 @@ enum ButtonType { SCENE, DOOR, OTHER }
 @export var button_type: ButtonType
 
 @export var target_scene: PackedScene
+@export var level_set: Array[LevelData] = []
 @export var target_door: NodePath
 @export var office_hub: NodePath
 

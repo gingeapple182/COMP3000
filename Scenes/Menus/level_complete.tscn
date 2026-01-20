@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://drn8aswwgcesl"]
+
+[ext_resource type="Script" path="res://Scripts/level_complete.gd" id="1_ndtel"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_umxbn"]
+
+[sub_resource type="Theme" id="Theme_spn1k"]
+
+[sub_resource type="Theme" id="Theme_qbokc"]
+
+[node name="LevelComplete" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ndtel")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.419608, 0.419608, 0.419608, 0.729412)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+material = SubResource("CanvasItemMaterial_umxbn")
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -209.0
+offset_top = -446.0
+offset_right = 211.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_spn1k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme = SubResource("Theme_qbokc")
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "LEVEL COMPLETE!"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Congratulations for completing [LEVEL]"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button_Return" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Return to Hub"
+
+[node name="Button_Replay" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Replay"
+
+[node name="Button_Continue" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Next Level"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Button_Return" to="." method="_on_button_return_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Button_Replay" to="." method="_on_button_replay_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Button_Continue" to="." method="_on_button_continue_pressed"]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://h5kp1pfgasbh"]
+[gd_scene load_steps=19 format=3 uid="uid://h5kp1pfgasbh"]
 
 [ext_resource type="Script" path="res://Scripts/puzzle_controller.gd" id="1_54mf1"]
 [ext_resource type="Script" path="res://Scripts/grid_manager.gd" id="1_a8pl4"]
 [ext_resource type="Script" path="res://Scripts/LevelData.gd" id="2_gqqr1"]
-[ext_resource type="Resource" uid="uid://dhpjlpx50xekd" path="res://Levels/level_02.tres" id="2_laves"]
+[ext_resource type="Resource" uid="uid://dhpjlpx50xekd" path="res://Levels/Level_Tutorial/level_02.tres" id="2_laves"]
 [ext_resource type="PackedScene" uid="uid://chdalqissc16x" path="res://Scenes/Assets/Assets/grid_slot_active.tscn" id="2_pxsq5"]
-[ext_resource type="Resource" uid="uid://b27tdk5gxl6dt" path="res://Levels/level_01.tres" id="2_s27bq"]
+[ext_resource type="Resource" uid="uid://b27tdk5gxl6dt" path="res://Levels/Level_Tutorial/level_01.tres" id="2_s27bq"]
 [ext_resource type="PackedScene" uid="uid://0ltp5rltjb7a" path="res://Scenes/Assets/Assets/grid_slot_inactive.tscn" id="3_40yeu"]
 [ext_resource type="PackedScene" uid="uid://hv0cidxt56rm" path="res://Scenes/Assets/Assets/logic_block.tscn" id="5_a0mmd"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="5_gj2ys"]
@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://c5h5ivvy177xi" path="res://Resources/default_theme.tres" id="6_rg4rv"]
 [ext_resource type="PackedScene" uid="uid://kswxyqq8tn33" path="res://Scenes/Assets/Assets/tray.tscn" id="8_en2ls"]
 [ext_resource type="Material" uid="uid://c0nb2fvkkrq8g" path="res://Scenes/Assets/Materials/invisible.tres" id="9_2brsf"]
+[ext_resource type="PackedScene" uid="uid://drn8aswwgcesl" path="res://Scenes/Menus/level_complete.tscn" id="12_m3m36"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_soapa"]
 left_to_right = 0.0
@@ -137,6 +138,8 @@ text = "Test solution"
 [node name="PauseMenu" parent="." instance=ExtResource("5_gj2ys")]
 process_mode = 3
 visible = false
+
+[node name="LevelComplete" parent="." instance=ExtResource("12_m3m36")]
 
 [node name="Elements" type="Node3D" parent="."]
 
