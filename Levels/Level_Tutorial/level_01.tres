@@ -4,20 +4,23 @@
 
 [resource]
 script = ExtResource("1_qwcqx")
-level_name = "Intro Logic Puzzle 01"
+level_id = "tutorial_level_01"
 tile_map = "11100
 00112
 11100"
-description = ""
+display_title = "LEVEL 01"
+level_description = "AND gate test - Try to achieve a TRUE output"
+level_complete_description = "Congratulations, you successfully completed the AND gate tutorial level"
+expected_output = 0
 true_value_count = 2
-false_value_count = 1
+false_value_count = 0
 and_gate_count = 1
-not_gate_count = 1
+not_gate_count = 0
 or_gate_count = 0
 L_U_connector_count = 1
 L_R_connector_count = 4
 L_D_connector_count = 1
-D_U_connector_count = 1
+D_U_connector_count = 0
 D_R_connector_count = 0
 U_R_connector_count = 0
-U_D_connector_count = 1
+U_D_connector_count = 0

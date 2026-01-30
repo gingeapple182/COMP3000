@@ -37,7 +37,7 @@ func _on_button_quit_pressed() -> void:
 	var scene = get_tree().current_scene.name
 	if scene == "Main":
 		GameManager.change_scene("landing_menu")
-	elif scene.begins_with("Puzzle_") or scene.begins_with("Level_"):
+	elif scene.begins_with("Puzzle") or scene.begins_with("Level_") or scene.begins_with("tutorial_"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		GameManager.change_scene("hub_01")
 

@@ -7,6 +7,8 @@ var current_level_index: int = 0
 
 @export var block_scene: PackedScene
 @onready var block_spawn: Node3D = $Elements/BlockSpawn
+@onready var level_display_title: Label = $CanvasLayer/Control/VBoxContainer/DisplayTitle
+@onready var level_description: RichTextLabel = $CanvasLayer/Control/VBoxContainer/LevelDescription
 
 
 ## -- Scene refs -- ##
@@ -203,10 +205,12 @@ func load_level(index: int) -> void:
 	current_level_index = index
 	current_level = levels[index]
 	
-	print("[PUZZLE] Loading level:", current_level.level_name)
+	print("[PUZZLE] Loading level:", current_level.level_id)
 	
 	clear_level_blocks()
 	
+	level_display_title.text = current_level.display_title
+	level_description.text = current_level.level_description
 	grid_manager.apply_level(current_level)
 	spawn_blocks_for_level(current_level)
 	
@@ -297,6 +301,14 @@ func spawn_blocks_for_level(level: LevelData) -> void:
 		block = spawn_block(block_scene, spawn_pos)
 		if block:
 			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.NOT)
+		index += 1
+	
+	# OR gates
+	for i in range(level.or_gate_count):
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
+		if block:
+			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.OR)
 		index += 1
 	
 	# L_R connectors

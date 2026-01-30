@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://h5kp1pfgasbh"]
+[gd_scene load_steps=20 format=3 uid="uid://h5kp1pfgasbh"]
 
 [ext_resource type="Script" path="res://Scripts/puzzle_controller.gd" id="1_54mf1"]
 [ext_resource type="Script" path="res://Scripts/grid_manager.gd" id="1_a8pl4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://b27tdk5gxl6dt" path="res://Levels/Level_Tutorial/level_01.tres" id="2_s27bq"]
 [ext_resource type="PackedScene" uid="uid://0ltp5rltjb7a" path="res://Scenes/Assets/Assets/grid_slot_inactive.tscn" id="3_40yeu"]
 [ext_resource type="PackedScene" uid="uid://hv0cidxt56rm" path="res://Scenes/Assets/Assets/logic_block.tscn" id="5_a0mmd"]
+[ext_resource type="Resource" uid="uid://d0xld8jy7kyix" path="res://Levels/Level_Tutorial/level_03.tres" id="5_d4wm2"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="5_gj2ys"]
 [ext_resource type="PackedScene" uid="uid://c2c2hh56sjnw" path="res://Scenes/Assets/Assets/grid_slot_output.tscn" id="5_kf5ye"]
 [ext_resource type="Theme" uid="uid://c5h5ivvy177xi" path="res://Resources/default_theme.tres" id="6_rg4rv"]
@@ -33,7 +34,7 @@ size = Vector2(25, 25)
 script = ExtResource("1_54mf1")
 debug_level = ExtResource("2_laves")
 current_level = ExtResource("2_laves")
-levels = Array[ExtResource("2_gqqr1")]([ExtResource("2_s27bq"), ExtResource("2_laves")])
+levels = Array[ExtResource("2_gqqr1")]([ExtResource("2_s27bq"), ExtResource("2_laves"), ExtResource("5_d4wm2")])
 block_scene = ExtResource("5_a0mmd")
 hover_height = 1.0
 
@@ -116,24 +117,63 @@ connector_type = 4
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
 offset_left = 22.0
 offset_top = 22.0
 offset_right = 222.0
 offset_bottom = 89.0
 theme = ExtResource("6_rg4rv")
+disabled = true
 text = "Exit back to hub"
 
 [node name="TestSolution" type="Button" parent="CanvasLayer"]
-anchors_preset = 1
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -222.0
-offset_top = 22.0
-offset_right = -22.0
-offset_bottom = 89.0
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = -85.0
+offset_right = -18.0
+offset_bottom = -18.0
 grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("6_rg4rv")
 text = "Test solution"
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 20.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DisplayTitle" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+text = "TITLE"
+horizontal_alignment = 1
+
+[node name="LevelDescription" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Use the available logic components to route signals correctly and satisfy the required output condition.
+"
+fit_content = true
+scroll_active = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_gj2ys")]
 process_mode = 3

@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://drn8aswwgcesl"]
+[gd_scene load_steps=6 format=3 uid="uid://drn8aswwgcesl"]
 
 [ext_resource type="Script" path="res://Scripts/level_complete.gd" id="1_ndtel"]
+[ext_resource type="Theme" uid="uid://b36gcvokacoai" path="res://Resources/clipboard_menu.tres" id="2_gu5nw"]
+[ext_resource type="StyleBox" uid="uid://csoqj61svr6e8" path="res://Resources/Clipboard/paperPanel.tres" id="3_4cvl7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_umxbn"]
-
-[sub_resource type="Theme" id="Theme_spn1k"]
 
 [sub_resource type="Theme" id="Theme_qbokc"]
 
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.419608, 0.419608, 0.419608, 0.729412)
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="ClipboardPanel" type="PanelContainer" parent="."]
 material = SubResource("CanvasItemMaterial_umxbn")
 layout_mode = 1
 anchors_preset = 7
@@ -39,39 +39,47 @@ offset_top = -446.0
 offset_right = 211.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = SubResource("Theme_spn1k")
+theme = ExtResource("2_gu5nw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="PaperPanel" type="PanelContainer" parent="ClipboardPanel"]
+material = SubResource("CanvasItemMaterial_umxbn")
+layout_mode = 2
+theme = ExtResource("2_gu5nw")
+theme_override_styles/panel = ExtResource("3_4cvl7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ClipboardPanel/PaperPanel"]
 layout_mode = 2
 theme = SubResource("Theme_qbokc")
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="ClipboardPanel/PaperPanel/VBoxContainer"]
 layout_mode = 2
 text = "LEVEL COMPLETE!"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+[node name="Description" type="RichTextLabel" parent="ClipboardPanel/PaperPanel/VBoxContainer"]
 layout_mode = 2
 text = "Congratulations for completing [LEVEL]"
 fit_content = true
+tab_size = 7
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ClipboardPanel/PaperPanel/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Button_Return" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Button_Return" type="Button" parent="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_gu5nw")
 text = "Return to Hub"
 
-[node name="Button_Replay" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Button_Replay" type="Button" parent="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Replay"
 
-[node name="Button_Continue" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Button_Continue" type="Button" parent="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Next Level"
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Button_Return" to="." method="_on_button_return_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Button_Replay" to="." method="_on_button_replay_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Button_Continue" to="." method="_on_button_continue_pressed"]
+[connection signal="pressed" from="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer/Button_Return" to="." method="_on_button_return_pressed"]
+[connection signal="pressed" from="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer/Button_Replay" to="." method="_on_button_replay_pressed"]
+[connection signal="pressed" from="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer/Button_Continue" to="." method="_on_button_continue_pressed"]

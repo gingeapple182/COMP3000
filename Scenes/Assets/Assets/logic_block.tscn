@@ -479,7 +479,6 @@ height = 1.2
 material = ExtResource("2_tpvbb")
 
 [node name="OR" type="Node3D" parent="GATE"]
-visible = false
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="GATE/OR"]
 mesh = SubResource("BoxMesh_o18ic")

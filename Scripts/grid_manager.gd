@@ -1,4 +1,6 @@
 extends Node3D
+## -- unsorted
+var expected_output: LevelData.OutputGoals = LevelData.OutputGoals.TRUE
 
 ## -- Grid generation -- ##
 @export var active_slot_scene: PackedScene
@@ -390,7 +392,12 @@ func evaluate_gate(gate_type: int, input_values: Array) -> bool:
 				if v == false:
 					return false
 			return true
-		#LogicBlock.GateType.OR:
+		LogicBlock.GateType.OR:
+			#OR: TRUE if any input TRUE
+			for v in input_values:
+				if v == true:
+					return true
+			return false
 		_:
 			return false
 
@@ -490,12 +497,20 @@ func validate_outputs() -> bool:
 			all_valid = false
 			continue
 		
-		if slot.signal_value != true:
-			print("[OUTPUT INVALID] At", slot.grid_position, "expected = TRUE got =", slot.signal_value)
-			all_valid = false
-			continue
-		
-		print("[OUTPUT VALID] At", slot.grid_position, "value = TRUE")
+		match expected_output:
+			LevelData.OutputGoals.TRUE:
+				if slot.signal_value != true:
+					print("[OUTPUT INVALID] At", slot.grid_position, "expected = TRUE got =", slot.signal_value)
+					all_valid = false
+				else:
+					print("[OUTPUT VALID] At", slot.grid_position, "value = TRUE")
+			
+			LevelData.OutputGoals.FALSE:
+				if slot.signal_value != false:
+					print("[OUTPUT INVALID] At", slot.grid_position, "expected = FALSE got =", slot.signal_value)
+					all_valid = false
+				else:
+					print("[OUTPUT VALID] At", slot.grid_position, "value = FALSE")
 	
 	return all_valid
 
@@ -596,6 +611,6 @@ func propagate_from_slot(slot) -> Array:
 func apply_level(level: LevelData) -> void:
 	# Inject tile map from level data
 	tile_map_string = level.tile_map
-	
+	expected_output = level.expected_output
 	# Rebuild grid using the new tile map
 	generate_grid()

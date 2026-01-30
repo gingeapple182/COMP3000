@@ -1,9 +1,18 @@
 extends Resource
 class_name LevelData
 
-@export var level_name: String = ""
+@export var level_id: String = ""
 @export_multiline var tile_map: String = ""
-@export var description: String = ""
+@export var display_title: String = ""
+@export_multiline var level_description: String = ""
+@export_multiline var level_complete_description: String = ""
+
+enum OutputGoals {
+	TRUE,
+	FALSE
+	# Extendable further
+}
+@export var expected_output: OutputGoals = OutputGoals.TRUE
 
 # --- Block availability ---
 @export var true_value_count: int = 0

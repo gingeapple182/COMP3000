@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://crxh6se4m0rxq"]
+[gd_scene load_steps=25 format=3 uid="uid://crxh6se4m0rxq"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_qh2xr"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_aomcw"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bncfiuba1xc2i" path="res://Scenes/Assets/Assets/door_placeholder.tscn" id="12_w4s6r"]
 [ext_resource type="PackedScene" uid="uid://xf3y70bw7j1e" path="res://Scenes/Assets/Assets/noticeboard.tscn" id="13_n8f0u"]
 [ext_resource type="FontFile" uid="uid://bwbipxb1wjho4" path="res://Scenes/Assets/Fonts/AppleStormRg.otf" id="14_yvqja"]
+[ext_resource type="Texture2D" uid="uid://c4bg886unxj0y" path="res://Scenes/Assets/images/portraits/tylerPortrait.png" id="16_pujfh"]
 [ext_resource type="Script" path="res://Scripts/LevelData.gd" id="17_xajek"]
 [ext_resource type="Resource" uid="uid://b27tdk5gxl6dt" path="res://Levels/Level_Tutorial/level_01.tres" id="18_y3gnq"]
 
@@ -134,23 +135,27 @@ transform = Transform3D(1.1, 0, 4.88493e-16, 0, 1.1, 0, -4.88493e-16, 0, 1.1, -1
 is_open = true
 
 [node name="PhotoFrames" type="Node3D" parent="OfficeHub01/Tutorial"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5455, -2.27273, -1.45455)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5455, -2.27273, -1.26346)
 
 [node name="PhotoFrame" parent="OfficeHub01/Tutorial/PhotoFrames" instance=ExtResource("7_untni")]
-transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -17.2954, 3.60456, 5.25)
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -20.0928, 3.60456, 5.25)
 portrait = ExtResource("8_m5v0v")
 
 [node name="PhotoFrame2" parent="OfficeHub01/Tutorial/PhotoFrames" instance=ExtResource("7_untni")]
-transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -20.1954, 3.60456, 5.25)
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -22.129, 3.60456, 5.25)
 portrait = ExtResource("8_hlpnh")
 
 [node name="PhotoFrame3" parent="OfficeHub01/Tutorial/PhotoFrames" instance=ExtResource("7_untni")]
-transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -23.2954, 3.60456, 5.25)
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -24.2004, 3.60456, 5.25)
 portrait = ExtResource("10_ht3cb")
 
 [node name="PhotoFrame4" parent="OfficeHub01/Tutorial/PhotoFrames" instance=ExtResource("7_untni")]
-transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -26.3954, 3.60456, 5.25)
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -18.0866, 3.60456, 5.25)
 portrait = ExtResource("11_nldl1")
+
+[node name="PhotoFrame5" parent="OfficeHub01/Tutorial/PhotoFrames" instance=ExtResource("7_untni")]
+transform = Transform3D(-1.5, 0, 5.84122e-07, 0, 1.5, 0, -5.84122e-07, 0, -1.5, -26.3523, 3.605, 5.25)
+portrait = ExtResource("16_pujfh")
 
 [node name="Desk2" parent="OfficeHub01/Tutorial" instance=ExtResource("5_e2qkm")]
 transform = Transform3D(-0.909091, 0, 7.94753e-08, 0, 0.909091, 0, -7.94753e-08, 0, -0.909091, -7, -1.79699, -1.81818)
@@ -193,6 +198,7 @@ font_size = 70
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="OfficeHub01/Tutorial/Interactables"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14172, 0, 0)
+visible = false
 use_collision = true
 script = ExtResource("3_c2668")
 target_scene = ExtResource("4_k0pae")
