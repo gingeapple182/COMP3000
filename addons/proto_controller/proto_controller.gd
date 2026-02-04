@@ -53,7 +53,7 @@ var freeflying : bool = false
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 @onready var interact_ray = $Head/Camera3D/RayCast3D
-@onready var interact_label = $"../CanvasLayer/InteractLabel"
+@export var interact_label = $""
 
 func _ready() -> void:
 	check_input_mappings()
@@ -192,6 +192,8 @@ func check_input_mappings():
 		can_freefly = false
 
 func _process(delta):
+	if !interact_label:
+		return
 	if interact_ray.is_colliding():
 		var collider = interact_ray.get_collider()
 		if collider.has_method("interact"):

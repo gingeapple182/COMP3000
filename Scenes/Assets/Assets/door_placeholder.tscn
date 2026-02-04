@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bncfiuba1xc2i"]
+[gd_scene load_steps=4 format=3 uid="uid://bncfiuba1xc2i"]
 
 [ext_resource type="Script" path="res://Scripts/door_placeholder.gd" id="1_otfo3"]
+[ext_resource type="Material" uid="uid://c0nb2fvkkrq8g" path="res://Scenes/Assets/Materials/invisible.tres" id="2_r1qor"]
+[ext_resource type="PackedScene" uid="uid://ckfm4ddxsjiqp" path="res://Scenes/Assets/Assets/kenney/doorwayFront.glb" id="3_3hck7"]
 
 [node name="DoorPlaceholder2" type="Node3D"]
 script = ExtResource("1_otfo3")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.167834, 1.61695, -0.966125)
 use_collision = true
-size = Vector3(0.25, 4, 3)
+size = Vector3(0.314331, 3.26508, 1.94226)
+material = ExtResource("2_r1qor")
 
 [node name="Label3D" type="Label3D" parent="CSGBox3D"]
 transform = Transform3D(-1.05627e-07, 1.09204e-08, 1, 1.28977, 1.58822, 0, -1.53709, 1.33267, -4.37114e-08, 0.14, 0, -6.11959e-09)
@@ -17,3 +20,6 @@ text = "DOOR"
 [node name="Label3D2" type="Label3D" parent="CSGBox3D"]
 transform = Transform3D(2.60544e-07, -7.39583e-08, -1, 1.20687, 1.46655, -6.15812e-15, 1.43829, -1.23059, 1.31134e-07, -0.14, 0, 6.11959e-09)
 text = "DOOR"
+
+[node name="doorwayFront" parent="CSGBox3D" instance=ExtResource("3_3hck7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.8, 0, -1, 0, -4.37114e-08, 0.167834, -1.61695, 0.966125)
