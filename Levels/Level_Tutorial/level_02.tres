@@ -5,21 +5,23 @@
 [resource]
 script = ExtResource("1_cqs51")
 level_id = "tutorial_level_02"
-tile_map = "00000
-11112
-00000
+tile_map = "0000
+0120
+0000"
+display_title = "False Signals"
+level_description = "Not all signals are TRUE.
+Place a FALSE value block so that the output becomes FALSE.
 "
-display_title = "LEVEL 02"
-level_description = "NOT gate test - Try to achieve a FALSE output"
-level_complete_description = "Congratulations, you successfully completed the NOT gate tutorial level"
+level_complete_description = "Correct. Outputs can also receive FALSE signals.
+"
 expected_output = 1
-true_value_count = 1
-false_value_count = 0
+true_value_count = 0
+false_value_count = 1
 and_gate_count = 0
-not_gate_count = 1
+not_gate_count = 0
 or_gate_count = 0
 L_U_connector_count = 0
-L_R_connector_count = 2
+L_R_connector_count = 0
 L_D_connector_count = 0
 D_U_connector_count = 0
 D_R_connector_count = 0

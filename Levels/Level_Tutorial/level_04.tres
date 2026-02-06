@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://dm23dygoxfr67"]
+
+[ext_resource type="Script" path="res://Scripts/LevelData.gd" id="1_nvxlq"]
+
+[resource]
+script = ExtResource("1_nvxlq")
+level_id = "tutoriasl_level_04"
+tile_map = "00000
+01100
+00120
+01100
+00000
+"
+display_title = "Breaking the AND"
+level_description = "If ANY input into an AND gate is FALSE,
+the output will be FALSE.
+"
+level_complete_description = "Correct. A single FALSE input breaks the AND condition.
+"
+expected_output = 1
+true_value_count = 1
+false_value_count = 1
+and_gate_count = 1
+not_gate_count = 0
+or_gate_count = 0
+L_U_connector_count = 1
+L_R_connector_count = 0
+L_D_connector_count = 1
+D_U_connector_count = 0
+D_R_connector_count = 0
+U_R_connector_count = 0
+U_D_connector_count = 0

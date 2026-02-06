@@ -17,7 +17,7 @@ use_collision = true
 size = Vector3(56, 1, 52)
 
 [node name="Ceiling" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, 2000)
 visible = false
 material_override = ExtResource("2_tylp4")
 use_collision = true

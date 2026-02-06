@@ -5,20 +5,27 @@
 [resource]
 script = ExtResource("1_2gjhl")
 level_id = "tutorial_level_03"
-tile_map = "11100
-00112
-11100"
-display_title = "LEVEL 03"
-level_description = "OR gate test - Try to achieve a TRUE output"
-level_complete_description = "Congratulations, you successfully completed the OR gate tutorial level"
+tile_map = "00000
+01100
+00120
+01100
+00000
+"
+display_title = "Feeding an AND Gate"
+level_description = "AND gates require two inputs.
+Use connector blocks to route signals into the gate.
+Both inputs must be TRUE.
+"
+level_complete_description = "Well done. You’ve successfully routed two signals into an AND gate.
+"
 expected_output = 0
 true_value_count = 2
-false_value_count = 2
-and_gate_count = 0
+false_value_count = 0
+and_gate_count = 1
 not_gate_count = 0
-or_gate_count = 1
+or_gate_count = 0
 L_U_connector_count = 1
-L_R_connector_count = 4
+L_R_connector_count = 0
 L_D_connector_count = 1
 D_U_connector_count = 0
 D_R_connector_count = 0

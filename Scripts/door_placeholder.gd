@@ -10,8 +10,13 @@ extends Node3D
 
 @onready var panel: CSGBox3D = $CSGBox3D
 
+@export var has_puzzles := false
+@export var levels: Array[LevelData] = []
+
+
 func _ready() -> void:
 	_apply_state()
+	apply_progression_state()
 
 # ROOM STRUCTURE RULE:
 # All direct children must be Node3D container nodes.
@@ -61,3 +66,51 @@ func set_children_enabled(enabled: bool) -> void:
 		" room node(s) in ",
 		name
 	)
+
+
+func get_level_slice(start_index: int) -> Array[LevelData]:
+	if not has_puzzles:
+		push_warning("[ROOM] get_level_slice called on room with has_puzzles = false: " + name)
+		return []
+	
+	if start_index < 0 or start_index >= levels.size():
+		push_warning("[ROOM] Invalid start_index " + str(start_index) + " in room: " + name)
+		return []
+	
+	return levels.slice(start_index, levels.size())
+
+
+func apply_progression_state() -> void:
+	if not has_puzzles:
+		return
+	
+	var completed_up_to := -1
+	for i in range(levels.size()):
+		if GameManager.is_level_complete(name, i):
+			completed_up_to = i
+		else:
+			break
+	
+	var interactables_root := get_node("Interactables")
+	for child in interactables_root.get_children():
+		if not child.has_method("interact"):
+			continue
+		
+		if child.start_index <= completed_up_to:
+			# completed → remove / disable
+			child.visible = false
+			child._update_label("FICXED", Color.GRAY)
+			child.process_mode = Node.PROCESS_MODE_DISABLED
+			child.is_enabled = false
+		elif child.start_index == completed_up_to + 1:
+			# next available → keep active
+			child.visible = true
+			child._update_label("AVAILABLE", Color.GREEN)
+			child.process_mode = Node.PROCESS_MODE_INHERIT
+			child.is_enabled = true
+		else:
+			# future → hide or keep blocked
+			child.visible = true
+			child._update_label("LOCKED", Color.RED)
+			child.process_mode = Node.PROCESS_MODE_DISABLED
+			child.is_enabled = false

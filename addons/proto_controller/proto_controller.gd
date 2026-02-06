@@ -57,8 +57,22 @@ var freeflying : bool = false
 
 func _ready() -> void:
 	check_input_mappings()
+	print("[ProtoController] GameManager.return_spawn_point:", GameManager.return_spawn_point)
+	
+	var spawn_marker: Marker3D = null
+	
+	if GameManager.return_spawn_point !=NodePath(""):
+		spawn_marker = get_node_or_null(GameManager.return_spawn_point)
+		print("[ProtoController] Tried GM spawn, found:", spawn_marker)
+	if spawn_marker == null:
+		spawn_marker = get_parent().get_node_or_null("SpawnPoint")
+		print("[ProtoController] Using fallback SpawnPoint:", spawn_marker)
+	if spawn_marker:
+		global_transform = spawn_marker.global_transform
+	
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+
 
 # Change scene
 func _input(event):
@@ -70,8 +84,8 @@ func _input(event):
 			if collider.has_method("interact"):
 				print("object interacted")
 				collider.interact()
-		
-	
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):

@@ -1,14 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://h5kp1pfgasbh"]
+[gd_scene load_steps=17 format=3 uid="uid://h5kp1pfgasbh"]
 
 [ext_resource type="Script" path="res://Scripts/puzzle_controller.gd" id="1_54mf1"]
 [ext_resource type="Script" path="res://Scripts/grid_manager.gd" id="1_a8pl4"]
-[ext_resource type="Script" path="res://Scripts/LevelData.gd" id="2_gqqr1"]
 [ext_resource type="Resource" uid="uid://dhpjlpx50xekd" path="res://Levels/Level_Tutorial/level_02.tres" id="2_laves"]
 [ext_resource type="PackedScene" uid="uid://chdalqissc16x" path="res://Scenes/Assets/Assets/grid_slot_active.tscn" id="2_pxsq5"]
-[ext_resource type="Resource" uid="uid://b27tdk5gxl6dt" path="res://Levels/Level_Tutorial/level_01.tres" id="2_s27bq"]
 [ext_resource type="PackedScene" uid="uid://0ltp5rltjb7a" path="res://Scenes/Assets/Assets/grid_slot_inactive.tscn" id="3_40yeu"]
 [ext_resource type="PackedScene" uid="uid://hv0cidxt56rm" path="res://Scenes/Assets/Assets/logic_block.tscn" id="5_a0mmd"]
-[ext_resource type="Resource" uid="uid://d0xld8jy7kyix" path="res://Levels/Level_Tutorial/level_03.tres" id="5_d4wm2"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="5_gj2ys"]
 [ext_resource type="PackedScene" uid="uid://c2c2hh56sjnw" path="res://Scenes/Assets/Assets/grid_slot_output.tscn" id="5_kf5ye"]
 [ext_resource type="Theme" uid="uid://c5h5ivvy177xi" path="res://Resources/default_theme.tres" id="6_rg4rv"]
@@ -34,7 +31,6 @@ size = Vector2(25, 25)
 script = ExtResource("1_54mf1")
 debug_level = ExtResource("2_laves")
 current_level = ExtResource("2_laves")
-levels = Array[ExtResource("2_gqqr1")]([ExtResource("2_s27bq"), ExtResource("2_laves"), ExtResource("5_d4wm2")])
 block_scene = ExtResource("5_a0mmd")
 hover_height = 1.0
 

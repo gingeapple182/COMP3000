@@ -2,7 +2,7 @@ extends Node3D
 ## -- temp
 @export var debug_level: LevelData
 @export var current_level: LevelData
-@export var levels: Array[LevelData] = []
+var levels: Array[LevelData] = []
 var current_level_index: int = 0
 
 @export var block_scene: PackedScene
@@ -43,10 +43,21 @@ func _ready() -> void:
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	print("[PUZZLE] Initial State →", PuzzleState.keys()[puzzle_state])
-	if levels.size() > 0:
+	
+	if GameManager.current_level_set.size() > 0:
+		levels = GameManager.current_level_set
+		print("[PUZZLE] Loaded level set from GameManager:", levels.size(), "levels")
 		load_level(0)
+	elif debug_level:
+		levels = [debug_level]
+		print("[PUZZLE] Using debug level")
+		load_level(0)
+	else: 
+		push_error("[PUZZLE] No level set provided!")
+	#if levels.size() > 0:
+	#	load_level(0)
 	#if current_level:
-		#spawn_blocks_for_level(current_level)
+	#	spawn_blocks_for_level(current_level)
 
 func _process(delta: float) -> void:
 	pass
@@ -175,6 +186,7 @@ func start_validation() -> void:
 	
 	if grid_manager.validate_outputs():
 		set_puzzle_state(PuzzleState.SOLVED)
+		GameManager.mark_level_complete(current_level_index)
 		var is_final_level := current_level_index >= levels.size() - 1
 		if is_final_level:
 			print("[PUZZLE] Final level completed")

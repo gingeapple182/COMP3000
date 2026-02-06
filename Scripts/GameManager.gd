@@ -7,6 +7,11 @@ var fade_rect: ColorRect
 var loading_label: Label
 var loading_bar: ProgressBar
 
+var current_level_set: Array[LevelData] = []
+var completed_levels_by_room := {}
+var current_room_name: String
+
+var return_spawn_point: NodePath = NodePath("")
 
 func _ready() -> void:
 	load_screen = load_screen_scene.instantiate()
@@ -34,7 +39,8 @@ func change_scene(scene_id: String) -> void:
 		return
 	
 	print("[GameManager] Changing to scene: " + scene_id)
-	
+	print("[GameManager] current_level_set:", current_level_set)
+	print("[GameManager] return_spawn_point:", return_spawn_point)
 	#if load_screen:
 	#	load_screen.visible = true
 	
@@ -107,3 +113,19 @@ func loading_text_animated(duration := 1.0) -> void:
 		await get_tree().create_timer(0.3).timeout
 		
 		time += 1.2
+
+
+func mark_level_complete(level_index: int) -> void:
+	var room_name := current_room_name
+	if not completed_levels_by_room.has(room_name):
+		completed_levels_by_room[room_name] = {}
+
+	completed_levels_by_room[room_name][level_index] = true
+	print("[GameManager] Marked level", level_index, "complete for room", room_name)
+
+
+func is_level_complete(room_name: String, level_index: int) -> bool:
+	return (
+		completed_levels_by_room.has(room_name)
+		and completed_levels_by_room[room_name].has(level_index)
+	)
