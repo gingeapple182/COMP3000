@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://divdbe4fadvmd"]
+[gd_scene load_steps=8 format=3 uid="uid://divdbe4fadvmd"]
 
 [ext_resource type="Script" path="res://Dev/asset_zoo.gd" id="1_6yqpv"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_dv7ur"]
+[ext_resource type="PackedScene" uid="uid://d1jy6v8q0roce" path="res://Scenes/Assets/Button.tscn" id="3_rxueh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vi5em"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -29,10 +30,35 @@ environment = SubResource("Environment_yspxd")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="ProtoController" parent="." instance=ExtResource("2_dv7ur")]
+[node name="ProtoController" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("2_dv7ur")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83469, 0)
+interact_label = NodePath("../CanvasLayer/InteractLabel")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_c35ew")
+
+[node name="Button" parent="." instance=ExtResource("3_rxueh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.69708, 1, -2.46572)
+use_collision = true
+button_type = 1
+target_scene = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -11.5
+offset_right = 70.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+text = "Press F to interact"

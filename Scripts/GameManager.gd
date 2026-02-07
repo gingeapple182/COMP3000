@@ -29,6 +29,8 @@ var scenes:= {
 	"landing_menu": preload("res://Scenes/landing_menu.tscn"),
 	"hub_01": preload("res://Scenes/main.tscn"),
 	"puzzle_board": preload("res://Scenes/puzzle_board.tscn"),
+	"maze": preload("res://Scenes/maze.tscn"),
+	"zoo": preload("res://Dev/asset_zoo.tscn"),
 }
 var return_scene: PackedScene
 
