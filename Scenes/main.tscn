@@ -1,7 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://crxh6se4m0rxq"]
+[gd_scene load_steps=44 format=3 uid="uid://crxh6se4m0rxq"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_qh2xr"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_aomcw"]
+[ext_resource type="Texture2D" uid="uid://bup7ec4mq216j" path="res://addons/skybox/sky_04_2k.png" id="2_bgcbv"]
 [ext_resource type="Script" path="res://Scripts/Interactable.gd" id="3_c2668"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="4_2m2wd"]
 [ext_resource type="PackedScene" uid="uid://cwtvuysuygpay" path="res://Scenes/Assets/office_hub_01.tscn" id="6_5lupv"]
@@ -38,12 +39,11 @@
 [ext_resource type="PackedScene" uid="uid://dw4spjloyb70v" path="res://Scenes/Assets/Assets/kenney/laptop.glb" id="33_g6nm0"]
 [ext_resource type="PackedScene" uid="uid://duul877v0v8be" path="res://Scenes/Assets/Assets/kenney/radio.glb" id="34_0vm55"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cebsl"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_65ipd"]
+panorama = ExtResource("2_bgcbv")
 
 [sub_resource type="Sky" id="Sky_ja0qp"]
-sky_material = SubResource("ProceduralSkyMaterial_cebsl")
+sky_material = SubResource("PanoramaSkyMaterial_65ipd")
 
 [sub_resource type="Environment" id="Environment_jwtab"]
 background_mode = 2
@@ -65,6 +65,7 @@ environment = SubResource("Environment_jwtab")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866027, 0.43301, -0.249997, -1.49013e-08, 0.499998, 0.866027, 0.499997, 0.750003, -0.433012, 0, 24.2, 0)
 shadow_enabled = true
+sky_mode = 2
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2, 1, 21.5)
