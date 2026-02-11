@@ -78,3 +78,7 @@ pause={
 3d/default_cell_size=1.0
 3d/default_cell_height=1.0
 3d/default_edge_connection_margin=1.0
+
+[rendering]
+
+occlusion_culling/use_occlusion_culling=true

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://camjf8mnnbuos"]
+
+[ext_resource type="PackedScene" uid="uid://bcc5uxq010qxm" path="res://Scenes/Assets/Assets/kenney/lampRoundFloor.glb" id="1_txwxv"]
+
+[node name="lampRoundFloor" instance=ExtResource("1_txwxv")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lampRoundFloor(Clone)" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188021, 2.77648, -0.167788)
+light_color = Color(0.921569, 0.415686, 0.0980392, 1)
+light_energy = 2.0
+light_size = 0.2
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="lampRoundFloor(Clone)" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188021, 1.87112, -0.167788)
+light_color = Color(0.921569, 0.415686, 0.0980392, 1)
+light_energy = 2.0
+light_size = 0.25

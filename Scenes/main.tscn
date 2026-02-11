@@ -35,9 +35,9 @@
 [ext_resource type="PackedScene" uid="uid://56nv2haptfj7" path="res://Scenes/Assets/Assets/kenney/cardboardBoxClosed.glb" id="31_c620q"]
 [ext_resource type="PackedScene" uid="uid://da00o1nl8shff" path="res://Scenes/Assets/Assets/kenney/rugRound.glb" id="31_r65h5"]
 [ext_resource type="PackedScene" uid="uid://dhgg8jp6qybl3" path="res://Scenes/Assets/Assets/kenney/tableRound.glb" id="32_gycmy"]
-[ext_resource type="PackedScene" uid="uid://bcc5uxq010qxm" path="res://Scenes/Assets/Assets/kenney/lampRoundFloor.glb" id="33_146to"]
 [ext_resource type="PackedScene" uid="uid://dw4spjloyb70v" path="res://Scenes/Assets/Assets/kenney/laptop.glb" id="33_g6nm0"]
 [ext_resource type="PackedScene" uid="uid://duul877v0v8be" path="res://Scenes/Assets/Assets/kenney/radio.glb" id="34_0vm55"]
+[ext_resource type="PackedScene" uid="uid://camjf8mnnbuos" path="res://Scenes/Assets/Assets/lamp_round_floor.tscn" id="38_si03d"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_65ipd"]
 panorama = ExtResource("2_bgcbv")
@@ -48,8 +48,12 @@ sky_material = SubResource("PanoramaSkyMaterial_65ipd")
 [sub_resource type="Environment" id="Environment_jwtab"]
 background_mode = 2
 sky = SubResource("Sky_ja0qp")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.5
+reflected_light_source = 2
 tonemap_mode = 2
 glow_enabled = true
+fog_light_color = Color(0, 0.614298, 0.727888, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qep7p"]
 albedo_color = Color(0.0392157, 0.172549, 1, 1)
@@ -65,7 +69,6 @@ environment = SubResource("Environment_jwtab")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866027, 0.43301, -0.249997, -1.49013e-08, 0.499998, 0.866027, 0.499997, 0.750003, -0.433012, 0, 24.2, 0)
 shadow_enabled = true
-sky_mode = 2
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2, 1, 21.5)
@@ -413,7 +416,8 @@ transform = Transform3D(1, 0, -2.26082e-14, 0, 1, 0, 2.26082e-14, 0, 1, -19.7, 0
 [node name="Interactables" type="Node3D" parent="OfficeHub01/Backroom"]
 
 [node name="Button" parent="OfficeHub01/Backroom/Interactables" instance=ExtResource("8_a6lxu")]
-transform = Transform3D(0.454545, 0, 1.02764e-14, 0, 0.454545, 0, -1.02764e-14, 0, 0.454545, -6.81703, 0.702548, -2.87238)
+transform = Transform3D(1, 0, 2.26082e-14, 0, 1, 0, -2.26082e-14, 0, 1, -6.81703, 0.702548, -2.87238)
+visible = false
 use_collision = true
 button_type = 1
 target_scene = 4
@@ -571,5 +575,5 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10.5731, 0.5, 23.0934)
 [node name="tableRound" parent="." instance=ExtResource("32_gycmy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.8911, 1.31692, 4.73547)
 
-[node name="lampRoundFloor" parent="." instance=ExtResource("33_146to")]
-transform = Transform3D(1.5, 0, 0, 0, 1.2, 0, 0, 0, 1.5, -22.813, 0.5, 2.42187)
+[node name="lampRoundFloor" parent="." instance=ExtResource("38_si03d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0396, 0.521093, 2.25877)
