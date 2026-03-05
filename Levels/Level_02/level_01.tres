@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://c7c51iwkviaxs"]
+
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_tapm6"]
+
+[resource]
+script = ExtResource("1_tapm6")
+level_id = "not_room_level_01"
+tile_map = "0000000
+0111120
+0000000
+"
+display_title = "Flip It"
+level_description = "The NOT gate does one job: it flips the signal.
+TRUE becomes FALSE.
+Build a circuit that outputs FALSE."
+level_complete_description = "Nice. NOT flipped TRUE into FALSE exactly as intended."
+expected_output = 1
+true_value_count = 1
+not_gate_count = 1
+L_R_connector_count = 2

@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://b27tdk5gxl6dt"]
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://b27tdk5gxl6dt"]
 
-[ext_resource type="Script" path="res://Scripts/LevelData.gd" id="1_qwcqx"]
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_qwcqx"]
 
 [resource]
 script = ExtResource("1_qwcqx")
@@ -14,16 +14,4 @@ Place a TRUE value block so that the output becomes TRUE.
 "
 level_complete_description = "Good work. You’ve successfully sent a signal to the output.
 "
-expected_output = 0
 true_value_count = 1
-false_value_count = 0
-and_gate_count = 0
-not_gate_count = 0
-or_gate_count = 0
-L_U_connector_count = 0
-L_R_connector_count = 0
-L_D_connector_count = 0
-D_U_connector_count = 0
-D_R_connector_count = 0
-U_R_connector_count = 0
-U_D_connector_count = 0

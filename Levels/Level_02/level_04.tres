@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://bhdxf5k1i7ovs"]
+
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_misvc"]
+
+[resource]
+script = ExtResource("1_misvc")
+level_id = "not_room_level_04"
+tile_map = "000000000
+011111000
+011111120
+011111000
+000000000
+"
+display_title = "Fix Then Confirm"
+level_description = "AND gates demand TWO TRUE inputs.
+You have one TRUE and one FALSE.
+Use NOT to flip the FALSE, then use AND to make the final output TRUE."
+level_complete_description = "Nice. You flipped the FALSE and satisfied the AND gate."
+true_value_count = 1
+false_value_count = 1
+and_gate_count = 1
+not_gate_count = 1
+L_U_connector_count = 2
+L_R_connector_count = 4
+L_D_connector_count = 4
+D_U_connector_count = 1
+D_R_connector_count = 1
+U_R_connector_count = 1
+U_D_connector_count = 1

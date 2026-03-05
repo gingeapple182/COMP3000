@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://cpmoduxj75pap"]
+
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_lq77c"]
+
+[resource]
+script = ExtResource("1_lq77c")
+level_id = "and_room_level_05"
+tile_map = "0000000
+0111100
+0110100
+0111120
+0110100
+0111100
+0000000
+"
+display_title = "Stacked Logic"
+level_description = "Some circuits require multiple stages.
+Combine two AND gates together.
+Every input must be TRUE for the final result to succeed."
+level_complete_description = "Excellent. You chained two AND gates successfully."
+true_value_count = 3
+false_value_count = 1
+and_gate_count = 2
+L_U_connector_count = 3
+L_R_connector_count = 3
+L_D_connector_count = 3
+D_U_connector_count = 2
+D_R_connector_count = 1
+U_R_connector_count = 1
