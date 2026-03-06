@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://42kdqu7gltjk"]
+
+[ext_resource type="PackedScene" uid="uid://cuvwe2sfsuuvt" path="res://Scenes/Assets/Assets/kenney/bookcaseClosedWide.glb" id="1_opvwj"]
+[ext_resource type="PackedScene" uid="uid://mfsnpk40tccd" path="res://Scenes/Assets/Assets/kenney/books.glb" id="2_af4wp"]
+[ext_resource type="PackedScene" uid="uid://56nv2haptfj7" path="res://Scenes/Assets/Assets/kenney/cardboardBoxClosed.glb" id="3_m7d2v"]
+[ext_resource type="PackedScene" uid="uid://bdsdvvcpt4nuq" path="res://Scenes/Assets/Assets/kenney/plantSmall1.glb" id="4_0wpiw"]
+[ext_resource type="PackedScene" uid="uid://benaeny3ox5q4" path="res://Scenes/Assets/Assets/kenney/plantSmall2.glb" id="5_aimps"]
+[ext_resource type="PackedScene" uid="uid://dcxecue4vc2n1" path="res://Scenes/Assets/Assets/kenney/plantSmall3.glb" id="6_ydv01"]
+[ext_resource type="PackedScene" uid="uid://duul877v0v8be" path="res://Scenes/Assets/Assets/kenney/radio.glb" id="7_nn6bp"]
+[ext_resource type="Material" uid="uid://c0nb2fvkkrq8g" path="res://Scenes/Assets/Materials/invisible.tres" id="8_af4wp"]
+
+[node name="bookcaseDecorated" unique_id=1638446359 instance=ExtResource("1_opvwj")]
+
+[node name="Node3D" type="Node3D" parent="." index="1" unique_id=2114282828]
+
+[node name="books5" parent="Node3D" index="0" unique_id=253697766 instance=ExtResource("2_af4wp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3075693, 0.9533058, -0.12940133)
+
+[node name="books8" parent="Node3D" index="1" unique_id=1354462353 instance=ExtResource("2_af4wp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8000791, 1.6481774, -0.12940133)
+
+[node name="books10" parent="Node3D" index="2" unique_id=1964680903 instance=ExtResource("2_af4wp")]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 1.1250913, 1.6481774, -0.12940133)
+
+[node name="books16" parent="Node3D" index="3" unique_id=698215177 instance=ExtResource("2_af4wp")]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.742278e-08, 0, 8.742278e-08, 1, 2.2173114, 0.95556605, -0.12940133)
+
+[node name="books11" parent="Node3D" index="4" unique_id=1335335967 instance=ExtResource("2_af4wp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21324229, 1.6481774, -0.12940133)
+
+[node name="books12" parent="Node3D" index="5" unique_id=1441622773 instance=ExtResource("2_af4wp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8000791, 0.22348058, -0.12940133)
+
+[node name="books13" parent="Node3D" index="6" unique_id=1020785636 instance=ExtResource("2_af4wp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2528315, 0.22348058, -0.12940133)
+
+[node name="books14" parent="Node3D" index="7" unique_id=792437462 instance=ExtResource("2_af4wp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71144485, 0.22348058, -0.12940133)
+
+[node name="cardboardBoxClosed" parent="Node3D" index="8" unique_id=1088529894 instance=ExtResource("3_m7d2v")]
+transform = Transform3D(0.5873354, 0, -0.38083735, 0, 0.7, 0, 0.38083735, 0, 0.5873354, 0.0731923, 0.2049411, -0.28882456)
+
+[node name="plantSmall1" parent="." index="2" unique_id=85796456 instance=ExtResource("4_0wpiw")]
+transform = Transform3D(0.4856795, 0, -0.8741369, 0, 1, 0, 0.8741369, 0, 0.4856795, 1.1341612, 0.9222901, -0.2819364)
+
+[node name="plantSmall2" parent="." index="3" unique_id=420863683 instance=ExtResource("5_aimps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2783002, 1.6642658, -0.25566775)
+
+[node name="plantSmall3" parent="." index="4" unique_id=557092309 instance=ExtResource("6_ydv01")]
+transform = Transform3D(0.33704597, 0, -0.9414882, 0, 1, 0, 0.9414882, 0, 0.33704597, 1.6350635, 1.6642658, -0.25566775)
+
+[node name="radio" parent="." index="5" unique_id=339966925 instance=ExtResource("7_nn6bp")]
+transform = Transform3D(0.7888085, 0, 0.13334617, 0, 0.8, 0, -0.13334617, 0, 0.7888085, 0.18530393, 0.92124486, -0.12713718)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="6" unique_id=963843696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.188828, 1.1748013, -0.37772733)
+use_collision = true
+size = Vector3(2.4606934, 2.4135742, 0.7875366)
+material = ExtResource("8_af4wp")

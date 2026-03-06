@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c7334qsa65m3h"]
+
+[ext_resource type="PackedScene" uid="uid://daxcatvsnk1u2" path="res://Scenes/Assets/Assets/kenney/desk.glb" id="1_3geit"]
+[ext_resource type="PackedScene" uid="uid://cw18f3kfnmdjn" path="res://Scenes/Assets/Assets/kenney/computerKeyboard.glb" id="2_6x7tx"]
+[ext_resource type="PackedScene" uid="uid://cxoi3kvwd2yij" path="res://Scenes/Assets/Assets/kenney/computerMouse.glb" id="3_e7g44"]
+[ext_resource type="PackedScene" uid="uid://dvvoup6yc22j0" path="res://Scenes/Assets/Assets/kenney/computerScreen.glb" id="4_h3l6g"]
+
+[node name="DeskDecorated" type="Node3D" unique_id=2073274369]
+
+[node name="desk3" parent="." unique_id=54151841 instance=ExtResource("1_3geit")]
+transform = Transform3D(1.2, 0, -4.44085e-16, 0, 1, 0, 5.32902e-16, 0, 1, -1.3, 0, 0)
+
+[node name="computerKeyboard2" parent="desk3" unique_id=234396700 instance=ExtResource("2_6x7tx")]
+transform = Transform3D(0.833333, 0, 0, 0, 1, 0, 0, 0, 1, 0.707399, 1.14714, -0.097908)
+
+[node name="computerMouse2" parent="desk3" unique_id=672172839 instance=ExtResource("3_e7g44")]
+transform = Transform3D(0.833333, 0, 0, 0, 1, 0, 0, 0, 1, 1.7304, 1.17077, -0.0747013)
+
+[node name="computerScreen2" parent="desk3" unique_id=2105280212 instance=ExtResource("4_h3l6g")]
+transform = Transform3D(0.833333, 0, 0, 0, 1, 0, 0, 0, 1, 0.602699, 1.16653, -0.73297)

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://8ds2tmpg7gln"]
+
+[ext_resource type="PackedScene" uid="uid://dvvoup6yc22j0" path="res://Scenes/Assets/Assets/kenney/computerScreen.glb" id="1_ph0qw"]
+[ext_resource type="Script" uid="uid://cwbwix2m8nox8" path="res://Scripts/AssetScripts/photo_frame.gd" id="2_usrku"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3xdje"]
+size = Vector2(0.9, 0.9)
+
+[node name="computerScreen" unique_id=414953278 instance=ExtResource("1_ph0qw")]
+script = ExtResource("2_usrku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=1681410895]
+transform = Transform3D(1.2669171, 0, 0, 0, 0.14335628, -0.79122484, 0, 1.0200329, 0.11119941, 0.58819354, 0.51895654, -0.15641075)
+mesh = SubResource("PlaneMesh_3xdje")
