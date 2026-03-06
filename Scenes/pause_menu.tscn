@@ -1,14 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://n32v3jeq450r"]
+[gd_scene format=3 uid="uid://n32v3jeq450r"]
 
-[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_54ojr"]
+[ext_resource type="Script" uid="uid://22wcecigrk3b" path="res://Scripts/pause_menu.gd" id="1_54ojr"]
+[ext_resource type="Theme" uid="uid://b36gcvokacoai" path="res://Resources/clipboard_menu.tres" id="2_k0w1u"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vnu5m"]
 
-[sub_resource type="Theme" id="Theme_6ajun"]
-
-[sub_resource type="Theme" id="Theme_nswdb"]
-
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=419546077]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_54ojr")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1435338167]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,46 +23,45 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.419608, 0.419608, 0.419608, 0.729412)
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1009704687]
 material = SubResource("CanvasItemMaterial_vnu5m")
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.333
+anchor_top = 0.33
+anchor_right = 0.67
 anchor_bottom = 1.0
-offset_left = -209.0
-offset_top = -446.0
-offset_right = 211.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = SubResource("Theme_6ajun")
+theme = ExtResource("2_k0w1u")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=733468710]
 layout_mode = 2
-theme = SubResource("Theme_nswdb")
+theme = ExtResource("2_k0w1u")
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1882418105]
 layout_mode = 2
+theme = ExtResource("2_k0w1u")
 text = "PAUSED"
 horizontal_alignment = 1
 
-[node name="Button_Resume" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Button_Resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1212670242]
 layout_mode = 2
+theme = ExtResource("2_k0w1u")
 text = "Resume"
 
-[node name="Button_Settings" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Button_Settings" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2007836734]
 layout_mode = 2
 disabled = true
 text = "Settings"
 
-[node name="Button_Reset" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Button_Reset" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1440753958]
 layout_mode = 2
 disabled = true
 text = "Reset"
 
-[node name="Button_Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Button_Quit" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1889321993]
 layout_mode = 2
 text = "Quit
 "

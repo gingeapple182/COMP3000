@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck0ddjsgg3dtv"]
+[gd_scene format=3 uid="uid://ck0ddjsgg3dtv"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_6g0tu"]
 [ext_resource type="PackedScene" uid="uid://1gfqsqrcfq2m" path="res://Scenes/Assets/Assets/kenney/wall.glb" id="2_gfotd"]
 [ext_resource type="PackedScene" uid="uid://d1jy6v8q0roce" path="res://Scenes/Assets/Button.tscn" id="3_yob2c"]
 [ext_resource type="PackedScene" uid="uid://cq0atjvqwhjmj" path="res://Scenes/Assets/Assets/kenney/floorFull.glb" id="4_h3t8s"]
+[ext_resource type="PackedScene" uid="uid://dfts3sjxm87go" path="res://Scenes/Assets/Assets/kenney/bear.glb" id="5_5sc6u"]
+[ext_resource type="PackedScene" uid="uid://mllyxh3ahih3" path="res://Scenes/NPC/navigation_npc.tscn" id="5_qwv30"]
+[ext_resource type="PackedScene" uid="uid://ctimyrl52g5rk" path="res://Scenes/Assets/Assets/kenney/toaster.glb" id="6_qwv30"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0cfgj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,29 +25,35 @@ fog_density = 0.438
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_e6xgr"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_720sd"]
+vertices = PackedVector3Array(-45.5, 11, -13.700001, -45.5, 11, -6.450001, -41.5, 11, -6.200001, -41.5, 11, -13.950001, 1.75, 11, -41.7, -41.5, 11, -41.7, 1.75, 11, 1.5499992, -41.5, 11, 1.5499992, -41.25, 1, -34.95, -38.5, 1, -35.2, -38.5, 1, -38.45, -41.25, 1, -41.45, -37.5, 1, -38.7, -37.25, 1, -34.7, -34.5, 1, -34.7, -34.5, 1, -41.45, -33.25, 1, -33.7, -34, 1, -33.45, -33.75, 1, -30.7, -30.5, 1, -30.7, -30.5, 1, -34.45, -29.75, 1, -34.7, -29.5, 1, -37.45, -30.5, 1, -37.7, -33.25, 1, -41.45, -30.5, 1, -38.45, -28.75, 1, -38.7, -29, 1, -41.45, -14.5, 1, -38.7, -14.5, 1, -41.45, -13.25, 1, -37.7, -17, 1, -37.45, -16.75, 1, -34.7, -10.5, 1, -34.7, -10.5, 1, -38.45, -6.5, 1, -38.7, -6.5, 1, -41.45, -13.25, 1, -41.45, -9.25, 1, -34.2, -6.5, 1, -33.95, -6.25, 1, -34.7, -9.25, 1, -37.45, -5.25, 1, -37.7, -2.25, 1, -38.7, -1.25, 1, -38.45, 1.5, 1, -41.45, -5.25, 1, -41.45, -2.5, 1, -34.7, -1.25, 1, -35.2, 1.5, 1, -34.95, -29.25, 1, -34.45, -26.5, 1, -33.7, -26.5, 1, -37.45, -22.5, 1, -33.95, -25.25, 1, -34.2, -25.5, 1, -33.45, -26.25, 1, -30.7, -22.5, 1, -30.7, -29.25, 1, -29.2, -26.5, 1, -28.95, -18.25, 1, -34.7, -22.25, 1, -34.7, -25.25, 1, -37.45, -18.5, 1, -33.7, -21.25, 1, -34.45, -21.25, 1, -30.7, -14.5, 1, -30.7, -14.5, 1, -33.45, -41.25, 1, -29.2, -38.5, 1, -28.95, -38.5, 1, -30.45, -34.5, 1, -30.45, -38.25, 1, -33.45, -37.5, 1, -30.7, -30.5, 1, -26.7, -30.5, 1, -29.45, -34.25, 1, -29.45, -37.25, 1, -26.7, -2, 1, -26.7, -1.75, 1, -29.45, -2.5, 1, -29.7, -5.25, 1, -26.7, -1.5, 1, -33.45, 1.5, 1, -30.7, -2.25, 1, -30.7, -5.25, 1, -33.45, -13.25, 1, -30.2, -10.5, 1, -29.95, -10.25, 1, -30.7, -9.5, 1, -33.45, -13.25, 1, -33.45, -9.5, 1, -30.7, -9.25, 1, -28.95, -6.5, 1, -29.2, -13.5, 1, -29.45, -10.5, 1, -26.7, -20.75, 1, -26.7, -21, 1, -29.45, -22.25, 1, -26.7, -25.25, 1, -29.45, -25.25, 1, -22.2, -22.5, 1, -21.95, -22.25, 1, -22.7, -22.5, 1, -25.7, -18.5, 1, -22.45, -17.75, 1, -22.7, -17.75, 1, -25.45, -21.25, 1, -22.45, -21.25, 1, -19.2, -18.5, 1, -18.95, -1.25, 1, -26.45, 1.5, 1, -29.45, 1.5, 1, -22.7, -1.5, 1, -25.45, -5.25, 1, -25.45, -5.25, 1, -22.7, -41.25, 1, -14.950001, -38.5, 1, -15.200001, -29.5, 1, -25.45, -26.5, 1, -22.7, -34.25, 1, -22.7, -37.25, 1, -25.45, -37.25, 1, -18.95, -34.5, 1, -19.2, -3, 1, -18.7, -2.75, 1, -21.45, -6.5, 1, -21.7, -9.25, 1, -18.7, -17.25, 1, -22.45, -14.25, 1, -21.45, -14.5, 1, -25.45, -13.25, 1, -21.7, -13.5, 1, -18.7, -13.25, 1, -14.700001, -10.5, 1, -14.700001, -10.5, 1, -25.45, -17.25, 1, -18.7, -13.25, 1, -25.45, -25.5, 1, -21.45, -22.5, 1, -18.7, -33.25, 1, -21.45, -33.25, 1, -18.7, -1.5, 1, -18.7, 1.5, 1, -21.45, -9.25, 1, -14.200001, -6.5, 1, -13.950001, -6.25, 1, -14.700001, -9.25, 1, -17.45, -1.5, 1, -14.700001, -1.25, 1, -14.200001, 1.5, 1, -14.200001, -1.25, 1, -17.7, -33.5, 1, -14.700001, -33.25, 1, -13.950001, -30.5, 1, -13.950001, -30.25, 1, -14.700001, -34.25, 1, -17.45, -23.25, 1, -14.700001, -23.25, 1, -17.45, -37.25, 1, -14.700001, -21.25, 1, -10.200001, -18.5, 1, -10.200001, -18.25, 1, -10.700001, -18.25, 1, -13.450001, -21.25, 1, -14.450001, -21.5, 1, -17.45, -17.25, 1, -13.700001, -14.5, 1, -10.700001, -14.5, 1, -17.45, -17.25, 1, -17.45, -37.25, 1, -5.700001, -37.75, 1, -5.450001, -37.5, 1, -2.7000008, -33.75, 1, -2.7000008, -33.75, 1, -5.450001, -34.5, 1, -5.700001, -34.5, 1, -13.450001, -38.25, 1, -13.450001, -37.25, 1, -10.450001, -41.25, 1, -10.700001, -13.25, 1, -5.700001, -13.75, 1, -5.450001, -13.5, 1, -2.7000008, -10.5, 1, -2.7000008, -9.5, 1, -13.450001, -6.5, 1, -10.700001, -10.5, 1, -10.450001, -13.25, 1, -13.450001, -1.5, 1, -13.450001, 1.5, 1, -10.700001, -2.5, 1, -10.450001, -6.25, 1, -6.700001, -5.5, 1, -9.450001, -9.25, 1, -9.450001, -5.25, 1, -13.450001, -9.25, 1, -2.7000008, -6.5, 1, -2.7000008, -2.25, 1, -9.450001, 1.5, 1, -6.700001, 1.5, 1, -9.450001, -30.25, 1, -13.450001, -33.25, 1, -10.700001, -25.25, 1, -10.450001, -25.25, 1, -2.7000008, -22.5, 1, -2.7000008, -22.5, 1, -13.450001, -38.5, 1, -2.4500008, -38.5, 1, -5.700001, -41.25, 1, -6.450001, -41.25, 1, 1.2999992, -37, 1, 1.2999992, -36.75, 1, -1.4500008, -38.5, 1, -1.7000008, -45.25, 1, -6.700001, -42.25, 1, -9.450001, -38.5, 1, -9.450001, -42.5, 1, -13.450001, -45.25, 1, -13.450001, -14.25, 1, -2.7000008, -14.5, 1, -5.700001, -17.25, 1, -6.450001, -17.25, 1, -2.2000008, -14.5, 1, -2.2000008, -14.5, 1, -9.450001, -18.25, 1, -9.450001, -21.25, 1, -6.700001, -33.25, 1, -5.700001, -30.5, 1, -2.7000008, -30.25, 1, -6.700001, -29.25, 1, -6.450001, -29.25, 1, -2.7000008, -26.5, 1, -2.7000008, -26.5, 1, -9.450001, -33.25, 1, -9.450001, -18.5, 1, -5.450001, -21.25, 1, -5.450001, -21.5, 1, -1.4500008, -18.5, 1, 1.2999992, -5.25, 1, -2.2000008, -2.5, 1, -1.9500008, -2.25, 1, -2.7000008, -5.25, 1, -5.450001, 1.5, 1, -5.450001, -1.25, 1, -2.4500008, -1.25, 1, 1.2999992, 1.5, 1, 1.2999992, -5.5, 1, -1.4500008, -2.5, 1, 1.2999992, -14.25, 1, -1.4500008, -17.25, 1, 1.2999992)
+polygons = [PackedInt32Array(0, 3, 1), PackedInt32Array(1, 3, 2), PackedInt32Array(5, 4, 3), PackedInt32Array(3, 4, 6), PackedInt32Array(6, 7, 2), PackedInt32Array(6, 2, 3), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(10, 11, 12), PackedInt32Array(12, 11, 15), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(19, 16, 20), PackedInt32Array(23, 22, 21), PackedInt32Array(21, 20, 23), PackedInt32Array(23, 20, 16), PackedInt32Array(23, 16, 24), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 24), PackedInt32Array(24, 25, 23), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 26, 27), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 33), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 37), PackedInt32Array(37, 34, 30), PackedInt32Array(30, 34, 33), PackedInt32Array(40, 39, 38), PackedInt32Array(38, 41, 40), PackedInt32Array(40, 41, 42), PackedInt32Array(44, 43, 45), PackedInt32Array(45, 43, 46), PackedInt32Array(40, 42, 47), PackedInt32Array(47, 42, 43), PackedInt32Array(48, 44, 49), PackedInt32Array(49, 44, 45), PackedInt32Array(43, 42, 46), PackedInt32Array(21, 22, 50), PackedInt32Array(50, 22, 52), PackedInt32Array(50, 52, 51), PackedInt32Array(54, 53, 55), PackedInt32Array(55, 53, 57), PackedInt32Array(55, 57, 56), PackedInt32Array(59, 58, 56), PackedInt32Array(56, 58, 51), PackedInt32Array(51, 58, 50), PackedInt32Array(51, 55, 56), PackedInt32Array(31, 32, 60), PackedInt32Array(53, 54, 61), PackedInt32Array(61, 54, 62), PackedInt32Array(60, 63, 64), PackedInt32Array(64, 63, 65), PackedInt32Array(67, 66, 63), PackedInt32Array(63, 66, 65), PackedInt32Array(64, 61, 60), PackedInt32Array(60, 61, 31), PackedInt32Array(31, 61, 62), PackedInt32Array(70, 69, 68), PackedInt32Array(18, 71, 17), PackedInt32Array(17, 71, 73), PackedInt32Array(17, 73, 72), PackedInt32Array(9, 72, 8), PackedInt32Array(8, 72, 70), PackedInt32Array(8, 70, 68), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(72, 73, 70), PackedInt32Array(71, 76, 73), PackedInt32Array(73, 76, 77), PackedInt32Array(79, 78, 80), PackedInt32Array(80, 78, 81), PackedInt32Array(82, 48, 49), PackedInt32Array(84, 82, 83), PackedInt32Array(83, 82, 49), PackedInt32Array(84, 80, 85), PackedInt32Array(85, 80, 81), PackedInt32Array(85, 82, 84), PackedInt32Array(87, 86, 88), PackedInt32Array(88, 86, 90), PackedInt32Array(88, 90, 89), PackedInt32Array(38, 39, 89), PackedInt32Array(89, 39, 91), PackedInt32Array(91, 39, 92), PackedInt32Array(92, 39, 93), PackedInt32Array(91, 88, 89), PackedInt32Array(86, 87, 94), PackedInt32Array(94, 87, 95), PackedInt32Array(97, 94, 96), PackedInt32Array(96, 94, 95), PackedInt32Array(96, 98, 97), PackedInt32Array(97, 98, 99), PackedInt32Array(101, 100, 102), PackedInt32Array(102, 100, 103), PackedInt32Array(105, 104, 106), PackedInt32Array(106, 104, 107), PackedInt32Array(106, 107, 102), PackedInt32Array(106, 102, 103), PackedInt32Array(98, 103, 99), PackedInt32Array(99, 103, 100), PackedInt32Array(107, 104, 108), PackedInt32Array(108, 104, 109), PackedInt32Array(78, 79, 110), PackedInt32Array(110, 79, 111), PackedInt32Array(113, 110, 112), PackedInt32Array(112, 110, 111), PackedInt32Array(114, 113, 115), PackedInt32Array(115, 113, 112), PackedInt32Array(117, 116, 69), PackedInt32Array(69, 116, 68), PackedInt32Array(58, 59, 118), PackedInt32Array(118, 59, 119), PackedInt32Array(121, 118, 120), PackedInt32Array(120, 118, 119), PackedInt32Array(123, 122, 120), PackedInt32Array(120, 122, 121), PackedInt32Array(125, 124, 126), PackedInt32Array(126, 124, 127), PackedInt32Array(93, 126, 92), PackedInt32Array(92, 126, 127), PackedInt32Array(105, 106, 128), PackedInt32Array(128, 106, 130), PackedInt32Array(128, 130, 129), PackedInt32Array(132, 129, 131), PackedInt32Array(133, 132, 134), PackedInt32Array(134, 132, 131), PackedInt32Array(134, 131, 135), PackedInt32Array(132, 136, 129), PackedInt32Array(129, 136, 128), PackedInt32Array(131, 137, 135), PackedInt32Array(100, 101, 138), PackedInt32Array(138, 101, 139), PackedInt32Array(140, 138, 141), PackedInt32Array(141, 138, 139), PackedInt32Array(124, 125, 142), PackedInt32Array(142, 125, 143), PackedInt32Array(145, 144, 146), PackedInt32Array(146, 144, 147), PackedInt32Array(149, 148, 150), PackedInt32Array(150, 148, 151), PackedInt32Array(148, 146, 151), PackedInt32Array(151, 146, 147), PackedInt32Array(142, 143, 151), PackedInt32Array(151, 143, 150), PackedInt32Array(153, 152, 154), PackedInt32Array(154, 152, 155), PackedInt32Array(155, 152, 156), PackedInt32Array(157, 155, 158), PackedInt32Array(158, 155, 156), PackedInt32Array(122, 123, 156), PackedInt32Array(152, 159, 156), PackedInt32Array(156, 159, 122), PackedInt32Array(161, 160, 162), PackedInt32Array(162, 160, 163), PackedInt32Array(163, 160, 164), PackedInt32Array(158, 165, 157), PackedInt32Array(157, 165, 164), PackedInt32Array(163, 166, 162), PackedInt32Array(162, 166, 167), PackedInt32Array(108, 109, 165), PackedInt32Array(165, 109, 164), PackedInt32Array(164, 109, 163), PackedInt32Array(169, 168, 166), PackedInt32Array(166, 168, 167), PackedInt32Array(171, 170, 172), PackedInt32Array(172, 170, 175), PackedInt32Array(172, 175, 174), PackedInt32Array(172, 174, 173), PackedInt32Array(178, 177, 176), PackedInt32Array(116, 117, 177), PackedInt32Array(178, 179, 177), PackedInt32Array(177, 179, 116), PackedInt32Array(170, 178, 175), PackedInt32Array(175, 178, 176), PackedInt32Array(181, 180, 182), PackedInt32Array(182, 180, 183), PackedInt32Array(184, 144, 145), PackedInt32Array(145, 185, 184), PackedInt32Array(184, 185, 186), PackedInt32Array(183, 180, 186), PackedInt32Array(186, 180, 187), PackedInt32Array(187, 184, 186), PackedInt32Array(150, 188, 149), PackedInt32Array(150, 189, 188), PackedInt32Array(188, 189, 190), PackedInt32Array(193, 192, 191), PackedInt32Array(188, 190, 194), PackedInt32Array(194, 190, 192), PackedInt32Array(196, 195, 191), PackedInt32Array(191, 195, 193), PackedInt32Array(192, 190, 197), PackedInt32Array(197, 199, 198), PackedInt32Array(192, 197, 191), PackedInt32Array(191, 197, 198), PackedInt32Array(154, 200, 153), PackedInt32Array(153, 200, 201), PackedInt32Array(203, 202, 204), PackedInt32Array(204, 202, 205), PackedInt32Array(205, 202, 200), PackedInt32Array(200, 202, 201), PackedInt32Array(171, 172, 206), PackedInt32Array(171, 206, 207), PackedInt32Array(207, 206, 208), PackedInt32Array(208, 206, 209), PackedInt32Array(211, 210, 212), PackedInt32Array(212, 210, 209), PackedInt32Array(214, 208, 213), PackedInt32Array(206, 212, 209), PackedInt32Array(207, 208, 215), PackedInt32Array(215, 208, 214), PackedInt32Array(216, 214, 217), PackedInt32Array(217, 214, 213), PackedInt32Array(181, 182, 218), PackedInt32Array(222, 221, 218), PackedInt32Array(218, 221, 181), PackedInt32Array(181, 221, 219), PackedInt32Array(219, 221, 220), PackedInt32Array(219, 220, 223), PackedInt32Array(223, 220, 224), PackedInt32Array(160, 161, 224), PackedInt32Array(160, 224, 225), PackedInt32Array(225, 224, 220), PackedInt32Array(174, 226, 173), PackedInt32Array(173, 226, 227), PackedInt32Array(227, 226, 228), PackedInt32Array(230, 229, 231), PackedInt32Array(231, 229, 232), PackedInt32Array(229, 228, 232), PackedInt32Array(232, 228, 233), PackedInt32Array(228, 226, 233), PackedInt32Array(235, 234, 236), PackedInt32Array(236, 234, 237), PackedInt32Array(211, 236, 210), PackedInt32Array(210, 236, 237), PackedInt32Array(239, 238, 240), PackedInt32Array(240, 238, 241), PackedInt32Array(243, 240, 242), PackedInt32Array(242, 240, 241), PackedInt32Array(244, 243, 245), PackedInt32Array(245, 243, 242), PackedInt32Array(238, 239, 246), PackedInt32Array(246, 239, 247), PackedInt32Array(222, 248, 221), PackedInt32Array(221, 248, 249), PackedInt32Array(246, 247, 248), PackedInt32Array(248, 247, 249)]
+geometry_parsed_geometry_type = 0
+cell_height = 0.5
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Node3D" type="Node3D" unique_id=612883949]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1886609504]
 environment = SubResource("Environment_340hj")
 
-[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment" unique_id=1632535490]
 visible = false
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=532621981]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 visible = false
 light_color = Color(0, 0, 0, 1)
 shadow_enabled = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1609263910]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=997773595]
 shape = SubResource("WorldBoundaryShape3D_e6xgr")
 
-[node name="ProtoController" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("1_6g0tu")]
+[node name="ProtoController" parent="." unique_id=363906522 node_paths=PackedStringArray("interact_label") instance=ExtResource("1_6g0tu")]
 interact_label = NodePath("../CanvasLayer/InteractLabel")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="ProtoController/Head/Camera3D" index="1"]
+[node name="SpotLight3D" type="SpotLight3D" parent="ProtoController/Head/Camera3D" parent_id_path=PackedInt32Array(363906522, 309809382) index="1" unique_id=477671290]
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -52,7 +61,7 @@ spot_range = 15.0
 spot_attenuation = -0.5
 spot_angle = 25.0
 
-[node name="ExitButton" parent="." instance=ExtResource("3_yob2c")]
+[node name="ExitButton" parent="." unique_id=622287412 instance=ExtResource("3_yob2c")]
 transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -44.0598, 2.28497, -13.6978)
 use_collision = true
 button_type = 1
@@ -60,9 +69,9 @@ target_scene = 1
 office_hub = NodePath("../..")
 target_door = NodePath("../../Tutorial")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=797630219]
 
-[node name="InteractLabel" type="Label" parent="CanvasLayer"]
+[node name="InteractLabel" type="Label" parent="CanvasLayer" unique_id=282219244]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -78,1630 +87,1645 @@ grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 text = "Press F to interact"
 
-[node name="MultiplayerSynchronizer" type="Node3D" parent="."]
+[node name="bear" parent="." unique_id=494809081 instance=ExtResource("5_5sc6u")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -7.327667, 1.2074933, -3.07509)
 
-[node name="Walls" type="Node3D" parent="MultiplayerSynchronizer"]
+[node name="toaster" parent="." unique_id=819202909 instance=ExtResource("6_qwv30")]
+transform = Transform3D(0.7317345, 0, 0.6815898, 0, 1, 0, -0.6815898, 0, 0.7317345, -15.157745, 0.21864247, -32.197403)
 
-[node name="wall" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="NavigationNPC" parent="." unique_id=652092816 node_paths=PackedStringArray("follow_target") instance=ExtResource("5_qwv30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.816513, 1.1764575, -24.276636)
+npc_type = 2
+follow_target = NodePath("../ProtoController")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=409771499]
+navigation_mesh = SubResource("NavigationMesh_720sd")
+
+[node name="world" type="Node3D" parent="NavigationRegion3D" unique_id=409363736]
+
+[node name="Walls" type="Node3D" parent="NavigationRegion3D/world" unique_id=576924402]
+
+[node name="wall" parent="NavigationRegion3D/world/Walls" unique_id=303621957 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 
-[node name="wall6" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall6" parent="NavigationRegion3D/world/Walls" unique_id=377191812 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
 
-[node name="wall8" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall8" parent="NavigationRegion3D/world/Walls" unique_id=1585834235 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
 
-[node name="wall40" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall40" parent="NavigationRegion3D/world/Walls" unique_id=1251533665 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -10)
 
-[node name="wall9" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall9" parent="NavigationRegion3D/world/Walls" unique_id=1982253692 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
 
-[node name="wall43" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall43" parent="NavigationRegion3D/world/Walls" unique_id=1571178346 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -14)
 
-[node name="wall21" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall21" parent="NavigationRegion3D/world/Walls" unique_id=1426174317 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -6)
 
-[node name="wall69" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall69" parent="NavigationRegion3D/world/Walls" unique_id=1825259187 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, -6)
 
-[node name="wall7" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall7" parent="NavigationRegion3D/world/Walls" unique_id=1537482144 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
 
-[node name="wall44" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall44" parent="NavigationRegion3D/world/Walls" unique_id=2109199711 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -18)
 
-[node name="wall45" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall45" parent="NavigationRegion3D/world/Walls" unique_id=857949245 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -18)
 
-[node name="wall92" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall92" parent="NavigationRegion3D/world/Walls" unique_id=1149997546 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -38)
 
-[node name="wall58" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall58" parent="NavigationRegion3D/world/Walls" unique_id=550502282 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -22)
 
-[node name="wall59" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall59" parent="NavigationRegion3D/world/Walls" unique_id=1895918610 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -22)
 
-[node name="wall65" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall65" parent="NavigationRegion3D/world/Walls" unique_id=1075396885 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -34)
 
-[node name="wall60" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall60" parent="NavigationRegion3D/world/Walls" unique_id=1695658442 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -30)
 
-[node name="wall61" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall61" parent="NavigationRegion3D/world/Walls" unique_id=1694373915 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
 
-[node name="wall10" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall10" parent="NavigationRegion3D/world/Walls" unique_id=226519879 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 2)
 
-[node name="wall12" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall12" parent="NavigationRegion3D/world/Walls" unique_id=523765368 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -2)
 
-[node name="wall41" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall41" parent="NavigationRegion3D/world/Walls" unique_id=1638089787 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
 
-[node name="wall13" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall13" parent="NavigationRegion3D/world/Walls" unique_id=516808508 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -2)
 
-[node name="wall25" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall25" parent="NavigationRegion3D/world/Walls" unique_id=1327062592 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -2)
 
-[node name="wall26" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall26" parent="NavigationRegion3D/world/Walls" unique_id=1979204361 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -2)
 
-[node name="wall122" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall122" parent="NavigationRegion3D/world/Walls" unique_id=533642927 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -14)
 
-[node name="wall123" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall123" parent="NavigationRegion3D/world/Walls" unique_id=832818241 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -14)
 
-[node name="wall124" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall124" parent="NavigationRegion3D/world/Walls" unique_id=1033019431 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -18)
 
-[node name="wall125" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall125" parent="NavigationRegion3D/world/Walls" unique_id=1824692558 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -18)
 
-[node name="wall126" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall126" parent="NavigationRegion3D/world/Walls" unique_id=1286871137 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -22)
 
-[node name="wall27" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall27" parent="NavigationRegion3D/world/Walls" unique_id=221292440 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -2)
 
-[node name="wall118" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall118" parent="NavigationRegion3D/world/Walls" unique_id=274295440 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
 
-[node name="wall29" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall29" parent="NavigationRegion3D/world/Walls" unique_id=1074623372 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 2)
 
-[node name="wall30" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall30" parent="NavigationRegion3D/world/Walls" unique_id=345173439 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 2)
 
-[node name="wall31" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall31" parent="NavigationRegion3D/world/Walls" unique_id=10356349 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 2)
 
-[node name="wall32" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall32" parent="NavigationRegion3D/world/Walls" unique_id=1493306899 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, 2)
 
-[node name="wall33" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall33" parent="NavigationRegion3D/world/Walls" unique_id=335568507 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 2)
 
-[node name="wall34" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall34" parent="NavigationRegion3D/world/Walls" unique_id=636548415 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, 2)
 
-[node name="wall102" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall102" parent="NavigationRegion3D/world/Walls" unique_id=374746770 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -10)
 
-[node name="wall142" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall142" parent="NavigationRegion3D/world/Walls" unique_id=1084345893 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -42)
 
-[node name="wall28" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall28" parent="NavigationRegion3D/world/Walls" unique_id=583550533 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -2)
 
-[node name="wall11" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall11" parent="NavigationRegion3D/world/Walls" unique_id=1069136718 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 2)
 
-[node name="wall80" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall80" parent="NavigationRegion3D/world/Walls" unique_id=1054108284 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -42)
 
-[node name="wall81" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall81" parent="NavigationRegion3D/world/Walls" unique_id=1025147831 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -42)
 
-[node name="wall82" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall82" parent="NavigationRegion3D/world/Walls" unique_id=388244277 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -42)
 
-[node name="wall83" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall83" parent="NavigationRegion3D/world/Walls" unique_id=1471475514 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -42)
 
-[node name="wall84" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall84" parent="NavigationRegion3D/world/Walls" unique_id=1246138253 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -42)
 
-[node name="wall85" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall85" parent="NavigationRegion3D/world/Walls" unique_id=2118605418 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -42)
 
-[node name="wall86" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall86" parent="NavigationRegion3D/world/Walls" unique_id=1412366822 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -42)
 
-[node name="wall87" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall87" parent="NavigationRegion3D/world/Walls" unique_id=141810721 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -42)
 
-[node name="wall88" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall88" parent="NavigationRegion3D/world/Walls" unique_id=31615885 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -42)
 
-[node name="wall101" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall101" parent="NavigationRegion3D/world/Walls" unique_id=1858346019 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -34)
 
-[node name="wall108" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall108" parent="NavigationRegion3D/world/Walls" unique_id=850339001 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -26)
 
-[node name="wall109" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall109" parent="NavigationRegion3D/world/Walls" unique_id=1822867009 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -14)
 
-[node name="wall89" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall89" parent="NavigationRegion3D/world/Walls" unique_id=343694805 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -42)
 
-[node name="wall133" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall133" parent="NavigationRegion3D/world/Walls" unique_id=1074236655 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -30)
 
-[node name="wall134" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall134" parent="NavigationRegion3D/world/Walls" unique_id=325607220 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -30)
 
-[node name="wall135" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall135" parent="NavigationRegion3D/world/Walls" unique_id=878482478 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -30)
 
-[node name="wall137" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall137" parent="NavigationRegion3D/world/Walls" unique_id=82445641 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -26)
 
-[node name="wall138" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall138" parent="NavigationRegion3D/world/Walls" unique_id=760968875 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -26)
 
-[node name="wall130" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall130" parent="NavigationRegion3D/world/Walls" unique_id=158572686 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -34)
 
-[node name="wall131" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall131" parent="NavigationRegion3D/world/Walls" unique_id=1443155283 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -34)
 
-[node name="wall96" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall96" parent="NavigationRegion3D/world/Walls" unique_id=1167421639 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -38)
 
-[node name="wall97" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall97" parent="NavigationRegion3D/world/Walls" unique_id=1032588370 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -38)
 
-[node name="wall98" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall98" parent="NavigationRegion3D/world/Walls" unique_id=1476982265 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -38)
 
-[node name="wall99" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall99" parent="NavigationRegion3D/world/Walls" unique_id=1853741201 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 0, -38)
 
-[node name="wall111" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall111" parent="NavigationRegion3D/world/Walls" unique_id=1974617505 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -30)
 
-[node name="wall112" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall112" parent="NavigationRegion3D/world/Walls" unique_id=1343072429 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -26)
 
-[node name="wall113" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall113" parent="NavigationRegion3D/world/Walls" unique_id=1791380023 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -22)
 
-[node name="wall114" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall114" parent="NavigationRegion3D/world/Walls" unique_id=2039077103 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -18)
 
-[node name="wall115" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall115" parent="NavigationRegion3D/world/Walls" unique_id=1401395271 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -10)
 
-[node name="wall100" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall100" parent="NavigationRegion3D/world/Walls" unique_id=974865189 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -38)
 
-[node name="wall20" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall20" parent="NavigationRegion3D/world/Walls" unique_id=1410050630 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -10)
 
-[node name="wall39" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall39" parent="NavigationRegion3D/world/Walls" unique_id=188804338 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -18)
 
-[node name="wall35" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall35" parent="NavigationRegion3D/world/Walls" unique_id=718494007 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -14)
 
-[node name="wall2" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall2" parent="NavigationRegion3D/world/Walls" unique_id=195422110 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -2)
 
-[node name="wall145" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall145" parent="NavigationRegion3D/world/Walls" unique_id=485783104 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -2)
 
-[node name="wall66" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall66" parent="NavigationRegion3D/world/Walls" unique_id=917791728 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -38)
 
-[node name="wall90" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall90" parent="NavigationRegion3D/world/Walls" unique_id=1401742991 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -38)
 
-[node name="wall3" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall3" parent="NavigationRegion3D/world/Walls" unique_id=142209003 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -10)
 
-[node name="wall4" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall4" parent="NavigationRegion3D/world/Walls" unique_id=1081343731 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -6)
 
-[node name="wall42" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall42" parent="NavigationRegion3D/world/Walls" unique_id=994235857 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -14)
 
-[node name="wall5" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall5" parent="NavigationRegion3D/world/Walls" unique_id=290468768 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -6)
 
-[node name="wall46" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall46" parent="NavigationRegion3D/world/Walls" unique_id=868936150 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -18)
 
-[node name="wall47" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall47" parent="NavigationRegion3D/world/Walls" unique_id=623322620 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -14)
 
-[node name="wall48" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall48" parent="NavigationRegion3D/world/Walls" unique_id=106692519 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -26)
 
-[node name="wall49" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall49" parent="NavigationRegion3D/world/Walls" unique_id=351805815 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -22)
 
-[node name="wall50" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall50" parent="NavigationRegion3D/world/Walls" unique_id=1854512956 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -34)
 
-[node name="wall51" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall51" parent="NavigationRegion3D/world/Walls" unique_id=1725648606 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -30)
 
-[node name="wall67" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall67" parent="NavigationRegion3D/world/Walls" unique_id=302413875 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -42)
 
-[node name="wall68" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall68" parent="NavigationRegion3D/world/Walls" unique_id=1842100943 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -38)
 
-[node name="wall70" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall70" parent="NavigationRegion3D/world/Walls" unique_id=1467921279 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -6)
 
-[node name="wall79" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall79" parent="NavigationRegion3D/world/Walls" unique_id=141968522 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -2)
 
-[node name="wall71" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall71" parent="NavigationRegion3D/world/Walls" unique_id=873553976 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -18)
 
-[node name="wall72" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall72" parent="NavigationRegion3D/world/Walls" unique_id=2115483815 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -14)
 
-[node name="wall116" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall116" parent="NavigationRegion3D/world/Walls" unique_id=777549609 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 0, -10)
 
-[node name="wall143" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall143" parent="NavigationRegion3D/world/Walls" unique_id=695040084 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, -14)
 
-[node name="wall144" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall144" parent="NavigationRegion3D/world/Walls" unique_id=922861488 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -46, 0, -10)
 
-[node name="wall146" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall146" parent="NavigationRegion3D/world/Walls" unique_id=1231673011 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -46, 0, -14)
 
-[node name="wall117" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall117" parent="NavigationRegion3D/world/Walls" unique_id=2089212672 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 0, -14)
 
-[node name="wall120" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall120" parent="NavigationRegion3D/world/Walls" unique_id=1404278367 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -10)
 
-[node name="wall121" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall121" parent="NavigationRegion3D/world/Walls" unique_id=1602673757 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -14)
 
-[node name="wall73" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall73" parent="NavigationRegion3D/world/Walls" unique_id=1387384739 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -26)
 
-[node name="wall74" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall74" parent="NavigationRegion3D/world/Walls" unique_id=945859271 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -22)
 
-[node name="wall75" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall75" parent="NavigationRegion3D/world/Walls" unique_id=859677698 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -34)
 
-[node name="wall76" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall76" parent="NavigationRegion3D/world/Walls" unique_id=372955413 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -30)
 
-[node name="wall127" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall127" parent="NavigationRegion3D/world/Walls" unique_id=1765587409 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30, 0, -34)
 
-[node name="wall128" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall128" parent="NavigationRegion3D/world/Walls" unique_id=1381303454 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30, 0, -30)
 
-[node name="wall103" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall103" parent="NavigationRegion3D/world/Walls" unique_id=1307402389 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -10)
 
-[node name="wall119" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall119" parent="NavigationRegion3D/world/Walls" unique_id=516499988 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -10)
 
-[node name="wall104" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall104" parent="NavigationRegion3D/world/Walls" unique_id=733024513 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -18)
 
-[node name="wall105" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall105" parent="NavigationRegion3D/world/Walls" unique_id=150190457 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -26)
 
-[node name="wall106" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall106" parent="NavigationRegion3D/world/Walls" unique_id=1136520835 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -22)
 
-[node name="wall110" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall110" parent="NavigationRegion3D/world/Walls" unique_id=1841087062 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 0, -22)
 
-[node name="wall107" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall107" parent="NavigationRegion3D/world/Walls" unique_id=289389838 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -30)
 
-[node name="wall136" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall136" parent="NavigationRegion3D/world/Walls" unique_id=353990858 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -30)
 
-[node name="wall140" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall140" parent="NavigationRegion3D/world/Walls" unique_id=1213531005 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -26)
 
-[node name="wall77" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall77" parent="NavigationRegion3D/world/Walls" unique_id=851138843 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -42)
 
-[node name="wall78" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall78" parent="NavigationRegion3D/world/Walls" unique_id=1697633281 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -38)
 
-[node name="wall93" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall93" parent="NavigationRegion3D/world/Walls" unique_id=1010375469 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 0, -42)
 
-[node name="wall94" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall94" parent="NavigationRegion3D/world/Walls" unique_id=397846488 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -38)
 
-[node name="wall129" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall129" parent="NavigationRegion3D/world/Walls" unique_id=1721657789 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -38)
 
-[node name="wall14" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall14" parent="NavigationRegion3D/world/Walls" unique_id=2055417247 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -10)
 
-[node name="wall15" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall15" parent="NavigationRegion3D/world/Walls" unique_id=1187760193 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -6)
 
-[node name="wall52" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall52" parent="NavigationRegion3D/world/Walls" unique_id=238860260 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -26)
 
-[node name="wall53" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall53" parent="NavigationRegion3D/world/Walls" unique_id=962411433 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -22)
 
-[node name="wall139" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall139" parent="NavigationRegion3D/world/Walls" unique_id=1675736833 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -22)
 
-[node name="wall57" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall57" parent="NavigationRegion3D/world/Walls" unique_id=1392732882 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -22)
 
-[node name="wall54" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall54" parent="NavigationRegion3D/world/Walls" unique_id=1994646168 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -30)
 
-[node name="wall62" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall62" parent="NavigationRegion3D/world/Walls" unique_id=1143384809 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -26)
 
-[node name="wall63" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall63" parent="NavigationRegion3D/world/Walls" unique_id=150320673 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -30)
 
-[node name="wall64" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall64" parent="NavigationRegion3D/world/Walls" unique_id=708173236 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -34)
 
-[node name="wall132" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall132" parent="NavigationRegion3D/world/Walls" unique_id=1901652289 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -34)
 
-[node name="wall141" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall141" parent="NavigationRegion3D/world/Walls" unique_id=2102850750 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -34)
 
-[node name="wall91" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall91" parent="NavigationRegion3D/world/Walls" unique_id=774367512 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -42)
 
-[node name="wall95" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall95" parent="NavigationRegion3D/world/Walls" unique_id=1807465250 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -42)
 
-[node name="wall18" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall18" parent="NavigationRegion3D/world/Walls" unique_id=1730185234 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -14)
 
-[node name="wall55" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall55" parent="NavigationRegion3D/world/Walls" unique_id=1400320436 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -26)
 
-[node name="wall56" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall56" parent="NavigationRegion3D/world/Walls" unique_id=783010529 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -26)
 
-[node name="wall36" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall36" parent="NavigationRegion3D/world/Walls" unique_id=1272059785 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -18)
 
-[node name="wall37" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall37" parent="NavigationRegion3D/world/Walls" unique_id=1497504508 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -18)
 
-[node name="wall38" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall38" parent="NavigationRegion3D/world/Walls" unique_id=236541616 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -18)
 
-[node name="wall19" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall19" parent="NavigationRegion3D/world/Walls" unique_id=104557419 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -10)
 
-[node name="wall16" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall16" parent="NavigationRegion3D/world/Walls" unique_id=146646171 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -6)
 
-[node name="wall22" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall22" parent="NavigationRegion3D/world/Walls" unique_id=200124513 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -6)
 
-[node name="wall23" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall23" parent="NavigationRegion3D/world/Walls" unique_id=1863562332 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -6)
 
-[node name="wall24" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall24" parent="NavigationRegion3D/world/Walls" unique_id=1197424968 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30, 0, -6)
 
-[node name="wall17" parent="MultiplayerSynchronizer/Walls" instance=ExtResource("2_gfotd")]
+[node name="wall17" parent="NavigationRegion3D/world/Walls" unique_id=661488432 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -2)
 
-[node name="Walls2" type="Node3D" parent="MultiplayerSynchronizer"]
+[node name="Walls2" type="Node3D" parent="NavigationRegion3D/world" unique_id=1418395019]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
-[node name="wall" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall" parent="NavigationRegion3D/world/Walls2" unique_id=2057595008 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 
-[node name="wall6" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall6" parent="NavigationRegion3D/world/Walls2" unique_id=525920396 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
 
-[node name="wall8" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall8" parent="NavigationRegion3D/world/Walls2" unique_id=622279093 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
 
-[node name="wall40" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall40" parent="NavigationRegion3D/world/Walls2" unique_id=1775677374 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -10)
 
-[node name="wall9" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall9" parent="NavigationRegion3D/world/Walls2" unique_id=1701004924 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
 
-[node name="wall43" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall43" parent="NavigationRegion3D/world/Walls2" unique_id=1433126839 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -14)
 
-[node name="wall21" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall21" parent="NavigationRegion3D/world/Walls2" unique_id=434977949 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -6)
 
-[node name="wall69" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall69" parent="NavigationRegion3D/world/Walls2" unique_id=1764243590 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, -6)
 
-[node name="wall7" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall7" parent="NavigationRegion3D/world/Walls2" unique_id=1975582703 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
 
-[node name="wall44" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall44" parent="NavigationRegion3D/world/Walls2" unique_id=1603236130 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -18)
 
-[node name="wall45" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall45" parent="NavigationRegion3D/world/Walls2" unique_id=573986856 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -18)
 
-[node name="wall92" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall92" parent="NavigationRegion3D/world/Walls2" unique_id=1510123804 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -38)
 
-[node name="wall58" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall58" parent="NavigationRegion3D/world/Walls2" unique_id=716847548 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -22)
 
-[node name="wall59" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall59" parent="NavigationRegion3D/world/Walls2" unique_id=1429432180 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -22)
 
-[node name="wall65" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall65" parent="NavigationRegion3D/world/Walls2" unique_id=12852904 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -34)
 
-[node name="wall60" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall60" parent="NavigationRegion3D/world/Walls2" unique_id=936674097 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -30)
 
-[node name="wall61" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall61" parent="NavigationRegion3D/world/Walls2" unique_id=1742885451 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
 
-[node name="wall10" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall10" parent="NavigationRegion3D/world/Walls2" unique_id=350648091 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 2)
 
-[node name="wall12" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall12" parent="NavigationRegion3D/world/Walls2" unique_id=207398425 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -2)
 
-[node name="wall41" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall41" parent="NavigationRegion3D/world/Walls2" unique_id=1884930024 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
 
-[node name="wall13" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall13" parent="NavigationRegion3D/world/Walls2" unique_id=859607538 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -2)
 
-[node name="wall25" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall25" parent="NavigationRegion3D/world/Walls2" unique_id=2099958121 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -2)
 
-[node name="wall26" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall26" parent="NavigationRegion3D/world/Walls2" unique_id=1510624374 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -2)
 
-[node name="wall122" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall122" parent="NavigationRegion3D/world/Walls2" unique_id=1768002845 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -14)
 
-[node name="wall123" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall123" parent="NavigationRegion3D/world/Walls2" unique_id=1966379309 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -14)
 
-[node name="wall124" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall124" parent="NavigationRegion3D/world/Walls2" unique_id=1385006112 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -18)
 
-[node name="wall125" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall125" parent="NavigationRegion3D/world/Walls2" unique_id=2066922363 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -18)
 
-[node name="wall126" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall126" parent="NavigationRegion3D/world/Walls2" unique_id=856014494 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -22)
 
-[node name="wall27" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall27" parent="NavigationRegion3D/world/Walls2" unique_id=77425345 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -2)
 
-[node name="wall118" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall118" parent="NavigationRegion3D/world/Walls2" unique_id=166047354 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
 
-[node name="wall29" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall29" parent="NavigationRegion3D/world/Walls2" unique_id=2095936469 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 2)
 
-[node name="wall30" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall30" parent="NavigationRegion3D/world/Walls2" unique_id=1385920909 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 2)
 
-[node name="wall31" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall31" parent="NavigationRegion3D/world/Walls2" unique_id=971200419 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 2)
 
-[node name="wall32" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall32" parent="NavigationRegion3D/world/Walls2" unique_id=2122663229 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, 2)
 
-[node name="wall33" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall33" parent="NavigationRegion3D/world/Walls2" unique_id=1365475003 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 2)
 
-[node name="wall34" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall34" parent="NavigationRegion3D/world/Walls2" unique_id=1515456027 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, 2)
 
-[node name="wall102" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall102" parent="NavigationRegion3D/world/Walls2" unique_id=1074269017 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -10)
 
-[node name="wall142" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall142" parent="NavigationRegion3D/world/Walls2" unique_id=505233689 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -42)
 
-[node name="wall28" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall28" parent="NavigationRegion3D/world/Walls2" unique_id=156907271 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -2)
 
-[node name="wall11" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall11" parent="NavigationRegion3D/world/Walls2" unique_id=575365887 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 2)
 
-[node name="wall80" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall80" parent="NavigationRegion3D/world/Walls2" unique_id=798957602 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -42)
 
-[node name="wall81" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall81" parent="NavigationRegion3D/world/Walls2" unique_id=2019167388 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -42)
 
-[node name="wall82" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall82" parent="NavigationRegion3D/world/Walls2" unique_id=570750886 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -42)
 
-[node name="wall83" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall83" parent="NavigationRegion3D/world/Walls2" unique_id=1366291095 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -42)
 
-[node name="wall84" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall84" parent="NavigationRegion3D/world/Walls2" unique_id=1514957086 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -42)
 
-[node name="wall85" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall85" parent="NavigationRegion3D/world/Walls2" unique_id=1626235536 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -42)
 
-[node name="wall86" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall86" parent="NavigationRegion3D/world/Walls2" unique_id=1144834827 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -42)
 
-[node name="wall87" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall87" parent="NavigationRegion3D/world/Walls2" unique_id=1785931182 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -42)
 
-[node name="wall88" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall88" parent="NavigationRegion3D/world/Walls2" unique_id=2082535587 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -42)
 
-[node name="wall101" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall101" parent="NavigationRegion3D/world/Walls2" unique_id=431708829 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -34)
 
-[node name="wall108" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall108" parent="NavigationRegion3D/world/Walls2" unique_id=101911220 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -26)
 
-[node name="wall109" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall109" parent="NavigationRegion3D/world/Walls2" unique_id=1761966353 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -14)
 
-[node name="wall89" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall89" parent="NavigationRegion3D/world/Walls2" unique_id=1621396578 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -42)
 
-[node name="wall133" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall133" parent="NavigationRegion3D/world/Walls2" unique_id=1565297430 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -30)
 
-[node name="wall134" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall134" parent="NavigationRegion3D/world/Walls2" unique_id=1906312231 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -30)
 
-[node name="wall135" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall135" parent="NavigationRegion3D/world/Walls2" unique_id=1580964501 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -30)
 
-[node name="wall137" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall137" parent="NavigationRegion3D/world/Walls2" unique_id=1559238567 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -26)
 
-[node name="wall138" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall138" parent="NavigationRegion3D/world/Walls2" unique_id=480794800 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -26)
 
-[node name="wall130" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall130" parent="NavigationRegion3D/world/Walls2" unique_id=1437789962 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -34)
 
-[node name="wall131" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall131" parent="NavigationRegion3D/world/Walls2" unique_id=693389562 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -34)
 
-[node name="wall96" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall96" parent="NavigationRegion3D/world/Walls2" unique_id=1133772258 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -38)
 
-[node name="wall97" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall97" parent="NavigationRegion3D/world/Walls2" unique_id=1978505730 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -38)
 
-[node name="wall98" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall98" parent="NavigationRegion3D/world/Walls2" unique_id=2038682975 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -38)
 
-[node name="wall99" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall99" parent="NavigationRegion3D/world/Walls2" unique_id=2720184 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 0, -38)
 
-[node name="wall111" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall111" parent="NavigationRegion3D/world/Walls2" unique_id=343550830 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -30)
 
-[node name="wall112" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall112" parent="NavigationRegion3D/world/Walls2" unique_id=46458114 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -26)
 
-[node name="wall113" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall113" parent="NavigationRegion3D/world/Walls2" unique_id=898168798 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -22)
 
-[node name="wall114" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall114" parent="NavigationRegion3D/world/Walls2" unique_id=1860673081 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -18)
 
-[node name="wall115" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall115" parent="NavigationRegion3D/world/Walls2" unique_id=1256321558 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -10)
 
-[node name="wall100" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall100" parent="NavigationRegion3D/world/Walls2" unique_id=683088215 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -38)
 
-[node name="wall20" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall20" parent="NavigationRegion3D/world/Walls2" unique_id=1740675152 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -10)
 
-[node name="wall39" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall39" parent="NavigationRegion3D/world/Walls2" unique_id=769723937 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -18)
 
-[node name="wall35" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall35" parent="NavigationRegion3D/world/Walls2" unique_id=19941743 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -14)
 
-[node name="wall2" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall2" parent="NavigationRegion3D/world/Walls2" unique_id=1975422731 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -2)
 
-[node name="wall145" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall145" parent="NavigationRegion3D/world/Walls2" unique_id=1571333809 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -2)
 
-[node name="wall66" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall66" parent="NavigationRegion3D/world/Walls2" unique_id=195268117 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -38)
 
-[node name="wall90" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall90" parent="NavigationRegion3D/world/Walls2" unique_id=2053984394 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -38)
 
-[node name="wall3" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall3" parent="NavigationRegion3D/world/Walls2" unique_id=1455626020 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -10)
 
-[node name="wall4" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall4" parent="NavigationRegion3D/world/Walls2" unique_id=1459488451 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -6)
 
-[node name="wall42" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall42" parent="NavigationRegion3D/world/Walls2" unique_id=311624735 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -14)
 
-[node name="wall5" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall5" parent="NavigationRegion3D/world/Walls2" unique_id=1070529636 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -6)
 
-[node name="wall46" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall46" parent="NavigationRegion3D/world/Walls2" unique_id=358330656 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -18)
 
-[node name="wall47" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall47" parent="NavigationRegion3D/world/Walls2" unique_id=1067962604 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -14)
 
-[node name="wall48" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall48" parent="NavigationRegion3D/world/Walls2" unique_id=1011991833 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -26)
 
-[node name="wall49" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall49" parent="NavigationRegion3D/world/Walls2" unique_id=1371505606 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -22)
 
-[node name="wall50" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall50" parent="NavigationRegion3D/world/Walls2" unique_id=2035517032 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -34)
 
-[node name="wall51" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall51" parent="NavigationRegion3D/world/Walls2" unique_id=1689758567 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -30)
 
-[node name="wall67" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall67" parent="NavigationRegion3D/world/Walls2" unique_id=254152474 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -42)
 
-[node name="wall68" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall68" parent="NavigationRegion3D/world/Walls2" unique_id=1208708130 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -38)
 
-[node name="wall70" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall70" parent="NavigationRegion3D/world/Walls2" unique_id=459810110 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -6)
 
-[node name="wall79" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall79" parent="NavigationRegion3D/world/Walls2" unique_id=836998080 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -2)
 
-[node name="wall71" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall71" parent="NavigationRegion3D/world/Walls2" unique_id=230830898 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -18)
 
-[node name="wall72" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall72" parent="NavigationRegion3D/world/Walls2" unique_id=146488344 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -14)
 
-[node name="wall116" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall116" parent="NavigationRegion3D/world/Walls2" unique_id=1420089498 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 0, -10)
 
-[node name="wall143" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall143" parent="NavigationRegion3D/world/Walls2" unique_id=1438060630 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, -14)
 
-[node name="wall144" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall144" parent="NavigationRegion3D/world/Walls2" unique_id=1429249585 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -46, 0, -10)
 
-[node name="wall146" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall146" parent="NavigationRegion3D/world/Walls2" unique_id=1408703736 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -46, 0, -14)
 
-[node name="wall117" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall117" parent="NavigationRegion3D/world/Walls2" unique_id=1351852694 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 0, -14)
 
-[node name="wall120" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall120" parent="NavigationRegion3D/world/Walls2" unique_id=609533970 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -10)
 
-[node name="wall121" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall121" parent="NavigationRegion3D/world/Walls2" unique_id=559844945 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -14)
 
-[node name="wall73" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall73" parent="NavigationRegion3D/world/Walls2" unique_id=1584069450 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -26)
 
-[node name="wall74" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall74" parent="NavigationRegion3D/world/Walls2" unique_id=2017897849 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -22)
 
-[node name="wall75" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall75" parent="NavigationRegion3D/world/Walls2" unique_id=880369843 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -34)
 
-[node name="wall76" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall76" parent="NavigationRegion3D/world/Walls2" unique_id=1486571403 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -30)
 
-[node name="wall127" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall127" parent="NavigationRegion3D/world/Walls2" unique_id=17562748 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30, 0, -34)
 
-[node name="wall128" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall128" parent="NavigationRegion3D/world/Walls2" unique_id=1982317617 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30, 0, -30)
 
-[node name="wall103" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall103" parent="NavigationRegion3D/world/Walls2" unique_id=1327973648 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -10)
 
-[node name="wall119" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall119" parent="NavigationRegion3D/world/Walls2" unique_id=519396121 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -10)
 
-[node name="wall104" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall104" parent="NavigationRegion3D/world/Walls2" unique_id=362330585 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -18)
 
-[node name="wall105" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall105" parent="NavigationRegion3D/world/Walls2" unique_id=34353665 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -26)
 
-[node name="wall106" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall106" parent="NavigationRegion3D/world/Walls2" unique_id=620886616 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -22)
 
-[node name="wall110" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall110" parent="NavigationRegion3D/world/Walls2" unique_id=1725812497 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 0, -22)
 
-[node name="wall107" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall107" parent="NavigationRegion3D/world/Walls2" unique_id=1876024485 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -30)
 
-[node name="wall136" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall136" parent="NavigationRegion3D/world/Walls2" unique_id=762806283 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -30)
 
-[node name="wall140" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall140" parent="NavigationRegion3D/world/Walls2" unique_id=1619176965 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -26)
 
-[node name="wall77" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall77" parent="NavigationRegion3D/world/Walls2" unique_id=1027594721 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -42)
 
-[node name="wall78" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall78" parent="NavigationRegion3D/world/Walls2" unique_id=880703839 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42, 0, -38)
 
-[node name="wall93" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall93" parent="NavigationRegion3D/world/Walls2" unique_id=1232970687 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 0, -42)
 
-[node name="wall94" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall94" parent="NavigationRegion3D/world/Walls2" unique_id=1202777924 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, 0, -38)
 
-[node name="wall129" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall129" parent="NavigationRegion3D/world/Walls2" unique_id=99251692 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -38)
 
-[node name="wall14" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall14" parent="NavigationRegion3D/world/Walls2" unique_id=613523686 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -10)
 
-[node name="wall15" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall15" parent="NavigationRegion3D/world/Walls2" unique_id=1663970570 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -6)
 
-[node name="wall52" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall52" parent="NavigationRegion3D/world/Walls2" unique_id=1542172280 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -26)
 
-[node name="wall53" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall53" parent="NavigationRegion3D/world/Walls2" unique_id=474873334 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -22)
 
-[node name="wall139" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall139" parent="NavigationRegion3D/world/Walls2" unique_id=1991178509 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -22)
 
-[node name="wall57" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall57" parent="NavigationRegion3D/world/Walls2" unique_id=1255642365 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -22)
 
-[node name="wall54" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall54" parent="NavigationRegion3D/world/Walls2" unique_id=23013877 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -30)
 
-[node name="wall62" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall62" parent="NavigationRegion3D/world/Walls2" unique_id=2068711363 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -26)
 
-[node name="wall63" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall63" parent="NavigationRegion3D/world/Walls2" unique_id=104015071 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -30)
 
-[node name="wall64" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall64" parent="NavigationRegion3D/world/Walls2" unique_id=293672836 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -34)
 
-[node name="wall132" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall132" parent="NavigationRegion3D/world/Walls2" unique_id=253527625 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -34)
 
-[node name="wall141" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall141" parent="NavigationRegion3D/world/Walls2" unique_id=530249520 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -34)
 
-[node name="wall91" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall91" parent="NavigationRegion3D/world/Walls2" unique_id=1811697256 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -42)
 
-[node name="wall95" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall95" parent="NavigationRegion3D/world/Walls2" unique_id=1259840283 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -42)
 
-[node name="wall18" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall18" parent="NavigationRegion3D/world/Walls2" unique_id=2012668153 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -14)
 
-[node name="wall55" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall55" parent="NavigationRegion3D/world/Walls2" unique_id=1373716330 instance=ExtResource("2_gfotd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -26)
 
-[node name="wall56" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall56" parent="NavigationRegion3D/world/Walls2" unique_id=1621356296 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -26)
 
-[node name="wall36" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall36" parent="NavigationRegion3D/world/Walls2" unique_id=1563808950 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -18)
 
-[node name="wall37" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall37" parent="NavigationRegion3D/world/Walls2" unique_id=336760964 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, -18)
 
-[node name="wall38" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall38" parent="NavigationRegion3D/world/Walls2" unique_id=373765740 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -18)
 
-[node name="wall19" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall19" parent="NavigationRegion3D/world/Walls2" unique_id=127379777 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 0, -10)
 
-[node name="wall16" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall16" parent="NavigationRegion3D/world/Walls2" unique_id=197005590 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -6)
 
-[node name="wall22" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall22" parent="NavigationRegion3D/world/Walls2" unique_id=231147344 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, -6)
 
-[node name="wall23" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall23" parent="NavigationRegion3D/world/Walls2" unique_id=1072725408 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -6)
 
-[node name="wall24" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall24" parent="NavigationRegion3D/world/Walls2" unique_id=1396240437 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30, 0, -6)
 
-[node name="wall17" parent="MultiplayerSynchronizer/Walls2" instance=ExtResource("2_gfotd")]
+[node name="wall17" parent="NavigationRegion3D/world/Walls2" unique_id=983879995 instance=ExtResource("2_gfotd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -2)
 
-[node name="Ground" type="Node3D" parent="MultiplayerSynchronizer"]
+[node name="Ground" type="Node3D" parent="NavigationRegion3D/world" unique_id=47398464]
 
-[node name="floorFull" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull" parent="NavigationRegion3D/world/Ground" unique_id=296209267 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 
-[node name="floorFull2" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull2" parent="NavigationRegion3D/world/Ground" unique_id=302935798 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
 
-[node name="floorFull3" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull3" parent="NavigationRegion3D/world/Ground" unique_id=1586425574 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
 
-[node name="floorFull4" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull4" parent="NavigationRegion3D/world/Ground" unique_id=1597148970 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -10)
 
-[node name="floorFull5" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull5" parent="NavigationRegion3D/world/Ground" unique_id=1695384836 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -14)
 
-[node name="floorFull6" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull6" parent="NavigationRegion3D/world/Ground" unique_id=260628470 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -18)
 
-[node name="floorFull7" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull7" parent="NavigationRegion3D/world/Ground" unique_id=704248099 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -22)
 
-[node name="floorFull8" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull8" parent="NavigationRegion3D/world/Ground" unique_id=1831328409 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -26)
 
-[node name="floorFull9" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull9" parent="NavigationRegion3D/world/Ground" unique_id=1166770407 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -30)
 
-[node name="floorFull10" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull10" parent="NavigationRegion3D/world/Ground" unique_id=1229319658 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -34)
 
-[node name="floorFull11" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull11" parent="NavigationRegion3D/world/Ground" unique_id=1166978886 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -38)
 
-[node name="floorFull12" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull12" parent="NavigationRegion3D/world/Ground" unique_id=1870824865 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
 
-[node name="floorFull13" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull13" parent="NavigationRegion3D/world/Ground" unique_id=982634717 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2)
 
-[node name="floorFull14" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull14" parent="NavigationRegion3D/world/Ground" unique_id=553935702 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
 
-[node name="floorFull15" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull15" parent="NavigationRegion3D/world/Ground" unique_id=644674271 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -10)
 
-[node name="floorFull16" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull16" parent="NavigationRegion3D/world/Ground" unique_id=979571607 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -14)
 
-[node name="floorFull17" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull17" parent="NavigationRegion3D/world/Ground" unique_id=970007750 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -18)
 
-[node name="floorFull18" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull18" parent="NavigationRegion3D/world/Ground" unique_id=1678544662 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -22)
 
-[node name="floorFull19" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull19" parent="NavigationRegion3D/world/Ground" unique_id=242777986 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
 
-[node name="floorFull20" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull20" parent="NavigationRegion3D/world/Ground" unique_id=1310073556 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -30)
 
-[node name="floorFull21" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull21" parent="NavigationRegion3D/world/Ground" unique_id=1698316941 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -34)
 
-[node name="floorFull22" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull22" parent="NavigationRegion3D/world/Ground" unique_id=311682105 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -38)
 
-[node name="floorFull23" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull23" parent="NavigationRegion3D/world/Ground" unique_id=2011224030 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
 
-[node name="floorFull24" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull24" parent="NavigationRegion3D/world/Ground" unique_id=96480877 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -2)
 
-[node name="floorFull25" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull25" parent="NavigationRegion3D/world/Ground" unique_id=758531082 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6)
 
-[node name="floorFull26" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull26" parent="NavigationRegion3D/world/Ground" unique_id=1548607999 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
 
-[node name="floorFull27" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull27" parent="NavigationRegion3D/world/Ground" unique_id=973754394 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -14)
 
-[node name="floorFull28" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull28" parent="NavigationRegion3D/world/Ground" unique_id=911094678 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -18)
 
-[node name="floorFull29" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull29" parent="NavigationRegion3D/world/Ground" unique_id=2047415331 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -22)
 
-[node name="floorFull30" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull30" parent="NavigationRegion3D/world/Ground" unique_id=169649939 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
 
-[node name="floorFull31" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull31" parent="NavigationRegion3D/world/Ground" unique_id=915624197 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -30)
 
-[node name="floorFull32" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull32" parent="NavigationRegion3D/world/Ground" unique_id=1477043950 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -34)
 
-[node name="floorFull33" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull33" parent="NavigationRegion3D/world/Ground" unique_id=1161878798 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -38)
 
-[node name="floorFull34" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull34" parent="NavigationRegion3D/world/Ground" unique_id=2097880687 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 2)
 
-[node name="floorFull35" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull35" parent="NavigationRegion3D/world/Ground" unique_id=75486004 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -2)
 
-[node name="floorFull36" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull36" parent="NavigationRegion3D/world/Ground" unique_id=897270597 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -6)
 
-[node name="floorFull37" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull37" parent="NavigationRegion3D/world/Ground" unique_id=1853350892 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -10)
 
-[node name="floorFull38" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull38" parent="NavigationRegion3D/world/Ground" unique_id=807032892 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -14)
 
-[node name="floorFull39" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull39" parent="NavigationRegion3D/world/Ground" unique_id=912383695 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -18)
 
-[node name="floorFull40" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull40" parent="NavigationRegion3D/world/Ground" unique_id=403670040 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -22)
 
-[node name="floorFull41" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull41" parent="NavigationRegion3D/world/Ground" unique_id=962816287 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -26)
 
-[node name="floorFull42" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull42" parent="NavigationRegion3D/world/Ground" unique_id=1574551834 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -30)
 
-[node name="floorFull43" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull43" parent="NavigationRegion3D/world/Ground" unique_id=1175621487 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -34)
 
-[node name="floorFull44" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull44" parent="NavigationRegion3D/world/Ground" unique_id=198235407 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -38)
 
-[node name="floorFull45" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull45" parent="NavigationRegion3D/world/Ground" unique_id=2040309879 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 2)
 
-[node name="floorFull46" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull46" parent="NavigationRegion3D/world/Ground" unique_id=86356106 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -2)
 
-[node name="floorFull47" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull47" parent="NavigationRegion3D/world/Ground" unique_id=1372412489 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -6)
 
-[node name="floorFull48" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull48" parent="NavigationRegion3D/world/Ground" unique_id=369570249 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -10)
 
-[node name="floorFull49" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull49" parent="NavigationRegion3D/world/Ground" unique_id=374732087 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -14)
 
-[node name="floorFull50" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull50" parent="NavigationRegion3D/world/Ground" unique_id=876782984 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -18)
 
-[node name="floorFull51" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull51" parent="NavigationRegion3D/world/Ground" unique_id=955314801 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -22)
 
-[node name="floorFull52" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull52" parent="NavigationRegion3D/world/Ground" unique_id=2074811209 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -26)
 
-[node name="floorFull53" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull53" parent="NavigationRegion3D/world/Ground" unique_id=461137443 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -30)
 
-[node name="floorFull54" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull54" parent="NavigationRegion3D/world/Ground" unique_id=33939696 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -34)
 
-[node name="floorFull55" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull55" parent="NavigationRegion3D/world/Ground" unique_id=1113211813 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -38)
 
-[node name="floorFull56" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull56" parent="NavigationRegion3D/world/Ground" unique_id=1777777390 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 2)
 
-[node name="floorFull57" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull57" parent="NavigationRegion3D/world/Ground" unique_id=838364366 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -2)
 
-[node name="floorFull58" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull58" parent="NavigationRegion3D/world/Ground" unique_id=1301038947 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -6)
 
-[node name="floorFull59" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull59" parent="NavigationRegion3D/world/Ground" unique_id=103781906 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -10)
 
-[node name="floorFull60" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull60" parent="NavigationRegion3D/world/Ground" unique_id=462530302 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -14)
 
-[node name="floorFull61" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull61" parent="NavigationRegion3D/world/Ground" unique_id=882764681 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -18)
 
-[node name="floorFull62" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull62" parent="NavigationRegion3D/world/Ground" unique_id=480893128 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -22)
 
-[node name="floorFull63" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull63" parent="NavigationRegion3D/world/Ground" unique_id=1012186199 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -26)
 
-[node name="floorFull64" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull64" parent="NavigationRegion3D/world/Ground" unique_id=1654513748 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -30)
 
-[node name="floorFull65" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull65" parent="NavigationRegion3D/world/Ground" unique_id=1446378030 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -34)
 
-[node name="floorFull66" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull66" parent="NavigationRegion3D/world/Ground" unique_id=628298981 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -38)
 
-[node name="floorFull67" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull67" parent="NavigationRegion3D/world/Ground" unique_id=1392895537 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 2)
 
-[node name="floorFull68" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull68" parent="NavigationRegion3D/world/Ground" unique_id=1482938342 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -2)
 
-[node name="floorFull69" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull69" parent="NavigationRegion3D/world/Ground" unique_id=283994206 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -6)
 
-[node name="floorFull70" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull70" parent="NavigationRegion3D/world/Ground" unique_id=1437586683 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -10)
 
-[node name="floorFull71" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull71" parent="NavigationRegion3D/world/Ground" unique_id=589947324 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -14)
 
-[node name="floorFull72" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull72" parent="NavigationRegion3D/world/Ground" unique_id=1374011936 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -18)
 
-[node name="floorFull73" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull73" parent="NavigationRegion3D/world/Ground" unique_id=1246238104 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -22)
 
-[node name="floorFull74" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull74" parent="NavigationRegion3D/world/Ground" unique_id=1795118441 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -26)
 
-[node name="floorFull75" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull75" parent="NavigationRegion3D/world/Ground" unique_id=1615645030 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -30)
 
-[node name="floorFull76" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull76" parent="NavigationRegion3D/world/Ground" unique_id=1373029681 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -34)
 
-[node name="floorFull77" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull77" parent="NavigationRegion3D/world/Ground" unique_id=111958061 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -38)
 
-[node name="floorFull78" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull78" parent="NavigationRegion3D/world/Ground" unique_id=351902881 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 2)
 
-[node name="floorFull79" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull79" parent="NavigationRegion3D/world/Ground" unique_id=143732340 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -2)
 
-[node name="floorFull80" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull80" parent="NavigationRegion3D/world/Ground" unique_id=220077761 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -6)
 
-[node name="floorFull81" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull81" parent="NavigationRegion3D/world/Ground" unique_id=796367999 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
 
-[node name="floorFull82" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull82" parent="NavigationRegion3D/world/Ground" unique_id=376945739 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -14)
 
-[node name="floorFull83" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull83" parent="NavigationRegion3D/world/Ground" unique_id=1353401836 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -18)
 
-[node name="floorFull84" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull84" parent="NavigationRegion3D/world/Ground" unique_id=857976951 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -22)
 
-[node name="floorFull85" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull85" parent="NavigationRegion3D/world/Ground" unique_id=1168193852 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -26)
 
-[node name="floorFull86" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull86" parent="NavigationRegion3D/world/Ground" unique_id=2009646680 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -30)
 
-[node name="floorFull87" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull87" parent="NavigationRegion3D/world/Ground" unique_id=2016786261 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -34)
 
-[node name="floorFull88" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull88" parent="NavigationRegion3D/world/Ground" unique_id=1795358020 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -38)
 
-[node name="floorFull89" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull89" parent="NavigationRegion3D/world/Ground" unique_id=520014029 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, 2)
 
-[node name="floorFull90" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull90" parent="NavigationRegion3D/world/Ground" unique_id=1820607027 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -2)
 
-[node name="floorFull91" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull91" parent="NavigationRegion3D/world/Ground" unique_id=1347165352 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -6)
 
-[node name="floorFull92" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull92" parent="NavigationRegion3D/world/Ground" unique_id=869061929 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -10)
 
-[node name="floorFull93" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull93" parent="NavigationRegion3D/world/Ground" unique_id=514855146 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -14)
 
-[node name="floorFull94" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull94" parent="NavigationRegion3D/world/Ground" unique_id=143277148 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -18)
 
-[node name="floorFull95" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull95" parent="NavigationRegion3D/world/Ground" unique_id=2005851545 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -22)
 
-[node name="floorFull96" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull96" parent="NavigationRegion3D/world/Ground" unique_id=278119208 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -26)
 
-[node name="floorFull97" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull97" parent="NavigationRegion3D/world/Ground" unique_id=1298214696 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -30)
 
-[node name="floorFull98" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull98" parent="NavigationRegion3D/world/Ground" unique_id=1749936926 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -34)
 
-[node name="floorFull99" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull99" parent="NavigationRegion3D/world/Ground" unique_id=330908738 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -38)
 
-[node name="floorFull100" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull100" parent="NavigationRegion3D/world/Ground" unique_id=740439215 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 2)
 
-[node name="floorFull101" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull101" parent="NavigationRegion3D/world/Ground" unique_id=1485249685 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -2)
 
-[node name="floorFull102" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull102" parent="NavigationRegion3D/world/Ground" unique_id=2019327714 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -6)
 
-[node name="floorFull103" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull103" parent="NavigationRegion3D/world/Ground" unique_id=530530413 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -10)
 
-[node name="floorFull104" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull104" parent="NavigationRegion3D/world/Ground" unique_id=553858596 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -14)
 
-[node name="floorFull105" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull105" parent="NavigationRegion3D/world/Ground" unique_id=1284372777 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -18)
 
-[node name="floorFull106" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull106" parent="NavigationRegion3D/world/Ground" unique_id=1835496112 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -22)
 
-[node name="floorFull107" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull107" parent="NavigationRegion3D/world/Ground" unique_id=15923689 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -26)
 
-[node name="floorFull108" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull108" parent="NavigationRegion3D/world/Ground" unique_id=2021650669 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -30)
 
-[node name="floorFull109" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull109" parent="NavigationRegion3D/world/Ground" unique_id=628477475 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -34)
 
-[node name="floorFull110" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull110" parent="NavigationRegion3D/world/Ground" unique_id=179562828 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -38)
 
-[node name="floorFull111" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull111" parent="NavigationRegion3D/world/Ground" unique_id=1276316276 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, 2)
 
-[node name="floorFull112" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull112" parent="NavigationRegion3D/world/Ground" unique_id=701142316 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -2)
 
-[node name="floorFull113" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull113" parent="NavigationRegion3D/world/Ground" unique_id=400102052 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -6)
 
-[node name="floorFull122" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull122" parent="NavigationRegion3D/world/Ground" unique_id=646997971 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, -6)
 
-[node name="floorFull123" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull123" parent="NavigationRegion3D/world/Ground" unique_id=346932081 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, -10)
 
-[node name="floorFull114" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull114" parent="NavigationRegion3D/world/Ground" unique_id=256984315 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -10)
 
-[node name="floorFull115" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull115" parent="NavigationRegion3D/world/Ground" unique_id=423701031 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -14)
 
-[node name="floorFull116" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull116" parent="NavigationRegion3D/world/Ground" unique_id=1308988602 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -18)
 
-[node name="floorFull117" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull117" parent="NavigationRegion3D/world/Ground" unique_id=1161675986 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -22)
 
-[node name="floorFull118" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull118" parent="NavigationRegion3D/world/Ground" unique_id=903943185 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -26)
 
-[node name="floorFull119" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull119" parent="NavigationRegion3D/world/Ground" unique_id=910727274 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -30)
 
-[node name="floorFull120" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull120" parent="NavigationRegion3D/world/Ground" unique_id=1713254632 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -34)
 
-[node name="floorFull121" parent="MultiplayerSynchronizer/Ground" instance=ExtResource("4_h3t8s")]
+[node name="floorFull121" parent="NavigationRegion3D/world/Ground" unique_id=1553219578 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -38)
 
-[node name="ceiling" type="Node3D" parent="MultiplayerSynchronizer"]
+[node name="ceiling" type="Node3D" parent="NavigationRegion3D/world" unique_id=280218505]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+visible = false
 
-[node name="floorFull" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull" parent="NavigationRegion3D/world/ceiling" unique_id=1476120196 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 
-[node name="floorFull2" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull2" parent="NavigationRegion3D/world/ceiling" unique_id=1231021521 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
 
-[node name="floorFull3" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull3" parent="NavigationRegion3D/world/ceiling" unique_id=802955980 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
 
-[node name="floorFull4" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull4" parent="NavigationRegion3D/world/ceiling" unique_id=1566691295 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -10)
 
-[node name="floorFull5" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull5" parent="NavigationRegion3D/world/ceiling" unique_id=333501396 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -14)
 
-[node name="floorFull6" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull6" parent="NavigationRegion3D/world/ceiling" unique_id=441336538 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -18)
 
-[node name="floorFull7" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull7" parent="NavigationRegion3D/world/ceiling" unique_id=1997041249 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -22)
 
-[node name="floorFull8" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull8" parent="NavigationRegion3D/world/ceiling" unique_id=340048894 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -26)
 
-[node name="floorFull9" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull9" parent="NavigationRegion3D/world/ceiling" unique_id=1111786471 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -30)
 
-[node name="floorFull10" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull10" parent="NavigationRegion3D/world/ceiling" unique_id=1269924296 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -34)
 
-[node name="floorFull11" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull11" parent="NavigationRegion3D/world/ceiling" unique_id=892231362 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -38)
 
-[node name="floorFull12" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull12" parent="NavigationRegion3D/world/ceiling" unique_id=1821267557 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
 
-[node name="floorFull13" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull13" parent="NavigationRegion3D/world/ceiling" unique_id=557680106 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2)
 
-[node name="floorFull14" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull14" parent="NavigationRegion3D/world/ceiling" unique_id=1529760014 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
 
-[node name="floorFull15" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull15" parent="NavigationRegion3D/world/ceiling" unique_id=407055429 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -10)
 
-[node name="floorFull16" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull16" parent="NavigationRegion3D/world/ceiling" unique_id=342820382 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -14)
 
-[node name="floorFull17" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull17" parent="NavigationRegion3D/world/ceiling" unique_id=1934557148 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -18)
 
-[node name="floorFull18" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull18" parent="NavigationRegion3D/world/ceiling" unique_id=763840028 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -22)
 
-[node name="floorFull19" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull19" parent="NavigationRegion3D/world/ceiling" unique_id=530250613 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
 
-[node name="floorFull20" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull20" parent="NavigationRegion3D/world/ceiling" unique_id=1754379295 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -30)
 
-[node name="floorFull21" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull21" parent="NavigationRegion3D/world/ceiling" unique_id=1885647045 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -34)
 
-[node name="floorFull22" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull22" parent="NavigationRegion3D/world/ceiling" unique_id=1420233081 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -38)
 
-[node name="floorFull23" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull23" parent="NavigationRegion3D/world/ceiling" unique_id=967969354 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
 
-[node name="floorFull24" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull24" parent="NavigationRegion3D/world/ceiling" unique_id=1794890579 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -2)
 
-[node name="floorFull25" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull25" parent="NavigationRegion3D/world/ceiling" unique_id=248438003 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6)
 
-[node name="floorFull26" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull26" parent="NavigationRegion3D/world/ceiling" unique_id=1296614320 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
 
-[node name="floorFull27" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull27" parent="NavigationRegion3D/world/ceiling" unique_id=1619988930 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -14)
 
-[node name="floorFull28" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull28" parent="NavigationRegion3D/world/ceiling" unique_id=367271178 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -18)
 
-[node name="floorFull29" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull29" parent="NavigationRegion3D/world/ceiling" unique_id=12987649 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -22)
 
-[node name="floorFull30" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull30" parent="NavigationRegion3D/world/ceiling" unique_id=1121469379 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
 
-[node name="floorFull31" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull31" parent="NavigationRegion3D/world/ceiling" unique_id=238832541 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -30)
 
-[node name="floorFull32" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull32" parent="NavigationRegion3D/world/ceiling" unique_id=1910704775 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -34)
 
-[node name="floorFull33" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull33" parent="NavigationRegion3D/world/ceiling" unique_id=1513733883 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -38)
 
-[node name="floorFull34" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull34" parent="NavigationRegion3D/world/ceiling" unique_id=1791796629 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 2)
 
-[node name="floorFull35" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull35" parent="NavigationRegion3D/world/ceiling" unique_id=652672813 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -2)
 
-[node name="floorFull36" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull36" parent="NavigationRegion3D/world/ceiling" unique_id=190054100 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -6)
 
-[node name="floorFull37" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull37" parent="NavigationRegion3D/world/ceiling" unique_id=1268566379 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -10)
 
-[node name="floorFull38" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull38" parent="NavigationRegion3D/world/ceiling" unique_id=1017105637 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -14)
 
-[node name="floorFull39" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull39" parent="NavigationRegion3D/world/ceiling" unique_id=1401538173 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -18)
 
-[node name="floorFull40" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull40" parent="NavigationRegion3D/world/ceiling" unique_id=1089522765 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -22)
 
-[node name="floorFull41" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull41" parent="NavigationRegion3D/world/ceiling" unique_id=1016330203 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -26)
 
-[node name="floorFull42" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull42" parent="NavigationRegion3D/world/ceiling" unique_id=1185152146 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -30)
 
-[node name="floorFull43" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull43" parent="NavigationRegion3D/world/ceiling" unique_id=1870147796 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -34)
 
-[node name="floorFull44" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull44" parent="NavigationRegion3D/world/ceiling" unique_id=245707037 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -38)
 
-[node name="floorFull45" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull45" parent="NavigationRegion3D/world/ceiling" unique_id=1732564002 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 2)
 
-[node name="floorFull46" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull46" parent="NavigationRegion3D/world/ceiling" unique_id=1986493409 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -2)
 
-[node name="floorFull47" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull47" parent="NavigationRegion3D/world/ceiling" unique_id=1926100022 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -6)
 
-[node name="floorFull48" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull48" parent="NavigationRegion3D/world/ceiling" unique_id=453227871 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -10)
 
-[node name="floorFull49" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull49" parent="NavigationRegion3D/world/ceiling" unique_id=277090427 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -14)
 
-[node name="floorFull50" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull50" parent="NavigationRegion3D/world/ceiling" unique_id=168669214 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -18)
 
-[node name="floorFull51" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull51" parent="NavigationRegion3D/world/ceiling" unique_id=1060547924 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -22)
 
-[node name="floorFull52" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull52" parent="NavigationRegion3D/world/ceiling" unique_id=1737733246 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -26)
 
-[node name="floorFull53" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull53" parent="NavigationRegion3D/world/ceiling" unique_id=646053359 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -30)
 
-[node name="floorFull54" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull54" parent="NavigationRegion3D/world/ceiling" unique_id=976742397 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -34)
 
-[node name="floorFull55" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull55" parent="NavigationRegion3D/world/ceiling" unique_id=2027567178 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -38)
 
-[node name="floorFull56" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull56" parent="NavigationRegion3D/world/ceiling" unique_id=79098819 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 2)
 
-[node name="floorFull57" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull57" parent="NavigationRegion3D/world/ceiling" unique_id=1823346467 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -2)
 
-[node name="floorFull58" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull58" parent="NavigationRegion3D/world/ceiling" unique_id=92127448 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -6)
 
-[node name="floorFull59" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull59" parent="NavigationRegion3D/world/ceiling" unique_id=664987972 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -10)
 
-[node name="floorFull60" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull60" parent="NavigationRegion3D/world/ceiling" unique_id=612698111 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -14)
 
-[node name="floorFull61" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull61" parent="NavigationRegion3D/world/ceiling" unique_id=1732893058 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -18)
 
-[node name="floorFull62" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull62" parent="NavigationRegion3D/world/ceiling" unique_id=668503786 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -22)
 
-[node name="floorFull63" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull63" parent="NavigationRegion3D/world/ceiling" unique_id=536087506 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -26)
 
-[node name="floorFull64" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull64" parent="NavigationRegion3D/world/ceiling" unique_id=1862936320 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -30)
 
-[node name="floorFull65" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull65" parent="NavigationRegion3D/world/ceiling" unique_id=1429787217 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -34)
 
-[node name="floorFull66" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull66" parent="NavigationRegion3D/world/ceiling" unique_id=894922708 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -38)
 
-[node name="floorFull67" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull67" parent="NavigationRegion3D/world/ceiling" unique_id=1553623286 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 2)
 
-[node name="floorFull68" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull68" parent="NavigationRegion3D/world/ceiling" unique_id=1668788076 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -2)
 
-[node name="floorFull69" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull69" parent="NavigationRegion3D/world/ceiling" unique_id=1054782989 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -6)
 
-[node name="floorFull70" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull70" parent="NavigationRegion3D/world/ceiling" unique_id=2115473065 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -10)
 
-[node name="floorFull71" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull71" parent="NavigationRegion3D/world/ceiling" unique_id=493168468 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -14)
 
-[node name="floorFull72" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull72" parent="NavigationRegion3D/world/ceiling" unique_id=950456134 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -18)
 
-[node name="floorFull73" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull73" parent="NavigationRegion3D/world/ceiling" unique_id=750223039 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -22)
 
-[node name="floorFull74" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull74" parent="NavigationRegion3D/world/ceiling" unique_id=666834540 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -26)
 
-[node name="floorFull75" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull75" parent="NavigationRegion3D/world/ceiling" unique_id=544478336 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -30)
 
-[node name="floorFull76" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull76" parent="NavigationRegion3D/world/ceiling" unique_id=378427981 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -34)
 
-[node name="floorFull77" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull77" parent="NavigationRegion3D/world/ceiling" unique_id=192332947 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -38)
 
-[node name="floorFull78" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull78" parent="NavigationRegion3D/world/ceiling" unique_id=1382727092 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 2)
 
-[node name="floorFull79" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull79" parent="NavigationRegion3D/world/ceiling" unique_id=933344109 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -2)
 
-[node name="floorFull80" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull80" parent="NavigationRegion3D/world/ceiling" unique_id=1021033574 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -6)
 
-[node name="floorFull81" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull81" parent="NavigationRegion3D/world/ceiling" unique_id=1739242631 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
 
-[node name="floorFull82" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull82" parent="NavigationRegion3D/world/ceiling" unique_id=2120061454 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -14)
 
-[node name="floorFull83" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull83" parent="NavigationRegion3D/world/ceiling" unique_id=1987633377 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -18)
 
-[node name="floorFull84" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull84" parent="NavigationRegion3D/world/ceiling" unique_id=1430338247 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -22)
 
-[node name="floorFull85" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull85" parent="NavigationRegion3D/world/ceiling" unique_id=1191085838 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -26)
 
-[node name="floorFull86" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull86" parent="NavigationRegion3D/world/ceiling" unique_id=1194675613 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -30)
 
-[node name="floorFull87" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull87" parent="NavigationRegion3D/world/ceiling" unique_id=23664202 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -34)
 
-[node name="floorFull88" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull88" parent="NavigationRegion3D/world/ceiling" unique_id=226720348 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -38)
 
-[node name="floorFull89" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull89" parent="NavigationRegion3D/world/ceiling" unique_id=936598540 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, 2)
 
-[node name="floorFull90" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull90" parent="NavigationRegion3D/world/ceiling" unique_id=634599996 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -2)
 
-[node name="floorFull91" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull91" parent="NavigationRegion3D/world/ceiling" unique_id=2041348656 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -6)
 
-[node name="floorFull92" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull92" parent="NavigationRegion3D/world/ceiling" unique_id=1253775847 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -10)
 
-[node name="floorFull93" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull93" parent="NavigationRegion3D/world/ceiling" unique_id=708572649 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -14)
 
-[node name="floorFull94" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull94" parent="NavigationRegion3D/world/ceiling" unique_id=1713955711 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -18)
 
-[node name="floorFull95" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull95" parent="NavigationRegion3D/world/ceiling" unique_id=626392166 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -22)
 
-[node name="floorFull96" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull96" parent="NavigationRegion3D/world/ceiling" unique_id=1182449678 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -26)
 
-[node name="floorFull97" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull97" parent="NavigationRegion3D/world/ceiling" unique_id=343421177 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -30)
 
-[node name="floorFull98" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull98" parent="NavigationRegion3D/world/ceiling" unique_id=1113024816 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -34)
 
-[node name="floorFull99" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull99" parent="NavigationRegion3D/world/ceiling" unique_id=1730939853 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -38)
 
-[node name="floorFull100" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull100" parent="NavigationRegion3D/world/ceiling" unique_id=609316423 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 2)
 
-[node name="floorFull101" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull101" parent="NavigationRegion3D/world/ceiling" unique_id=86587276 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -2)
 
-[node name="floorFull102" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull102" parent="NavigationRegion3D/world/ceiling" unique_id=1153133055 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -6)
 
-[node name="floorFull103" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull103" parent="NavigationRegion3D/world/ceiling" unique_id=1354672472 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -10)
 
-[node name="floorFull104" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull104" parent="NavigationRegion3D/world/ceiling" unique_id=1543541509 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -14)
 
-[node name="floorFull105" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull105" parent="NavigationRegion3D/world/ceiling" unique_id=926400580 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -18)
 
-[node name="floorFull106" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull106" parent="NavigationRegion3D/world/ceiling" unique_id=1211967323 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -22)
 
-[node name="floorFull107" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull107" parent="NavigationRegion3D/world/ceiling" unique_id=1035209838 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -26)
 
-[node name="floorFull108" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull108" parent="NavigationRegion3D/world/ceiling" unique_id=449610252 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -30)
 
-[node name="floorFull109" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull109" parent="NavigationRegion3D/world/ceiling" unique_id=1633087011 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -34)
 
-[node name="floorFull110" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull110" parent="NavigationRegion3D/world/ceiling" unique_id=1797390997 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -38)
 
-[node name="floorFull111" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull111" parent="NavigationRegion3D/world/ceiling" unique_id=1220573111 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, 2)
 
-[node name="floorFull112" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull112" parent="NavigationRegion3D/world/ceiling" unique_id=33836745 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -2)
 
-[node name="floorFull113" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull113" parent="NavigationRegion3D/world/ceiling" unique_id=187065521 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -6)
 
-[node name="floorFull122" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull122" parent="NavigationRegion3D/world/ceiling" unique_id=1506337619 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, -6)
 
-[node name="floorFull123" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull123" parent="NavigationRegion3D/world/ceiling" unique_id=2069590865 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, -10)
 
-[node name="floorFull114" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull114" parent="NavigationRegion3D/world/ceiling" unique_id=1290001030 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -10)
 
-[node name="floorFull115" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull115" parent="NavigationRegion3D/world/ceiling" unique_id=1560357948 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -14)
 
-[node name="floorFull116" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull116" parent="NavigationRegion3D/world/ceiling" unique_id=1433577539 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -18)
 
-[node name="floorFull117" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull117" parent="NavigationRegion3D/world/ceiling" unique_id=2020588707 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -22)
 
-[node name="floorFull118" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull118" parent="NavigationRegion3D/world/ceiling" unique_id=2068429363 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -26)
 
-[node name="floorFull119" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull119" parent="NavigationRegion3D/world/ceiling" unique_id=993995127 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -30)
 
-[node name="floorFull120" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull120" parent="NavigationRegion3D/world/ceiling" unique_id=1945137491 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -34)
 
-[node name="floorFull121" parent="MultiplayerSynchronizer/ceiling" instance=ExtResource("4_h3t8s")]
+[node name="floorFull121" parent="NavigationRegion3D/world/ceiling" unique_id=694566978 instance=ExtResource("4_h3t8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -38)
 
 [editable path="ProtoController"]

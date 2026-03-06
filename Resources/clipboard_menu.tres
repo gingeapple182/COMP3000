@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b36gcvokacoai"]
+[gd_resource type="Theme" format=3 uid="uid://b36gcvokacoai"]
 
 [ext_resource type="StyleBox" uid="uid://w32rrqc5qme1" path="res://Resources/Clipboard/cardboardPanel.tres" id="1_1fy3p"]
 [ext_resource type="FontFile" uid="uid://bwbipxb1wjho4" path="res://Scenes/Assets/Fonts/AppleStormRg.otf" id="2_2yn6a"]

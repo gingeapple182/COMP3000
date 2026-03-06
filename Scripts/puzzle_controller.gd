@@ -7,8 +7,8 @@ var current_level_index: int = 0
 
 @export var block_scene: PackedScene
 @onready var block_spawn: Node3D = $Elements/BlockSpawn
-@onready var level_display_title: Label = $CanvasLayer/Control/VBoxContainer/DisplayTitle
-@onready var level_description: RichTextLabel = $CanvasLayer/Control/VBoxContainer/LevelDescription
+@onready var level_display_title: Label = $CanvasLayer/Control/PanelContainer/VBoxContainer/DisplayTitle
+@onready var level_description: RichTextLabel = $CanvasLayer/Control/PanelContainer/VBoxContainer/LevelDescription
 
 
 ## -- Scene refs -- ##

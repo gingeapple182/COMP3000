@@ -12,6 +12,7 @@ func _ready() -> void:
 	ceiling =  office_hub_01.find_child("Ceiling", true)
 	if ceiling:
 		ceiling.visible = true
+		
 
 func _input(event):
 	if event.is_action_pressed("pause"):
