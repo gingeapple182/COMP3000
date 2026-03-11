@@ -15,3 +15,4 @@ Place a TRUE value block so that the output becomes TRUE.
 level_complete_description = "Good work. You’ve successfully sent a signal to the output.
 "
 true_value_count = 1
+xnor_gate_count = 1

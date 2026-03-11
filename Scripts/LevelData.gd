@@ -20,6 +20,10 @@ enum OutputGoals {
 @export var and_gate_count: int = 0
 @export var not_gate_count: int = 0
 @export var or_gate_count: int = 0
+@export var nand_gate_count: int = 0
+@export var nor_gate_count: int = 0
+@export var xor_gate_count: int = 0
+@export var xnor_gate_count: int = 0
 @export var L_U_connector_count: int = 0
 @export var L_R_connector_count: int = 0
 @export var L_D_connector_count: int = 0

@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cul2i8fiv6l8d" path="res://Scenes/Assets/Materials/carpet.tres" id="1_1ae3g"]
 [ext_resource type="Material" uid="uid://cnghavpj0bxwn" path="res://Scenes/Assets/Materials/ceiling.tres" id="2_tylp4"]
+[ext_resource type="Texture2D" uid="uid://bg05rstsx6pn6" path="res://addons/npc/TestMiles.png" id="3_2d2uq"]
 [ext_resource type="PackedScene" uid="uid://dh2ukergbd5q5" path="res://Scenes/Assets/Assets/kenney/wallWindow.glb" id="6_7nsbk"]
 [ext_resource type="PackedScene" uid="uid://j0xgkounc8xa" path="res://Scenes/Assets/Assets/kenney/deskCorner.glb" id="7_xj4ta"]
 [ext_resource type="PackedScene" uid="uid://cx5fbcj5q68x0" path="res://Scenes/Assets/Assets/kenney/toilet.glb" id="8_guu3f"]
@@ -13,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://bisnst7sspr0x" path="res://Scenes/NPC/character_medium.tscn" id="10_og1ds"]
 [ext_resource type="PackedScene" uid="uid://ckg3dbxib0xfo" path="res://Scenes/Assets/Assets/kenney/bathroomSinkSquare.glb" id="11_end33"]
 [ext_resource type="PackedScene" uid="uid://dm6ojo1nhm3hp" path="res://Scenes/Assets/Assets/kenney/bathroomMirror.glb" id="12_2d2uq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q7h6"]
+albedo_color = Color(0.5867208, 0.09754469, 0.65798306, 1)
+albedo_texture = ExtResource("3_2d2uq")
 
 [node name="OfficeHub01" type="Node3D" unique_id=581236184]
 
@@ -47,6 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, -2)
 visible = false
 material_override = ExtResource("2_tylp4")
 size = Vector3(56, 1, 52)
+material = SubResource("StandardMaterial3D_6q7h6")
 
 [node name="Walls" type="Node3D" parent="." unique_id=1590823205]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.378031)

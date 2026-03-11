@@ -1052,6 +1052,10 @@ x_higher = 21.0
 z_lower = -15.0
 z_higher = -1.0
 
+[node name="Label3D" type="Label3D" parent="NPC/Rory" unique_id=1925035240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1219306, 0.41408825)
+text = "Rory"
+
 [node name="NavigationNPC2" parent="NPC" unique_id=2112072401 instance=ExtResource("62_qnggo")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.327545, 1.9646862, 7.328677)
 npc_type = 1

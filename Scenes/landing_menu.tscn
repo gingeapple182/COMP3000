@@ -8,7 +8,9 @@ script = ExtResource("1_havof")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528334519]
 
 [node name="MainMenu" type="Control" parent="CanvasLayer" unique_id=611792450]
+visible = false
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -27,7 +29,8 @@ grow_vertical = 2
 [node name="Title" type="Label" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=832499635]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "COMP3000 Game"
+text = "Project Mismanagement
+"
 horizontal_alignment = 1
 
 [node name="Button_Start" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=2007701810]
@@ -176,7 +179,6 @@ offset_bottom = 60.0
 text = "Return to main menu"
 
 [node name="Credits" type="Control" parent="CanvasLayer" unique_id=1508145158]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,6 +242,9 @@ text = "Tools & technologies
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Credits/ScrollContainer/VBoxContainer" unique_id=583578737]
 layout_mode = 2
+text = "Godot 4.6stable
+Blender
+GitHub"
 fit_content = true
 
 [node name="Label5" type="Label" parent="CanvasLayer/Credits/ScrollContainer/VBoxContainer" unique_id=1153146472]
@@ -251,13 +256,15 @@ text = "Assets & Credits
 [node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Credits/ScrollContainer/VBoxContainer" unique_id=898339719]
 layout_mode = 2
 text = "Assets used:
-
+https://kenney.nl/assets/furniture-kit
+https://kenney.nl/assets/animated-characters-2
+https://kenney.nl/assets/ui-pack-sci-fi
 "
 fit_content = true
 
 [node name="Label6" type="Label" parent="CanvasLayer/Credits/ScrollContainer/VBoxContainer" unique_id=1731969451]
 layout_mode = 2
-text = "Built with Godot Engine 4.3
+text = "Built with Godot Engine 4.6stable
 "
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]

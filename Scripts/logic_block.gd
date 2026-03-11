@@ -18,7 +18,7 @@ enum BlockType { VALUE, GATE, CONNECTOR }
 # VALUE
 @export var value: bool
 # GATE
-enum GateType { AND, NOT, OR }
+enum GateType { AND, NOT, OR, NAND, NOR, XOR, XNOR }
 @export var gate_type: GateType
 # CONNECTOR
 enum ConnectorType { L_R, L_U, L_D, D_R, D_U, U_R, U_D }
@@ -113,6 +113,14 @@ func gate_type_name(text: GateType) -> String:
 			return "NOT"
 		GateType.OR:
 			return "OR"
+		GateType.NAND:
+			return "NAND"
+		GateType.NOR:
+			return "OR"
+		GateType.XOR:
+			return "XOR"
+		GateType.XNOR:
+			return "XNOR"
 		_:
 			return "name not found go home youre drunk"
 

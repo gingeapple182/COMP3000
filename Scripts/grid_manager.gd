@@ -398,6 +398,32 @@ func evaluate_gate(gate_type: int, input_values: Array) -> bool:
 				if v == true:
 					return true
 			return false
+		LogicBlock.GateType.NAND:
+			# NAND Oppoosite of AND
+			for v in input_values:
+				if v == false:
+					return true
+			return false
+		LogicBlock.GateType.NOR:
+			# NOR: Opposite of OR
+			for v in input_values:
+				if v == true:
+					return false
+			return true
+		LogicBlock.GateType.XOR:
+			# XOR: TRUE if odd no of inputs are TRUE
+			var true_cont := 0
+			for v in input_values:
+				if v == true:
+					true_cont += 1
+			return true_cont / 2 == 1
+		LogicBlock.GateType.XNOR:
+			# XNOR: TRUE if an even number of inputs are TRUE
+			var true_count := 0
+			for v in input_values:
+				if v == true:
+					true_count += 1
+			return true_count % 2 == 0
 		_:
 			return false
 

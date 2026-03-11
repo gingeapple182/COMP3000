@@ -323,6 +323,38 @@ func spawn_blocks_for_level(level: LevelData) -> void:
 			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.OR)
 		index += 1
 	
+		# NAND gates
+	for i in range(level.nand_gate_count):
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
+		if block:
+			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.NAND)
+		index += 1
+	
+	# NOR gates
+	for i in range(level.nor_gate_count):
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
+		if block:
+			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.NOR)
+		index += 1
+	
+	# XOR gates
+	for i in range(level.xor_gate_count):
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
+		if block:
+			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.XOR)
+		index += 1
+	
+	# XNOR gates
+	for i in range(level.xnor_gate_count):
+		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
+		block = spawn_block(block_scene, spawn_pos)
+		if block:
+			configure_block(block, LogicBlock.BlockType.GATE, LogicBlock.GateType.XNOR)
+		index += 1
+	
 	# L_R connectors
 	for i in range(level.L_R_connector_count):
 		var spawn_pos := get_tray_spawn_position(start_pos, index, blocks_per_row, x_spacing, z_spacing)
