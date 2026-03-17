@@ -2,7 +2,6 @@
 
 [ext_resource type="Material" uid="uid://cul2i8fiv6l8d" path="res://Scenes/Assets/Materials/carpet.tres" id="1_1ae3g"]
 [ext_resource type="Material" uid="uid://cnghavpj0bxwn" path="res://Scenes/Assets/Materials/ceiling.tres" id="2_tylp4"]
-[ext_resource type="Texture2D" uid="uid://bg05rstsx6pn6" path="res://addons/npc/TestMiles.png" id="3_2d2uq"]
 [ext_resource type="PackedScene" uid="uid://dh2ukergbd5q5" path="res://Scenes/Assets/Assets/kenney/wallWindow.glb" id="6_7nsbk"]
 [ext_resource type="PackedScene" uid="uid://j0xgkounc8xa" path="res://Scenes/Assets/Assets/kenney/deskCorner.glb" id="7_xj4ta"]
 [ext_resource type="PackedScene" uid="uid://cx5fbcj5q68x0" path="res://Scenes/Assets/Assets/kenney/toilet.glb" id="8_guu3f"]
@@ -14,10 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bisnst7sspr0x" path="res://Scenes/NPC/character_medium.tscn" id="10_og1ds"]
 [ext_resource type="PackedScene" uid="uid://ckg3dbxib0xfo" path="res://Scenes/Assets/Assets/kenney/bathroomSinkSquare.glb" id="11_end33"]
 [ext_resource type="PackedScene" uid="uid://dm6ojo1nhm3hp" path="res://Scenes/Assets/Assets/kenney/bathroomMirror.glb" id="12_2d2uq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q7h6"]
-albedo_color = Color(0.5867208, 0.09754469, 0.65798306, 1)
-albedo_texture = ExtResource("3_2d2uq")
 
 [node name="OfficeHub01" type="Node3D" unique_id=581236184]
 
@@ -52,7 +47,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, -2)
 visible = false
 material_override = ExtResource("2_tylp4")
 size = Vector3(56, 1, 52)
-material = SubResource("StandardMaterial3D_6q7h6")
 
 [node name="Walls" type="Node3D" parent="." unique_id=1590823205]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.378031)
@@ -479,45 +473,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -13.
 
 [node name="characterMedium" parent="Walls" unique_id=905879042 instance=ExtResource("10_og1ds")]
 transform = Transform3D(-0.7, 0, 6.119594e-08, 0, 0.7, 0, -6.119594e-08, 0, -0.7, -9.88005, 0.5, 0.68663394)
-
-[node name="Skeleton3D" parent="Walls/characterMedium/Root" parent_id_path=PackedInt32Array(905879042, 874967992) index="0" unique_id=453260481]
-bones/0/rotation = Quaternion(-0.49999994, -0.5000001, 0.5000002, 0.49999988)
-bones/1/rotation = Quaternion(-0.5075118, 0.50822836, -0.49190623, -0.4921016)
-bones/2/rotation = Quaternion(0.015735853, -0.0020787383, 0.99462473, -0.10232155)
-bones/3/rotation = Quaternion(0.9461289, -0.021870855, 0.075502604, -0.31410378)
-bones/9/position = Vector3(-0.0020752049, 0.0014881003, 0.0019320479)
-bones/9/rotation = Quaternion(-0.49999994, -0.5000001, 0.5000002, 0.49999988)
-bones/12/rotation = Quaternion(0.9481119, 0.011444973, -0.044093143, -0.31465632)
-bones/18/position = Vector3(-2.2340876e-06, -0.00031240255, 0.015641721)
-bones/19/rotation = Quaternion(9.301444e-05, -2.6648374e-07, 0.999999, 0.0014431665)
-bones/20/rotation = Quaternion(-0.061042573, -1.054578e-08, -1.03921645e-08, 0.9981352)
-bones/21/rotation = Quaternion(0.011894642, 9.99934e-09, 1.1040932e-08, 0.99992925)
-bones/22/rotation = Quaternion(0.049165785, -3.8279617e-13, -1.8956675e-14, 0.9987906)
-bones/23/rotation = Quaternion(0.07661575, -2.5414742e-13, -3.625577e-12, 0.9970607)
-bones/24/rotation = Quaternion(-0.074135266, -2.5269783e-14, -8.820015e-15, 0.99724823)
-bones/26/rotation = Quaternion(0.58688205, 0.41065365, 0.54829454, -0.4316322)
-bones/27/rotation = Quaternion(0.08389001, 0.7108129, 0.06131064, 0.69566405)
-bones/28/rotation = Quaternion(0.04676154, 0.012573271, 0.005446293, 0.9988121)
-bones/29/rotation = Quaternion(-0.015085469, 0.7243595, -0.03158, 0.68853354)
-bones/31/rotation = Quaternion(0.10636933, 0.066763856, -0.0008354294, 0.9920824)
-bones/32/rotation = Quaternion(0.030971576, -0.030524243, 0.0008921563, 0.9990537)
-bones/34/rotation = Quaternion(-0.34267837, 0.63863677, 0.43521494, 0.53413725)
-bones/35/rotation = Quaternion(0.203993, -0.009497706, -0.015259516, 0.97880733)
-bones/37/rotation = Quaternion(0.6583795, -0.5076112, 0.45999345, 0.31188676)
-bones/38/rotation = Quaternion(-0.00093632523, 0.9648764, -0.103902474, -0.24128188)
-bones/39/rotation = Quaternion(0.00583739, -0.11313347, 0.046714265, 0.9924639)
-bones/40/rotation = Quaternion(-0.010813457, 0.1092944, -0.033285607, 0.9933932)
-bones/42/rotation = Quaternion(-0.10636792, 0.06676298, 0.00083558005, 0.9920826)
-bones/43/rotation = Quaternion(-0.030973794, -0.030523026, -0.0008921914, 0.99905366)
-bones/45/rotation = Quaternion(-0.36437526, 0.7365231, -0.41721737, -0.38819343)
-bones/46/rotation = Quaternion(-0.19928308, -0.029637733, 0.04617386, 0.9784048)
-bones/48/rotation = Quaternion(0.9867031, 0.0010609851, 0.16252849, 0.00066988886)
-bones/49/rotation = Quaternion(0.14157404, 0.032444485, 0.052854277, 0.98798317)
-bones/50/rotation = Quaternion(-0.5438065, -0.19418125, -0.18754353, 0.7946041)
-bones/53/rotation = Quaternion(0.9765878, -0.0013587847, -0.21511474, 0.00048428914)
-bones/54/rotation = Quaternion(0.1389479, 0.011510128, -0.059173223, 0.9884633)
-bones/55/rotation = Quaternion(-0.5484955, 0.22882912, 0.17182079, 0.7856638)
-bones/56/rotation = Quaternion(0.028260892, 0.9539412, -0.29757363, -0.025446728)
 
 [node name="AnimationPlayer" parent="Walls/characterMedium" index="1" unique_id=854402974]
 active = false

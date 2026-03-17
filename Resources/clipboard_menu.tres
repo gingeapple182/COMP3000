@@ -56,6 +56,8 @@ corner_radius_bottom_left = 2
 [resource]
 default_font = ExtResource("2_2yn6a")
 Button/colors/font_color = Color(0.183591, 0.18359, 0.18359, 1)
+Button/font_sizes/font_size = 25
+Button/styles/disabled = SubResource("StyleBoxFlat_8t7vr")
 Button/styles/hover = SubResource("StyleBoxFlat_8t7vr")
 Button/styles/normal = SubResource("StyleBoxFlat_mk3tb")
 Button/styles/pressed = SubResource("StyleBoxFlat_v0p7u")

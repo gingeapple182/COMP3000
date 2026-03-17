@@ -2,8 +2,19 @@
 
 [ext_resource type="Script" uid="uid://22wcecigrk3b" path="res://Scripts/pause_menu.gd" id="1_54ojr"]
 [ext_resource type="Theme" uid="uid://b36gcvokacoai" path="res://Resources/clipboard_menu.tres" id="2_k0w1u"]
+[ext_resource type="Texture2D" uid="uid://h1lhqhht4a35" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_escape.png" id="3_ix48p"]
+[ext_resource type="Texture2D" uid="uid://dnyyh6eyd3d58" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_f.png" id="3_u8tnp"]
+[ext_resource type="Texture2D" uid="uid://bm5r0851tu016" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/mouse_left.png" id="4_524vl"]
+[ext_resource type="Texture2D" uid="uid://dlcro5wqa35sd" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_w.png" id="4_stj27"]
+[ext_resource type="Texture2D" uid="uid://cxinh376a4okr" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_a.png" id="5_ix48p"]
+[ext_resource type="Texture2D" uid="uid://cjq5c23rhsich" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_s.png" id="6_524vl"]
+[ext_resource type="Texture2D" uid="uid://dpnnthl3djd51" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_d.png" id="7_0fi7f"]
+[ext_resource type="Texture2D" uid="uid://bu4bnrw3j5pvk" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_space.png" id="8_uscpe"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vnu5m"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0fi7f"]
+thickness = 2
 
 [node name="PauseMenu" type="Control" unique_id=419546077]
 layout_mode = 3
@@ -23,7 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.419608, 0.419608, 0.419608, 0.729412)
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1009704687]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=30047922]
 material = SubResource("CanvasItemMaterial_vnu5m")
 layout_mode = 1
 anchors_preset = -1
@@ -35,38 +46,404 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_k0w1u")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=733468710]
+[node name="Paused" type="HBoxContainer" parent="PanelContainer" unique_id=1749347842]
 layout_mode = 2
+
+[node name="Paused" type="HBoxContainer" parent="PanelContainer/Paused" unique_id=2056883630]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Control" type="Control" parent="PanelContainer/Paused/Paused" unique_id=849013191]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Paused" type="VBoxContainer" parent="PanelContainer/Paused/Paused" unique_id=733468710]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("2_k0w1u")
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1882418105]
+[node name="Label" type="Label" parent="PanelContainer/Paused/Paused/Paused" unique_id=1882418105]
 layout_mode = 2
 theme = ExtResource("2_k0w1u")
+theme_override_font_sizes/font_size = 50
 text = "PAUSED"
 horizontal_alignment = 1
 
-[node name="Button_Resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1212670242]
+[node name="Button_Resume" type="Button" parent="PanelContainer/Paused/Paused/Paused" unique_id=1212670242]
 layout_mode = 2
 theme = ExtResource("2_k0w1u")
 text = "Resume"
 
-[node name="Button_Settings" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2007836734]
+[node name="Button_Settings" type="Button" parent="PanelContainer/Paused/Paused/Paused" unique_id=2007836734]
 layout_mode = 2
-disabled = true
 text = "Settings"
 
-[node name="Button_Reset" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1440753958]
+[node name="Button_Reset" type="Button" parent="PanelContainer/Paused/Paused/Paused" unique_id=1440753958]
 layout_mode = 2
 disabled = true
 text = "Reset"
 
-[node name="Button_Quit" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1889321993]
+[node name="Button_Quit" type="Button" parent="PanelContainer/Paused/Paused/Paused" unique_id=1889321993]
 layout_mode = 2
 text = "Quit
 "
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Button_Resume" to="." method="_on_button_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Button_Reset" to="." method="_on_button_reset_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
+[node name="Control2" type="Control" parent="PanelContainer/Paused/Paused" unique_id=765656145]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Settings" type="HBoxContainer" parent="PanelContainer" unique_id=1225247138]
+visible = false
+layout_mode = 2
+
+[node name="Settings" type="HBoxContainer" parent="PanelContainer/Settings" unique_id=1869354201]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Control" type="Control" parent="PanelContainer/Settings/Settings" unique_id=880523589]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Settings" type="VBoxContainer" parent="PanelContainer/Settings/Settings" unique_id=1534532135]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_k0w1u")
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/Settings/Settings/Settings" unique_id=1974430890]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+theme_override_font_sizes/font_size = 50
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/Settings/Settings/Settings" unique_id=792244229]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+theme_override_font_sizes/font_size = 35
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Button_Controls" type="Button" parent="PanelContainer/Settings/Settings/Settings" unique_id=1468283225]
+layout_mode = 2
+text = "Controls"
+
+[node name="Button_Back" type="Button" parent="PanelContainer/Settings/Settings/Settings" unique_id=42363784]
+layout_mode = 2
+text = "Back"
+
+[node name="Control2" type="Control" parent="PanelContainer/Settings/Settings" unique_id=1608237446]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Controls" type="HBoxContainer" parent="PanelContainer" unique_id=97662897]
+visible = false
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/Controls" unique_id=1617817974]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Controls" type="VBoxContainer" parent="PanelContainer/Controls" unique_id=521958756]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_k0w1u")
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls" unique_id=842398507]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+theme_override_font_sizes/font_size = 50
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/Controls/Controls" unique_id=896614686]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+theme_override_font_sizes/font_size = 35
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Controls/Controls" unique_id=1452467115]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer" unique_id=1522241344]
+visible = false
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/Controls/Controls/HBoxContainer" unique_id=1564683351]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical_scroll_mode = 4
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer" unique_id=1598192095]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Pause" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1351649829]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=1693883697]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=1829966826]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "Pause"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=77354521]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=1627319764]
+layout_mode = 2
+texture = ExtResource("3_ix48p")
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=500051224]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Level" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=699142093]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Level" unique_id=396453491]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_0fi7f")
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Level" unique_id=2119257923]
+layout_mode = 2
+text = "Levels"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Level" unique_id=1696458260]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_0fi7f")
+
+[node name="InteractLevel" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=429115490]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=250821482]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=766247212]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "Interact"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=2144642871]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=1520808130]
+layout_mode = 2
+texture = ExtResource("4_524vl")
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=1509150854]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Hub" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1236949477]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Hub" unique_id=515132687]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_0fi7f")
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Hub" unique_id=755565513]
+layout_mode = 2
+text = "Hub"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Hub" unique_id=1305145424]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_0fi7f")
+
+[node name="InteractHub" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1194751959]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=846027350]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=2099066033]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "Interact"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=1900003321]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=551352933]
+layout_mode = 2
+texture = ExtResource("3_u8tnp")
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=1215345993]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Forwards" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=252614358]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=1405747728]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=384368065]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "Move Forwards"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=1856921525]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=2030901501]
+layout_mode = 2
+texture = ExtResource("4_stj27")
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=877048843]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Left" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1462199396]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=284643882]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=1178285834]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "Move Left"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=964441996]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=1221035025]
+layout_mode = 2
+texture = ExtResource("5_ix48p")
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=1756856220]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Backwards" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1470691204]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=216331656]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=1897651541]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "Move Backwards"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=1267630708]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=944397414]
+layout_mode = 2
+texture = ExtResource("6_524vl")
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=1097947500]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Right" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1895335910]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=1305928093]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=1242197552]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "Move Right"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=890798908]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=585631407]
+layout_mode = 2
+texture = ExtResource("7_0fi7f")
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=170250130]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Jump" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=851844798]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=321440022]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=1919900918]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "Jump"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=1186655960]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=173684697]
+layout_mode = 2
+texture = ExtResource("8_uscpe")
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=1461559899]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="PanelContainer/Controls/Controls/HBoxContainer" unique_id=22910492]
+visible = false
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Button_Back" type="Button" parent="PanelContainer/Controls/Controls" unique_id=1797286550]
+layout_mode = 2
+text = "Back"
+
+[node name="Control" type="Control" parent="PanelContainer/Controls/Controls" unique_id=1369972789]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="PanelContainer/Controls" unique_id=972100199]
+custom_minimum_size = Vector2(20, 40)
+layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Settings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Reset" to="." method="_on_button_reset_pressed"]
+[connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/Settings/Settings/Settings/Button_Controls" to="." method="_on_button_controls_pressed"]
+[connection signal="pressed" from="PanelContainer/Settings/Settings/Settings/Button_Back" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="PanelContainer/Controls/Controls/Button_Back" to="." method="_on_button_back_pressed"]

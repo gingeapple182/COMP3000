@@ -1,6 +1,43 @@
 [gd_scene format=3 uid="uid://bd5m5eqerkpv8"]
 
 [ext_resource type="Script" uid="uid://btp2cpy0tqjaa" path="res://Scripts/landing_menu.gd" id="1_havof"]
+[ext_resource type="Theme" uid="uid://b36gcvokacoai" path="res://Resources/clipboard_menu.tres" id="2_jq0q2"]
+[ext_resource type="PackedScene" uid="uid://bncfiuba1xc2i" path="res://Scenes/Assets/Assets/door_placeholder.tscn" id="2_mhdkk"]
+[ext_resource type="Texture2D" uid="uid://h1lhqhht4a35" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_escape.png" id="3_ro83i"]
+[ext_resource type="PackedScene" uid="uid://xf3y70bw7j1e" path="res://Scenes/Assets/Assets/noticeboard.tscn" id="3_y58r8"]
+[ext_resource type="Texture2D" uid="uid://bm5r0851tu016" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/mouse_left.png" id="4_p06hq"]
+[ext_resource type="FontFile" uid="uid://bwbipxb1wjho4" path="res://Scenes/Assets/Fonts/AppleStormRg.otf" id="4_u100y"]
+[ext_resource type="PackedScene" uid="uid://yx2gnipoumj1" path="res://Scenes/Assets/Assets/photo_frame.tscn" id="5_8yqxj"]
+[ext_resource type="Texture2D" uid="uid://dnyyh6eyd3d58" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_f.png" id="5_xbm0l"]
+[ext_resource type="Texture2D" uid="uid://c8dr3bs1jxjic" path="res://Scenes/Assets/images/portraits/laurenPortrait.jpg" id="6_l82wa"]
+[ext_resource type="Texture2D" uid="uid://dlcro5wqa35sd" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_w.png" id="6_llekn"]
+[ext_resource type="Texture2D" uid="uid://cxinh376a4okr" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_a.png" id="7_nhyyh"]
+[ext_resource type="Texture2D" uid="uid://bt8sqaarhgm35" path="res://Scenes/Assets/images/portraits/roryPortrait.jpg" id="7_v7qak"]
+[ext_resource type="Texture2D" uid="uid://cjq5c23rhsich" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_s.png" id="8_tx41l"]
+[ext_resource type="Texture2D" uid="uid://d4j2pw0ess56s" path="res://Scenes/Assets/images/portraits/jjPortrait.jpg" id="8_uvkxf"]
+[ext_resource type="Texture2D" uid="uid://12b5ocbodic" path="res://Scenes/Assets/images/portraits/vivianPortrait.jpg" id="9_g5ri6"]
+[ext_resource type="Texture2D" uid="uid://dpnnthl3djd51" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_d.png" id="9_u1ecm"]
+[ext_resource type="Texture2D" uid="uid://c4bg886unxj0y" path="res://Scenes/Assets/images/portraits/tylerPortrait.png" id="10_phm66"]
+[ext_resource type="Texture2D" uid="uid://bu4bnrw3j5pvk" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_space.png" id="10_u6ko2"]
+[ext_resource type="PackedScene" uid="uid://j0xgkounc8xa" path="res://Scenes/Assets/Assets/kenney/deskCorner.glb" id="11_jq0q2"]
+[ext_resource type="PackedScene" uid="uid://daxcatvsnk1u2" path="res://Scenes/Assets/Assets/kenney/desk.glb" id="12_ro83i"]
+[ext_resource type="PackedScene" uid="uid://8ds2tmpg7gln" path="res://Scenes/Assets/computer_screen.tscn" id="13_p06hq"]
+[ext_resource type="Texture2D" uid="uid://b7xt3bl1cfuc6" path="res://Scenes/Assets/images/portraits/image_2026-02-20_123305044.jpg" id="14_xbm0l"]
+[ext_resource type="Texture2D" uid="uid://7uj2v818oauq" path="res://Scenes/Assets/images/portraits/Rory_greenscreen.png" id="15_llekn"]
+[ext_resource type="PackedScene" uid="uid://bcvda3j05war8" path="res://Scenes/Assets/laptop_screen.tscn" id="16_nhyyh"]
+[ext_resource type="Texture2D" uid="uid://jwcppjw0u6sm" path="res://Scenes/Assets/images/portraits/roryLinkedin.png" id="17_tx41l"]
+[ext_resource type="PackedScene" uid="uid://cxoi3kvwd2yij" path="res://Scenes/Assets/Assets/kenney/computerMouse.glb" id="18_u1ecm"]
+[ext_resource type="PackedScene" uid="uid://cw18f3kfnmdjn" path="res://Scenes/Assets/Assets/kenney/computerKeyboard.glb" id="19_u6ko2"]
+[ext_resource type="PackedScene" uid="uid://dfw3d5o78olyo" path="res://Scenes/Assets/Assets/kenney/chairDesk.glb" id="20_te8cu"]
+[ext_resource type="PackedScene" uid="uid://42kdqu7gltjk" path="res://Scenes/Assets/Assets/kenney/bookcase_decorated.tscn" id="21_oek1b"]
+[ext_resource type="PackedScene" uid="uid://ptywcmyxq3oo" path="res://Scenes/Assets/Assets/kenney/cabinetTelevisionDoors.glb" id="22_6lblp"]
+[ext_resource type="PackedScene" uid="uid://b5emd7tj5f648" path="res://Scenes/Assets/Assets/kenney/loungeDesignSofaCorner.glb" id="23_it6mx"]
+[ext_resource type="PackedScene" uid="uid://c5p4udkynsaoy" path="res://Scenes/Assets/Assets/kenney/tableCoffeeSquare.glb" id="24_sxmk5"]
+[ext_resource type="PackedScene" uid="uid://dcde3jyp4736n" path="res://Scenes/Assets/Assets/kenney/rugRectangle.glb" id="25_4aqwy"]
+[ext_resource type="PackedScene" uid="uid://cwtvuysuygpay" path="res://Scenes/Assets/office_hub_01.tscn" id="26_8l2gm"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_te8cu"]
+thickness = 2
 
 [node name="LandingMenu" type="Node3D" unique_id=1404606801]
 script = ExtResource("1_havof")
@@ -124,7 +161,6 @@ offset_bottom = 60.0
 text = "Return to main menu"
 
 [node name="Settings" type="Control" parent="CanvasLayer" unique_id=843716209]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,7 +173,7 @@ layout_mode = 0
 offset_left = 312.0
 offset_top = 137.0
 offset_right = 817.0
-offset_bottom = 514.0
+offset_bottom = 648.0
 
 [node name="Title" type="Label" parent="CanvasLayer/Settings/VBoxContainer" unique_id=831214500]
 layout_mode = 2
@@ -165,10 +201,294 @@ text = "Sound effects"
 [node name="HSlider_SFX" type="HSlider" parent="CanvasLayer/Settings/VBoxContainer" unique_id=1708959931]
 layout_mode = 2
 
-[node name="Button_Return" type="Button" parent="CanvasLayer/Settings/VBoxContainer" unique_id=1530596799]
+[node name="Controls" type="VBoxContainer" parent="CanvasLayer/Settings/VBoxContainer" unique_id=2132538766]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_jq0q2")
+theme_override_constants/separation = 10
+
+[node name="Label2" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls" unique_id=357073608]
+layout_mode = 2
+theme = ExtResource("2_jq0q2")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls" unique_id=272598225]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer" unique_id=314925359]
 visible = false
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer" unique_id=1555578418]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical_scroll_mode = 4
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer" unique_id=1618873101]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Pause" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1507026449]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=1596224466]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=593977292]
+layout_mode = 2
+theme = ExtResource("2_jq0q2")
+text = "Pause"
+
+[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=2005077746]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=1830139582]
+layout_mode = 2
+texture = ExtResource("3_ro83i")
+
+[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=2022767206]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Level" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1058607798]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Level" unique_id=1105625707]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_te8cu")
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Level" unique_id=1942907164]
+layout_mode = 2
+text = "Levels"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Level" unique_id=1753500531]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_te8cu")
+
+[node name="InteractLevel" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1809777208]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=226112166]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=821248195]
+layout_mode = 2
+theme = ExtResource("2_jq0q2")
+text = "Interact"
+
+[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=1900683675]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=1622904932]
+layout_mode = 2
+texture = ExtResource("4_p06hq")
+
+[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=1110607784]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Hub" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1531015901]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Hub" unique_id=852858988]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_te8cu")
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Hub" unique_id=1975372327]
+layout_mode = 2
+text = "Hub"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Hub" unique_id=202228734]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_te8cu")
+
+[node name="InteractHub" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=984124854]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=157493064]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=1160979633]
+layout_mode = 2
+theme = ExtResource("2_jq0q2")
+text = "Interact"
+
+[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=137070609]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=1129570201]
+layout_mode = 2
+texture = ExtResource("5_xbm0l")
+
+[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=1573050282]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Forwards" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=669388383]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=91084695]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=500782226]
+layout_mode = 2
+theme = ExtResource("2_jq0q2")
+text = "Move Forwards"
+
+[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=1583023054]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=2108388868]
+layout_mode = 2
+texture = ExtResource("6_llekn")
+
+[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=464750526]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Left" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1924388432]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=1093909628]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=1587726976]
+layout_mode = 2
+theme = ExtResource("2_jq0q2")
+text = "Move Left"
+
+[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=488892113]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=1474200686]
+layout_mode = 2
+texture = ExtResource("7_nhyyh")
+
+[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=2133886108]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Backwards" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=453117798]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=828638327]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=475764882]
+layout_mode = 2
+theme = ExtResource("2_jq0q2")
+text = "Move Backwards"
+
+[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=1455633813]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=257250125]
+layout_mode = 2
+texture = ExtResource("8_tx41l")
+
+[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=2108076]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Right" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1459904791]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=1233987240]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=2117572989]
+layout_mode = 2
+theme = ExtResource("2_jq0q2")
+text = "Move Right"
+
+[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=1565080838]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=1234167419]
+layout_mode = 2
+texture = ExtResource("9_u1ecm")
+
+[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=2072916133]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Jump" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=909058488]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=691744161]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=1832958136]
+layout_mode = 2
+theme = ExtResource("2_jq0q2")
+text = "Jump"
+
+[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=699701125]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=1080416953]
+layout_mode = 2
+texture = ExtResource("10_u6ko2")
+
+[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=323308256]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer" unique_id=1667142721]
+visible = false
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls" unique_id=1965433040]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Button_Return" type="Button" parent="CanvasLayer/Settings/VBoxContainer" unique_id=1530596799]
 layout_mode = 2
 text = "Return to main menu"
+
+[node name="Control" type="Control" parent="CanvasLayer/Settings/VBoxContainer" unique_id=770841225]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
 
 [node name="Button_Return" type="Button" parent="CanvasLayer/Settings" unique_id=1383517278]
 layout_mode = 0
@@ -179,6 +499,7 @@ offset_bottom = 60.0
 text = "Return to main menu"
 
 [node name="Credits" type="Control" parent="CanvasLayer" unique_id=1508145158]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -267,6 +588,133 @@ layout_mode = 2
 text = "Built with Godot Engine 4.6stable
 "
 
+[node name="Camera3D" type="Camera3D" parent="." unique_id=276918942]
+transform = Transform3D(-0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659259, 0, -0.25881907, -2.2071314, 2.0120077, 4.446409)
+
+[node name="ManagersOffice" parent="." unique_id=2087767099 instance=ExtResource("2_mhdkk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.817188, 0.5, 12.235548)
+script = null
+
+[node name="CSGBox3D" parent="ManagersOffice" index="0"]
+transform = Transform3D(1.39090695e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 1.39090695e-08, -8.801282, 1.61695, -1.1661917)
+
+[node name="Label3D" parent="ManagersOffice/CSGBox3D" index="0"]
+visible = false
+
+[node name="Label3D2" parent="ManagersOffice/CSGBox3D" index="1"]
+visible = false
+
+[node name="doorwayFront" parent="ManagersOffice/CSGBox3D" index="2"]
+transform = Transform3D(1, 0, -8.742278e-08, 0, 0.8, 0, -8.742278e-08, 0, -1, -0.787346, -1.61695, -8.757446)
+
+[node name="Furniture" type="Node3D" parent="ManagersOffice" unique_id=488037879]
+
+[node name="Noticeboard" parent="ManagersOffice/Furniture" unique_id=1237022586 instance=ExtResource("3_y58r8")]
+transform = Transform3D(-0.909091, 0, 7.947523e-08, 0, 0.909091, 0, -7.947523e-08, 0, -0.909091, -6.3479915, 1.6961498, 13.015101)
+notes = Array[String](["for the poster, make it a circuitboard flow between images/any text stuff", "OBJECTIVES
+
+• Learn block placement
+• Observe outputs
+• Complete first puzzle
+", "LOGIC TYPES
+
+• AND
+• OR
+• NOT
+", "DEV TODO
+
+Ensure snapping feedback is clear.
+", "DEV TODO
+
+Output indicator must be readable at a glance.
+", "PLAYER EXPECTATION
+
+No prior logic knowledge required.
+", "USABILITY TEST
+
+Do players understand what to do without hints?
+", "DESIGN GOAL
+
+This room should feel safe and guided.
+"])
+note_font = ExtResource("4_u100y")
+font_size = 70
+
+[node name="PhotoFrames" type="Node3D" parent="ManagersOffice/Furniture" unique_id=1040975479]
+transform = Transform3D(-1.1, 0, 9.616504e-08, 0, 1.1, 0, -9.616504e-08, 0, -1.1, -5.2923737, 2.3170543, -2.648605)
+
+[node name="PhotoFrame" parent="ManagersOffice/Furniture/PhotoFrames" unique_id=342487880 instance=ExtResource("5_8yqxj")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 1.75, 0, 0)
+portrait = ExtResource("6_l82wa")
+
+[node name="PhotoFrame2" parent="ManagersOffice/Furniture/PhotoFrames" unique_id=647601041 instance=ExtResource("5_8yqxj")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 0, 0, 0)
+portrait = ExtResource("7_v7qak")
+
+[node name="Label3D" type="Label3D" parent="ManagersOffice/Furniture/PhotoFrames/PhotoFrame2" unique_id=367406831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6573316, 0)
+visible = false
+text = "The Boss"
+
+[node name="PhotoFrame3" parent="ManagersOffice/Furniture/PhotoFrames" unique_id=1662693746 instance=ExtResource("5_8yqxj")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -1.75, 0, 0)
+portrait = ExtResource("8_uvkxf")
+
+[node name="PhotoFrame4" parent="ManagersOffice/Furniture/PhotoFrames" unique_id=650960883 instance=ExtResource("5_8yqxj")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 3.5, 0, 0)
+portrait = ExtResource("9_g5ri6")
+
+[node name="PhotoFrame5" parent="ManagersOffice/Furniture/PhotoFrames" unique_id=600361684 instance=ExtResource("5_8yqxj")]
+transform = Transform3D(-1.5, 0, 5.84122e-07, 0, 1.5, 0, -5.84122e-07, 0, -1.5, -3.5, 0, 0)
+portrait = ExtResource("10_phm66")
+
+[node name="deskCorner" parent="ManagersOffice/Furniture" unique_id=944569458 instance=ExtResource("11_jq0q2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7967305, 0, 9.539468)
+
+[node name="desk" parent="ManagersOffice/Furniture/deskCorner" unique_id=367741047 instance=ExtResource("12_ro83i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0300908, 0, -1.7803726)
+
+[node name="computerScreen" parent="ManagersOffice/Furniture/deskCorner" unique_id=414953278 instance=ExtResource("13_p06hq")]
+transform = Transform3D(0.6706208, 0, -0.74180037, 0, 1, 0, 0.74180037, 0, 0.6706208, 1.8368702, 1.1532227, -2.591354)
+portrait = ExtResource("14_xbm0l")
+
+[node name="computerScreen2" parent="ManagersOffice/Furniture/deskCorner" unique_id=1544405670 instance=ExtResource("13_p06hq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6979027, 1.1532227, -2.5507913)
+portrait = ExtResource("15_llekn")
+
+[node name="laptop" parent="ManagersOffice/Furniture/deskCorner" unique_id=217077123 instance=ExtResource("16_nhyyh")]
+transform = Transform3D(0.92921644, 0, 0.369536, 0, 1, 0, -0.369536, 0, 0.92921644, 0.0031356812, 1.1532228, -1.9254894)
+portrait = ExtResource("17_tx41l")
+
+[node name="computerMouse" parent="ManagersOffice/Furniture/deskCorner" unique_id=530198779 instance=ExtResource("18_u1ecm")]
+transform = Transform3D(-0.91687906, 0, 0.3991651, 0, 1, 0, -0.3991651, 0, -0.91687906, 2.0882988, 1.1532228, -1.6867046)
+
+[node name="computerKeyboard" parent="ManagersOffice/Furniture/deskCorner" unique_id=2110239162 instance=ExtResource("19_u6ko2")]
+transform = Transform3D(0.96108836, 0, -0.2762414, 0, 1, 0, 0.2762414, 0, 0.96108836, 1.1186123, 1.1532226, -1.95084)
+
+[node name="chairDesk" parent="ManagersOffice/Furniture/deskCorner" unique_id=1263198442 instance=ExtResource("20_te8cu")]
+transform = Transform3D(-0.90290797, 0, 0.42983365, 0, 1, 0, -0.42983365, 0, -0.90290797, 1.3449717, 0, -0.9382725)
+
+[node name="bookcaseDecorated" parent="ManagersOffice/Furniture" unique_id=1638446359 instance=ExtResource("21_oek1b")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.187433, 0.0024389625, 12.779599)
+
+[node name="cabinetTelevisionDoors" parent="ManagersOffice/Furniture" unique_id=992232866 instance=ExtResource("22_6lblp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.166851, -2.3841858e-07, 10.214444)
+
+[node name="loungeDesignSofaCorner" parent="ManagersOffice/Furniture" unique_id=947028744 instance=ExtResource("23_it6mx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.65888, 1.013279e-06, 1.679466)
+
+[node name="tableCoffeeSquare" parent="ManagersOffice/Furniture" unique_id=1041335311 instance=ExtResource("24_sxmk5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.91288, 0, 0.2971263)
+
+[node name="laptop" parent="ManagersOffice/Furniture" unique_id=1626875078 instance=ExtResource("16_nhyyh")]
+transform = Transform3D(-0.8192922, 0, -0.57337636, 0, 1, 0, 0.57337636, 0, -0.8192922, -6.2594194, 0.68999994, 0.43955612)
+
+[node name="rugRectangle" parent="ManagersOffice" unique_id=1851380437 instance=ExtResource("25_4aqwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.946465, -0.008117676, 9.990775)
+
+[node name="OfficeHub01" parent="." unique_id=581236184 instance=ExtResource("26_8l2gm")]
+
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Button_Select" to="." method="_on_button_select_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
@@ -276,3 +724,8 @@ text = "Built with Godot Engine 4.6stable
 [connection signal="pressed" from="CanvasLayer/Settings/VBoxContainer/Button_Return" to="." method="_on_button_return_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings/Button_Return" to="." method="_on_button_return_pressed"]
 [connection signal="pressed" from="CanvasLayer/Credits/Button_Return" to="." method="_on_button_return_pressed"]
+
+[editable path="ManagersOffice"]
+[editable path="OfficeHub01"]
+[editable path="OfficeHub01/Walls/toiletSquare"]
+[editable path="OfficeHub01/Walls/characterMedium"]

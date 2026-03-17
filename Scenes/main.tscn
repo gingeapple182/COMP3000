@@ -72,9 +72,10 @@ sky_material = SubResource("PanoramaSkyMaterial_65ipd")
 [sub_resource type="Environment" id="Environment_jwtab"]
 background_mode = 2
 sky = SubResource("Sky_ja0qp")
-ambient_light_source = 3
+ambient_light_source = 2
+ambient_light_color = Color(0.5145496, 0.5145496, 0.5145496, 1)
 ambient_light_sky_contribution = 0.5
-reflected_light_source = 2
+reflected_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
 fog_light_color = Color(0, 0.614298, 0.727888, 1)
@@ -388,6 +389,12 @@ script = null
 [node name="CSGBox3D" parent="OfficeHub01/ManagersOffice" index="0"]
 transform = Transform3D(1.39090695e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 1.39090695e-08, -8.801282, 1.61695, -1.1661917)
 
+[node name="Label3D" parent="OfficeHub01/ManagersOffice/CSGBox3D" index="0"]
+visible = false
+
+[node name="Label3D2" parent="OfficeHub01/ManagersOffice/CSGBox3D" index="1"]
+visible = false
+
 [node name="doorwayFront" parent="OfficeHub01/ManagersOffice/CSGBox3D" index="2"]
 transform = Transform3D(1, 0, -8.742278e-08, 0, 0.8, 0, -8.742278e-08, 0, -1, -0.787346, -1.61695, -8.757446)
 
@@ -460,6 +467,7 @@ portrait = ExtResource("8_hlpnh")
 
 [node name="Label3D" type="Label3D" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames/PhotoFrame2" unique_id=691249956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6573316, 0)
+visible = false
 text = "The Boss"
 
 [node name="PhotoFrame3" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=2133431949 instance=ExtResource("7_untni")]
@@ -1043,8 +1051,7 @@ z_lower = -15.0
 z_higher = -1.0
 
 [node name="Rory" parent="NPC" unique_id=423759212 node_paths=PackedStringArray("follow_target", "return_target") instance=ExtResource("62_qnggo")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14.122023, 1.9646862, 4.755951)
-npc_type = 2
+transform = Transform3D(0.39174247, 0, 1.4479426, 0, 1.5, 0, -1.4479426, 0, 0.39174247, 8.6903105, 1.9646862, 4.755951)
 follow_target = NodePath("../../ProtoController")
 return_target = NodePath("../../OfficeHub01/ManagersOffice/SpawnPoints/Marker3D")
 x_lower = -34.0

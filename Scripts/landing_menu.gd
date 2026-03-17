@@ -5,10 +5,15 @@ extends Node3D
 @onready var main_button_credits: Button = $CanvasLayer/MainMenu/VBoxContainer/Button_Credits
 @onready var main_button_quit: Button = $CanvasLayer/MainMenu/VBoxContainer/Button_Quit
 @onready var settings_button_return: Button = $CanvasLayer/Settings/VBoxContainer/Button_Return
+@onready var ceiling: CSGBox3D = $OfficeHub01/Ceiling
+@onready var office_hub_01: Node3D = $OfficeHub01
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	ceiling =  office_hub_01.find_child("Ceiling", true)
+	if ceiling:
+		ceiling.visible = true
 	hide_menus()
 	show_landing()
 
