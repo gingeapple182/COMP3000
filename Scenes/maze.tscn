@@ -95,6 +95,7 @@ transform = Transform3D(0.7317345, 0, 0.6815898, 0, 1, 0, -0.6815898, 0, 0.73173
 
 [node name="NavigationNPC" parent="." unique_id=652092816 node_paths=PackedStringArray("follow_target") instance=ExtResource("5_qwv30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.816513, 1.1764575, -24.276636)
+visible = false
 npc_type = 2
 follow_target = NodePath("../ProtoController")
 

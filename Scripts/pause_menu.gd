@@ -3,6 +3,7 @@ extends Control
 @onready var paused: HBoxContainer = $PanelContainer/Paused
 @onready var settings: HBoxContainer = $PanelContainer/Settings
 @onready var controls: HBoxContainer = $PanelContainer/Controls
+@onready var nodes: HBoxContainer = $PanelContainer/Nodes
 #@onready var scroll_container: ScrollContainer = $PanelContainer/Controls/ScrollContainer
 #@onready var scroll_container: ScrollContainer = $PanelContainer/Controls/HBoxContainer/ScrollContainer
 @onready var scroll_container: ScrollContainer = $PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer
@@ -21,6 +22,7 @@ func _ready() -> void:
 	paused.visible = true
 	settings.visible = false
 	controls.visible = false
+	nodes.visible = false
 	scroll_container.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
 	if current_scene == "Main":
 		button_quit.text = "Quit game"
@@ -33,6 +35,10 @@ func _on_button_resume_pressed() -> void:
 	get_tree().paused = false
 	visible = false
 
+
+func _on_button_guide_pressed() -> void:
+	paused.visible = false
+	nodes.visible = true
 
 func _on_button_settings_pressed() -> void:
 	paused.visible = false
@@ -51,6 +57,9 @@ func _on_button_back_pressed() -> void:
 	if controls.visible == true:
 		settings.visible = true
 		controls.visible = false
+	if nodes.visible == true:
+		paused.visible = true
+		nodes.visible = false
 
 
 func _on_button_reset_pressed() -> void:

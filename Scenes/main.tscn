@@ -874,7 +874,6 @@ portrait = ExtResource("8_hlpnh")
 
 [node name="Label3D" type="Label3D" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames/PhotoFrame2" unique_id=691249956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6573316, 0)
-visible = false
 text = "The Boss"
 
 [node name="PhotoFrame3" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=2133431949 instance=ExtResource("7_untni")]
@@ -1111,12 +1110,12 @@ text = "Induction toom
 
 [node name="AND" type="Label3D" parent="OfficeHub01/AlwaysLoaded/Hallways/Furniture" unique_id=861443749]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.804485, 3.9209845, -9.8600445)
-text = "AND Room
+text = "NOT Room
 "
 
 [node name="NOT" type="Label3D" parent="OfficeHub01/AlwaysLoaded/Hallways/Furniture" unique_id=907318762]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8884425, 3.9209845, -11.795849)
-text = "NOT Room
+text = "OR Room
 
 
 "
@@ -1129,8 +1128,12 @@ text = "ROOM
 
 [node name="ROOM 05" type="Label3D" parent="OfficeHub01/AlwaysLoaded/Hallways/Furniture" unique_id=451702192]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.871601, 3.9209845, -9.8600445)
-text = "ROOM
+text = "NAND/NOR Room
+"
 
+[node name="ROOM 06" type="Label3D" parent="OfficeHub01/AlwaysLoaded/Hallways/Furniture" unique_id=27751364]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.871601, 3.9209845, 6.1399555)
+text = "XOR/XNOR Room
 "
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1227670475]
@@ -1148,7 +1151,7 @@ z_lower = -15.0
 z_higher = -1.0
 
 [node name="Rory" parent="NPC" unique_id=423759212 node_paths=PackedStringArray("follow_target", "return_target") instance=ExtResource("62_qnggo")]
-transform = Transform3D(0.39174247, 0, 1.4479426, 0, 1.5, 0, -1.4479426, 0, 0.39174247, 8.6903105, 1.9646862, 4.755951)
+transform = Transform3D(0.39174247, 0, 1.4479426, 0, 1.5, 0, -1.4479426, 0, 0.39174247, -11.956378, 1.9646862, 4.755951)
 follow_target = NodePath("../../ProtoController")
 return_target = NodePath("../../OfficeHub01/ManagersOffice/SpawnPoints/Marker3D")
 x_lower = -34.0

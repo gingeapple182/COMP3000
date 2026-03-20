@@ -7,10 +7,9 @@ var current_level_index: int = 0
 
 @export var block_scene: PackedScene
 @onready var block_spawn: Node3D = $Elements/BlockSpawn
-@onready var level_display_title: Label = $CanvasLayer/Control/PanelContainer/VBoxContainer/DisplayTitle
-@onready var level_description: RichTextLabel = $CanvasLayer/Control/PanelContainer/VBoxContainer/LevelDescription
-#@onready var level_display_title: Label = $CanvasLayer/HBox/VBox/Control/PanelContainer/VBoxContainer/DisplayTitle
-#@onready var level_description: RichTextLabel = $CanvasLayer/HBox/VBox/Control/PanelContainer/VBoxContainer/LevelDescription
+@onready var level_display_title: Label = $CanvasLayer/Control/VBox/HBox/PanelContainer/VBoxContainer/DisplayTitle
+@onready var level_description: RichTextLabel = $CanvasLayer/Control/VBox/HBox/PanelContainer/VBoxContainer/LevelDescription
+@onready var objective_label: RichTextLabel = $CanvasLayer/Objective/VBox/HBox/Label
 
 
 ## -- Scene refs -- ##
@@ -226,6 +225,7 @@ func load_level(index: int) -> void:
 	
 	level_display_title.text = current_level.display_title
 	level_description.text = current_level.level_description
+	update_objective_ui()
 	grid_manager.apply_level(current_level)
 	spawn_blocks_for_level(current_level)
 	
@@ -427,6 +427,19 @@ func get_tray_spawn_position(start_pos: Vector3, index: int, blocks_per_row: int
 func clear_level_blocks() -> void:
 	for child in block_spawn.get_children():
 		child.queue_free()
+
+func update_objective_ui() -> void:
+	if current_level == null:
+		objective_label.text = "Objective: Unknown"
+		return
+	
+	match current_level.expected_output:
+		LevelData.OutputGoals.TRUE:
+			objective_label.text = "Objective: Produce a TRUE output"
+		LevelData.OutputGoals.FALSE:
+			objective_label.text = "Objective: Produce a FALSE output"
+		_:
+			objective_label.text = "Objective: Produce the correct output"
 
 
 func reload_current_level() -> void:

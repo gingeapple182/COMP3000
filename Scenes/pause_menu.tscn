@@ -10,6 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://cjq5c23rhsich" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_s.png" id="6_524vl"]
 [ext_resource type="Texture2D" uid="uid://dpnnthl3djd51" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_d.png" id="7_0fi7f"]
 [ext_resource type="Texture2D" uid="uid://bu4bnrw3j5pvk" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_space.png" id="8_uscpe"]
+[ext_resource type="Texture2D" uid="uid://difl38bf7jfgb" path="res://Scenes/Assets/images/Nodes/AND_gate.png" id="11_1ymcx"]
+[ext_resource type="Texture2D" uid="uid://dchsmnfep7wvx" path="res://Scenes/Assets/images/Nodes/NOT_gate.png" id="12_h7ojb"]
+[ext_resource type="Texture2D" uid="uid://cmbva5a8duqpn" path="res://Scenes/Assets/images/Nodes/OR_gate.png" id="13_wqpeb"]
+[ext_resource type="Texture2D" uid="uid://dibuls4iwbjp4" path="res://Scenes/Assets/images/Nodes/NAND_gate.png" id="14_tekra"]
+[ext_resource type="Texture2D" uid="uid://corqdjofyqgpb" path="res://Scenes/Assets/images/Nodes/NOR_gate.png" id="15_8flw2"]
+[ext_resource type="Texture2D" uid="uid://bam7yv1uryjnl" path="res://Scenes/Assets/images/Nodes/XOR_gate.png" id="16_c8xnj"]
+[ext_resource type="Texture2D" uid="uid://dt328y47gsdyx" path="res://Scenes/Assets/images/Nodes/XNOR_gate.png" id="17_m5ant"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vnu5m"]
 
@@ -47,6 +54,7 @@ grow_vertical = 0
 theme = ExtResource("2_k0w1u")
 
 [node name="Paused" type="HBoxContainer" parent="PanelContainer" unique_id=1749347842]
+visible = false
 layout_mode = 2
 
 [node name="Paused" type="HBoxContainer" parent="PanelContainer/Paused" unique_id=2056883630]
@@ -75,6 +83,10 @@ horizontal_alignment = 1
 layout_mode = 2
 theme = ExtResource("2_k0w1u")
 text = "Resume"
+
+[node name="Button_Guide" type="Button" parent="PanelContainer/Paused/Paused/Paused" unique_id=635403584]
+layout_mode = 2
+text = "Guide"
 
 [node name="Button_Settings" type="Button" parent="PanelContainer/Paused/Paused/Paused" unique_id=2007836734]
 layout_mode = 2
@@ -440,10 +452,403 @@ layout_mode = 2
 custom_minimum_size = Vector2(20, 40)
 layout_mode = 2
 
+[node name="Nodes" type="HBoxContainer" parent="PanelContainer" unique_id=971098341]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/Nodes" unique_id=159209083]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Nodes" type="VBoxContainer" parent="PanelContainer/Nodes" unique_id=25862268]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_k0w1u")
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes" unique_id=1278535838]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+theme_override_font_sizes/font_size = 50
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/Nodes/Nodes" unique_id=1869901764]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+theme_override_font_sizes/font_size = 35
+text = "Block Types"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes" unique_id=293656331]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer" unique_id=1986530621]
+visible = false
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer" unique_id=349672437]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical_scroll_mode = 4
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer" unique_id=599600404]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Gates" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1995746912]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/Gates" unique_id=1684021147]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_0fi7f")
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/Gates" unique_id=1148432487]
+layout_mode = 2
+text = "Gates"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/Gates" unique_id=1774647075]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_0fi7f")
+
+[node name="AND" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1113502165]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/AND" unique_id=2141296130]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/AND" unique_id=982397999]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "AND"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/AND" unique_id=512332927]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/AND" unique_id=448733295]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("11_1ymcx")
+expand_mode = 2
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/AND" unique_id=2001790214]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="AND_" type="RichTextLabel" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=2111041111]
+layout_mode = 2
+size_flags_vertical = 3
+text = "An AND gate uses two inputs and gives an output of TRUE/1 only when both inputs are TRUE/1. If either input is FALSE/0, the output is FALSE/0"
+fit_content = true
+scroll_active = false
+
+[node name="NOT" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=679313100]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NOT" unique_id=2098134023]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NOT" unique_id=1423181837]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "NOT"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NOT" unique_id=726013490]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NOT" unique_id=1804132150]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("12_h7ojb")
+expand_mode = 2
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NOT" unique_id=1468585309]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="NOT_" type="RichTextLabel" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=868793992]
+layout_mode = 2
+size_flags_vertical = 3
+text = "A NOT gate uses one input and gives the opposite output. If the input is FALSE/0, the output is TRUE/1. If the input is TRUE/1, the output is FALSE/0"
+fit_content = true
+scroll_active = false
+
+[node name="OR" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=171129098]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/OR" unique_id=1103785484]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/OR" unique_id=1693377006]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "OR"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/OR" unique_id=1122535046]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/OR" unique_id=240361728]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("13_wqpeb")
+expand_mode = 2
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/OR" unique_id=1313635730]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="OR_" type="RichTextLabel" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=217172264]
+layout_mode = 2
+size_flags_vertical = 3
+text = "An OR gate uses two inputs and gives an output of TRUE/1 when either or both inputs are TRUE/1. The output is FALSE/0 only when both inputs are FALSE/0"
+fit_content = true
+scroll_active = false
+
+[node name="NAND" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1102303889]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NAND" unique_id=1446026252]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NAND" unique_id=333028378]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "NAND"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NAND" unique_id=1450007756]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NAND" unique_id=426489874]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("14_tekra")
+expand_mode = 2
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NAND" unique_id=161209951]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="NAND_" type="RichTextLabel" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=854922499]
+layout_mode = 2
+size_flags_vertical = 3
+text = "A NAND gate is the opposite of an AND gate. It uses two inputs and gives an output of FALSE/0 only when both inputs are TRUE/1. In every other case, the output is TRUE/1.
+Think of it as: AND, then NOT"
+fit_content = true
+scroll_active = false
+
+[node name="NOR" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=473881862]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NOR" unique_id=1285591223]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NOR" unique_id=285724940]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "NOR"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NOR" unique_id=359712288]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NOR" unique_id=935538043]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("15_8flw2")
+expand_mode = 2
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/NOR" unique_id=165533318]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="NOR_" type="RichTextLabel" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1938644081]
+layout_mode = 2
+size_flags_vertical = 3
+text = "A NOR gate is the opposite of an OR gate. It uses two inputs and gives an output of TRUE/1 only when both inputs are FALSE/0. If either input is TRUE/1, the output is FALSE/0.
+Think of it as: OR, then NOT."
+fit_content = true
+scroll_active = false
+
+[node name="XOR" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=258025587]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/XOR" unique_id=1848796452]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/XOR" unique_id=611988080]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "XOR"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/XOR" unique_id=1324984634]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/XOR" unique_id=1614760827]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("16_c8xnj")
+expand_mode = 2
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/XOR" unique_id=1090329511]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="XOR_" type="RichTextLabel" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1013560267]
+layout_mode = 2
+size_flags_vertical = 3
+text = "An XOR gate uses two inputs and gives an output of TRUE/1 when the inputs are different. If both inputs are the same, the output is FALSE/0."
+fit_content = true
+scroll_active = false
+
+[node name="XNOR" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1426167212]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/XNOR" unique_id=889850981]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/XNOR" unique_id=837773276]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "XNOR"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/XNOR" unique_id=1802740956]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/XNOR" unique_id=174359936]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("17_m5ant")
+expand_mode = 2
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/XNOR" unique_id=996137703]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="XNOR_" type="RichTextLabel" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=2140626844]
+layout_mode = 2
+size_flags_vertical = 3
+text = "An XNOR gate is the opposite of an XOR gate. It gives an output of TRUE/1 when the two inputs are the same. If the inputs are different, the output is FALSE/0.
+Think of it as: XOR, then NOT."
+fit_content = true
+scroll_active = false
+
+[node name="SignalBlocks" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=869704395]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/SignalBlocks" unique_id=639268527]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_0fi7f")
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/SignalBlocks" unique_id=439472886]
+layout_mode = 2
+text = "Hub"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/SignalBlocks" unique_id=2114810370]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_0fi7f")
+
+[node name="TRUE" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=723383875]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/TRUE" unique_id=1989938053]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/TRUE" unique_id=1529699730]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "TRUE"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/TRUE" unique_id=646379550]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/TRUE" unique_id=1517820419]
+layout_mode = 2
+texture = ExtResource("8_uscpe")
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/TRUE" unique_id=1335074910]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="FALSE" type="HBoxContainer" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1578037328]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/FALSE" unique_id=1070967415]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/FALSE" unique_id=1838417215]
+layout_mode = 2
+theme = ExtResource("2_k0w1u")
+text = "FALSE"
+
+[node name="CenterSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/FALSE" unique_id=1176595792]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/FALSE" unique_id=603856459]
+layout_mode = 2
+texture = ExtResource("8_uscpe")
+
+[node name="RightSpacer" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer/ScrollContainer/HBoxContainer/FALSE" unique_id=500173168]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="PanelContainer/Nodes/Nodes/HBoxContainer" unique_id=664613456]
+visible = false
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Button_Back" type="Button" parent="PanelContainer/Nodes/Nodes" unique_id=1338739406]
+layout_mode = 2
+text = "Back"
+
+[node name="Control" type="Control" parent="PanelContainer/Nodes/Nodes" unique_id=195097219]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="PanelContainer/Nodes" unique_id=509078742]
+custom_minimum_size = Vector2(20, 40)
+layout_mode = 2
+
 [connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Guide" to="." method="_on_button_guide_pressed"]
 [connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Settings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Reset" to="." method="_on_button_reset_pressed"]
 [connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Quit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="PanelContainer/Settings/Settings/Settings/Button_Controls" to="." method="_on_button_controls_pressed"]
 [connection signal="pressed" from="PanelContainer/Settings/Settings/Settings/Button_Back" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="PanelContainer/Controls/Controls/Button_Back" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="PanelContainer/Nodes/Nodes/Button_Back" to="." method="_on_button_back_pressed"]
