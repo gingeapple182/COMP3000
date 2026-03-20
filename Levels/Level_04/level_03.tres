@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://cujtewsoo1jf4"]
+
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_bmhft"]
+
+[resource]
+script = ExtResource("1_bmhft")
+level_id = "not_room_level_03"
+tile_map = "000000000
+011111120
+000000000
+"
+display_title = "Double Negative"
+level_description = "One NOT flips the signal.
+Two NOT gates flip it twice… which returns it to normal.
+Chain TWO NOT gates and make the final output TRUE."
+level_complete_description = "Exactly. NOT(NOT(TRUE)) becomes TRUE again."
+true_value_count = 1
+not_gate_count = 2
+L_R_connector_count = 3

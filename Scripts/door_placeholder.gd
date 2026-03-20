@@ -1,3 +1,4 @@
+class_name DoorPlaceholder
 extends Node3D
 
 @export var is_open := false:

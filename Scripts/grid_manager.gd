@@ -416,7 +416,7 @@ func evaluate_gate(gate_type: int, input_values: Array) -> bool:
 			for v in input_values:
 				if v == true:
 					true_cont += 1
-			return true_cont / 2 == 1
+			return true_cont % 2 == 1
 		LogicBlock.GateType.XNOR:
 			# XNOR: TRUE if an even number of inputs are TRUE
 			var true_count := 0

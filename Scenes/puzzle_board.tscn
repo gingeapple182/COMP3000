@@ -180,6 +180,63 @@ text = "Use the available logic components to route signals correctly and satisf
 fit_content = true
 scroll_active = false
 
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer" unique_id=1746235780]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBox" unique_id=940403423]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/HBox" unique_id=2031732906]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBox/VBox" unique_id=859980790]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/HBox/VBox" unique_id=2121630015]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("9_6ebee")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBox/VBox/Control" unique_id=1755832806]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBox/VBox/Control/PanelContainer" unique_id=1818514344]
+layout_mode = 2
+theme = ExtResource("10_6ebee")
+alignment = 1
+
+[node name="DisplayTitle" type="Label" parent="CanvasLayer/HBox/VBox/Control/PanelContainer/VBoxContainer" unique_id=353237370]
+layout_mode = 2
+theme = ExtResource("10_6ebee")
+text = "TITLE"
+horizontal_alignment = 1
+
+[node name="LevelDescription" type="RichTextLabel" parent="CanvasLayer/HBox/VBox/Control/PanelContainer/VBoxContainer" unique_id=2096465490]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("10_6ebee")
+text = "Use the available logic components to route signals correctly and satisfy the required output condition.
+"
+fit_content = true
+scroll_active = false
+
+[node name="Control" type="Control" parent="CanvasLayer/HBox" unique_id=1328408305]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="PauseMenu" parent="." unique_id=1896298023 instance=ExtResource("5_gj2ys")]
 process_mode = 3
 visible = false

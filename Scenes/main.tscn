@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bup7ec4mq216j" path="res://addons/skybox/sky_04_2k.png" id="2_bgcbv"]
 [ext_resource type="Script" uid="uid://ddq5pmkgnn8k8" path="res://Scripts/Interactable.gd" id="3_c2668"]
 [ext_resource type="PackedScene" uid="uid://n32v3jeq450r" path="res://Scenes/pause_menu.tscn" id="4_2m2wd"]
+[ext_resource type="Script" uid="uid://mbn751xojwba" path="res://Scripts/notifications.gd" id="4_my4ki"]
+[ext_resource type="Script" uid="uid://cnqrv2go4mnsk" path="res://Scripts/objectives.gd" id="5_ynmfv"]
 [ext_resource type="PackedScene" uid="uid://cwtvuysuygpay" path="res://Scenes/Assets/office_hub_01.tscn" id="6_5lupv"]
+[ext_resource type="Texture2D" uid="uid://bm7for6n6f3pi" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_asterisk.png" id="6_cblf0"]
 [ext_resource type="PackedScene" uid="uid://yx2gnipoumj1" path="res://Scenes/Assets/Assets/photo_frame.tscn" id="7_untni"]
 [ext_resource type="PackedScene" uid="uid://d1jy6v8q0roce" path="res://Scenes/Assets/Button.tscn" id="8_a6lxu"]
 [ext_resource type="Texture2D" uid="uid://bt8sqaarhgm35" path="res://Scenes/Assets/images/portraits/roryPortrait.jpg" id="8_hlpnh"]
@@ -128,6 +131,100 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 text = "Press F to interact"
+
+[node name="Notifications" type="Control" parent="CanvasLayer" unique_id=2105601965]
+visible = false
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_bottom = 162.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4_my4ki")
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/Notifications" unique_id=1540957046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Notifications/HBox" unique_id=1917803697]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/Notifications/HBox/VBox" unique_id=1763749678]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Notifications/HBox/VBox" unique_id=569950465]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/Notifications/HBox/VBox/Panel" unique_id=615760063]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox" unique_id=177250848]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=316274838]
+layout_mode = 2
+text = "{title}"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=887172268]
+layout_mode = 2
+
+[node name="Sender" type="Label" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=663586495]
+layout_mode = 2
+text = "{sender}"
+
+[node name="Subject" type="Label" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=29227701]
+layout_mode = 2
+text = "{subject}"
+
+[node name="Body" type="RichTextLabel" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=110022902]
+layout_mode = 2
+text = "{text_body}"
+fit_content = true
+
+[node name="Button" type="Button" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=1999979031]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "{button}"
+
+[node name="Control" type="Control" parent="CanvasLayer/Notifications/HBox" unique_id=1081023232]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Objectives" type="Control" parent="CanvasLayer" unique_id=283083980]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_ynmfv")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Objectives" unique_id=1974254777]
+layout_mode = 0
+offset_right = 169.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/Objectives/VBox" unique_id=1485853976]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Objectives/VBox/HBox" unique_id=264038407]
+layout_mode = 2
+texture = ExtResource("6_cblf0")
+
+[node name="Label" type="Label" parent="CanvasLayer/Objectives/VBox/HBox" unique_id=1304007535]
+layout_mode = 2
+text = "{current_obj}"
 
 [node name="PauseMenu" parent="." unique_id=496033347 instance=ExtResource("4_2m2wd")]
 process_mode = 3
@@ -381,151 +478,6 @@ transform = Transform3D(-0.0993197, 0, -0.99505556, 0, 1, 0, 0.99505556, 0, -0.0
 
 [node name="chairCushion4" parent="OfficeHub01/Tutorial/Furniture" unique_id=1825046246 instance=ExtResource("28_lx3vj")]
 transform = Transform3D(0.09047618, 0, -0.9958986, 0, 1, 0, 0.9958986, 0, 0.09047618, -6.5796127, 9.536743e-07, -21.387463)
-
-[node name="ManagersOffice" parent="OfficeHub01" unique_id=203158010 instance=ExtResource("12_w4s6r")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.817188, 0.5, 12.235548)
-script = null
-
-[node name="CSGBox3D" parent="OfficeHub01/ManagersOffice" index="0"]
-transform = Transform3D(1.39090695e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 1.39090695e-08, -8.801282, 1.61695, -1.1661917)
-
-[node name="Label3D" parent="OfficeHub01/ManagersOffice/CSGBox3D" index="0"]
-visible = false
-
-[node name="Label3D2" parent="OfficeHub01/ManagersOffice/CSGBox3D" index="1"]
-visible = false
-
-[node name="doorwayFront" parent="OfficeHub01/ManagersOffice/CSGBox3D" index="2"]
-transform = Transform3D(1, 0, -8.742278e-08, 0, 0.8, 0, -8.742278e-08, 0, -1, -0.787346, -1.61695, -8.757446)
-
-[node name="door" parent="OfficeHub01/ManagersOffice/CSGBox3D/doorwayFront/doorwayFront(Clone)" index="0"]
-transform = Transform3D(0.043828584, 0, 0.99903905, 0, 1, 0, -0.99903905, 0, 0.043828584, 0.11339998, 0, -0.17819977)
-
-[node name="Interactables" type="Node3D" parent="OfficeHub01/ManagersOffice" unique_id=751229251]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14767, 1.70862, -1.06053)
-
-[node name="LaurenMaze" parent="OfficeHub01/ManagersOffice/Interactables" unique_id=2117093367 instance=ExtResource("8_a6lxu")]
-transform = Transform3D(-1, 8.742278e-08, 3.8213718e-15, 0, -4.37114e-08, 1, 8.742278e-08, 1, 4.37114e-08, -0.10352516, 0.32691002, -1.2811097)
-visible = false
-use_collision = true
-button_type = 1
-target_scene = 3
-return_spawn_point = NodePath("../../../AlwaysLoaded/CentralRoom/SpawnPoints/LaurenReturnMarker")
-office_hub = NodePath("../../..")
-room_path = NodePath("../..")
-target_door = NodePath("../../../Tutorial")
-
-[node name="SpawnPoints" type="Node3D" parent="OfficeHub01/ManagersOffice" unique_id=1334612989]
-
-[node name="Marker3D" type="Marker3D" parent="OfficeHub01/ManagersOffice/SpawnPoints" unique_id=194762878]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.6706295, 1, 10.996408)
-gizmo_extents = 1.0
-
-[node name="Furniture" type="Node3D" parent="OfficeHub01/ManagersOffice" unique_id=959438450]
-
-[node name="Noticeboard" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=1044436560 instance=ExtResource("13_n8f0u")]
-transform = Transform3D(-0.909091, 0, 7.947523e-08, 0, 0.909091, 0, -7.947523e-08, 0, -0.909091, -6.3479915, 1.6961498, 13.015101)
-notes = Array[String](["for the poster, make it a circuitboard flow between images/any text stuff", "OBJECTIVES
-
-• Learn block placement
-• Observe outputs
-• Complete first puzzle
-", "LOGIC TYPES
-
-• AND
-• OR
-• NOT
-", "DEV TODO
-
-Ensure snapping feedback is clear.
-", "DEV TODO
-
-Output indicator must be readable at a glance.
-", "PLAYER EXPECTATION
-
-No prior logic knowledge required.
-", "USABILITY TEST
-
-Do players understand what to do without hints?
-", "DESIGN GOAL
-
-This room should feel safe and guided.
-"])
-note_font = ExtResource("14_yvqja")
-font_size = 70
-
-[node name="PhotoFrames" type="Node3D" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=366620895]
-transform = Transform3D(-1.1, 0, 9.616504e-08, 0, 1.1, 0, -9.616504e-08, 0, -1.1, -5.2923737, 2.3170543, -2.648605)
-
-[node name="PhotoFrame" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=213185865 instance=ExtResource("7_untni")]
-transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 1.75, 0, 0)
-portrait = ExtResource("8_m5v0v")
-
-[node name="PhotoFrame2" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=1902764131 instance=ExtResource("7_untni")]
-transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 0, 0, 0)
-portrait = ExtResource("8_hlpnh")
-
-[node name="Label3D" type="Label3D" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames/PhotoFrame2" unique_id=691249956]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6573316, 0)
-visible = false
-text = "The Boss"
-
-[node name="PhotoFrame3" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=2133431949 instance=ExtResource("7_untni")]
-transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -1.75, 0, 0)
-portrait = ExtResource("10_ht3cb")
-
-[node name="PhotoFrame4" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=925732658 instance=ExtResource("7_untni")]
-transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 3.5, 0, 0)
-portrait = ExtResource("11_nldl1")
-
-[node name="PhotoFrame5" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=582041670 instance=ExtResource("7_untni")]
-transform = Transform3D(-1.5, 0, 5.84122e-07, 0, 1.5, 0, -5.84122e-07, 0, -1.5, -3.5, 0, 0)
-portrait = ExtResource("16_pujfh")
-
-[node name="deskCorner" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=1626069849 instance=ExtResource("36_aa8k8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7967305, 0, 9.539468)
-
-[node name="desk" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=832210148 instance=ExtResource("14_hjwtt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0300908, 0, -1.7803726)
-
-[node name="computerScreen" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=414953278 instance=ExtResource("37_kqrg6")]
-transform = Transform3D(0.6706208, 0, -0.74180037, 0, 1, 0, 0.74180037, 0, 0.6706208, 1.8368702, 1.1532227, -2.591354)
-portrait = ExtResource("39_ynmfv")
-
-[node name="computerScreen2" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=515021257 instance=ExtResource("37_kqrg6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6979027, 1.1532227, -2.5507913)
-portrait = ExtResource("39_s8vy0")
-
-[node name="laptop" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=217077123 instance=ExtResource("40_jut3y")]
-transform = Transform3D(0.92921644, 0, 0.369536, 0, 1, 0, -0.369536, 0, 0.92921644, 0.0031356812, 1.1532228, -1.9254894)
-portrait = ExtResource("38_nwwfm")
-
-[node name="computerMouse" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=15675183 instance=ExtResource("21_1ufqh")]
-transform = Transform3D(-0.91687906, 0, 0.3991651, 0, 1, 0, -0.3991651, 0, -0.91687906, 2.0882988, 1.1532228, -1.6867046)
-
-[node name="computerKeyboard" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=821742454 instance=ExtResource("20_lxbek")]
-transform = Transform3D(0.96108836, 0, -0.2762414, 0, 1, 0, 0.2762414, 0, 0.96108836, 1.1186123, 1.1532226, -1.95084)
-
-[node name="chairDesk" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=747620892 instance=ExtResource("23_mgrvf")]
-transform = Transform3D(-0.90290797, 0, 0.42983365, 0, 1, 0, -0.42983365, 0, -0.90290797, 1.3449717, 0, -0.9382725)
-
-[node name="bookcaseDecorated" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=1698691852 instance=ExtResource("41_v2nl5")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.187433, 0.0024389625, 12.779599)
-
-[node name="cabinetTelevisionDoors" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=992232866 instance=ExtResource("26_htfsl")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.166851, -2.3841858e-07, 10.214444)
-
-[node name="loungeDesignSofaCorner" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=947028744 instance=ExtResource("45_cblf0")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.65888, 1.013279e-06, 1.679466)
-
-[node name="tableCoffeeSquare" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=1041335311 instance=ExtResource("46_nay3j")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.91288, 0, 0.2971263)
-
-[node name="laptop" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=495066721 instance=ExtResource("40_jut3y")]
-transform = Transform3D(-0.8192922, 0, -0.57337636, 0, 1, 0, 0.57337636, 0, -0.8192922, -6.2594194, 0.68999994, 0.43955612)
-
-[node name="rugRectangle" parent="OfficeHub01/ManagersOffice" unique_id=703301107 instance=ExtResource("47_ovafv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.946465, -0.008117676, 9.990775)
 
 [node name="Area01" parent="OfficeHub01" unique_id=901150956 instance=ExtResource("12_w4s6r")]
 transform = Transform3D(1, 0, 4.44085e-16, 0, 1, 0, -4.44085e-16, 0, 1, -19.7, 0.5, -8.885)
@@ -837,6 +789,151 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.272
 
 [node name="doorwayFrontOpened" parent="OfficeHub01/Area04/Furniture" unique_id=1078262892 instance=ExtResource("11_2663y")]
 
+[node name="ManagersOffice" parent="OfficeHub01" unique_id=203158010 instance=ExtResource("12_w4s6r")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.817188, 0.5, 12.235548)
+script = null
+
+[node name="CSGBox3D" parent="OfficeHub01/ManagersOffice" index="0"]
+transform = Transform3D(1.39090695e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 1.39090695e-08, -8.801282, 1.61695, -1.1661917)
+
+[node name="Label3D" parent="OfficeHub01/ManagersOffice/CSGBox3D" index="0"]
+visible = false
+
+[node name="Label3D2" parent="OfficeHub01/ManagersOffice/CSGBox3D" index="1"]
+visible = false
+
+[node name="doorwayFront" parent="OfficeHub01/ManagersOffice/CSGBox3D" index="2"]
+transform = Transform3D(1, 0, -8.742278e-08, 0, 0.8, 0, -8.742278e-08, 0, -1, -0.787346, -1.61695, -8.757446)
+
+[node name="door" parent="OfficeHub01/ManagersOffice/CSGBox3D/doorwayFront/doorwayFront(Clone)" index="0"]
+transform = Transform3D(0.043828584, 0, 0.99903905, 0, 1, 0, -0.99903905, 0, 0.043828584, 0.11339998, 0, -0.17819977)
+
+[node name="Interactables" type="Node3D" parent="OfficeHub01/ManagersOffice" unique_id=751229251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14767, 1.70862, -1.06053)
+
+[node name="LaurenMaze" parent="OfficeHub01/ManagersOffice/Interactables" unique_id=2117093367 instance=ExtResource("8_a6lxu")]
+transform = Transform3D(-1, 8.742278e-08, 3.8213718e-15, 0, -4.37114e-08, 1, 8.742278e-08, 1, 4.37114e-08, -0.10352516, 0.32691002, -1.2811097)
+visible = false
+use_collision = true
+button_type = 1
+target_scene = 3
+return_spawn_point = NodePath("../../../AlwaysLoaded/CentralRoom/SpawnPoints/LaurenReturnMarker")
+office_hub = NodePath("../../..")
+room_path = NodePath("../..")
+target_door = NodePath("../../../Tutorial")
+
+[node name="SpawnPoints" type="Node3D" parent="OfficeHub01/ManagersOffice" unique_id=1334612989]
+
+[node name="Marker3D" type="Marker3D" parent="OfficeHub01/ManagersOffice/SpawnPoints" unique_id=194762878]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.6706295, 1, 10.996408)
+gizmo_extents = 1.0
+
+[node name="Furniture" type="Node3D" parent="OfficeHub01/ManagersOffice" unique_id=959438450]
+
+[node name="Noticeboard" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=1044436560 instance=ExtResource("13_n8f0u")]
+transform = Transform3D(-0.909091, 0, 7.947523e-08, 0, 0.909091, 0, -7.947523e-08, 0, -0.909091, -6.3479915, 1.6961498, 13.015101)
+notes = Array[String](["for the poster, make it a circuitboard flow between images/any text stuff", "OBJECTIVES
+
+• Learn block placement
+• Observe outputs
+• Complete first puzzle
+", "LOGIC TYPES
+
+• AND
+• OR
+• NOT
+", "DEV TODO
+
+Ensure snapping feedback is clear.
+", "DEV TODO
+
+Output indicator must be readable at a glance.
+", "PLAYER EXPECTATION
+
+No prior logic knowledge required.
+", "USABILITY TEST
+
+Do players understand what to do without hints?
+", "DESIGN GOAL
+
+This room should feel safe and guided.
+"])
+note_font = ExtResource("14_yvqja")
+font_size = 70
+
+[node name="PhotoFrames" type="Node3D" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=366620895]
+transform = Transform3D(-1.1, 0, 9.616504e-08, 0, 1.1, 0, -9.616504e-08, 0, -1.1, -5.2923737, 2.3170543, -2.648605)
+
+[node name="PhotoFrame" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=213185865 instance=ExtResource("7_untni")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 1.75, 0, 0)
+portrait = ExtResource("8_m5v0v")
+
+[node name="PhotoFrame2" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=1902764131 instance=ExtResource("7_untni")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 0, 0, 0)
+portrait = ExtResource("8_hlpnh")
+
+[node name="Label3D" type="Label3D" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames/PhotoFrame2" unique_id=691249956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6573316, 0)
+visible = false
+text = "The Boss"
+
+[node name="PhotoFrame3" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=2133431949 instance=ExtResource("7_untni")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -1.75, 0, 0)
+portrait = ExtResource("10_ht3cb")
+
+[node name="PhotoFrame4" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=925732658 instance=ExtResource("7_untni")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 3.5, 0, 0)
+portrait = ExtResource("11_nldl1")
+
+[node name="PhotoFrame5" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=582041670 instance=ExtResource("7_untni")]
+transform = Transform3D(-1.5, 0, 5.84122e-07, 0, 1.5, 0, -5.84122e-07, 0, -1.5, -3.5, 0, 0)
+portrait = ExtResource("16_pujfh")
+
+[node name="deskCorner" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=1626069849 instance=ExtResource("36_aa8k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7967305, 0, 9.539468)
+
+[node name="desk" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=832210148 instance=ExtResource("14_hjwtt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0300908, 0, -1.7803726)
+
+[node name="computerScreen" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=414953278 instance=ExtResource("37_kqrg6")]
+transform = Transform3D(0.6706208, 0, -0.74180037, 0, 1, 0, 0.74180037, 0, 0.6706208, 1.8368702, 1.1532227, -2.591354)
+portrait = ExtResource("39_ynmfv")
+
+[node name="computerScreen2" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=515021257 instance=ExtResource("37_kqrg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6979027, 1.1532227, -2.5507913)
+portrait = ExtResource("39_s8vy0")
+
+[node name="laptop" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=217077123 instance=ExtResource("40_jut3y")]
+transform = Transform3D(0.92921644, 0, 0.369536, 0, 1, 0, -0.369536, 0, 0.92921644, 0.0031356812, 1.1532228, -1.9254894)
+portrait = ExtResource("38_nwwfm")
+
+[node name="computerMouse" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=15675183 instance=ExtResource("21_1ufqh")]
+transform = Transform3D(-0.91687906, 0, 0.3991651, 0, 1, 0, -0.3991651, 0, -0.91687906, 2.0882988, 1.1532228, -1.6867046)
+
+[node name="computerKeyboard" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=821742454 instance=ExtResource("20_lxbek")]
+transform = Transform3D(0.96108836, 0, -0.2762414, 0, 1, 0, 0.2762414, 0, 0.96108836, 1.1186123, 1.1532226, -1.95084)
+
+[node name="chairDesk" parent="OfficeHub01/ManagersOffice/Furniture/deskCorner" unique_id=747620892 instance=ExtResource("23_mgrvf")]
+transform = Transform3D(-0.90290797, 0, 0.42983365, 0, 1, 0, -0.42983365, 0, -0.90290797, 1.3449717, 0, -0.9382725)
+
+[node name="bookcaseDecorated" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=1698691852 instance=ExtResource("41_v2nl5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.187433, 0.0024389625, 12.779599)
+
+[node name="cabinetTelevisionDoors" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=992232866 instance=ExtResource("26_htfsl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.166851, -2.3841858e-07, 10.214444)
+
+[node name="loungeDesignSofaCorner" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=947028744 instance=ExtResource("45_cblf0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.65888, 1.013279e-06, 1.679466)
+
+[node name="tableCoffeeSquare" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=1041335311 instance=ExtResource("46_nay3j")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.91288, 0, 0.2971263)
+
+[node name="laptop" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=495066721 instance=ExtResource("40_jut3y")]
+transform = Transform3D(-0.8192922, 0, -0.57337636, 0, 1, 0, 0.57337636, 0, -0.8192922, -6.2594194, 0.68999994, 0.43955612)
+
+[node name="rugRectangle" parent="OfficeHub01/ManagersOffice" unique_id=703301107 instance=ExtResource("47_ovafv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.946465, -0.008117676, 9.990775)
+
 [node name="Backroom" parent="OfficeHub01" unique_id=1592453983 instance=ExtResource("12_w4s6r")]
 transform = Transform3D(1, 0, -2.26082e-14, 0, 1, 0, 2.26082e-14, 0, 1, -19.7, 0.5, -16.885)
 
@@ -1073,6 +1170,8 @@ z_higher = 15.0
 
 [node name="rugRound" parent="." unique_id=795569733 instance=ExtResource("31_r65h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0308237, 0.50000095, 6.053461)
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 
 [editable path="OfficeHub01/ManagersOffice"]
 [editable path="OfficeHub01/ManagersOffice/CSGBox3D/doorwayFront"]

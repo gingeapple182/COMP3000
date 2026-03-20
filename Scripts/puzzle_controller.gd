@@ -9,6 +9,8 @@ var current_level_index: int = 0
 @onready var block_spawn: Node3D = $Elements/BlockSpawn
 @onready var level_display_title: Label = $CanvasLayer/Control/PanelContainer/VBoxContainer/DisplayTitle
 @onready var level_description: RichTextLabel = $CanvasLayer/Control/PanelContainer/VBoxContainer/LevelDescription
+#@onready var level_display_title: Label = $CanvasLayer/HBox/VBox/Control/PanelContainer/VBoxContainer/DisplayTitle
+#@onready var level_description: RichTextLabel = $CanvasLayer/HBox/VBox/Control/PanelContainer/VBoxContainer/LevelDescription
 
 
 ## -- Scene refs -- ##
@@ -190,6 +192,7 @@ func start_validation() -> void:
 		var is_final_level := current_level_index >= levels.size() - 1
 		if is_final_level:
 			print("[PUZZLE] Final level completed")
+			GameManager.complete_current_room()
 			level_complete.show_popup(level_complete.PopupMode.OFFICE_COMPLETE)
 		else:
 			level_complete.show_popup(level_complete.PopupMode.LEVEL_COMPLTE)

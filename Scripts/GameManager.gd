@@ -10,8 +10,31 @@ var loading_bar: ProgressBar
 var current_level_set: Array[LevelData] = []
 var completed_levels_by_room := {}
 var current_room_name: String
+var tutorial_name: String = "tutorial"
+var area01_name: String = "AND room"
+var area02_name: String = "NOT room"
+var area03_name: String = "OR room"
+var area04_name: String = "AND room"
 
+# return values
 var return_spawn_point: NodePath = NodePath("")
+var tutorial_open: bool = true
+var area1_open: bool
+var area2_open: bool
+var area3_open: bool
+var area4_open: bool
+
+#notification vars
+var pending_notification := false
+var notification_title := ""
+var notification_sender := ""
+var notification_subject := ""
+var notification_body := ""
+var next_room_to_highlight := ""
+
+#objective stuff
+var current_obj: String = ""
+var current_obj_room: String = ""
 
 func _ready() -> void:
 	load_screen = load_screen_scene.instantiate()
@@ -21,6 +44,9 @@ func _ready() -> void:
 	fade_rect = load_screen.get_node("ColorRect")
 	loading_label = load_screen.get_node("Label")
 	loading_bar = load_screen.get_node("ProgressBar")
+	
+	current_obj = "Head to the Tutorial Room and resolve the issues there."
+	current_obj_room = "Tutorial"
 
 
 ## -- scene chanigng functions -- ##
@@ -131,3 +157,79 @@ func is_level_complete(room_name: String, level_index: int) -> bool:
 		completed_levels_by_room.has(room_name)
 		and completed_levels_by_room[room_name].has(level_index)
 	)
+
+func complete_current_room() -> void:
+	match current_room_name:
+		"Tutorial":
+			area1_open = true
+			set_objective("Head to the AND Room and resolve the issues there.", "Area01")
+			queue_notification(
+				"New Message",
+				"Manager",
+				"Next Assignment",
+				"Good work. Area 01 is now available. Head there next.",
+				"Area01"
+			)
+		"Area01":
+			area2_open = true
+			set_objective("Head to the next room and resolve the issues there.", "Area02")
+			queue_notification(
+				"New Message",
+				"Manager",
+				"Next Assignment",
+				"Area 02 has now been unlocked. Proceed when ready.",
+				"Area02"
+			)
+		"Area02":
+			area3_open = true
+			set_objective("Head to the next room and resolve the issues there.", "Area03")
+			queue_notification(
+				"New Message",
+				"Manager",
+				"Next Assignment",
+				"Area 03 is now available. Please investigate the new issues there.",
+				"Area03"
+			)
+		"Area03":
+			area4_open = true
+			set_objective("Head to the next room and resolve the issues there.", "Area04")
+			queue_notification(
+				"New Message",
+				"Manager",
+				"Next Assignment",
+				"Area 04 is now open. Head there for the next set of tasks.",
+				"Area04"
+			)
+		"Area04":
+			set_objective("All assigned office issues have been resolved.")
+			queue_notification(
+				"New Message",
+				"Manager",
+				"All Areas Complete",
+				"Excellent work. All currently assigned office areas have now been resolved. Thank you for playing."
+			)
+
+func queue_notification(title: String, sender: String, subject: String, body: String, room_name: String = "") -> void:
+	pending_notification = true
+	notification_title = title
+	notification_sender = sender
+	notification_subject = subject
+	notification_body = body
+	next_room_to_highlight = room_name
+
+func clear_notification() -> void:
+	pending_notification = false
+	notification_title = ""
+	notification_sender = ""
+	notification_subject = ""
+	notification_body = ""
+	next_room_to_highlight = ""
+
+
+func set_objective(new_objective: String, room_name: String = "") -> void:
+	current_obj = new_objective
+	current_obj_room = room_name
+
+func clear_objective() -> void:
+	current_obj = ""
+	current_obj_room = ""
