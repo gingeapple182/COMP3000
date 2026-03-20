@@ -4,16 +4,20 @@
 
 [resource]
 script = ExtResource("1_34kow")
-level_id = "not_room_level_03"
-tile_map = "000000000
-011111120
-000000000
-"
-display_title = "Double Negative"
-level_description = "One NOT flips the signal.
-Two NOT gates flip it twice… which returns it to normal.
-Chain TWO NOT gates and make the final output TRUE."
-level_complete_description = "Exactly. NOT(NOT(TRUE)) becomes TRUE again."
+level_id = "area02_03_or_practice"
+tile_map = "000000
+011100
+001120
+011100
+000000"
+display_title = "OR Practice"
+level_description = "Use the available blocks to produce a TRUE output.
+
+This puzzle gives you a little more space and a little more freedom."
+level_complete_description = "Well done. You’ve successfully used OR logic with a less guided layout."
 true_value_count = 1
-not_gate_count = 2
-L_R_connector_count = 3
+false_value_count = 2
+or_gate_count = 1
+L_U_connector_count = 1
+L_R_connector_count = 2
+L_D_connector_count = 1

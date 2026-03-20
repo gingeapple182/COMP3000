@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://c0tnnftbekcub"]
+
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_vo8u1"]
+
+[resource]
+script = ExtResource("1_vo8u1")
+level_id = "area03_03_nor_intro"
+tile_map = "00000
+01100
+00120
+01100
+00000"
+display_title = "Introducing NOR"
+level_description = "NOR is the opposite of OR.
+
+Route two FALSE signals into the NOR gate to produce a TRUE output."
+level_complete_description = "Correct. NOR only outputs TRUE when all inputs are FALSE."
+false_value_count = 2
+nor_gate_count = 1
+L_U_connector_count = 1
+L_D_connector_count = 1

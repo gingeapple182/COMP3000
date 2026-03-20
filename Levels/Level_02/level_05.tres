@@ -4,23 +4,23 @@
 
 [resource]
 script = ExtResource("1_w2np8")
-level_id = "and_room_level_01"
+level_id = "area02_05_or_and_combo"
 tile_map = "0000000
-0111100
-0111100
+0001100
 0111120
-0111100
-0111100
-0000000
-"
-display_title = "Both Means Both"
-level_description = "AND gates are picky: BOTH inputs must be TRUE.
-Route two TRUE signals into the AND gate,
-then send the result to the output."
-level_complete_description = "Nice. Two TRUE inputs means the AND gate outputs TRUE."
-true_value_count = 2
+0111000
+0000000"
+display_title = "Building on OR"
+level_description = "Use OR together with earlier gate knowledge.
+
+Think carefully about how each branch affects the final result."
+level_complete_description = "Excellent. You combined multiple logic ideas to produce the correct output."
+true_value_count = 1
+false_value_count = 2
 and_gate_count = 1
+not_gate_count = 1
+or_gate_count = 1
 L_U_connector_count = 1
-L_R_connector_count = 1
+L_R_connector_count = 3
 L_D_connector_count = 1
 D_U_connector_count = 1

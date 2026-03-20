@@ -4,26 +4,15 @@
 
 [resource]
 script = ExtResource("1_f1nto")
-level_id = "and_room_level_02"
-tile_map = "0000000
-0111100
-0110100
-0111120
-0110100
-0111100
-0000000
-"
-display_title = "One Bad Signal"
-level_description = "An AND gate only outputs TRUE if BOTH inputs are TRUE.
-Use the blocks available to make the final output FALSE.
-One wrong input is all it takes.
-"
-level_complete_description = "Correct. A single FALSE input breaks the AND condition."
-expected_output = 1
+level_id = "area01_02_false_to_true"
+tile_map = "00000
+01120
+00000"
+display_title = "Reversing FALSE"
+level_description = "NOT gates also work on FALSE signals.
+
+Use a FALSE block and a NOT gate to produce a TRUE output."
+level_complete_description = "Well done. FALSE was inverted into TRUE."
 true_value_count = 1
 false_value_count = 1
-and_gate_count = 1
-L_U_connector_count = 2
-L_R_connector_count = 1
-L_D_connector_count = 1
-D_U_connector_count = 1
+not_gate_count = 1

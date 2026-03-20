@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://cmpy0gk8jy7dd"]
+
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_57pbm"]
+
+[resource]
+script = ExtResource("1_57pbm")
+level_id = "area03_01_nand_intro"
+tile_map = "00000
+01100
+00120
+01100
+00000"
+display_title = "Introducing NAND"
+level_description = "NAND is the opposite of AND.
+
+Route two TRUE signals into the NAND gate so you can observe how it behaves."
+level_complete_description = "Correct. NAND outputs FALSE only when both inputs are TRUE."
+expected_output = 1
+true_value_count = 2
+nand_gate_count = 1
+L_U_connector_count = 1
+L_D_connector_count = 1

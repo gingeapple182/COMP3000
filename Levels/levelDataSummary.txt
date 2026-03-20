@@ -1,0 +1,195 @@
+Tutorial:
+	Level_01:
+		Level ID: tutorial_01_pick_place
+		Tile Map:
+		0000
+		0120
+		0000
+		Expected Output: TRUE
+		Blocks: TRUE ×1
+	Level_02:
+		Level ID: tutorial_02_connector_intro
+		Tile Map:
+		00000
+		01120
+		00000
+		Expected Output: TRUE
+		Blocks: TRUE ×1, L_R ×1
+	Level_03:
+		Level ID: tutorial_03_and_intro
+		Tile Map:
+		00000
+		01100
+		00120
+		01100
+		00000
+		Expected Output: TRUE
+		Blocks: TRUE ×2, AND ×1, L_D ×1, L_U ×1
+	Level_04:
+		Level ID: tutorial_04_and_false
+		Tile Map:
+		00000
+		01100
+		00120
+		01100
+		00000
+		Expected Output: FALSE
+		Blocks: TRUE ×1, FALSE ×1, AND ×1, L_D ×1, L_U ×1
+	Level_05:
+		Level ID: tutorial_05_and_practice
+		Tile Map:
+		000000
+		011100
+		001120
+		011100
+		000000
+		Expected Output: TRUE
+		Blocks: TRUE ×3, FALSE ×1, AND ×1, L_R ×2, L_D ×1, L_U ×1
+
+Area_01:
+	Level_01:
+		Level ID: area01_01_not_intro
+		Tile Map:
+		00000
+		01120
+		00000
+		Expected Output: FALSE
+		Blocks: TRUE ×1, NOT ×1, L_R ×1
+	Level_02:
+		Level ID: area01_02_false_to_true
+		Tile Map:
+		00000
+		01120
+		00000
+		Expected Output: TRUE
+		Blocks: FALSE ×1, NOT ×1, L_R ×1
+	Level_03:
+		Level ID: area01_03_double_not
+		Tile Map:
+		000000
+		011120
+		000000
+		Expected Output: TRUE
+		Blocks: TRUE ×1, NOT ×2, L_R ×2
+	Level_04:
+		Level ID: area01_04_choose_inversion
+		Tile Map:
+		000000
+		011120
+		000000
+		Expected Output: FALSE
+		Blocks: TRUE ×1, FALSE ×1, NOT ×1, L_R ×2
+	Level_05:
+		Level ID: area01_05_not_and_combo
+		Tile Map:
+		0000000
+		0111000
+		0000120
+		0110000
+		0000000
+		Expected Output: TRUE
+		Blocks: TRUE ×1, FALSE ×1, NOT ×1, AND ×1, L_D ×1, L_U ×1, L_R ×1
+
+Area_02:
+	Level_01:
+		Level ID: area02_01_or_intro
+		Tile Map:
+		00000
+		01100
+		00120
+		01100
+		00000
+		Expected Output: TRUE
+		Blocks: TRUE ×1, FALSE ×1, OR ×1, L_D ×1, L_U ×1
+	Level_02:
+		Level ID: area02_02_or_false
+		Tile Map:
+		00000
+		01100
+		00120
+		01100
+		00000
+		Expected Output: FALSE
+		Blocks: FALSE ×2, OR ×1, L_D ×1, L_U ×1
+	Level_03:
+		Level ID: area02_03_or_practice
+		Tile Map:
+		000000
+		011100
+		001120
+		011100
+		000000
+		Expected Output: TRUE
+		Blocks: TRUE ×1, FALSE ×2, OR ×1, L_R ×2, L_D ×1, L_U ×1
+	Level_04:
+		Level ID: area02_04_not_or_combo
+		Tile Map:
+		0000000
+		0111000
+		0001200
+		0111000
+		0000000
+		Expected Output: TRUE
+		Blocks: FALSE ×2, NOT ×1, OR ×1, L_D ×1, L_R ×1, L_U ×1
+	Level_05:
+		Level ID: area02_05_or_and_combo
+		Tile Map:
+		0000000
+		0001100
+		0111120
+		0111000
+		0000000
+		Expected Output: TRUE
+		Blocks: FALSE ×2, TRUE ×1, NOT ×1, OR ×1, AND ×1, L_R ×1, L_U ×1, L_D ×1
+
+Area_03:
+	Level_01:
+		Level ID: area03_01_nand_intro
+		Tile Map:
+		00000
+		01100
+		00120
+		01100
+		00000
+		Expected Output: FALSE
+		Blocks: TRUE ×2, NAND ×1, L_D ×1, L_U ×1
+	Level_02:
+		Level ID: area03_02_nand_true
+		Tile Map:
+		00000
+		01100
+		00120
+		01100
+		00000
+		Expected Output: TRUE
+		Blocks: TRUE ×1, FALSE ×1, NAND ×1, L_D ×1, L_U ×1
+	Level_03:
+		Level ID: area03_03_nor_intro
+		Tile Map:
+		00000
+		01100
+		00120
+		01100
+		00000
+		Expected Output: TRUE
+		Blocks: FALSE ×2, NOR ×1, L_D ×1, L_U ×1
+	Level_04:
+		Level ID: area03_04_nor_false
+		Tile Map:
+		00000
+		01100
+		00120
+		01100
+		00000
+		Expected Output: FALSE
+		Blocks: TRUE ×1, FALSE ×1, NOR ×1, L_D ×1, L_U ×1
+	Level_05:
+		Level ID: area03_05_nand_nor_combo
+		Tile Map:
+		0000000
+		0111000
+		0001120
+		0111100
+		0000000
+		Expected Output: FALSE
+		Blocks: TRUE ×3, NAND ×1, NOR ×1, L_D ×1, L_U ×1, L_R ×1

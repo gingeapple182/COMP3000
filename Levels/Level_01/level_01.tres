@@ -4,23 +4,15 @@
 
 [resource]
 script = ExtResource("1_vnxji")
-level_id = "and_room_level_01"
-tile_map = "0000000
-0111100
-0111100
-0111120
-0111100
-0111100
-0000000
-"
-display_title = "Both Means Both"
-level_description = "AND gates are picky: BOTH inputs must be TRUE.
-Route two TRUE signals into the AND gate,
-then send the result to the output."
-level_complete_description = "Nice. Two TRUE inputs means the AND gate outputs TRUE."
-true_value_count = 2
-and_gate_count = 1
-L_U_connector_count = 1
-L_R_connector_count = 1
-L_D_connector_count = 1
-D_U_connector_count = 1
+level_id = "area01_01_not_intro"
+tile_map = "00000
+01120
+00000"
+display_title = "Introducing NOT"
+level_description = "NOT gates invert a signal.
+
+Place a TRUE block and a NOT gate so the output becomes FALSE."
+level_complete_description = "Correct. The NOT gate changed TRUE into FALSE."
+expected_output = 1
+true_value_count = 1
+not_gate_count = 1

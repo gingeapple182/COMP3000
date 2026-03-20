@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://ck5qms78ko8xb"]
+
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_wbnq4"]
+
+[resource]
+script = ExtResource("1_wbnq4")
+level_id = "area03_05_nand_nor_combo"
+tile_map = "0000000
+0111000
+0001120
+0111100
+0000000"
+display_title = "Combining NAND and NOR"
+level_description = "Use both NAND and NOR together.
+
+Build a NAND result first, then combine it with another signal using NOR to produce the correct output."
+level_complete_description = "Excellent. You combined two inverse gate types to solve the puzzle."
+expected_output = 1
+true_value_count = 2
+false_value_count = 1
+nand_gate_count = 1
+nor_gate_count = 1
+L_U_connector_count = 1
+L_R_connector_count = 2
+L_D_connector_count = 1

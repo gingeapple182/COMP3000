@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://d0xld8jy7kyix"]
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://d0xld8jy7kyix"]
 
-[ext_resource type="Script" path="res://Scripts/LevelData.gd" id="1_2gjhl"]
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_2gjhl"]
 
 [resource]
 script = ExtResource("1_2gjhl")
@@ -9,25 +9,13 @@ tile_map = "00000
 01100
 00120
 01100
-00000
-"
-display_title = "Feeding an AND Gate"
-level_description = "AND gates require two inputs.
-Use connector blocks to route signals into the gate.
-Both inputs must be TRUE.
-"
-level_complete_description = "Well done. You’ve successfully routed two signals into an AND gate.
-"
-expected_output = 0
+00000"
+display_title = "AND Gate Basics"
+level_description = "AND gates need two inputs.
+
+Use connector blocks to route two TRUE signals into the AND gate so the output becomes TRUE."
+level_complete_description = "Well done. An AND gate only outputs TRUE when both inputs are TRUE."
 true_value_count = 2
-false_value_count = 0
 and_gate_count = 1
-not_gate_count = 0
-or_gate_count = 0
 L_U_connector_count = 1
-L_R_connector_count = 0
 L_D_connector_count = 1
-D_U_connector_count = 0
-D_R_connector_count = 0
-U_R_connector_count = 0
-U_D_connector_count = 0

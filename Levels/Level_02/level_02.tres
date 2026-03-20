@@ -4,15 +4,19 @@
 
 [resource]
 script = ExtResource("1_l3qfu")
-level_id = "not_room_level_02"
-tile_map = "0000000
-0111120
-0000000
-"
-display_title = "Flip The Other Way"
-level_description = "NOT flips FALSE into TRUE as well.
-Use a FALSE input and make the final output TRUE."
-level_complete_description = "Correct. FALSE through NOT becomes TRUE."
-false_value_count = 1
-not_gate_count = 1
-L_R_connector_count = 2
+level_id = "area02_02_or_false"
+tile_map = "00000
+01100
+00120
+01100
+00000"
+display_title = "When OR Fails"
+level_description = "OR gates only output FALSE when all inputs are FALSE.
+
+Route two FALSE signals into the OR gate."
+level_complete_description = "Exactly. OR only fails when every input is FALSE."
+expected_output = 1
+false_value_count = 2
+or_gate_count = 1
+L_U_connector_count = 1
+L_D_connector_count = 1

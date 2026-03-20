@@ -4,17 +4,19 @@
 
 [resource]
 script = ExtResource("1_tapm6")
-level_id = "not_room_level_01"
-tile_map = "0000000
-0111120
-0000000
-"
-display_title = "Flip It"
-level_description = "The NOT gate does one job: it flips the signal.
-TRUE becomes FALSE.
-Build a circuit that outputs FALSE."
-level_complete_description = "Nice. NOT flipped TRUE into FALSE exactly as intended."
-expected_output = 1
+level_id = "area02_01_or_intro"
+tile_map = "00000
+01100
+00120
+01100
+00000"
+display_title = "Introducing OR"
+level_description = "OR gates produce TRUE if at least one input is TRUE.
+
+Use two signals and route them into the OR gate to make the output TRUE."
+level_complete_description = "Correct. OR gates only need one TRUE input to succeed."
 true_value_count = 1
-not_gate_count = 1
-L_R_connector_count = 2
+false_value_count = 1
+or_gate_count = 1
+L_U_connector_count = 1
+L_R_connector_count = 1

@@ -4,27 +4,17 @@
 
 [resource]
 script = ExtResource("1_kwia0")
-level_id = "and_room_level_04"
-tile_map = "0000000
-0111100
-0111100
-0111120
-0111100
-0111100
-0000000
-"
-display_title = "Choose Carefully"
-level_description = "Not every signal is helpful.
-You have multiple value blocks available.
-Build a circuit that results in TRUE.
-"
-level_complete_description = "Well done. You selected the correct signals for the AND gate."
-true_value_count = 2
-false_value_count = 2
-and_gate_count = 1
-L_U_connector_count = 3
+level_id = "area01_04_choose_inversion"
+tile_map = "000000
+011120
+000000"
+display_title = "Choosing When to Invert"
+level_description = "Use the available blocks to make the output FALSE.
+
+Think carefully about whether the signal should be inverted once or not at all."
+level_complete_description = "Good work. You chose the correct use of inversion."
+expected_output = 1
+true_value_count = 1
+false_value_count = 1
+not_gate_count = 1
 L_R_connector_count = 2
-L_D_connector_count = 2
-D_U_connector_count = 1
-D_R_connector_count = 1
-U_R_connector_count = 1

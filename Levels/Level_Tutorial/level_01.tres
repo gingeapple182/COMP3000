@@ -8,11 +8,10 @@ level_id = "tutorial_level_01"
 tile_map = "0000
 0120
 0000"
-display_title = "Making a Signal"
-level_description = "This board has a single output slot.
-Place a TRUE value block so that the output becomes TRUE.
-"
-level_complete_description = "Good work. You’ve successfully sent a signal to the output.
-"
+display_title = "Basic Setup"
+level_description = "Pick up a TRUE block from the tray on the left.
+Place it onto the grid so that it connects to the output.
+
+Blocks can only send signals to the right."
+level_complete_description = "Good work. You’ve placed your first component."
 true_value_count = 1
-xnor_gate_count = 1

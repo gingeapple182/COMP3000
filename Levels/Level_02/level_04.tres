@@ -4,26 +4,20 @@
 
 [resource]
 script = ExtResource("1_misvc")
-level_id = "not_room_level_04"
-tile_map = "000000000
-011111000
-011111120
-011111000
-000000000
-"
-display_title = "Fix Then Confirm"
-level_description = "AND gates demand TWO TRUE inputs.
-You have one TRUE and one FALSE.
-Use NOT to flip the FALSE, then use AND to make the final output TRUE."
-level_complete_description = "Nice. You flipped the FALSE and satisfied the AND gate."
-true_value_count = 1
-false_value_count = 1
-and_gate_count = 1
+level_id = "area02_04_not_or_combo"
+tile_map = "0000000
+0111000
+0001200
+0111000
+0000000"
+display_title = "Turning FALSE into TRUE"
+level_description = "Combine NOT and OR.
+
+Invert one FALSE signal before routing both inputs into the OR gate so the output becomes TRUE."
+level_complete_description = "Good work. You used inversion to change the result of the OR gate."
+false_value_count = 2
 not_gate_count = 1
-L_U_connector_count = 2
-L_R_connector_count = 4
-L_D_connector_count = 4
-D_U_connector_count = 1
-D_R_connector_count = 1
-U_R_connector_count = 1
-U_D_connector_count = 1
+or_gate_count = 1
+L_U_connector_count = 1
+L_R_connector_count = 2
+L_D_connector_count = 1

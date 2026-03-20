@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://78at16nntla8"]
+
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_5f32h"]
+
+[resource]
+script = ExtResource("1_5f32h")
+level_id = "area03_02_nand_true"
+tile_map = "00000
+01100
+00120
+01100
+00000"
+display_title = "Breaking NAND"
+level_description = "NAND usually outputs TRUE.
+
+Use one TRUE signal and one FALSE signal to produce a TRUE output."
+level_complete_description = "Well done. NAND only fails when every input is TRUE."
+true_value_count = 1
+false_value_count = 1
+nand_gate_count = 1
+L_U_connector_count = 1
+L_D_connector_count = 1
