@@ -180,15 +180,14 @@ alignment = 1
 [node name="DisplayTitle" type="Label" parent="CanvasLayer/Control/VBox/HBox/PanelContainer/VBoxContainer" unique_id=1252753948]
 layout_mode = 2
 theme = ExtResource("10_6ebee")
-text = "TITLE"
+text = "{title}"
 horizontal_alignment = 1
 
 [node name="LevelDescription" type="RichTextLabel" parent="CanvasLayer/Control/VBox/HBox/PanelContainer/VBoxContainer" unique_id=1473971716]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("10_6ebee")
-text = "Use the available logic components to route signals correctly and satisfy the required output condition.
-"
+text = "{level_description}"
 fit_content = true
 scroll_active = false
 

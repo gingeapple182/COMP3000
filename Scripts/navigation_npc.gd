@@ -93,9 +93,10 @@ func _physics_process(delta: float) -> void:
 		
 		var target_pos = return_target.global_position
 		var stop_dist = global_position.distance_to(target_pos)
-		if stop_dist <= follow_stop_dist:
+		if global_position == target_pos:
 			velocity = Vector3.ZERO
 			animation_player.play("idle/Root|Idle")
+			npc_type = NPCType.STATIC
 			return
 		
 		navigation_agent_3d.set_target_position(target_pos)
@@ -164,3 +165,12 @@ func _physics_process(delta: float) -> void:
 			#State.
 	
 	move_and_slide()
+
+func start_follow() -> void:
+	npc_type = NPCType.FOLLOW
+
+func start_return() -> void:
+	npc_type = NPCType.RETURN
+
+func start_static() -> void:
+	npc_type = NPCType.STATIC

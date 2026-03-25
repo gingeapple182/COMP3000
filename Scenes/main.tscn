@@ -112,6 +112,8 @@ gizmo_extents = 1.0
 
 [node name="ProtoController" parent="." unique_id=1012431392 node_paths=PackedStringArray("interact_label") instance=ExtResource("2_aomcw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2, 9.34517, 45.7346)
+collision_layer = 3
+collision_mask = 3
 interact_label = NodePath("../CanvasLayer/InteractLabel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=538587990]
@@ -825,7 +827,7 @@ target_door = NodePath("../../../Tutorial")
 [node name="SpawnPoints" type="Node3D" parent="OfficeHub01/ManagersOffice" unique_id=1334612989]
 
 [node name="Marker3D" type="Marker3D" parent="OfficeHub01/ManagersOffice/SpawnPoints" unique_id=194762878]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.6706295, 1, 10.996408)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.6222734, 1.5, 9.342604)
 gizmo_extents = 1.0
 
 [node name="Furniture" type="Node3D" parent="OfficeHub01/ManagersOffice" unique_id=959438450]
@@ -1151,7 +1153,8 @@ z_lower = -15.0
 z_higher = -1.0
 
 [node name="Rory" parent="NPC" unique_id=423759212 node_paths=PackedStringArray("follow_target", "return_target") instance=ExtResource("62_qnggo")]
-transform = Transform3D(0.39174247, 0, 1.4479426, 0, 1.5, 0, -1.4479426, 0, 0.39174247, -11.956378, 1.9646862, 4.755951)
+transform = Transform3D(0.39174247, 0, 1.4479426, 0, 1.5, 0, -1.4479426, 0, 0.39174247, -11.956378, 2.2628052, 10.062883)
+npc_type = 2
 follow_target = NodePath("../../ProtoController")
 return_target = NodePath("../../OfficeHub01/ManagersOffice/SpawnPoints/Marker3D")
 x_lower = -34.0
@@ -1162,6 +1165,15 @@ z_higher = -1.0
 [node name="Label3D" type="Label3D" parent="NPC/Rory" unique_id=1925035240]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1219306, 0.41408825)
 text = "Rory"
+
+[node name="Button" parent="NPC/Rory" unique_id=819979152 instance=ExtResource("8_a6lxu")]
+transform = Transform3D(0.46589753, 0.13058087, -0.1260491, -0.13058092, -2.1855707e-08, -0.48264787, -0.12604907, 0.48264787, 0.0341027, 0.09867096, 0, 0.36470413)
+visible = false
+use_collision = true
+collision_layer = 2
+collision_mask = 2
+button_type = 3
+NPC = NodePath("..")
 
 [node name="NavigationNPC2" parent="NPC" unique_id=2112072401 instance=ExtResource("62_qnggo")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.327545, 1.9646862, 7.328677)

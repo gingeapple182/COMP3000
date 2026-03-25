@@ -88,6 +88,10 @@ text = "Resume"
 layout_mode = 2
 text = "Guide"
 
+[node name="Button_Controls" type="Button" parent="PanelContainer/Paused/Paused/Paused" unique_id=1468283225]
+layout_mode = 2
+text = "Controls"
+
 [node name="Button_Settings" type="Button" parent="PanelContainer/Paused/Paused/Paused" unique_id=2007836734]
 layout_mode = 2
 text = "Settings"
@@ -138,10 +142,6 @@ theme = ExtResource("2_k0w1u")
 theme_override_font_sizes/font_size = 35
 text = "Settings"
 horizontal_alignment = 1
-
-[node name="Button_Controls" type="Button" parent="PanelContainer/Settings/Settings/Settings" unique_id=1468283225]
-layout_mode = 2
-text = "Controls"
 
 [node name="Button_Back" type="Button" parent="PanelContainer/Settings/Settings/Settings" unique_id=42363784]
 layout_mode = 2
@@ -200,6 +200,7 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="Pause" type="HBoxContainer" parent="PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1351649829]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -845,10 +846,10 @@ layout_mode = 2
 
 [connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Resume" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Guide" to="." method="_on_button_guide_pressed"]
+[connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Controls" to="." method="_on_button_controls_pressed"]
 [connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Settings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Reset" to="." method="_on_button_reset_pressed"]
 [connection signal="pressed" from="PanelContainer/Paused/Paused/Paused/Button_Quit" to="." method="_on_button_quit_pressed"]
-[connection signal="pressed" from="PanelContainer/Settings/Settings/Settings/Button_Controls" to="." method="_on_button_controls_pressed"]
 [connection signal="pressed" from="PanelContainer/Settings/Settings/Settings/Button_Back" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="PanelContainer/Controls/Controls/Button_Back" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="PanelContainer/Nodes/Nodes/Button_Back" to="." method="_on_button_back_pressed"]

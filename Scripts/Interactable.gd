@@ -1,7 +1,7 @@
 #extends CSGSphere3D
 extends CSGCombiner3D
 
-enum ButtonType { PUZZLE, SCENE, DOOR, OTHER }
+enum ButtonType { PUZZLE, SCENE, DOOR, NPC, OTHER }
 
 var is_enabled := true
 @onready var status_label: Label3D = get_node_or_null("Label3D")
@@ -27,6 +27,9 @@ enum SceneID { LANDING_MENU, HUB_01, PUZZLE_BOARD, MAZE, ZOO }
 @export_group("Button type: Door")
 @export var target_door: NodePath
 
+@export_group("Button type: NPC")
+@export var NPC: NodePath
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -43,6 +46,8 @@ func interact():
 			handle_scene_action()
 		ButtonType.DOOR:
 			handle_door_action()
+		ButtonType.NPC:
+			handle_npc_action()
 		_:
 			push_warning("[Interactables} Unhandled button_type on: " + name)
 
@@ -69,7 +74,6 @@ func handle_puzzle_action() -> void:
 	if ceiling:
 		ceiling.visible = false
 	
-	#GameManager.current_level_set = level_set
 	var room := get_node_or_null(room_path)
 	if room == null:
 		push_warning("[Interactable] Invalid room_path on " + name)
@@ -81,12 +85,6 @@ func handle_puzzle_action() -> void:
 	
 	GameManager.current_level_set = room.get_level_slice(start_index)
 	print("[Interactable] Sending level slice from index ", start_index, " for room ", room.name)
-	#GameManager.return_spawn_point = return_spawn_point
-	#var marker = get_node_or_null(return_spawn_point)
-	#if marker:
-	#	GameManager.return_spawn_point = marker.get_path()
-	#else:
-	#	push_warning("[Interactable] return_spawn_point invalid: " + str(return_spawn_point))
 	
 	print("[Interactable] return_spawn_point:", return_spawn_point)
 	print("[Interactable] Sent to GameManager.return_spawn_point:", GameManager.return_spawn_point)
@@ -94,8 +92,7 @@ func handle_puzzle_action() -> void:
 	
 	GameManager.set_return_scene_with_id("hub_01")
 	scene_change(get_scene_name())
-	#scene_change("puzzle_board")
-	#GameManager.change_scene("puzzle_board")
+
 
 
 func handle_scene_action() -> void:
@@ -118,6 +115,21 @@ func handle_door_action() -> void:
 	
 	door.toggle_open()
 
+func handle_npc_action() -> void:
+	if NPC.is_empty():
+		push_warning("[Interactable] No NPC path set on " + name)
+		return
+	
+	var npc = get_node_or_null(NPC)
+	if npc == null:
+		push_warning("[Interactable] NPC not found: " + str(NPC))
+		return
+	
+	if not npc.has_method("start_return"):
+		push_warning("[Interactable] Target NPC has no start_return() method: " + npc.name)
+		return
+	
+	npc.start_return()
 
 func get_scene_name() -> String:
 	match target_scene:

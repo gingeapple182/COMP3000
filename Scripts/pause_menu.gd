@@ -46,7 +46,7 @@ func _on_button_settings_pressed() -> void:
 
 
 func _on_button_controls_pressed() -> void:
-	settings.visible = false
+	paused.visible = false
 	controls.visible = true
 
 
@@ -55,7 +55,7 @@ func _on_button_back_pressed() -> void:
 		paused.visible = true
 		settings.visible = false
 	if controls.visible == true:
-		settings.visible = true
+		paused.visible = true
 		controls.visible = false
 	if nodes.visible == true:
 		paused.visible = true
