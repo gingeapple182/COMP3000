@@ -2,6 +2,9 @@ extends Node3D
 
 @onready var pause_menu = $PauseMenu
 @onready var office_hub_01: Node3D = $OfficeHub01
+@onready var rory: CharacterBody3D = $NPC/Rory
+#@onready var manager_briefing: Control = $CanvasLayer/ManagerBriefing
+@onready var manager_briefing: Control = $CanvasLayer/Dialogue
 
 #Room data
 @onready var tutorial: DoorPlaceholder = $OfficeHub01/Tutorial
@@ -12,6 +15,8 @@ extends Node3D
 
 @onready var notifications: Control = $CanvasLayer/Notifications
 @onready var objectives: Control = $CanvasLayer/Objectives
+@onready var introduction: Control = $CanvasLayer/Introduction
+@onready var intro_button: Button = $CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button
 
 var ceiling: Node3D
 
@@ -19,7 +24,7 @@ var is_paused := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ceiling =  office_hub_01.find_child("Ceiling", true)
+	ceiling = office_hub_01.find_child("Ceiling", true)
 	if ceiling:
 		ceiling.visible = true
 	
@@ -32,6 +37,16 @@ func _ready() -> void:
 	if objectives.has_method("update_objective"):
 		objectives.update_objective()
 	
+	if rory.has_signal("follow_target_reached"):
+		rory.follow_target_reached.connect(_on_rory_reached_player)
+	
+	if manager_briefing.has_signal("briefing_acknowledged"):
+		manager_briefing.briefing_acknowledged.connect(_on_manager_briefing_acknowledged)
+	
+	if introduction:
+		introduction.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	if GameManager.pending_notification:
 		notifications.show_message(
 			GameManager.notification_title,
@@ -40,8 +55,17 @@ func _ready() -> void:
 			GameManager.notification_body
 		)
 		GameManager.clear_notification()
+	
+	if GameManager.manager_should_follow:
+		if rory.has_method("start_follow"):
+			rory.start_follow()
+		GameManager.manager_should_follow = false
+	
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
+	if manager_briefing.visible:
+		return
 	if event.is_action_pressed("pause"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		toggle_pause()
@@ -65,3 +89,27 @@ func _on_tree_exited() -> void:
 	GameManager.area2_open = area_02.is_open
 	GameManager.area3_open = area_03.is_open
 	GameManager.area4_open = area_04.is_open
+
+
+func _on_rory_reached_player() -> void:
+	if not GameManager.pending_manager_briefing:
+		return
+	
+	if manager_briefing.has_method("show_briefing"):
+		manager_briefing.show_briefing(
+			GameManager.manager_briefing_title,
+			GameManager.manager_briefing_sender,
+			GameManager.manager_briefing_subject,
+			GameManager.manager_briefing_body
+		)
+
+func _on_manager_briefing_acknowledged() -> void:
+	GameManager.clear_manager_briefing()
+	
+	if rory.has_method("start_return"):
+		rory.start_return()
+
+
+func _on_intro_button_pressed() -> void:
+	introduction.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

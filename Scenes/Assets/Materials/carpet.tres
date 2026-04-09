@@ -13,3 +13,4 @@ albedo_texture = SubResource("NoiseTexture2D_60ovw")
 roughness = 0.8
 normal_enabled = true
 normal_scale = -9.22
+uv1_scale = Vector3(10, 10, 10)

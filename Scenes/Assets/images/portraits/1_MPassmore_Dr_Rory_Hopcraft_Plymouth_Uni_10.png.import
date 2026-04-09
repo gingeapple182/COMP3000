@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7xt3bl1cfuc6"
-path.s3tc="res://.godot/imported/image_2026-02-20_123305044.jpg-78537b550d14bcef7485336b4ac76587.s3tc.ctex"
+uid="uid://wbulsgmh4fei"
+path.s3tc="res://.godot/imported/1_MPassmore_Dr_Rory_Hopcraft_Plymouth_Uni_10.png-dd4e54cd81aba1fe0c1e75a8295f66e4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Scenes/Assets/images/portraits/image_2026-02-20_123305044.jpg"
-dest_files=["res://.godot/imported/image_2026-02-20_123305044.jpg-78537b550d14bcef7485336b4ac76587.s3tc.ctex"]
+source_file="res://Scenes/Assets/images/portraits/1_MPassmore_Dr_Rory_Hopcraft_Plymouth_Uni_10.png"
+dest_files=["res://.godot/imported/1_MPassmore_Dr_Rory_Hopcraft_Plymouth_Uni_10.png-dd4e54cd81aba1fe0c1e75a8295f66e4.s3tc.ctex"]
 
 [params]
 

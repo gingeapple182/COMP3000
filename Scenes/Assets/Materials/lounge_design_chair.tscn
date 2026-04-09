@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dkj0hf1wotmi0"]
+
+[ext_resource type="PackedScene" uid="uid://dkddj4ggpiy8d" path="res://Scenes/Assets/Assets/kenney/loungeDesignChair.glb" id="1_kdbat"]
+
+[node name="loungeDesignChair" unique_id=1829880571 instance=ExtResource("1_kdbat")]

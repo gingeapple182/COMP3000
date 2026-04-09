@@ -31,7 +31,7 @@ func _ready() -> void:
 	update_pause_buttons()
 
 func _on_button_resume_pressed() -> void:
-	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 	visible = false
 

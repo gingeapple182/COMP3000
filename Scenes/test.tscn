@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://nx5jcgd56isn"]
+
+[node name="Control" type="Control" unique_id=1188511188]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=806577463]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 178.0
+offset_right = 1007.0
+offset_bottom = 237.0
+theme_override_font_sizes/font_size = 43
+text = "Press the play button in the top right here"
+
+[node name="Label" type="Label" parent="Label" unique_id=1724322855]
+layout_mode = 0
+offset_left = 976.0
+offset_top = -161.0
+offset_right = 1016.0
+offset_bottom = -65.0
+rotation = 0.5647979
+theme_override_font_sizes/font_size = 70
+text = "I"
+
+[node name="Label4" type="Label" parent="Label" unique_id=1016598712]
+layout_mode = 0
+offset_left = 950.0
+offset_top = -120.99997
+offset_right = 990.0
+offset_bottom = -24.99997
+rotation = 0.5647979
+theme_override_font_sizes/font_size = 70
+text = "I"
+
+[node name="Label5" type="Label" parent="Label" unique_id=1971325321]
+layout_mode = 0
+offset_left = 924.0001
+offset_top = -80.0
+offset_right = 964.0001
+offset_bottom = 16.0
+rotation = 0.5647979
+theme_override_font_sizes/font_size = 70
+text = "I"
+
+[node name="Label2" type="Label" parent="Label" unique_id=1641532055]
+layout_mode = 0
+offset_left = 954.0
+offset_top = -148.00002
+offset_right = 994.0
+offset_bottom = -52.000015
+rotation = -0.34865293
+theme_override_font_sizes/font_size = 70
+text = "I"
+
+[node name="Label3" type="Label" parent="Label" unique_id=643473087]
+layout_mode = 0
+offset_left = 992.0001
+offset_top = -143.0
+offset_right = 1032.0001
+offset_bottom = -47.0
+rotation = 1.4865198
+theme_override_font_sizes/font_size = 70
+text = "I"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://cpt174fcgs18r"]
+
+[ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="1_j4xla"]
+
+[resource]
+script = ExtResource("1_j4xla")
+level_id = "not_room_level_02"
+tile_map = "0000000
+0111120
+0000000
+"
+display_title = "Flip The Other Way"
+level_description = "NOT flips FALSE into TRUE as well.
+Use a FALSE input and make the final output TRUE."
+level_complete_description = "Correct. FALSE through NOT becomes TRUE."
+false_value_count = 1
+not_gate_count = 1
+L_R_connector_count = 2

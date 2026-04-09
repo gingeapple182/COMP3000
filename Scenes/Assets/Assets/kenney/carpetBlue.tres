@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c80ilf1rtrlte"]
+
+[ext_resource type="Texture2D" uid="uid://bt8sqaarhgm35" path="res://Scenes/Assets/images/portraits/roryPortrait.jpg" id="1_p353b"]
+
+[resource]
+resource_name = "carpetBlue"
+albedo_color = Color(0.6311931, 0.746212, 0.9395347, 1)
+albedo_texture = ExtResource("1_p353b")
+metallic = 0.5
+emission_enabled = true

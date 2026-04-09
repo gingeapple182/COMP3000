@@ -1,14 +1,14 @@
 #extends CSGSphere3D
 extends CSGCombiner3D
 
-enum ButtonType { PUZZLE, SCENE, DOOR, NPC, OTHER }
+enum ButtonType { PUZZLE, SCENE, DOOR, NPC, BRIEFING, OTHER }
 
 var is_enabled := true
 @onready var status_label: Label3D = get_node_or_null("Label3D")
 
 @export_group("")
 @export var button_type: ButtonType
-
+@export var disable_if_tutorial_complete: bool = true
 
 
 @export_group("Button type: Scene")
@@ -30,6 +30,19 @@ enum SceneID { LANDING_MENU, HUB_01, PUZZLE_BOARD, MAZE, ZOO }
 @export_group("Button type: NPC")
 @export var NPC: NodePath
 
+@export_group("Button type: Briefing")
+@export var dialogue_screen_path: NodePath
+@export var briefing_title: String = "Reception Briefing"
+@export var briefing_sender: String = "Receptionist"
+@export var briefing_subject: String = "First Task"
+@export_multiline var briefing_body: String = "Head to the Tutorial Room and resolve the issues there while the manager is on the way."
+
+@export var update_objective_on_interact: bool = true
+@export var new_objective_text: String = "Head to the Tutorial Room and resolve the issues there."
+@export var new_objective_room: String = "Tutorial"
+
+@export var disable_after_interaction: bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -48,8 +61,10 @@ func interact():
 			handle_door_action()
 		ButtonType.NPC:
 			handle_npc_action()
+		ButtonType.BRIEFING:
+			handle_briefing_action()
 		_:
-			push_warning("[Interactables} Unhandled button_type on: " + name)
+			push_warning("[Interactables] Unhandled button_type on: " + name)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -131,9 +146,41 @@ func handle_npc_action() -> void:
 	
 	npc.start_return()
 
+func handle_briefing_action() -> void:
+	if disable_if_tutorial_complete and GameManager.area1_open:
+		is_enabled = false
+		return
+	
+	if dialogue_screen_path.is_empty():
+		push_warning("[Interactable] No dialogue_screen_path set on " + name)
+		return
+	
+	var dialogue_screen = get_node_or_null(dialogue_screen_path)
+	if dialogue_screen == null:
+		push_warning("[Interactable] Dialogue screen not found: " + str(dialogue_screen_path))
+		return
+	
+	if not dialogue_screen.has_method("show_briefing"):
+		push_warning("[Interactable] Target has no show_briefing() method: " + dialogue_screen.name)
+		return
+	
+	dialogue_screen.show_briefing(
+		briefing_title,
+		briefing_sender,
+		briefing_subject,
+		briefing_body
+	)
+	
+	if update_objective_on_interact:
+		GameManager.set_objective(new_objective_text, new_objective_room)
+	
+	if disable_after_interaction:
+		is_enabled = false
+
+
 func get_scene_name() -> String:
 	match target_scene:
-		SceneID.LANDING_MENU: return "landing_manu"
+		SceneID.LANDING_MENU: return "landing_menu"
 		SceneID.HUB_01: return "hub_01"
 		SceneID.PUZZLE_BOARD: return "puzzle_board"
 		SceneID.MAZE: return "maze"

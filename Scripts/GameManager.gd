@@ -3,6 +3,14 @@ extends Node
 @onready var load_screen_scene: PackedScene = preload("res://Scenes/Menus/load_screen.tscn")
 var load_screen: CanvasLayer = null
 
+#@onready var rory: CharacterBody3D = $NPC/Rory
+var manager_should_follow := false
+var pending_manager_briefing := false
+var manager_briefing_title := ""
+var manager_briefing_sender := ""
+var manager_briefing_subject := ""
+var manager_briefing_body := ""
+
 var fade_rect: ColorRect
 var loading_label: Label
 var loading_bar: ProgressBar
@@ -69,10 +77,6 @@ func change_scene(scene_id: String) -> void:
 	print("[GameManager] Changing to scene: " + scene_id)
 	print("[GameManager] current_level_set:", current_level_set)
 	print("[GameManager] return_spawn_point:", return_spawn_point)
-	#if load_screen:
-	#	load_screen.visible = true
-	
-	#await get_tree().create_timer(1.0).timeout
 	
 	await fade_in(0.3)
 	loading_text_animated(1.2)
@@ -83,9 +87,6 @@ func change_scene(scene_id: String) -> void:
 	await get_tree().process_frame
 	
 	await fade_out(0.3)
-	
-	#if load_screen:
-	#	load_screen.visible = false
 
 func set_return_scene_with_id(scene_id: String) -> void:
 	if not scenes.has(scene_id):
@@ -167,9 +168,17 @@ func complete_current_room() -> void:
 				"New Message",
 				"Manager",
 				"Next Assignment",
-				"Good work. Area 01 is now available. Head there next.",
+				"Good work on fixing this room up. The NOT room is in need to fixing too. Head there next.",
 				"Area01"
 			)
+			queue_manager_briefing(
+				"Manager Briefing",
+				"Rory",
+				"Next Assignment",
+				"Hello there! I am your new manager, Rory. Good work on fixing this room up., so I've opened the NOT Room for you next. Head over there and deal with the issues waiting for you."
+			)
+			manager_should_follow = true
+
 		"Area01":
 			area2_open = true
 			set_objective("Head to the next room and resolve the issues there.", "Area02")
@@ -177,9 +186,17 @@ func complete_current_room() -> void:
 				"New Message",
 				"Manager",
 				"Next Assignment",
-				"Area 02 has now been unlocked. Proceed when ready.",
+				"The next has now been unlocked. Proceed when ready.",
 				"Area02"
 			)
+			queue_manager_briefing(
+				"Manager Briefing",
+				"Rory",
+				"Next Assignment",
+				"Good work with that lot. I've opened the next room now, so head there next and sort out the new problems."
+			)
+			manager_should_follow = true
+
 		"Area02":
 			area3_open = true
 			set_objective("Head to the next room and resolve the issues there.", "Area03")
@@ -190,6 +207,14 @@ func complete_current_room() -> void:
 				"Area 03 is now available. Please investigate the new issues there.",
 				"Area03"
 			)
+			queue_manager_briefing(
+				"Manager Briefing",
+				"Rory",
+				"Next Assignment",
+				"You've dealt with those issues nicely. The OR Room is open now, so get over there and take a look at what's gone wrong this time."
+			)
+			manager_should_follow = true
+
 		"Area03":
 			area4_open = true
 			set_objective("Head to the next room and resolve the issues there.", "Area04")
@@ -200,6 +225,14 @@ func complete_current_room() -> void:
 				"Area 04 is now open. Head there for the next set of tasks.",
 				"Area04"
 			)
+			queue_manager_briefing(
+				"Manager Briefing",
+				"Rory",
+				"Next Assignment",
+				"Nice work. I've opened the next room for you, so head over there and see if you can get those systems working as well."
+			)
+			manager_should_follow = true
+
 		"Area04":
 			set_objective("All assigned office issues have been resolved.")
 			queue_notification(
@@ -208,6 +241,14 @@ func complete_current_room() -> void:
 				"All Areas Complete",
 				"Excellent work. All currently assigned office areas have now been resolved. Thank you for playing."
 			)
+			queue_manager_briefing(
+				"Manager Briefing",
+				"Rory",
+				"All Areas Complete",
+				"That's everything sorted. You've done a solid job getting this place back under control."
+			)
+			manager_should_follow = true
+	#NPC.set_state(FOLLOW)
 
 func queue_notification(title: String, sender: String, subject: String, body: String, room_name: String = "") -> void:
 	pending_notification = true
@@ -233,3 +274,17 @@ func set_objective(new_objective: String, room_name: String = "") -> void:
 func clear_objective() -> void:
 	current_obj = ""
 	current_obj_room = ""
+
+func queue_manager_briefing(title: String, sender: String, subject: String, body: String) -> void:
+	pending_manager_briefing = true
+	manager_briefing_title = title
+	manager_briefing_sender = sender
+	manager_briefing_subject = subject
+	manager_briefing_body = body
+
+func clear_manager_briefing() -> void:
+	pending_manager_briefing = false
+	manager_briefing_title = ""
+	manager_briefing_sender = ""
+	manager_briefing_subject = ""
+	manager_briefing_body = ""

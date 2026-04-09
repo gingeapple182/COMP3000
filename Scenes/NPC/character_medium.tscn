@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bisnst7sspr0x"]
 
 [ext_resource type="PackedScene" uid="uid://5477i3nkly78" path="res://addons/npc/Model/characterMedium.fbx" id="1_ynj87"]
-[ext_resource type="Texture2D" uid="uid://c2niwkfactw8o" path="res://addons/npc/skin Base Color.png" id="2_2y8hc"]
+[ext_resource type="Texture2D" uid="uid://duc2ypuyjecf4" path="res://addons/npc/Skins/customTest.png" id="2_hcb62"]
 [ext_resource type="AnimationLibrary" uid="uid://ddmp3abtv7da7" path="res://addons/npc/Animations/idle.fbx" id="3_hcb62"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcb62"]
-albedo_texture = ExtResource("2_2y8hc")
+albedo_texture = ExtResource("2_hcb62")
 
 [node name="characterMedium" unique_id=905879042 instance=ExtResource("1_ynj87")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)

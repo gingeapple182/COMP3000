@@ -5,13 +5,14 @@
 [resource]
 script = ExtResource("1_md8jp")
 level_id = "area01_03_double_not"
-tile_map = "000000
-011120
-000000"
+tile_map = "0000000
+0111120
+0000000"
 display_title = "Double NOT"
 level_description = "Two NOT gates invert the signal twice.
 
-Use them to turn TRUE into TRUE again."
+Use them to turn TRUE into TRUE again.
+"
 level_complete_description = "Exactly. Two inversions return the signal to its original value."
 true_value_count = 2
 not_gate_count = 2

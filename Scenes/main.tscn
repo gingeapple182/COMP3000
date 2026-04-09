@@ -9,13 +9,10 @@
 [ext_resource type="Script" uid="uid://cnqrv2go4mnsk" path="res://Scripts/objectives.gd" id="5_ynmfv"]
 [ext_resource type="PackedScene" uid="uid://cwtvuysuygpay" path="res://Scenes/Assets/office_hub_01.tscn" id="6_5lupv"]
 [ext_resource type="Texture2D" uid="uid://bm7for6n6f3pi" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_asterisk.png" id="6_cblf0"]
+[ext_resource type="Script" uid="uid://d3t3dinrdarys" path="res://Scripts/dialogue.gd" id="7_cblf0"]
 [ext_resource type="PackedScene" uid="uid://yx2gnipoumj1" path="res://Scenes/Assets/Assets/photo_frame.tscn" id="7_untni"]
 [ext_resource type="PackedScene" uid="uid://d1jy6v8q0roce" path="res://Scenes/Assets/Button.tscn" id="8_a6lxu"]
-[ext_resource type="Texture2D" uid="uid://bt8sqaarhgm35" path="res://Scenes/Assets/images/portraits/roryPortrait.jpg" id="8_hlpnh"]
-[ext_resource type="Texture2D" uid="uid://c8dr3bs1jxjic" path="res://Scenes/Assets/images/portraits/laurenPortrait.jpg" id="8_m5v0v"]
-[ext_resource type="Texture2D" uid="uid://d4j2pw0ess56s" path="res://Scenes/Assets/images/portraits/jjPortrait.jpg" id="10_ht3cb"]
 [ext_resource type="PackedScene" uid="uid://c5v3kqx3aw3al" path="res://Scenes/Assets/doorway_front_opened.tscn" id="11_2663y"]
-[ext_resource type="Texture2D" uid="uid://12b5ocbodic" path="res://Scenes/Assets/images/portraits/vivianPortrait.jpg" id="11_nldl1"]
 [ext_resource type="Resource" uid="uid://dhpjlpx50xekd" path="res://Levels/Level_Tutorial/level_02.tres" id="12_hium5"]
 [ext_resource type="PackedScene" uid="uid://bncfiuba1xc2i" path="res://Scenes/Assets/Assets/door_placeholder.tscn" id="12_w4s6r"]
 [ext_resource type="Resource" uid="uid://d0xld8jy7kyix" path="res://Levels/Level_Tutorial/level_03.tres" id="13_2k7dr"]
@@ -25,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://iln1c17swfqb" path="res://Scenes/Assets/Assets/kenney/loungeDesignSofa.glb" id="15_l5xrw"]
 [ext_resource type="Resource" uid="uid://dm23dygoxfr67" path="res://Levels/Level_Tutorial/level_04.tres" id="15_lwk06"]
 [ext_resource type="Resource" uid="uid://seo7mwe1apja" path="res://Levels/Level_Tutorial/level_05.tres" id="16_6tp4p"]
-[ext_resource type="Texture2D" uid="uid://c4bg886unxj0y" path="res://Scenes/Assets/images/portraits/tylerPortrait.png" id="16_pujfh"]
 [ext_resource type="Script" uid="uid://bwshm16o7kttl" path="res://Scripts/LevelData.gd" id="17_xajek"]
 [ext_resource type="Resource" uid="uid://b27tdk5gxl6dt" path="res://Levels/Level_Tutorial/level_01.tres" id="18_y3gnq"]
 [ext_resource type="PackedScene" uid="uid://cw18f3kfnmdjn" path="res://Scenes/Assets/Assets/kenney/computerKeyboard.glb" id="20_lxbek"]
@@ -52,9 +48,14 @@
 [ext_resource type="PackedScene" uid="uid://42kdqu7gltjk" path="res://Scenes/Assets/Assets/kenney/bookcase_decorated.tscn" id="41_v2nl5"]
 [ext_resource type="PackedScene" uid="uid://b5emd7tj5f648" path="res://Scenes/Assets/Assets/kenney/loungeDesignSofaCorner.glb" id="45_cblf0"]
 [ext_resource type="PackedScene" uid="uid://c5p4udkynsaoy" path="res://Scenes/Assets/Assets/kenney/tableCoffeeSquare.glb" id="46_nay3j"]
+[ext_resource type="Texture2D" uid="uid://dn8ggafnjq350" path="res://Scenes/Assets/images/portraits/laurenPortrait2.jpg" id="46_owhal"]
 [ext_resource type="PackedScene" uid="uid://dcde3jyp4736n" path="res://Scenes/Assets/Assets/kenney/rugRectangle.glb" id="47_ovafv"]
+[ext_resource type="Texture2D" uid="uid://csmxogrpa17jc" path="res://Scenes/Assets/images/portraits/RoryRorying.jpg" id="47_uv6w5"]
 [ext_resource type="Resource" uid="uid://dr7evsimqh3ho" path="res://Levels/Level_01/level_01.tres" id="48_owhal"]
+[ext_resource type="Texture2D" uid="uid://c52okhgkysqrq" path="res://Scenes/Assets/images/portraits/jjPortrait2.jpg" id="48_r7bbj"]
+[ext_resource type="Texture2D" uid="uid://cxl478vnoxhn" path="res://Scenes/Assets/images/portraits/vivianPortrait2.jpg" id="49_e5peh"]
 [ext_resource type="Resource" uid="uid://bndhtjpo8o86u" path="res://Levels/Level_01/level_02.tres" id="49_uv6w5"]
+[ext_resource type="Texture2D" uid="uid://w26xxxx2j53e" path="res://Scenes/Assets/images/portraits/tylerPortrait2.jpg" id="50_f6rfp"]
 [ext_resource type="Resource" uid="uid://cilsxyqm6nwnr" path="res://Levels/Level_01/level_03.tres" id="50_r7bbj"]
 [ext_resource type="Resource" uid="uid://bvdajcptlo47i" path="res://Levels/Level_01/level_04.tres" id="51_e5peh"]
 [ext_resource type="Resource" uid="uid://cpmoduxj75pap" path="res://Levels/Level_01/level_05.tres" id="52_f6rfp"]
@@ -65,6 +66,10 @@
 [ext_resource type="Resource" uid="uid://bhdxf5k1i7ovs" path="res://Levels/Level_02/level_04.tres" id="57_v1mrv"]
 [ext_resource type="Resource" uid="uid://cckgjgbtdqjrn" path="res://Levels/Level_02/level_05.tres" id="58_fd3ed"]
 [ext_resource type="PackedScene" uid="uid://mllyxh3ahih3" path="res://Scenes/NPC/navigation_npc.tscn" id="62_qnggo"]
+[ext_resource type="PackedScene" uid="uid://dkj0hf1wotmi0" path="res://Scenes/Assets/Materials/lounge_design_chair.tscn" id="62_uv6w5"]
+[ext_resource type="PackedScene" uid="uid://b5kngg16yo2sy" path="res://Scenes/Assets/Assets/kenney/bookcaseOpen.glb" id="64_owhal"]
+[ext_resource type="PackedScene" uid="uid://dvvoup6yc22j0" path="res://Scenes/Assets/Assets/kenney/computerScreen.glb" id="67_ovafv"]
+[ext_resource type="PackedScene" uid="uid://dllf0kgpcyas5" path="res://Scenes/Assets/Assets/kenney/doorway.glb" id="68_owhal"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_65ipd"]
 panorama = ExtResource("2_bgcbv")
@@ -103,11 +108,13 @@ script = ExtResource("1_qh2xr")
 environment = SubResource("Environment_jwtab")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1630659441]
-transform = Transform3D(-0.866027, 0.43301, -0.249997, -1.49013e-08, 0.499998, 0.866027, 0.499997, 0.750003, -0.433012, 0, 24.2, 0)
+transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, -9.009307, 29.863522, 0)
+light_color = Color(1, 1, 0.84313726, 1)
 shadow_enabled = true
+shadow_opacity = 0.5
 
 [node name="SpawnPoint" type="Marker3D" parent="." unique_id=1699883100]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2, 1, 21.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.934432, 1, 22.4885)
 gizmo_extents = 1.0
 
 [node name="ProtoController" parent="." unique_id=1012431392 node_paths=PackedStringArray("interact_label") instance=ExtResource("2_aomcw")]
@@ -204,6 +211,7 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="Objectives" type="Control" parent="CanvasLayer" unique_id=283083980]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -228,11 +236,217 @@ texture = ExtResource("6_cblf0")
 layout_mode = 2
 text = "{current_obj}"
 
+[node name="Dialogue" type="Control" parent="CanvasLayer" unique_id=1317478582]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_cblf0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Dialogue" unique_id=1148886046]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Control2" type="Control" parent="CanvasLayer/Dialogue/HBoxContainer" unique_id=1584146136]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Dialogue/HBoxContainer" unique_id=1786759954]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer" unique_id=277803467]
+layout_mode = 2
+text = "{name}"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer" unique_id=831192684]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer/PanelContainer" unique_id=2018442244]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=154783344]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="BodyText" type="RichTextLabel" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=766442527]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 25
+text = "{dialogue_text]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=930466046]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer" unique_id=2018748484]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 25
+text = "Okay"
+
+[node name="Control3" type="Control" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1052390366]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer" unique_id=1283177027]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Dialogue/HBoxContainer" unique_id=1984672833]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Introduction" type="Control" parent="CanvasLayer" unique_id=844274233]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Introduction" unique_id=1944335245]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Introduction" unique_id=754404682]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Introduction/HBoxContainer" unique_id=1024289221]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Introduction/HBoxContainer" unique_id=1967331252]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer" unique_id=1334029691]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer" unique_id=1660158086]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel" unique_id=1795971477]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer" unique_id=1734979643]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer" unique_id=2060355135]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=1381744745]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=165794048]
+layout_mode = 2
+text = "Welcome to Tanal Systems!"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=1251516770]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=584547422]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Congratulations on your new job at Tanal Systems.
+
+As the newest member of the team, it is your responsibility to keep the office systems running and help resolve the various technical issues disrupting the workplace.
+
+Your first step is simple: speak to the receptionist.
+They will help you get started with your first task."
+fit_content = true
+
+[node name="Control3" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=252588848]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=1123127348]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=666313092]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Controls
+WASD – Move
+Mouse – Look around
+F – Interact with people and objects"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=622307967]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1500174048]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1386143932]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Continue"
+
+[node name="Control4" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=1107793193]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer" unique_id=1393076166]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer" unique_id=1786199081]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="CanvasLayer/Introduction/HBoxContainer" unique_id=259189228]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="PauseMenu" parent="." unique_id=496033347 instance=ExtResource("4_2m2wd")]
 process_mode = 3
 visible = false
 
-[node name="OfficeHub01" parent="." unique_id=1463846754 instance=ExtResource("6_5lupv")]
+[node name="OfficeHub01" parent="." unique_id=581236184 instance=ExtResource("6_5lupv")]
 
 [node name="Tutorial" parent="OfficeHub01" unique_id=1162331342 instance=ExtResource("12_w4s6r")]
 transform = Transform3D(1, 0, 4.44085e-16, 0, 1, 0, -4.44085e-16, 0, 1, -19.7, 0.5, 7.11504)
@@ -506,6 +720,11 @@ material = SubResource("StandardMaterial3D_qep7p")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeHub01/Area01/Interactables/Level_01/CSGBox3D2" unique_id=113565404]
 shape = SubResource("SphereShape3D_4fhih")
 
+[node name="Label3D" type="Label3D" parent="OfficeHub01/Area01/Interactables/Level_01" unique_id=2053202259]
+transform = Transform3D(-0.738102, 0, 0.674689, 0, 1, 0, -0.674689, 0, -0.738102, 0, 0.635616, 0)
+text = "LEVEL 1
+"
+
 [node name="Level_02" type="CSGCombiner3D" parent="OfficeHub01/Area01/Interactables" unique_id=492374099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1052494, 0, 4.8507977)
 use_collision = true
@@ -523,6 +742,11 @@ material = SubResource("StandardMaterial3D_qep7p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeHub01/Area01/Interactables/Level_02/CSGBox3D2" unique_id=1612167874]
 shape = SubResource("SphereShape3D_4fhih")
+
+[node name="Label3D" type="Label3D" parent="OfficeHub01/Area01/Interactables/Level_02" unique_id=1600872692]
+transform = Transform3D(-0.738102, 0, 0.674689, 0, 1, 0, -0.674689, 0, -0.738102, 0, 0.635616, 0)
+text = "LEVEL 1
+"
 
 [node name="Level_03" type="CSGCombiner3D" parent="OfficeHub01/Area01/Interactables" unique_id=343774179]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.420328, 0, 4.6833673)
@@ -542,6 +766,11 @@ material = SubResource("StandardMaterial3D_qep7p")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeHub01/Area01/Interactables/Level_03/CSGBox3D2" unique_id=762444058]
 shape = SubResource("SphereShape3D_4fhih")
 
+[node name="Label3D" type="Label3D" parent="OfficeHub01/Area01/Interactables/Level_03" unique_id=2086828803]
+transform = Transform3D(-0.738102, 0, 0.674689, 0, 1, 0, -0.674689, 0, -0.738102, 0, 0.635616, 0)
+text = "LEVEL 1
+"
+
 [node name="Level_04" type="CSGCombiner3D" parent="OfficeHub01/Area01/Interactables" unique_id=1374479878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.289673, 0, 3.8501358)
 use_collision = true
@@ -560,6 +789,11 @@ material = SubResource("StandardMaterial3D_qep7p")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeHub01/Area01/Interactables/Level_04/CSGBox3D2" unique_id=1498667054]
 shape = SubResource("SphereShape3D_4fhih")
 
+[node name="Label3D" type="Label3D" parent="OfficeHub01/Area01/Interactables/Level_04" unique_id=505437463]
+transform = Transform3D(-0.738102, 0, 0.674689, 0, 1, 0, -0.674689, 0, -0.738102, 0, 0.635616, 0)
+text = "LEVEL 1
+"
+
 [node name="Level_05" type="CSGCombiner3D" parent="OfficeHub01/Area01/Interactables" unique_id=655236814]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3375854, 0, -2.6629906)
 use_collision = true
@@ -577,6 +811,11 @@ material = SubResource("StandardMaterial3D_qep7p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeHub01/Area01/Interactables/Level_05/CSGBox3D2" unique_id=1379529774]
 shape = SubResource("SphereShape3D_4fhih")
+
+[node name="Label3D" type="Label3D" parent="OfficeHub01/Area01/Interactables/Level_05" unique_id=2136095802]
+transform = Transform3D(-0.738102, 0, 0.674689, 0, 1, 0, -0.674689, 0, -0.738102, 0, 0.635616, 0)
+text = "LEVEL 1
+"
 
 [node name="SpawnPoints" type="Node3D" parent="OfficeHub01/Area01" unique_id=1520486176]
 
@@ -642,11 +881,47 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.335
 
 [node name="doorwayFrontOpened" parent="OfficeHub01/Area02/Furniture" unique_id=1259557566 instance=ExtResource("11_2663y")]
 
+[node name="DeskDecorated" parent="OfficeHub01/Area02/Furniture" unique_id=1963965679 instance=ExtResource("25_y86h7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.3596373, -9.536743e-07, -5.5994186)
+
+[node name="DeskDecorated2" parent="OfficeHub01/Area02/Furniture" unique_id=1987900169 instance=ExtResource("25_y86h7")]
+transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, -7.759637, -9.536743e-07, -5.5994186)
+
+[node name="DeskDecorated3" parent="OfficeHub01/Area02/Furniture" unique_id=1959026682 instance=ExtResource("25_y86h7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.3596373, -9.536743e-07, 3.4005814)
+
+[node name="DeskDecorated4" parent="OfficeHub01/Area02/Furniture" unique_id=419705145 instance=ExtResource("25_y86h7")]
+transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, -7.759637, -9.536743e-07, 3.4005814)
+
+[node name="DeskDecorated5" parent="OfficeHub01/Area02/Furniture" unique_id=1430151222 instance=ExtResource("25_y86h7")]
+transform = Transform3D(1, 0, 7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 1, -12.559638, -9.536743e-07, 0.10058212)
+
+[node name="DeskDecorated6" parent="OfficeHub01/Area02/Furniture" unique_id=1303626503 instance=ExtResource("25_y86h7")]
+transform = Transform3D(-1, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1, -12.559638, -9.536743e-07, -2.2994175)
+
+[node name="chairDesk" parent="OfficeHub01/Area02/Furniture" unique_id=135706907 instance=ExtResource("23_mgrvf")]
+transform = Transform3D(-0.2588191, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.2588191, -4.9056044, 0, 3.2528286)
+
+[node name="chairDesk4" parent="OfficeHub01/Area02/Furniture" unique_id=729876072 instance=ExtResource("23_mgrvf")]
+transform = Transform3D(-0.2588191, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.2588191, -4.9056044, 0, -6.176097)
+
+[node name="chairDesk5" parent="OfficeHub01/Area02/Furniture" unique_id=1879039373 instance=ExtResource("23_mgrvf")]
+transform = Transform3D(0.99661875, 0, -0.082164705, 0, 1, 0, 0.082164705, 0, 0.99661875, -13.189443, 0, -2.211553)
+
+[node name="chairDesk6" parent="OfficeHub01/Area02/Furniture" unique_id=1341073802 instance=ExtResource("23_mgrvf")]
+transform = Transform3D(-0.9978635, 0, 0.06533356, 0, 1, 0, -0.06533356, 0, -0.9978635, -12.186917, 0, 0.20540524)
+
+[node name="chairDesk2" parent="OfficeHub01/Area02/Furniture" unique_id=320324747 instance=ExtResource("23_mgrvf")]
+transform = Transform3D(-0.7628601, 0, 0.64656353, 0, 1, 0, -0.64656353, 0, -0.7628601, -7.9561357, 0, 4.2993774)
+
+[node name="chairDesk3" parent="OfficeHub01/Area02/Furniture" unique_id=2017790584 instance=ExtResource("23_mgrvf")]
+transform = Transform3D(0.9266402, 0, 0.37594935, 0, 1, 0, -0.37594935, 0, 0.9266402, -8.905604, 0, -5.747172)
+
 [node name="Interactables" type="Node3D" parent="OfficeHub01/Area02" unique_id=917502321]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3385448, 0)
 
 [node name="Level_01" type="CSGCombiner3D" parent="OfficeHub01/Area02/Interactables" unique_id=869348352]
-transform = Transform3D(0.9522364, 0, 0.30536285, 0, 1, 0, -0.30536285, 0, 0.9522364, -4.932418, 0, 3.914198)
+transform = Transform3D(0.9522364, 0, 0.30536285, 0, 1, 0, -0.30536285, 0, 0.9522364, -5.9170866, -0.8401656, 3.441536)
 use_collision = true
 script = ExtResource("3_c2668")
 target_scene = 2
@@ -668,7 +943,7 @@ text = "LEVEL 1
 "
 
 [node name="Level_02" type="CSGCombiner3D" parent="OfficeHub01/Area02/Interactables" unique_id=875175750]
-transform = Transform3D(0.9522364, 0, 0.30536285, 0, 1, 0, -0.30536285, 0, 0.9522364, -6.3808966, 0, 3.914198)
+transform = Transform3D(0.9522364, 0, 0.30536285, 0, 1, 0, -0.30536285, 0, 0.9522364, -7.165286, -0.71369743, 3.4788609)
 use_collision = true
 script = ExtResource("3_c2668")
 target_scene = 2
@@ -691,7 +966,7 @@ text = "LEVEL 1
 "
 
 [node name="Level_03" type="CSGCombiner3D" parent="OfficeHub01/Area02/Interactables" unique_id=518799549]
-transform = Transform3D(0.9522364, 0, 0.30536285, 0, 1, 0, -0.30536285, 0, 0.9522364, -8.056796, 0, 3.914198)
+transform = Transform3D(0.9522364, 0, 0.30536285, 0, 1, 0, -0.30536285, 0, 0.9522364, -12.620135, -0.73400927, -0.47901154)
 use_collision = true
 script = ExtResource("3_c2668")
 target_scene = 2
@@ -714,7 +989,7 @@ text = "LEVEL 1
 "
 
 [node name="Level_04" type="CSGCombiner3D" parent="OfficeHub01/Area02/Interactables" unique_id=475874382]
-transform = Transform3D(0.9522364, 0, 0.30536285, 0, 1, 0, -0.30536285, 0, 0.9522364, -9.613059, 0, 3.914198)
+transform = Transform3D(0.9522364, 0, 0.30536285, 0, 1, 0, -0.30536285, 0, 0.9522364, -12.559089, -0.6186147, -1.7182374)
 use_collision = true
 script = ExtResource("3_c2668")
 target_scene = 2
@@ -737,7 +1012,7 @@ text = "LEVEL 1
 "
 
 [node name="Level_05" type="CSGCombiner3D" parent="OfficeHub01/Area02/Interactables" unique_id=1371304216]
-transform = Transform3D(0.9522364, 0, 0.30536285, 0, 1, 0, -0.30536285, 0, 0.9522364, -11.199483, 0, 3.914198)
+transform = Transform3D(0.9522364, 0, 0.30536285, 0, 1, 0, -0.30536285, 0, 0.9522364, -7.1204576, -0.7062142, -5.6024446)
 use_collision = true
 script = ExtResource("3_c2668")
 target_scene = 2
@@ -774,6 +1049,10 @@ gizmo_extents = 1.0
 transform = Transform3D(6.15888e-08, 0, -1, 0, 1, 0, 1, 0, 6.15888e-08, -0.288866, 2.07803, -5.74421)
 
 [node name="doorwayFrontOpened" parent="OfficeHub01/Area03/Furniture" unique_id=1000433551 instance=ExtResource("11_2663y")]
+
+[node name="Label3D" type="Label3D" parent="OfficeHub01/Area03/Furniture" unique_id=207335766]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5240917, 2.2039235, -1.0835848)
+text = "That is all for now, thank you for playing"
 
 [node name="Area04" parent="OfficeHub01" unique_id=1217500170 instance=ExtResource("12_w4s6r")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.846, 0.5, 5.179)
@@ -868,11 +1147,11 @@ transform = Transform3D(-1.1, 0, 9.616504e-08, 0, 1.1, 0, -9.616504e-08, 0, -1.1
 
 [node name="PhotoFrame" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=213185865 instance=ExtResource("7_untni")]
 transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 1.75, 0, 0)
-portrait = ExtResource("8_m5v0v")
+portrait = ExtResource("46_owhal")
 
 [node name="PhotoFrame2" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=1902764131 instance=ExtResource("7_untni")]
 transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 0, 0, 0)
-portrait = ExtResource("8_hlpnh")
+portrait = ExtResource("47_uv6w5")
 
 [node name="Label3D" type="Label3D" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames/PhotoFrame2" unique_id=691249956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6573316, 0)
@@ -880,15 +1159,15 @@ text = "The Boss"
 
 [node name="PhotoFrame3" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=2133431949 instance=ExtResource("7_untni")]
 transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -1.75, 0, 0)
-portrait = ExtResource("10_ht3cb")
+portrait = ExtResource("48_r7bbj")
 
 [node name="PhotoFrame4" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=925732658 instance=ExtResource("7_untni")]
 transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 3.5, 0, 0)
-portrait = ExtResource("11_nldl1")
+portrait = ExtResource("49_e5peh")
 
 [node name="PhotoFrame5" parent="OfficeHub01/ManagersOffice/Furniture/PhotoFrames" unique_id=582041670 instance=ExtResource("7_untni")]
 transform = Transform3D(-1.5, 0, 5.84122e-07, 0, 1.5, 0, -5.84122e-07, 0, -1.5, -3.5, 0, 0)
-portrait = ExtResource("16_pujfh")
+portrait = ExtResource("50_f6rfp")
 
 [node name="deskCorner" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=1626069849 instance=ExtResource("36_aa8k8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7967305, 0, 9.539468)
@@ -941,7 +1220,7 @@ transform = Transform3D(1, 0, -2.26082e-14, 0, 1, 0, 2.26082e-14, 0, 1, -19.7, 0
 [node name="Interactables" type="Node3D" parent="OfficeHub01/Backroom" unique_id=1712663462]
 
 [node name="Button" parent="OfficeHub01/Backroom/Interactables" unique_id=1326638000 instance=ExtResource("8_a6lxu")]
-transform = Transform3D(1, 0, 2.26082e-14, 0, 1, 0, -2.26082e-14, 0, 1, -15.048874, 0.702548, -2.8723774)
+transform = Transform3D(1, 0, 2.26082e-14, 0, 1, 0, -2.26082e-14, 0, 1, -14.968578, 0.76330066, -2.8723774)
 visible = false
 use_collision = true
 button_type = 1
@@ -956,10 +1235,13 @@ gizmo_extents = 1.0
 
 [node name="Furniture" type="Node3D" parent="OfficeHub01/Backroom" unique_id=577438296]
 
+[node name="loungeDesignChair2" parent="OfficeHub01/Backroom/Furniture" unique_id=1829880571 instance=ExtResource("62_uv6w5")]
+transform = Transform3D(-4.371141e-08, 0, 1, 0, 1, 0, -1, 0, -4.371141e-08, -14.631229, -2.3841858e-07, -1.8020592)
+
 [node name="doorwayFrontOpened" parent="OfficeHub01/Backroom/Furniture" unique_id=65197443 instance=ExtResource("11_2663y")]
 
 [node name="toilet" parent="OfficeHub01/Backroom/Furniture" unique_id=586344653 instance=ExtResource("26_nue3g")]
-transform = Transform3D(-3.9737593e-08, 0, 0.909091, 0, 0.909091, 0, -0.909091, 0, -3.9737593e-08, -15.902843, 0, -2.4329987)
+transform = Transform3D(-3.9737593e-08, 0, 0.909091, 0, 0.909091, 0, -0.909091, 0, -3.9737593e-08, -15.795856, 0.109604955, -2.4329987)
 
 [node name="cover" parent="OfficeHub01/Backroom/Furniture/toilet/toilet(Clone)" index="0"]
 transform = Transform3D(0.042730115, -2.1048295, -2.1309258e-07, 2.1048295, 0.042730115, 2.1746251e-07, -2.130926e-07, -2.1746249e-07, 2.1052632, 0.76384735, 1.4382, -0.9870033)
@@ -984,9 +1266,8 @@ transform = Transform3D(-4.3711367e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711367e-08, -1
 [node name="Entryway" type="Node" parent="OfficeHub01/AlwaysLoaded" unique_id=1955327226]
 
 [node name="Label3D" type="Label3D" parent="OfficeHub01/AlwaysLoaded/Entryway" unique_id=1570456888]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9079, 0.9276142, 16.691883)
-text = "Reception desk
-- Will decide starting difficulty here"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9079, 1.1427796, 16.691883)
+text = "Tanal Systems inc."
 font_size = 50
 
 [node name="Noticeboard" parent="OfficeHub01/AlwaysLoaded/Entryway" unique_id=1910945217 instance=ExtResource("13_n8f0u")]
@@ -1023,17 +1304,31 @@ note_font = ExtResource("14_yvqja")
 font_size = 70
 
 [node name="Node3D" parent="OfficeHub01/AlwaysLoaded/Entryway" unique_id=2104063542 instance=ExtResource("8_a6lxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6056, 1.6, 15.9567)
+transform = Transform3D(1, 0, 0, 0, 0.5153223, -0.8569965, 0, 0.8569965, 0.5153223, -7.8747764, 1.8659114, 15.970165)
+visible = false
 use_collision = true
-button_type = 2
+button_type = 4
 office_hub = NodePath("../../..")
 target_door = NodePath("../../../Tutorial")
+dialogue_screen_path = NodePath("../../../../CanvasLayer/Dialogue")
 
 [node name="Interactables" type="Node3D" parent="OfficeHub01/AlwaysLoaded/Entryway" unique_id=1220702521]
 
 [node name="SpawnPoints" type="Node3D" parent="OfficeHub01/AlwaysLoaded/Entryway" unique_id=1820892020]
 
 [node name="Furniture" type="Node3D" parent="OfficeHub01/AlwaysLoaded/Entryway" unique_id=869859128]
+
+[node name="bookcaseOpen" parent="OfficeHub01/AlwaysLoaded/Entryway/Furniture" unique_id=442466574 instance=ExtResource("64_owhal")]
+transform = Transform3D(0.7698676, 0, -0.6382037, 0, 1, 0, 0.6382037, 0, 0.7698676, -0.11743784, 0.49999952, 12.454331)
+
+[node name="bookcaseOpen2" parent="OfficeHub01/AlwaysLoaded/Entryway/Furniture" unique_id=492304367 instance=ExtResource("64_owhal")]
+transform = Transform3D(1.1548014, 0, -0.6382037, 0, 1, 0, 0.95730555, 0, 0.7698676, 0.7683886, 0.49999952, 13.457665)
+
+[node name="bookcaseOpen3" parent="OfficeHub01/AlwaysLoaded/Entryway/Furniture" unique_id=2100571663 instance=ExtResource("64_owhal")]
+transform = Transform3D(0.92540836, 0, 0.3789717, 0, 1, 0, -0.3789717, 0, 0.92540836, 0.6848499, 0.49999952, -7.306751)
+
+[node name="bookcaseOpen4" parent="OfficeHub01/AlwaysLoaded/Entryway/Furniture" unique_id=1721050691 instance=ExtResource("64_owhal")]
+transform = Transform3D(1.3881125, 0, 0.3789717, 0, 1, 0, -0.5684575, 0, 0.92540836, 1.9870017, 0.49999952, -7.616216)
 
 [node name="loungeDesignSofa" parent="OfficeHub01/AlwaysLoaded/Entryway/Furniture" unique_id=1040443391 instance=ExtResource("15_l5xrw")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.87293, 0.494359, 18.3923)
@@ -1055,11 +1350,32 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.99
 [node name="NavigationNPC" parent="OfficeHub01/AlwaysLoaded/Entryway/NPC" unique_id=652092816 instance=ExtResource("62_qnggo")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -13.213949, 1.9646864, 19.97353)
 
+[node name="NavigationNPC3" parent="OfficeHub01/AlwaysLoaded/Entryway/NPC" unique_id=958858159 instance=ExtResource("62_qnggo")]
+transform = Transform3D(-0.7713449, 0, -1.2864785, 0, 1.5, 0, 1.2864785, 0, -0.7713449, 0.4272995, 1.9646864, 14.858208)
+
 [node name="NavigationNPC2" parent="OfficeHub01/AlwaysLoaded/Entryway/NPC" unique_id=1309623602 instance=ExtResource("62_qnggo")]
 transform = Transform3D(-1.5, 0, 1.3113416e-07, 0, 1.5, 0, -1.3113416e-07, 0, -1.5, -13.213949, 1.9646864, 22.072178)
 
+[node name="NavigationNPC4" parent="OfficeHub01/AlwaysLoaded/Entryway/NPC" unique_id=107283372 instance=ExtResource("62_qnggo")]
+transform = Transform3D(-0.386281, 0, -1.4494091, 0, 1.4999999, 0, 1.4494091, 0, -0.386281, -16.973068, 1.9646864, -12.514209)
+
+[node name="NavigationNPC5" parent="OfficeHub01/AlwaysLoaded/Entryway/NPC" unique_id=1576024658 instance=ExtResource("62_qnggo")]
+transform = Transform3D(0.45123354, 0, 1.4305203, 0, 1.4999999, 0, -1.4305203, 0, 0.45123354, -19.049896, 1.9646864, -13.03818)
+
 [node name="Receptiionist" parent="OfficeHub01/AlwaysLoaded/Entryway/NPC" unique_id=671561648 instance=ExtResource("62_qnggo")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.944803, 2, 14.705767)
+
+[node name="DeskDecorated" type="Node3D" parent="OfficeHub01/AlwaysLoaded/Entryway" unique_id=122039788]
+transform = Transform3D(-0.92850536, 0, -0.37131917, 0, 1, 0, 0.37131917, 0, -0.92850536, -7.1763916, 0.50000024, 15.324936)
+
+[node name="computerKeyboard2" parent="OfficeHub01/AlwaysLoaded/Entryway/DeskDecorated" unique_id=234396700 instance=ExtResource("20_lxbek")]
+transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 1, -0.3556137, 1.14714, -0.33672905)
+
+[node name="computerMouse2" parent="OfficeHub01/AlwaysLoaded/Entryway/DeskDecorated" unique_id=672172839 instance=ExtResource("21_1ufqh")]
+transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 1, 0.7764797, 1.17077, -0.07470131)
+
+[node name="computerScreen2" parent="OfficeHub01/AlwaysLoaded/Entryway/DeskDecorated" unique_id=2105280212 instance=ExtResource("67_ovafv")]
+transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 1, -0.57676077, 1.16653, -0.7329693)
 
 [node name="CentralRoom" type="Node3D" parent="OfficeHub01/AlwaysLoaded" unique_id=1028293384]
 
@@ -1079,18 +1395,21 @@ gizmo_extents = 1.0
 
 [node name="Button" parent="OfficeHub01/AlwaysLoaded/Hallways/Interactables" unique_id=716871059 instance=ExtResource("8_a6lxu")]
 transform = Transform3D(-2.18557e-08, 0.5, -8.47033e-22, -0.5, -2.18557e-08, 0, -8.47033e-22, 0, 0.5, -19.5176, 2.27736, -19.2977)
+visible = false
 use_collision = true
 button_type = 2
 target_door = NodePath("../../../../Backroom")
 
 [node name="Button3" parent="OfficeHub01/AlwaysLoaded/Hallways/Interactables" unique_id=1119480808 instance=ExtResource("8_a6lxu")]
 transform = Transform3D(-2.18557e-08, 0.5, -8.47033e-22, -0.5, -2.18557e-08, 0, -8.47033e-22, 0, 0.5, -19.5176, 2.27736, -11.297701)
+visible = false
 use_collision = true
 button_type = 2
 target_door = NodePath("../../../../Area01")
 
 [node name="Button4" parent="OfficeHub01/AlwaysLoaded/Hallways/Interactables" unique_id=661543478 instance=ExtResource("8_a6lxu")]
 transform = Transform3D(9.553438e-16, -2.1855694e-08, -0.5, -0.5, -2.18557e-08, 0, -2.18557e-08, 0.5, -2.1855694e-08, -6.406805, 2.27736, -11.702568)
+visible = false
 use_collision = true
 button_type = 2
 target_door = NodePath("../../../../Area02")
@@ -1107,7 +1426,7 @@ target_door = NodePath("../../../../Backroom")
 
 [node name="Induction" type="Label3D" parent="OfficeHub01/AlwaysLoaded/Hallways/Furniture" unique_id=1339405688]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.804485, 3.9209845, 6.1399555)
-text = "Induction toom
+text = "Induction room
 "
 
 [node name="AND" type="Label3D" parent="OfficeHub01/AlwaysLoaded/Hallways/Furniture" unique_id=861443749]
@@ -1122,14 +1441,8 @@ text = "OR Room
 
 "
 
-[node name="ROOM 03" type="Label3D" parent="OfficeHub01/AlwaysLoaded/Hallways/Furniture" unique_id=1937110496]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.871601, 3.9209845, -9.8600445)
-text = "ROOM
-
-"
-
 [node name="ROOM 05" type="Label3D" parent="OfficeHub01/AlwaysLoaded/Hallways/Furniture" unique_id=451702192]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.871601, 3.9209845, -9.8600445)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.871601, 3.8872628, -9.8600445)
 text = "NAND/NOR Room
 "
 
@@ -1145,16 +1458,14 @@ navigation_mesh = SubResource("NavigationMesh_tab3y")
 [node name="NPC" type="Node3D" parent="." unique_id=653883205]
 
 [node name="NavigationNPC" parent="NPC" unique_id=1082304111 instance=ExtResource("62_qnggo")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.327545, 1.9646862, -8.313267)
-npc_type = 1
+transform = Transform3D(1.2207018, 0, -0.87171495, 0, 1.5, 0, 0.87171495, 0, 1.2207018, -29.049122, 1.9646862, -13.737778)
 x_lower = -34.0
 x_higher = 21.0
 z_lower = -15.0
 z_higher = -1.0
 
 [node name="Rory" parent="NPC" unique_id=423759212 node_paths=PackedStringArray("follow_target", "return_target") instance=ExtResource("62_qnggo")]
-transform = Transform3D(0.39174247, 0, 1.4479426, 0, 1.5, 0, -1.4479426, 0, 0.39174247, -11.956378, 2.2628052, 10.062883)
-npc_type = 2
+transform = Transform3D(0.39174247, 0, 1.4479426, 0, 1.5, 0, -1.4479426, 0, 0.39174247, -13.817364, 1.9646865, 4.9083214)
 follow_target = NodePath("../../ProtoController")
 return_target = NodePath("../../OfficeHub01/ManagersOffice/SpawnPoints/Marker3D")
 x_lower = -34.0
@@ -1167,7 +1478,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1219306, 0.41408825)
 text = "Rory"
 
 [node name="Button" parent="NPC/Rory" unique_id=819979152 instance=ExtResource("8_a6lxu")]
-transform = Transform3D(0.46589753, 0.13058087, -0.1260491, -0.13058092, -2.1855707e-08, -0.48264787, -0.12604907, 0.48264787, 0.0341027, 0.09867096, 0, 0.36470413)
+transform = Transform3D(0.4658976, 0.13058087, -0.1260491, -0.13058093, -2.185571e-08, -0.48264793, -0.12604909, 0.4826479, 0.0341027, 0.09867096, 0.3485284, 0.36470413)
 visible = false
 use_collision = true
 collision_layer = 2
@@ -1176,8 +1487,7 @@ button_type = 3
 NPC = NodePath("..")
 
 [node name="NavigationNPC2" parent="NPC" unique_id=2112072401 instance=ExtResource("62_qnggo")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.327545, 1.9646862, 7.328677)
-npc_type = 1
+transform = Transform3D(0.4575209, 0, -1.4285219, 0, 1.5, 0, 1.4285219, 0, 0.4575209, -30.075094, 1.9646862, 3.3470178)
 x_lower = -34.0
 x_higher = 21.0
 z_lower = 1.5
@@ -1186,7 +1496,14 @@ z_higher = 15.0
 [node name="rugRound" parent="." unique_id=795569733 instance=ExtResource("31_r65h5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0308237, 0.50000095, 6.053461)
 
+[node name="doorway" parent="." unique_id=1034345719 instance=ExtResource("68_owhal")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 0.8, 0, 1, 0, -4.371139e-08, -10.102354, 0.49999714, -6.8601313)
+
+[node name="doorway2" parent="." unique_id=1497143828 instance=ExtResource("68_owhal")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 0.8, 0, 1, 0, -4.371139e-08, -5.964542, 0.49999714, -6.8601313)
+
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="pressed" from="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_intro_button_pressed"]
 
 [editable path="OfficeHub01/ManagersOffice"]
 [editable path="OfficeHub01/ManagersOffice/CSGBox3D/doorwayFront"]

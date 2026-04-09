@@ -192,6 +192,7 @@ func start_validation() -> void:
 		if is_final_level:
 			print("[PUZZLE] Final level completed")
 			GameManager.complete_current_room()
+			
 			level_complete.show_popup(level_complete.PopupMode.OFFICE_COMPLETE)
 		else:
 			level_complete.show_popup(level_complete.PopupMode.LEVEL_COMPLTE)
@@ -441,6 +442,8 @@ func update_objective_ui() -> void:
 		_:
 			objective_label.text = "Objective: Produce the correct output"
 
+func track_player() -> void:
+	pass
 
 func reload_current_level() -> void:
 	load_level(current_level_index)

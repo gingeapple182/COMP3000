@@ -23,7 +23,7 @@ nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
-meshes/create_shadow_meshes=true
+meshes/create_shadow_meshes=false
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
@@ -38,6 +38,13 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"_defaultMat": {
+"use_external/enabled": false,
+"use_external/fallback_path": "res://Scenes/Assets/Materials/RORY.tres",
+"use_external/path": "res://Scenes/Assets/Materials/walls.tres"
+}
+},
 "nodes": {
 "PATH:wall(Clone)": {
 "generate/physics": true,

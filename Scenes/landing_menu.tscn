@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c4bg886unxj0y" path="res://Scenes/Assets/images/portraits/tylerPortrait.png" id="10_phm66"]
 [ext_resource type="Texture2D" uid="uid://bu4bnrw3j5pvk" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_space.png" id="10_u6ko2"]
 [ext_resource type="PackedScene" uid="uid://j0xgkounc8xa" path="res://Scenes/Assets/Assets/kenney/deskCorner.glb" id="11_jq0q2"]
+[ext_resource type="Texture2D" uid="uid://dy7b0jjsky3i2" path="res://Scenes/Assets/images/qr_testing.png" id="11_ro83i"]
 [ext_resource type="PackedScene" uid="uid://daxcatvsnk1u2" path="res://Scenes/Assets/Assets/kenney/desk.glb" id="12_ro83i"]
 [ext_resource type="PackedScene" uid="uid://8ds2tmpg7gln" path="res://Scenes/Assets/computer_screen.tscn" id="13_p06hq"]
 [ext_resource type="Texture2D" uid="uid://b7xt3bl1cfuc6" path="res://Scenes/Assets/images/portraits/image_2026-02-20_123305044.jpg" id="14_xbm0l"]
@@ -45,7 +46,6 @@ script = ExtResource("1_havof")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528334519]
 
 [node name="MainMenu" type="Control" parent="CanvasLayer" unique_id=611792450]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,42 +53,82 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu" unique_id=358993845]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainMenu" unique_id=239815779]
+layout_mode = 0
+offset_right = 229.0
+offset_bottom = 229.0
+texture = ExtResource("11_ro83i")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/TextureRect" unique_id=1836512617]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 238.0
+offset_right = 208.0
+offset_bottom = 261.0
+text = "Scan for testing feedback"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MainMenu" unique_id=736372361]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu" unique_id=924372719]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.25
-anchor_right = 0.75
-anchor_bottom = 0.75
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=832499635]
+[node name="Control2" type="Control" parent="CanvasLayer/MainMenu/HBoxContainer" unique_id=362763047]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MainMenu/HBoxContainer" unique_id=358993845]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=925355471]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=832499635]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Project Mismanagement
 "
 horizontal_alignment = 1
 
-[node name="Button_Start" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=2007701810]
+[node name="Button_Start" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=2007701810]
 layout_mode = 2
 text = "Start Game"
 
-[node name="Button_Select" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=235228387]
+[node name="Button_Select" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=235228387]
 layout_mode = 2
+disabled = true
 text = "Office Select"
 
-[node name="Button_Settings" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=408023454]
+[node name="Button_Settings" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=408023454]
 layout_mode = 2
+disabled = true
 text = "Settings"
 
-[node name="Button_Credits" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=210811723]
+[node name="Button_Credits" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=210811723]
 layout_mode = 2
 text = "Credits"
 
-[node name="Button_Quit" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1101732320]
+[node name="Button_Quit" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=1101732320]
 layout_mode = 2
 text = "Quit Game"
+
+[node name="Control" type="Control" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=2055227548]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/MainMenu/HBoxContainer" unique_id=855413903]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="LevelSelect" type="Control" parent="CanvasLayer" unique_id=1204320303]
 visible = false
@@ -161,6 +201,7 @@ offset_bottom = 60.0
 text = "Return to main menu"
 
 [node name="Settings" type="Control" parent="CanvasLayer" unique_id=843716209]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -715,11 +756,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.946465, -0.008117676, 9.99
 
 [node name="OfficeHub01" parent="." unique_id=581236184 instance=ExtResource("26_8l2gm")]
 
-[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Button_Select" to="." method="_on_button_select_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Button_Credits" to="." method="_on_button_credits_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Button_Start" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Button_Select" to="." method="_on_button_select_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Button_Settings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Button_Credits" to="." method="_on_button_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Button_Quit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelSelect/Button_Return" to="." method="_on_button_return_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings/VBoxContainer/Button_Return" to="." method="_on_button_return_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings/Button_Return" to="." method="_on_button_return_pressed"]

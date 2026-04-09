@@ -20,8 +20,6 @@ enum NPCType {
 @export var idle_wait_min := 1.5
 @export var idle_wait_max := 4.0
 
-
-
 enum State {
 	IDLE,
 	MOVE
@@ -35,7 +33,12 @@ var walk_timer := 0.0
 var broken_path_timer := 0.0
 var broken_path_limit := 15.0
 
+signal follow_target_reached
+
+var follow_reached_emitted := false
+
 func _ready() -> void:
+	follow_reached_emitted = false
 	match npc_type:
 		NPCType.STATIC:
 			can_roam = false
@@ -68,6 +71,10 @@ func _physics_process(delta: float) -> void:
 		if stop_dist <= follow_stop_dist:
 			velocity = Vector3.ZERO
 			animation_player.play("idle/Root|Idle")
+			
+			if not follow_reached_emitted:
+				follow_reached_emitted = true
+				follow_target_reached.emit()
 			return
 		
 		navigation_agent_3d.set_target_position(target_pos)
@@ -93,7 +100,7 @@ func _physics_process(delta: float) -> void:
 		
 		var target_pos = return_target.global_position
 		var stop_dist = global_position.distance_to(target_pos)
-		if global_position == target_pos:
+		if stop_dist <= follow_stop_dist:
 			velocity = Vector3.ZERO
 			animation_player.play("idle/Root|Idle")
 			npc_type = NPCType.STATIC
@@ -167,6 +174,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func start_follow() -> void:
+	follow_reached_emitted = false
 	npc_type = NPCType.FOLLOW
 
 func start_return() -> void:

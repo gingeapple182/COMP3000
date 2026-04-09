@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7xt3bl1cfuc6"
-path.s3tc="res://.godot/imported/image_2026-02-20_123305044.jpg-78537b550d14bcef7485336b4ac76587.s3tc.ctex"
+uid="uid://csmxogrpa17jc"
+path.s3tc="res://.godot/imported/RoryRorying.jpg-33214b48c6e59a0a1808fd922e7f72f0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Scenes/Assets/images/portraits/image_2026-02-20_123305044.jpg"
-dest_files=["res://.godot/imported/image_2026-02-20_123305044.jpg-78537b550d14bcef7485336b4ac76587.s3tc.ctex"]
+source_file="res://Scenes/Assets/images/portraits/RoryRorying.jpg"
+dest_files=["res://.godot/imported/RoryRorying.jpg-33214b48c6e59a0a1808fd922e7f72f0.s3tc.ctex"]
 
 [params]
 
