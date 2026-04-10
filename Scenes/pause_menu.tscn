@@ -121,7 +121,6 @@ layout_mode = 2
 theme = ExtResource("2_h7ojb")
 
 [node name="Paused" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=1749347842]
-visible = false
 layout_mode = 2
 
 [node name="Paused" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer/Paused" unique_id=2056883630]
@@ -225,6 +224,7 @@ custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
 [node name="Controls" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=97662897]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_h7ojb")
 

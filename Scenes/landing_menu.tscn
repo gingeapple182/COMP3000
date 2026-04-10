@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://btp2cpy0tqjaa" path="res://Scripts/landing_menu.gd" id="1_havof"]
 [ext_resource type="PackedScene" uid="uid://bncfiuba1xc2i" path="res://Scenes/Assets/Assets/door_placeholder.tscn" id="2_mhdkk"]
 [ext_resource type="Theme" uid="uid://cfbsspk85pjrh" path="res://Resources/ui_kenney_default.tres" id="2_ro83i"]
+[ext_resource type="Texture2D" uid="uid://d0igyqqjk5eq3" path="res://addons/ui/kenney/PNG/Red/Double/button_square_depth_gradient.png" id="3_8yqxj"]
 [ext_resource type="PackedScene" uid="uid://xf3y70bw7j1e" path="res://Scenes/Assets/Assets/noticeboard.tscn" id="3_y58r8"]
+[ext_resource type="Texture2D" uid="uid://ds4wofhxd7iv" path="res://addons/ui/kenney/PNG/Red/Double/button_square_depth_flat.png" id="4_l82wa"]
 [ext_resource type="FontFile" uid="uid://bwbipxb1wjho4" path="res://Scenes/Assets/Fonts/AppleStormRg.otf" id="4_u100y"]
 [ext_resource type="PackedScene" uid="uid://yx2gnipoumj1" path="res://Scenes/Assets/Assets/photo_frame.tscn" id="5_8yqxj"]
 [ext_resource type="Texture2D" uid="uid://c8dr3bs1jxjic" path="res://Scenes/Assets/images/portraits/laurenPortrait.jpg" id="6_l82wa"]
@@ -28,13 +30,60 @@
 [ext_resource type="PackedScene" uid="uid://dcde3jyp4736n" path="res://Scenes/Assets/Assets/kenney/rugRectangle.glb" id="25_4aqwy"]
 [ext_resource type="PackedScene" uid="uid://cwtvuysuygpay" path="res://Scenes/Assets/office_hub_01.tscn" id="26_8l2gm"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v7qak"]
+content_margin_left = 15.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("3_8yqxj")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvkxf"]
+content_margin_left = 15.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("4_l82wa")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g5ri6"]
+content_margin_left = 15.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("4_l82wa")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_phm66"]
+content_margin_left = 15.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("4_l82wa")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+expand_margin_bottom = 5.0
+
 [node name="LandingMenu" type="Node3D" unique_id=1404606801]
 script = ExtResource("1_havof")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528334519]
 
 [node name="MainMenu" type="Control" parent="CanvasLayer" unique_id=611792450]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,6 +146,10 @@ text = "Credits"
 
 [node name="Button_Quit" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer" unique_id=1101732320]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_v7qak")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uvkxf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g5ri6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_phm66")
 text = "Quit Game"
 
 [node name="Control" type="Control" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=2055227548]
@@ -289,6 +342,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Credits" type="Control" parent="CanvasLayer" unique_id=1508145158]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
