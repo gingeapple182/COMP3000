@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://drn8aswwgcesl"]
 
+[ext_resource type="Theme" uid="uid://cfbsspk85pjrh" path="res://Resources/ui_kenney_default.tres" id="1_28hy6"]
 [ext_resource type="Script" uid="uid://qlg7bwbrgxmm" path="res://Scripts/level_complete.gd" id="1_ndtel"]
-[ext_resource type="Theme" uid="uid://b36gcvokacoai" path="res://Resources/clipboard_menu.tres" id="2_gu5nw"]
-[ext_resource type="StyleBox" uid="uid://csoqj61svr6e8" path="res://Resources/Clipboard/paperPanel.tres" id="3_4cvl7"]
+[ext_resource type="Theme" uid="uid://die0sl3p4c7iy" path="res://Resources/ui_kenney.tres" id="3_pmnpr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_umxbn"]
-
-[sub_resource type="Theme" id="Theme_qbokc"]
 
 [node name="LevelComplete" type="Control" unique_id=435741563]
 layout_mode = 3
@@ -15,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_28hy6")
 script = ExtResource("1_ndtel")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1297715067]
@@ -26,57 +25,97 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.419608, 0.419608, 0.419608, 0.729412)
 
-[node name="ClipboardPanel" type="PanelContainer" parent="." unique_id=118490370]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=52519302]
 material = SubResource("CanvasItemMaterial_umxbn")
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.33
-anchor_top = 0.33
-anchor_right = 0.67
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("2_gu5nw")
+grow_vertical = 2
+theme = ExtResource("1_28hy6")
 
-[node name="PaperPanel" type="PanelContainer" parent="ClipboardPanel" unique_id=2046685366]
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1188921668]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=427436238]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer" unique_id=142371847]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PaperPanel" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=2046685366]
 material = SubResource("CanvasItemMaterial_umxbn")
 layout_mode = 2
-theme = ExtResource("2_gu5nw")
-theme_override_styles/panel = ExtResource("3_4cvl7")
+theme = ExtResource("1_28hy6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ClipboardPanel/PaperPanel" unique_id=2074446642]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/PaperPanel" unique_id=1219634112]
 layout_mode = 2
-theme = SubResource("Theme_qbokc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer" unique_id=2074446642]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_28hy6")
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="ClipboardPanel/PaperPanel/VBoxContainer" unique_id=1983827490]
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer" unique_id=751950009]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer" unique_id=1983827490]
+layout_mode = 2
+theme = ExtResource("3_pmnpr")
+theme_override_font_sizes/font_size = 25
 text = "LEVEL COMPLETE!"
 horizontal_alignment = 1
 
-[node name="Description" type="RichTextLabel" parent="ClipboardPanel/PaperPanel/VBoxContainer" unique_id=1630104088]
+[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer" unique_id=1123508196]
 layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer" unique_id=1630104088]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_pmnpr")
 text = "Congratulations for completing [LEVEL]"
 fit_content = true
+scroll_active = false
 tab_size = 7
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ClipboardPanel/PaperPanel/VBoxContainer" unique_id=1760676291]
+[node name="Control3" type="Control" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer" unique_id=424959432]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer" unique_id=1760676291]
 layout_mode = 2
 alignment = 1
 
-[node name="Button_Return" type="Button" parent="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer" unique_id=962292028]
+[node name="Button_Return" type="Button" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=962292028]
 layout_mode = 2
-theme = ExtResource("2_gu5nw")
+theme = ExtResource("1_28hy6")
 text = "Return to Hub"
 
-[node name="Button_Replay" type="Button" parent="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer" unique_id=818019500]
+[node name="Button_Replay" type="Button" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=818019500]
 layout_mode = 2
+theme = ExtResource("1_28hy6")
 text = "Replay"
 
-[node name="Button_Continue" type="Button" parent="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer" unique_id=1646800508]
+[node name="Button_Continue" type="Button" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1646800508]
 layout_mode = 2
+theme = ExtResource("1_28hy6")
 text = "Next Level"
 
-[connection signal="pressed" from="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer/Button_Return" to="." method="_on_button_return_pressed"]
-[connection signal="pressed" from="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer/Button_Replay" to="." method="_on_button_replay_pressed"]
-[connection signal="pressed" from="ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer/Button_Continue" to="." method="_on_button_continue_pressed"]
+[node name="Control4" type="Control" parent="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer" unique_id=1068604680]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer" unique_id=1694570924]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="HBoxContainer" unique_id=670305980]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/HBoxContainer/Button_Return" to="." method="_on_button_return_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/HBoxContainer/Button_Replay" to="." method="_on_button_replay_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/HBoxContainer/Button_Continue" to="." method="_on_button_continue_pressed"]

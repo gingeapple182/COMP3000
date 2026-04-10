@@ -1,6 +1,5 @@
 [gd_resource type="Theme" format=3 uid="uid://b36gcvokacoai"]
 
-[ext_resource type="StyleBox" uid="uid://w32rrqc5qme1" path="res://Resources/Clipboard/cardboardPanel.tres" id="1_1fy3p"]
 [ext_resource type="FontFile" uid="uid://bwbipxb1wjho4" path="res://Scenes/Assets/Fonts/AppleStormRg.otf" id="2_2yn6a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t7vr"]
@@ -63,5 +62,5 @@ Button/styles/normal = SubResource("StyleBoxFlat_mk3tb")
 Button/styles/pressed = SubResource("StyleBoxFlat_v0p7u")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 25
-PanelContainer/styles/panel = ExtResource("1_1fy3p")
+PanelContainer/styles/panel = null
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)

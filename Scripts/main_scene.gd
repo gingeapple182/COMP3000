@@ -18,9 +18,12 @@ extends Node3D
 @onready var introduction: Control = $CanvasLayer/Introduction
 @onready var intro_button: Button = $CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button
 
+@onready var proto_controller: CharacterBody3D = $ProtoController
+
 var ceiling: Node3D
 
 var is_paused := false
+var tutotial_seen := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,9 +46,14 @@ func _ready() -> void:
 	if manager_briefing.has_signal("briefing_acknowledged"):
 		manager_briefing.briefing_acknowledged.connect(_on_manager_briefing_acknowledged)
 	
-	if introduction:
+	if GameManager.tutorial_seen == false:
+		proto_controller.can_move = false
 		introduction.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		proto_controller.can_move = true
+		introduction.visible = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if GameManager.pending_notification:
 		notifications.show_message(
@@ -111,5 +119,7 @@ func _on_manager_briefing_acknowledged() -> void:
 
 
 func _on_intro_button_pressed() -> void:
+	proto_controller.can_move = true
 	introduction.visible = false
+	GameManager.tutorial_seen = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

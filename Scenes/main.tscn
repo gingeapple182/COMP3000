@@ -10,8 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://cwtvuysuygpay" path="res://Scenes/Assets/office_hub_01.tscn" id="6_5lupv"]
 [ext_resource type="Texture2D" uid="uid://bm7for6n6f3pi" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_asterisk.png" id="6_cblf0"]
 [ext_resource type="Script" uid="uid://d3t3dinrdarys" path="res://Scripts/dialogue.gd" id="7_cblf0"]
+[ext_resource type="Theme" uid="uid://cfbsspk85pjrh" path="res://Resources/ui_kenney_default.tres" id="7_f6rfp"]
+[ext_resource type="Texture2D" uid="uid://f06ajcr10igw" path="res://addons/ui/kenney_space/PNG/Extra/Double/panel_glass_tab_blade_rotated.png" id="7_sasc4"]
 [ext_resource type="PackedScene" uid="uid://yx2gnipoumj1" path="res://Scenes/Assets/Assets/photo_frame.tscn" id="7_untni"]
 [ext_resource type="PackedScene" uid="uid://d1jy6v8q0roce" path="res://Scenes/Assets/Button.tscn" id="8_a6lxu"]
+[ext_resource type="Theme" uid="uid://die0sl3p4c7iy" path="res://Resources/ui_kenney.tres" id="8_r7bbj"]
+[ext_resource type="Texture2D" uid="uid://1ktmrxog525v" path="res://addons/ui/kenney_space/PNG/Extra/Double/panel_glass_tab_blade.png" id="9_sasc4"]
 [ext_resource type="PackedScene" uid="uid://c5v3kqx3aw3al" path="res://Scenes/Assets/doorway_front_opened.tscn" id="11_2663y"]
 [ext_resource type="Resource" uid="uid://dhpjlpx50xekd" path="res://Levels/Level_Tutorial/level_02.tres" id="12_hium5"]
 [ext_resource type="PackedScene" uid="uid://bncfiuba1xc2i" path="res://Scenes/Assets/Assets/door_placeholder.tscn" id="12_w4s6r"]
@@ -88,6 +92,42 @@ tonemap_mode = 2
 glow_enabled = true
 fog_light_color = Color(0, 0.614298, 0.727888, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sasc4"]
+load_path = "res://.godot/imported/panel_glass_tab_blade.png-6bf6182f9b2bee386596623615fb37ba.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fg68e"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 55.0
+content_margin_bottom = 5.0
+texture = SubResource("CompressedTexture2D_sasc4")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 50.0
+region_rect = Rect2(0, 0, 98, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6rfp"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 55.0
+content_margin_bottom = 10.0
+texture = ExtResource("7_sasc4")
+texture_margin_left = 10.0
+texture_margin_right = 50.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 64, 97, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pfx1i"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 55.0
+content_margin_bottom = 5.0
+texture = ExtResource("9_sasc4")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 50.0
+region_rect = Rect2(0, 0, 98, 64)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qep7p"]
 albedo_color = Color(0.0392157, 0.172549, 1, 1)
 
@@ -142,7 +182,6 @@ scale = Vector2(1.25, 1.25)
 text = "Press F to interact"
 
 [node name="Notifications" type="Control" parent="CanvasLayer" unique_id=2105601965]
-visible = false
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -152,15 +191,18 @@ offset_bottom = 162.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("7_f6rfp")
 script = ExtResource("4_my4ki")
 
 [node name="HBox" type="HBoxContainer" parent="CanvasLayer/Notifications" unique_id=1540957046]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -98.0
+offset_bottom = 194.0
+grow_horizontal = 0
 
 [node name="VBox" type="VBoxContainer" parent="CanvasLayer/Notifications/HBox" unique_id=1917803697]
 layout_mode = 2
@@ -170,38 +212,48 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
-[node name="Panel" type="PanelContainer" parent="CanvasLayer/Notifications/HBox/VBox" unique_id=569950465]
-layout_mode = 2
-
-[node name="HBox" type="HBoxContainer" parent="CanvasLayer/Notifications/HBox/VBox/Panel" unique_id=615760063]
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/Notifications/HBox/VBox" unique_id=615760063]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox" unique_id=177250848]
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Notifications/HBox/VBox/HBox" unique_id=177250848]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
-[node name="Title" type="Label" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=316274838]
+[node name="Title" type="Label" parent="CanvasLayer/Notifications/HBox/VBox/HBox/VBox" unique_id=316274838]
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_fg68e")
 text = "{title}"
 
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=887172268]
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Notifications/HBox/VBox/HBox/VBox" unique_id=569950465]
 layout_mode = 2
 
-[node name="Sender" type="Label" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=663586495]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Notifications/HBox/VBox/HBox/VBox/Panel" unique_id=2115551131]
+layout_mode = 2
+
+[node name="Sender" type="Label" parent="CanvasLayer/Notifications/HBox/VBox/HBox/VBox/Panel/VBoxContainer" unique_id=663586495]
 layout_mode = 2
 text = "{sender}"
 
-[node name="Subject" type="Label" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=29227701]
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Notifications/HBox/VBox/HBox/VBox/Panel/VBoxContainer" unique_id=887172268]
+layout_mode = 2
+
+[node name="Subject" type="Label" parent="CanvasLayer/Notifications/HBox/VBox/HBox/VBox/Panel/VBoxContainer" unique_id=29227701]
 layout_mode = 2
 text = "{subject}"
 
-[node name="Body" type="RichTextLabel" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=110022902]
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/Notifications/HBox/VBox/HBox/VBox/Panel/VBoxContainer" unique_id=259115925]
+layout_mode = 2
+
+[node name="Body" type="RichTextLabel" parent="CanvasLayer/Notifications/HBox/VBox/HBox/VBox/Panel/VBoxContainer" unique_id=110022902]
 layout_mode = 2
 text = "{text_body}"
 fit_content = true
 
-[node name="Button" type="Button" parent="CanvasLayer/Notifications/HBox/VBox/Panel/HBox/VBox" unique_id=1999979031]
+[node name="Button" type="Button" parent="CanvasLayer/Notifications/HBox/VBox/HBox/VBox/Panel/VBoxContainer" unique_id=1999979031]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 text = "{button}"
@@ -210,12 +262,16 @@ text = "{button}"
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
+[node name="HideTimer" type="Timer" parent="CanvasLayer/Notifications" unique_id=594712132]
+one_shot = true
+
 [node name="Objectives" type="Control" parent="CanvasLayer" unique_id=283083980]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("7_f6rfp")
 script = ExtResource("5_ynmfv")
 
 [node name="VBox" type="VBoxContainer" parent="CanvasLayer/Objectives" unique_id=1974254777]
@@ -224,26 +280,32 @@ offset_right = 169.0
 offset_bottom = 64.0
 size_flags_horizontal = 3
 
-[node name="HBox" type="HBoxContainer" parent="CanvasLayer/Objectives/VBox" unique_id=1485853976]
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Objectives/VBox" unique_id=72427173]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_f6rfp")
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayer/Objectives/VBox/Panel" unique_id=1485853976]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Objectives/VBox/HBox" unique_id=264038407]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Objectives/VBox/Panel/HBox" unique_id=264038407]
+modulate = Color(0.49262863, 0.6823361, 0.34221497, 1)
 layout_mode = 2
 texture = ExtResource("6_cblf0")
 
-[node name="Label" type="Label" parent="CanvasLayer/Objectives/VBox/HBox" unique_id=1304007535]
+[node name="Label" type="Label" parent="CanvasLayer/Objectives/VBox/Panel/HBox" unique_id=1304007535]
 layout_mode = 2
 text = "{current_obj}"
 
 [node name="Dialogue" type="Control" parent="CanvasLayer" unique_id=1317478582]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_f6rfp")
 script = ExtResource("7_cblf0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Dialogue" unique_id=1148886046]
@@ -264,9 +326,12 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
 [node name="NameLabel" type="Label" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer" unique_id=277803467]
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_pfx1i")
 text = "{name}"
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Dialogue/HBoxContainer/VBoxContainer" unique_id=831192684]
@@ -311,6 +376,7 @@ custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
 [node name="Introduction" type="Control" parent="CanvasLayer" unique_id=844274233]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -351,6 +417,7 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("8_r7bbj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel" unique_id=1795971477]
 layout_mode = 1
@@ -361,7 +428,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer" unique_id=1734979643]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer" unique_id=2060355135]
@@ -369,11 +436,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Control" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=1381744745]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(20, 30)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=165794048]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 text = "Welcome to Tanal Systems!"
 horizontal_alignment = 1
 
@@ -385,6 +453,7 @@ size_flags_vertical = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=584547422]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Congratulations on your new job at Tanal Systems.
 
 As the newest member of the team, it is your responsibility to keep the office systems running and help resolve the various technical issues disrupting the workplace.
@@ -405,6 +474,7 @@ size_flags_vertical = 3
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=666313092]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Controls
 WASD – Move
 Mouse – Look around
@@ -423,14 +493,19 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("8_r7bbj")
 text = "Continue"
 
+[node name="Control" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1575811709]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
 [node name="Control4" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer" unique_id=1107793193]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(20, 30)
 layout_mode = 2
 
 [node name="Control2" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer" unique_id=1393076166]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 20)
 layout_mode = 2
 
 [node name="Control4" type="Control" parent="CanvasLayer/Introduction/HBoxContainer/VBoxContainer" unique_id=1786199081]

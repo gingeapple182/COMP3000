@@ -1,0 +1,95 @@
+[gd_resource type="Theme" format=3 uid="uid://cfbsspk85pjrh"]
+
+[ext_resource type="Texture2D" uid="uid://ce2jdm7up7jey" path="res://addons/ui/kenney/PNG/Blue/Double/button_square_depth_flat.png" id="1_3camn"]
+[ext_resource type="Texture2D" uid="uid://c6nlmj1velpdg" path="res://addons/ui/kenney/PNG/Blue/Double/button_square_depth_gradient.png" id="2_3camn"]
+[ext_resource type="Texture2D" uid="uid://bugistoeqy6tv" path="res://addons/ui/kenney_space/PNG/Extra/Double/panel_glass_screws.png" id="4_3camn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5et1f"]
+content_margin_left = 15.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_3camn")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eivit"]
+content_margin_left = 15.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("2_3camn")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3camn"]
+content_margin_left = 15.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("2_3camn")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7emh1"]
+load_path = "res://.godot/imported/button_square_flat.png-302387ac8587a8e81033ed26bfa6cc1a.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m1g8v"]
+content_margin_left = 15.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+texture = SubResource("CompressedTexture2D_7emh1")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wlf0d"]
+content_margin_left = 25.0
+content_margin_top = 25.0
+content_margin_right = 25.0
+content_margin_bottom = 25.0
+texture = ExtResource("4_3camn")
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17hdf"]
+load_path = "res://.godot/imported/panel_glass_screws.png-6c8f8d1f18f60aba7212c88605a160e2.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7emh1"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+texture = SubResource("CompressedTexture2D_17hdf")
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.42109165, 0.42109165, 0.42109266, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_5et1f")
+Button/styles/hover = SubResource("StyleBoxTexture_eivit")
+Button/styles/normal = SubResource("StyleBoxTexture_3camn")
+Button/styles/pressed = SubResource("StyleBoxTexture_m1g8v")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_wlf0d")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+ScrollContainer/styles/panel = SubResource("StyleBoxTexture_7emh1")

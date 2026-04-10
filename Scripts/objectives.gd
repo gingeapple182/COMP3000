@@ -1,6 +1,6 @@
 extends Control
 
-@onready var objective_label: Label = $VBox/HBox/Label
+@onready var objective_label: Label = $VBox/Panel/HBox/Label
 
 func _ready() -> void:
 	update_objective()

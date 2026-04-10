@@ -1,17 +1,16 @@
 extends Control
 
-@onready var paused: HBoxContainer = $PanelContainer/Paused
-@onready var settings: HBoxContainer = $PanelContainer/Settings
-@onready var controls: HBoxContainer = $PanelContainer/Controls
-@onready var nodes: HBoxContainer = $PanelContainer/Nodes
+@onready var paused: HBoxContainer = $HBoxContainer/VBoxContainer/PanelContainer/Paused
+@onready var settings: HBoxContainer = $HBoxContainer/VBoxContainer/PanelContainer/Settings
+@onready var controls: HBoxContainer = $HBoxContainer/VBoxContainer/PanelContainer/Controls
+@onready var nodes: HBoxContainer = $HBoxContainer/VBoxContainer/PanelContainer/Nodes
 #@onready var scroll_container: ScrollContainer = $PanelContainer/Controls/ScrollContainer
 #@onready var scroll_container: ScrollContainer = $PanelContainer/Controls/HBoxContainer/ScrollContainer
-@onready var scroll_container: ScrollContainer = $PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer
-
+@onready var scroll_container: ScrollContainer = $HBoxContainer/VBoxContainer/PanelContainer/Controls/Controls/HBoxContainer/ScrollContainer
 #@onready var button_resume: Button = $PanelContainer/Paused/Button_Resume
 #@onready var button_settings: Button = $PanelContainer/Paused/Button_Settings
-@onready var button_reset: Button = $PanelContainer/Paused/Paused/Paused/Button_Reset
-@onready var button_quit: Button = $PanelContainer/Paused/Paused/Paused/Button_Quit
+@onready var button_reset: Button = $HBoxContainer/VBoxContainer/PanelContainer/Paused/Paused/Paused/Button_Reset
+@onready var button_quit: Button = $HBoxContainer/VBoxContainer/PanelContainer/Paused/Paused/Paused/Button_Quit
 
 var current_scene: String
 

@@ -1,26 +1,17 @@
 [gd_scene format=3 uid="uid://bd5m5eqerkpv8"]
 
 [ext_resource type="Script" uid="uid://btp2cpy0tqjaa" path="res://Scripts/landing_menu.gd" id="1_havof"]
-[ext_resource type="Theme" uid="uid://b36gcvokacoai" path="res://Resources/clipboard_menu.tres" id="2_jq0q2"]
 [ext_resource type="PackedScene" uid="uid://bncfiuba1xc2i" path="res://Scenes/Assets/Assets/door_placeholder.tscn" id="2_mhdkk"]
-[ext_resource type="Texture2D" uid="uid://h1lhqhht4a35" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_escape.png" id="3_ro83i"]
+[ext_resource type="Theme" uid="uid://cfbsspk85pjrh" path="res://Resources/ui_kenney_default.tres" id="2_ro83i"]
 [ext_resource type="PackedScene" uid="uid://xf3y70bw7j1e" path="res://Scenes/Assets/Assets/noticeboard.tscn" id="3_y58r8"]
-[ext_resource type="Texture2D" uid="uid://bm5r0851tu016" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/mouse_left.png" id="4_p06hq"]
 [ext_resource type="FontFile" uid="uid://bwbipxb1wjho4" path="res://Scenes/Assets/Fonts/AppleStormRg.otf" id="4_u100y"]
 [ext_resource type="PackedScene" uid="uid://yx2gnipoumj1" path="res://Scenes/Assets/Assets/photo_frame.tscn" id="5_8yqxj"]
-[ext_resource type="Texture2D" uid="uid://dnyyh6eyd3d58" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_f.png" id="5_xbm0l"]
 [ext_resource type="Texture2D" uid="uid://c8dr3bs1jxjic" path="res://Scenes/Assets/images/portraits/laurenPortrait.jpg" id="6_l82wa"]
-[ext_resource type="Texture2D" uid="uid://dlcro5wqa35sd" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_w.png" id="6_llekn"]
-[ext_resource type="Texture2D" uid="uid://cxinh376a4okr" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_a.png" id="7_nhyyh"]
 [ext_resource type="Texture2D" uid="uid://bt8sqaarhgm35" path="res://Scenes/Assets/images/portraits/roryPortrait.jpg" id="7_v7qak"]
-[ext_resource type="Texture2D" uid="uid://cjq5c23rhsich" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_s.png" id="8_tx41l"]
 [ext_resource type="Texture2D" uid="uid://d4j2pw0ess56s" path="res://Scenes/Assets/images/portraits/jjPortrait.jpg" id="8_uvkxf"]
 [ext_resource type="Texture2D" uid="uid://12b5ocbodic" path="res://Scenes/Assets/images/portraits/vivianPortrait.jpg" id="9_g5ri6"]
-[ext_resource type="Texture2D" uid="uid://dpnnthl3djd51" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_d.png" id="9_u1ecm"]
 [ext_resource type="Texture2D" uid="uid://c4bg886unxj0y" path="res://Scenes/Assets/images/portraits/tylerPortrait.png" id="10_phm66"]
-[ext_resource type="Texture2D" uid="uid://bu4bnrw3j5pvk" path="res://Scenes/Assets/images/Keyboard & Mouse/Default/keyboard_space.png" id="10_u6ko2"]
 [ext_resource type="PackedScene" uid="uid://j0xgkounc8xa" path="res://Scenes/Assets/Assets/kenney/deskCorner.glb" id="11_jq0q2"]
-[ext_resource type="Texture2D" uid="uid://dy7b0jjsky3i2" path="res://Scenes/Assets/images/qr_testing.png" id="11_ro83i"]
 [ext_resource type="PackedScene" uid="uid://daxcatvsnk1u2" path="res://Scenes/Assets/Assets/kenney/desk.glb" id="12_ro83i"]
 [ext_resource type="PackedScene" uid="uid://8ds2tmpg7gln" path="res://Scenes/Assets/computer_screen.tscn" id="13_p06hq"]
 [ext_resource type="Texture2D" uid="uid://b7xt3bl1cfuc6" path="res://Scenes/Assets/images/portraits/image_2026-02-20_123305044.jpg" id="14_xbm0l"]
@@ -37,41 +28,20 @@
 [ext_resource type="PackedScene" uid="uid://dcde3jyp4736n" path="res://Scenes/Assets/Assets/kenney/rugRectangle.glb" id="25_4aqwy"]
 [ext_resource type="PackedScene" uid="uid://cwtvuysuygpay" path="res://Scenes/Assets/office_hub_01.tscn" id="26_8l2gm"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_te8cu"]
-thickness = 2
-
 [node name="LandingMenu" type="Node3D" unique_id=1404606801]
 script = ExtResource("1_havof")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1528334519]
 
 [node name="MainMenu" type="Control" parent="CanvasLayer" unique_id=611792450]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainMenu" unique_id=239815779]
-layout_mode = 0
-offset_right = 229.0
-offset_bottom = 229.0
-texture = ExtResource("11_ro83i")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/MainMenu/TextureRect" unique_id=1836512617]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 238.0
-offset_right = 208.0
-offset_bottom = 261.0
-text = "Scan for testing feedback"
-
-[node name="Panel" type="Panel" parent="CanvasLayer/MainMenu" unique_id=736372361]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+theme = ExtResource("2_ro83i")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu" unique_id=924372719]
 layout_mode = 1
@@ -93,32 +63,39 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Title" type="Label" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=832499635]
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=1808157376]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel" unique_id=1206408856]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer" unique_id=832499635]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Project Mismanagement
 "
 horizontal_alignment = 1
 
-[node name="Button_Start" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=2007701810]
+[node name="Button_Start" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer" unique_id=2007701810]
 layout_mode = 2
 text = "Start Game"
 
-[node name="Button_Select" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=235228387]
+[node name="Button_Select" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer" unique_id=235228387]
 layout_mode = 2
 disabled = true
 text = "Office Select"
 
-[node name="Button_Settings" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=408023454]
+[node name="Button_Settings" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer" unique_id=408023454]
 layout_mode = 2
-disabled = true
 text = "Settings"
 
-[node name="Button_Credits" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=210811723]
+[node name="Button_Credits" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer" unique_id=210811723]
 layout_mode = 2
 text = "Credits"
 
-[node name="Button_Quit" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2" unique_id=1101732320]
+[node name="Button_Quit" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer" unique_id=1101732320]
 layout_mode = 2
 text = "Quit Game"
 
@@ -138,6 +115,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ro83i")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/LevelSelect" unique_id=1786197383]
 layout_mode = 0
@@ -208,328 +186,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings" unique_id=1782986052]
-layout_mode = 0
-offset_left = 312.0
-offset_top = 137.0
-offset_right = 817.0
-offset_bottom = 648.0
-
-[node name="Title" type="Label" parent="CanvasLayer/Settings/VBoxContainer" unique_id=831214500]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Settings
-"
-horizontal_alignment = 1
-
-[node name="Label_Audio" type="Label" parent="CanvasLayer/Settings/VBoxContainer" unique_id=1883606132]
-layout_mode = 2
-text = "Audio"
-horizontal_alignment = 1
-
-[node name="Label_Music" type="Label" parent="CanvasLayer/Settings/VBoxContainer" unique_id=294069911]
-layout_mode = 2
-text = "Music"
-
-[node name="HSlider_Music" type="HSlider" parent="CanvasLayer/Settings/VBoxContainer" unique_id=21809296]
-layout_mode = 2
-
-[node name="Label_SFX" type="Label" parent="CanvasLayer/Settings/VBoxContainer" unique_id=1735364133]
-layout_mode = 2
-text = "Sound effects"
-
-[node name="HSlider_SFX" type="HSlider" parent="CanvasLayer/Settings/VBoxContainer" unique_id=1708959931]
-layout_mode = 2
-
-[node name="Controls" type="VBoxContainer" parent="CanvasLayer/Settings/VBoxContainer" unique_id=2132538766]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("2_jq0q2")
-theme_override_constants/separation = 10
-
-[node name="Label2" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls" unique_id=357073608]
-layout_mode = 2
-theme = ExtResource("2_jq0q2")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 35
-text = "Controls"
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls" unique_id=272598225]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Control" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer" unique_id=314925359]
-visible = false
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer" unique_id=1555578418]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-vertical_scroll_mode = 4
-
-[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer" unique_id=1618873101]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="Pause" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1507026449]
-layout_mode = 2
-alignment = 1
-
-[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=1596224466]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=593977292]
-layout_mode = 2
-theme = ExtResource("2_jq0q2")
-text = "Pause"
-
-[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=2005077746]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=1830139582]
-layout_mode = 2
-texture = ExtResource("3_ro83i")
-
-[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Pause" unique_id=2022767206]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Level" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1058607798]
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Level" unique_id=1105625707]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/separator = SubResource("StyleBoxLine_te8cu")
-
-[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Level" unique_id=1942907164]
-layout_mode = 2
-text = "Levels"
-horizontal_alignment = 1
-
-[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Level" unique_id=1753500531]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/separator = SubResource("StyleBoxLine_te8cu")
-
-[node name="InteractLevel" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1809777208]
-layout_mode = 2
-alignment = 1
-
-[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=226112166]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=821248195]
-layout_mode = 2
-theme = ExtResource("2_jq0q2")
-text = "Interact"
-
-[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=1900683675]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=1622904932]
-layout_mode = 2
-texture = ExtResource("4_p06hq")
-
-[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractLevel" unique_id=1110607784]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Hub" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1531015901]
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Hub" unique_id=852858988]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/separator = SubResource("StyleBoxLine_te8cu")
-
-[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Hub" unique_id=1975372327]
-layout_mode = 2
-text = "Hub"
-horizontal_alignment = 1
-
-[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Hub" unique_id=202228734]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/separator = SubResource("StyleBoxLine_te8cu")
-
-[node name="InteractHub" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=984124854]
-layout_mode = 2
-alignment = 1
-
-[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=157493064]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=1160979633]
-layout_mode = 2
-theme = ExtResource("2_jq0q2")
-text = "Interact"
-
-[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=137070609]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=1129570201]
-layout_mode = 2
-texture = ExtResource("5_xbm0l")
-
-[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/InteractHub" unique_id=1573050282]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Forwards" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=669388383]
-layout_mode = 2
-alignment = 1
-
-[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=91084695]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=500782226]
-layout_mode = 2
-theme = ExtResource("2_jq0q2")
-text = "Move Forwards"
-
-[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=1583023054]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=2108388868]
-layout_mode = 2
-texture = ExtResource("6_llekn")
-
-[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Forwards" unique_id=464750526]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Left" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1924388432]
-layout_mode = 2
-alignment = 1
-
-[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=1093909628]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=1587726976]
-layout_mode = 2
-theme = ExtResource("2_jq0q2")
-text = "Move Left"
-
-[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=488892113]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=1474200686]
-layout_mode = 2
-texture = ExtResource("7_nhyyh")
-
-[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Left" unique_id=2133886108]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Backwards" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=453117798]
-layout_mode = 2
-alignment = 1
-
-[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=828638327]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=475764882]
-layout_mode = 2
-theme = ExtResource("2_jq0q2")
-text = "Move Backwards"
-
-[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=1455633813]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=257250125]
-layout_mode = 2
-texture = ExtResource("8_tx41l")
-
-[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Backwards" unique_id=2108076]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Right" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=1459904791]
-layout_mode = 2
-alignment = 1
-
-[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=1233987240]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=2117572989]
-layout_mode = 2
-theme = ExtResource("2_jq0q2")
-text = "Move Right"
-
-[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=1565080838]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=1234167419]
-layout_mode = 2
-texture = ExtResource("9_u1ecm")
-
-[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Right" unique_id=2072916133]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Jump" type="HBoxContainer" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer" unique_id=909058488]
-layout_mode = 2
-alignment = 1
-
-[node name="LeftSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=691744161]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=1832958136]
-layout_mode = 2
-theme = ExtResource("2_jq0q2")
-text = "Jump"
-
-[node name="CenterSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=699701125]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=1080416953]
-layout_mode = 2
-texture = ExtResource("10_u6ko2")
-
-[node name="RightSpacer" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer/ScrollContainer/HBoxContainer/Jump" unique_id=323308256]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Control2" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls/HBoxContainer" unique_id=1667142721]
-visible = false
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/Settings/VBoxContainer/Controls" unique_id=1965433040]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="Button_Return" type="Button" parent="CanvasLayer/Settings/VBoxContainer" unique_id=1530596799]
-layout_mode = 2
-text = "Return to main menu"
-
-[node name="Control" type="Control" parent="CanvasLayer/Settings/VBoxContainer" unique_id=770841225]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
+theme = ExtResource("2_ro83i")
 
 [node name="Button_Return" type="Button" parent="CanvasLayer/Settings" unique_id=1383517278]
 layout_mode = 0
@@ -539,14 +196,106 @@ offset_right = 195.0
 offset_bottom = 60.0
 text = "Return to main menu"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Settings" unique_id=293582673]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Settings/HBoxContainer" unique_id=1876717801]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings/HBoxContainer" unique_id=258878724]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer" unique_id=339449402]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer" unique_id=1357088755]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1782986052]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=831214500]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Settings
+"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=408827873]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer" unique_id=1950839280]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label_Audio" type="Label" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1883606132]
+layout_mode = 2
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="Label_Music" type="Label" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=294069911]
+layout_mode = 2
+text = "Music"
+
+[node name="HSlider_Music" type="HSlider" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=21809296]
+layout_mode = 2
+
+[node name="Label_SFX" type="Label" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1735364133]
+layout_mode = 2
+text = "Sound effects"
+
+[node name="HSlider_SFX" type="HSlider" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1708959931]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=991051912]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=830883686]
+layout_mode = 2
+text = "Gate Sybmbols"
+
+[node name="Control" type="Control" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1664429437]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1905923352]
+layout_mode = 2
+
+[node name="Button_Return" type="Button" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1530596799]
+layout_mode = 2
+text = "Return to main menu"
+
+[node name="Control" type="Control" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=770841225]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Settings/HBoxContainer/VBoxContainer" unique_id=1765740883]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="CanvasLayer/Settings/HBoxContainer" unique_id=1262794867]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="Credits" type="Control" parent="CanvasLayer" unique_id=1508145158]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ro83i")
 
 [node name="Button_Return" type="Button" parent="CanvasLayer/Credits" unique_id=2057888839]
 layout_mode = 0
@@ -587,11 +336,13 @@ University of Plymouth"
 fit_content = true
 
 [node name="Label2" type="Label" parent="CanvasLayer/Credits/ScrollContainer/VBoxContainer" unique_id=408626881]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Project Vision:"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Credits/ScrollContainer/VBoxContainer" unique_id=1865137758]
+visible = false
 layout_mode = 2
 text = "For teens curious about computing and people who enjoy complex puzzle games and want a fun and engaging challenge, my game is a 3D puzzle game that will teach players about computing logic with logic gates and truth tables through humorous and ridiculous office mishaps. The player is the new IT technician in a company that has been set up terribly, such as the printer only works when the coffee machine is on, and must solve logic puzzles to keep the office functional. The puzzles will get progressively harder throughout the game to keep players engaged and learning new concepts."
 fit_content = true
@@ -599,8 +350,7 @@ fit_content = true
 [node name="Label4" type="Label" parent="CanvasLayer/Credits/ScrollContainer/VBoxContainer" unique_id=1577150450]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Tools & technologies
-"
+text = "Tools & technologies"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Credits/ScrollContainer/VBoxContainer" unique_id=583578737]
 layout_mode = 2
@@ -612,15 +362,20 @@ fit_content = true
 [node name="Label5" type="Label" parent="CanvasLayer/Credits/ScrollContainer/VBoxContainer" unique_id=1153146472]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Assets & Credits
-"
+text = "Assets & Credits"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Credits/ScrollContainer/VBoxContainer" unique_id=898339719]
 layout_mode = 2
 text = "Assets used:
 https://kenney.nl/assets/furniture-kit
+Variour images sourced from public domain and CC0 sources
+NPC:
 https://kenney.nl/assets/animated-characters-2
+Miles Jago - Animations
+UI:
+https://kenney.nl/assets/ui-pack
 https://kenney.nl/assets/ui-pack-sci-fi
+Audio:
 "
 fit_content = true
 
@@ -756,14 +511,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.946465, -0.008117676, 9.99
 
 [node name="OfficeHub01" parent="." unique_id=581236184 instance=ExtResource("26_8l2gm")]
 
-[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Button_Start" to="." method="_on_button_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Button_Select" to="." method="_on_button_select_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Button_Settings" to="." method="_on_button_settings_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Button_Credits" to="." method="_on_button_credits_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button_Select" to="." method="_on_button_select_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button_Credits" to="." method="_on_button_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelSelect/Button_Return" to="." method="_on_button_return_pressed"]
-[connection signal="pressed" from="CanvasLayer/Settings/VBoxContainer/Button_Return" to="." method="_on_button_return_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings/Button_Return" to="." method="_on_button_return_pressed"]
+[connection signal="pressed" from="CanvasLayer/Settings/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/Button_Return" to="." method="_on_button_return_pressed"]
 [connection signal="pressed" from="CanvasLayer/Credits/Button_Return" to="." method="_on_button_return_pressed"]
 
 [editable path="ManagersOffice"]

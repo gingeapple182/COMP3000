@@ -1,9 +1,9 @@
 extends Node3D
-@onready var main_button_start: Button = $CanvasLayer/MainMenu/VBoxContainer/Button_Start
-@onready var main_button_select: Button = $CanvasLayer/MainMenu/VBoxContainer/Button_Select
-@onready var main_button_settings: Button = $CanvasLayer/MainMenu/VBoxContainer/Button_Settings
-@onready var main_button_credits: Button = $CanvasLayer/MainMenu/VBoxContainer/Button_Credits
-@onready var main_button_quit: Button = $CanvasLayer/MainMenu/VBoxContainer/Button_Quit
+@onready var main_button_start: Button = $CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button_Start
+@onready var main_button_select: Button = $CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button_Select
+@onready var main_button_settings: Button = $CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button_Settings
+@onready var main_button_credits: Button = $CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button_Credits
+@onready var main_button_quit: Button = $CanvasLayer/MainMenu/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/Button_Quit
 @onready var settings_button_return: Button = $CanvasLayer/Settings/VBoxContainer/Button_Return
 @onready var ceiling: CSGBox3D = $OfficeHub01/Ceiling
 @onready var office_hub_01: Node3D = $OfficeHub01

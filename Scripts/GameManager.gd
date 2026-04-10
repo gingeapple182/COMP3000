@@ -31,6 +31,7 @@ var area1_open: bool
 var area2_open: bool
 var area3_open: bool
 var area4_open: bool
+var tutorial_seen: bool = false
 
 #notification vars
 var pending_notification := false

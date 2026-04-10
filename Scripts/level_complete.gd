@@ -7,11 +7,11 @@ enum PopupMode {
 	OFFICE_COMPLETE
 }
 var mode: PopupMode = PopupMode.LEVEL_COMPLTE
-@onready var label: Label = $ClipboardPanel/PaperPanel/VBoxContainer/Label
-@onready var rich_text_label: RichTextLabel = $ClipboardPanel/PaperPanel/VBoxContainer/Description
-@onready var button_return: Button = $ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer/Button_Return
-@onready var button_replay: Button = $ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer/Button_Replay
-@onready var button_continue: Button = $ClipboardPanel/PaperPanel/VBoxContainer/HBoxContainer/Button_Continue
+@onready var label: Label = $HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/Label
+@onready var description: RichTextLabel = $HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/Description
+@onready var button_return: Button = $HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/HBoxContainer/Button_Return
+@onready var button_replay: Button = $HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/HBoxContainer/Button_Replay
+@onready var button_continue: Button = $HBoxContainer/VBoxContainer/PaperPanel/HBoxContainer/VBoxContainer/HBoxContainer/Button_Continue
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -32,13 +32,13 @@ func configure_for_mode(new_mode: PopupMode) -> void:
 	match mode:
 		PopupMode.LEVEL_COMPLTE:
 			label.text = "Issue Resolved"
-			rich_text_label.text = "Congratulations on completing the level" # + current_level.display_title
+			description.text = "Congratulations on completing the level" # + current_level.display_title
 			button_continue.visible = true
 			button_replay.visible = true
 		
 		PopupMode.OFFICE_COMPLETE:
 			label.text = "Office Systems Restored"
-			rich_text_label.text = "All issues in this office have been resolved.
+			description.text = "All issues in this office have been resolved.
 			You may now return to the office"
 			button_continue.visible = false
 			button_replay.visible = false
