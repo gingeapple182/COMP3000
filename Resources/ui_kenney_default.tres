@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ce2jdm7up7jey" path="res://addons/ui/kenney/PNG/Blue/Double/button_square_depth_flat.png" id="1_3camn"]
 [ext_resource type="Texture2D" uid="uid://c6nlmj1velpdg" path="res://addons/ui/kenney/PNG/Blue/Double/button_square_depth_gradient.png" id="2_3camn"]
 [ext_resource type="Texture2D" uid="uid://bugistoeqy6tv" path="res://addons/ui/kenney_space/PNG/Extra/Double/panel_glass_screws.png" id="4_3camn"]
+[ext_resource type="Texture2D" uid="uid://c4bn8s71hrt4j" path="res://addons/ui/kenney_space/PNG/Blue/Double/bar_round_large.png" id="4_wlf0d"]
+[ext_resource type="Texture2D" uid="uid://lux5dsskhd4m" path="res://addons/ui/kenney_space/PNG/Red/Double/bar_round_large_m.png" id="5_5et1f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5et1f"]
 content_margin_left = 15.0
@@ -66,6 +68,23 @@ texture_margin_top = 30.0
 texture_margin_right = 30.0
 texture_margin_bottom = 30.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nrtf"]
+texture = ExtResource("4_wlf0d")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tk8bx"]
+texture = ExtResource("5_5et1f")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_bottom = 25.0
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17hdf"]
 load_path = "res://.godot/imported/panel_glass_screws.png-6c8f8d1f18f60aba7212c88605a160e2.ctex"
 
@@ -91,5 +110,7 @@ Button/styles/pressed = SubResource("StyleBoxTexture_m1g8v")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_wlf0d")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_6nrtf")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_tk8bx")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 ScrollContainer/styles/panel = SubResource("StyleBoxTexture_7emh1")

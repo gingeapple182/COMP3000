@@ -101,17 +101,30 @@ func apply_progression_state() -> void:
 			# completed → remove / disable
 			child.visible = false
 			child._update_label("FICXED", Color.GRAY)
+			child.sprite_3d.visible = false
 			child.process_mode = Node.PROCESS_MODE_DISABLED
 			child.is_enabled = false
 		elif child.start_index == completed_up_to + 1:
 			# next available → keep active
 			child.visible = true
 			child._update_label("AVAILABLE", Color.GREEN)
+			child.sprite_3d.visible = true
 			child.process_mode = Node.PROCESS_MODE_INHERIT
 			child.is_enabled = true
 		else:
 			# future → hide or keep blocked
 			child.visible = true
 			child._update_label("LOCKED", Color.RED)
+			child.sprite_3d.visible = false
 			child.process_mode = Node.PROCESS_MODE_DISABLED
 			child.is_enabled = false
+	refresh_room_state_visuals()
+
+func refresh_room_state_visuals() -> void:
+	for child in get_children():
+		if child.has_method("refresh_state"):
+			child.refresh_state()
+		
+		for grandchild in child.get_children():
+			if grandchild.has_method("refresh_state"):
+				grandchild.refresh_state()

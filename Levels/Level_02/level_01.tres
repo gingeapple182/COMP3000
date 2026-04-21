@@ -19,4 +19,4 @@ true_value_count = 1
 false_value_count = 1
 or_gate_count = 1
 L_U_connector_count = 1
-L_R_connector_count = 1
+L_D_connector_count = 1

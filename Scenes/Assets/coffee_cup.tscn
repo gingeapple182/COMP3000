@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ditf5n22yoh5l"]
+
+[ext_resource type="Material" uid="uid://s1d6xwnxcy80" path="res://Scenes/Assets/Materials/wood.tres" id="1_ak2g2"]
+
+[node name="coffee_cup" type="Node3D" unique_id=256617927]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=415330403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+height = 1.0
+sides = 12
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCylinder3D" unique_id=2049054882]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.47678363, 0, 0)
+inner_radius = 0.3
+outer_radius = 0.4
+sides = 13
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D" unique_id=215247145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100000024, 0)
+operation = 2
+radius = 0.4
+height = 0.9
+sides = 12
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D" unique_id=978922818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27204013, 0)
+radius = 0.4
+height = 0.2
+sides = 13
+material = ExtResource("1_ak2g2")

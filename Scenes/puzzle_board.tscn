@@ -14,16 +14,16 @@
 [ext_resource type="Theme" uid="uid://die0sl3p4c7iy" path="res://Resources/ui_kenney.tres" id="9_6ebee"]
 [ext_resource type="Theme" uid="uid://cbyxqc21c5tkc" path="res://Resources/new_theme.tres" id="10_6ebee"]
 [ext_resource type="PackedScene" uid="uid://drn8aswwgcesl" path="res://Scenes/Menus/level_complete.tscn" id="12_m3m36"]
+[ext_resource type="Material" uid="uid://s1d6xwnxcy80" path="res://Scenes/Assets/Materials/wood.tres" id="15_vs7cm"]
+[ext_resource type="PackedScene" uid="uid://ditf5n22yoh5l" path="res://Scenes/Assets/coffee_cup.tscn" id="16_k2w46"]
+[ext_resource type="PackedScene" uid="uid://cxoi3kvwd2yij" path="res://Scenes/Assets/Assets/kenney/computerMouse.glb" id="17_04wca"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_soapa"]
 left_to_right = 0.0
 size = Vector3(4, 1, 10)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x04p3"]
-albedo_color = Color(0.0823529, 0.74902, 0.176471, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_xdopv"]
-material = SubResource("StandardMaterial3D_x04p3")
+material = ExtResource("15_vs7cm")
 size = Vector2(25, 25)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1gxiv"]
@@ -48,6 +48,7 @@ rows = 5
 columns = 7
 
 [node name="Slots" type="Node3D" parent="." unique_id=895273183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1787335721]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.22657, 0)
@@ -201,8 +202,10 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -150.0
-offset_bottom = 126.0
+offset_left = -268.0
+offset_top = 412.0
+offset_right = -14.0
+offset_bottom = 538.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -212,6 +215,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 47.0
+offset_right = -3.0
+offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -265,7 +272,7 @@ mesh = SubResource("PrismMesh_soapa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.3, 0)
 
 [node name="Board" type="MeshInstance3D" parent="Elements" unique_id=14341142]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.531, 0)
 layers = 3
 mesh = SubResource("PlaneMesh_xdopv")
 skeleton = NodePath("../..")
@@ -277,6 +284,12 @@ mesh = SubResource("PlaneMesh_1gxiv")
 
 [node name="BlockSpawn" type="Node3D" parent="Elements" unique_id=124135300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0816, 8.10958, -3.84854)
+
+[node name="coffee_cup" parent="." unique_id=256617927 instance=ExtResource("16_k2w46")]
+transform = Transform3D(0.9102686, -0.40091428, -1.7351309, 0.10826359, 1.957513, -0.395501, 1.7775517, 0.08608032, 0.91263354, 7.0297494, 0, -3.4567468)
+
+[node name="computerMouse" parent="." unique_id=1421826170 instance=ExtResource("17_04wca")]
+transform = Transform3D(-9.76878, 0, -2.1379771, 0, 10, 0, 2.1379771, 0, -9.76878, 7.809758, 0, -0.75673294)
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TestSolution" to="." method="_on_test_solution_pressed"]

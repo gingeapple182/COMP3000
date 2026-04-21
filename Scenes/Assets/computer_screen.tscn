@@ -2,8 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dvvoup6yc22j0" path="res://Scenes/Assets/Assets/kenney/computerScreen.glb" id="1_ph0qw"]
 [ext_resource type="Script" uid="uid://cwbwix2m8nox8" path="res://Scripts/AssetScripts/photo_frame.gd" id="2_usrku"]
+[ext_resource type="Texture2D" uid="uid://qnc6qji17x2b" path="res://Scenes/Assets/images/portraits/Login.png" id="3_3xdje"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_84ibj"]
+albedo_texture = ExtResource("3_3xdje")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3xdje"]
+material = SubResource("StandardMaterial3D_84ibj")
 size = Vector2(0.9, 0.9)
 
 [node name="computerScreen" unique_id=414953278 instance=ExtResource("1_ph0qw")]

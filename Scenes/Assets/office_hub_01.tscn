@@ -376,6 +376,18 @@ transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -27.8673, 0.5, 15.766)
 [node name="wall53" parent="Walls" unique_id=268874344 instance=ExtResource("8_x4wkh")]
 transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -31.8673, 0.5, 15.766)
 
+[node name="wall55" parent="Walls" unique_id=1942279412 instance=ExtResource("8_x4wkh")]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -35.8673, 0.5, 11.766001)
+
+[node name="wall56" parent="Walls" unique_id=1547064658 instance=ExtResource("8_x4wkh")]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -23.8673, 0.5, 11.766001)
+
+[node name="wall57" parent="Walls" unique_id=1049571384 instance=ExtResource("8_x4wkh")]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -27.8673, 0.5, 11.766001)
+
+[node name="wall58" parent="Walls" unique_id=1069843545 instance=ExtResource("8_x4wkh")]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -31.8673, 0.5, 11.766001)
+
 [node name="wall54" parent="Walls" unique_id=1123576903 instance=ExtResource("8_x4wkh")]
 transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -19.8673, 0.5, 15.766)
 

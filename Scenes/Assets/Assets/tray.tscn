@@ -1,57 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://kswxyqq8tn33"]
+[gd_scene format=3 uid="uid://kswxyqq8tn33"]
 
 [ext_resource type="Material" uid="uid://dcqg58s0uvh5l" path="res://Scenes/Assets/Materials/metal.tres" id="1_1bbki"]
 [ext_resource type="Material" uid="uid://s1d6xwnxcy80" path="res://Scenes/Assets/Materials/wood.tres" id="2_ib1gq"]
+[ext_resource type="Material" uid="uid://bdk6uf8ar5dg2" path="res://Scenes/Assets/Assets/kenney/metal.tres" id="2_kl7wv"]
+[ext_resource type="Material" uid="uid://6g6qqreggcpr" path="res://Scenes/Assets/Materials/noticeboard.tres" id="4_xrvg7"]
 
-[node name="Tray" type="CSGCombiner3D"]
+[node name="Tray" type="CSGCombiner3D" unique_id=222993967]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1128412386]
 size = Vector3(10, 1, 10)
 material = ExtResource("1_1bbki")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=430415849]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, -5)
 height = 10.0
-material = ExtResource("2_ib1gq")
+material = ExtResource("2_kl7wv")
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=1939392982]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 5)
 height = 10.0
-material = ExtResource("2_ib1gq")
+material = ExtResource("2_kl7wv")
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=659800835]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -5, 0, 2.18557e-07)
 height = 10.0
-material = ExtResource("2_ib1gq")
+material = ExtResource("2_kl7wv")
 
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=2107928421]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 5, 0, -2.18557e-07)
 height = 10.0
-material = ExtResource("2_ib1gq")
+material = ExtResource("2_kl7wv")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1311507649]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
 rings = 8
 material = ExtResource("2_ib1gq")
 
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=69687128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
 rings = 8
 material = ExtResource("2_ib1gq")
 
-[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="." unique_id=807286015]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
 rings = 8
 material = ExtResource("2_ib1gq")
 
-[node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="." unique_id=829874387]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
 rings = 8
 material = ExtResource("2_ib1gq")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=137707718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
 operation = 2
 size = Vector3(10, 0.75, 10)
-material = ExtResource("2_ib1gq")
+material = ExtResource("4_xrvg7")

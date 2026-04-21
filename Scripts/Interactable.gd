@@ -5,6 +5,8 @@ enum ButtonType { PUZZLE, SCENE, DOOR, NPC, BRIEFING, OTHER }
 
 var is_enabled := true
 @onready var status_label: Label3D = get_node_or_null("Label3D")
+@onready var status_sprite: Sprite3D = get_node_or_null("Sprite3D")
+@onready var sprite_3d: Sprite3D = $Sprite3D
 
 @export_group("")
 @export var button_type: ButtonType
@@ -42,6 +44,10 @@ enum SceneID { LANDING_MENU, HUB_01, PUZZLE_BOARD, MAZE, ZOO }
 @export var new_objective_room: String = "Tutorial"
 
 @export var disable_after_interaction: bool = true
+
+@export_group("Marker Links")
+@export var linked_npc: NodePath
+@export var disable_linked_npc_target_marker_on_use: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -176,6 +182,9 @@ func handle_briefing_action() -> void:
 	
 	if disable_after_interaction:
 		is_enabled = false
+		
+		if disable_linked_npc_target_marker_on_use:
+			disable_linked_npc_target_marker()
 
 
 func get_scene_name() -> String:
@@ -187,6 +196,7 @@ func get_scene_name() -> String:
 		SceneID.ZOO: return "zoo"
 	return ""
 
+
 func scene_change(scene_id: String) -> void:
 	var marker = get_node_or_null(return_spawn_point)
 	if marker:
@@ -196,6 +206,7 @@ func scene_change(scene_id: String) -> void:
 	GameManager.set_return_scene_with_id("hub_01")
 	GameManager.change_scene(scene_id)
 
+
 func _update_label(text: String, colour: Color) -> void:
 	if status_label == null:
 		return
@@ -203,3 +214,19 @@ func _update_label(text: String, colour: Color) -> void:
 	status_label.text = text
 	status_label.modulate = colour
 	status_label.visible = true
+
+
+func disable_linked_npc_target_marker() -> void:
+	if linked_npc.is_empty():
+		return
+	
+	var npc = get_node_or_null(linked_npc)
+	if npc == null:
+		push_warning("[Interactable] linked_npc not found: " + str(linked_npc))
+		return
+	
+	if not npc.has_method("disable_target_marker"):
+		push_warning("[Interactable] linked_npc has no disable_target_marker() method: " + npc.name)
+		return
+	
+	npc.disable_target_marker()

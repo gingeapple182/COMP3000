@@ -2,13 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://dw4spjloyb70v" path="res://Scenes/Assets/Assets/kenney/laptop.glb" id="1_8ineg"]
 [ext_resource type="Script" uid="uid://cwbwix2m8nox8" path="res://Scripts/AssetScripts/photo_frame.gd" id="2_n48c0"]
+[ext_resource type="Texture2D" uid="uid://qnc6qji17x2b" path="res://Scenes/Assets/images/portraits/Login.png" id="3_n48c0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehmoq"]
+albedo_texture = ExtResource("3_n48c0")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ehmoq"]
+material = SubResource("StandardMaterial3D_ehmoq")
 size = Vector2(0.9, 0.9)
 
 [node name="laptop" unique_id=217077123 instance=ExtResource("1_8ineg")]
 script = ExtResource("2_n48c0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=1189290369]
-transform = Transform3D(0.78847456, 0, 0, 0, 0.49792477, -0.39557695, 0, 1.1131248, 0.17695011, 0.3877625, 0.266, -0.5858779)
+transform = Transform3D(0.78847456, 0, 0, 0, 0.49792477, -0.39557695, 0, 1.1131248, 0.17695011, 0.3877625, 0.266, -0.5831504)
 mesh = SubResource("PlaneMesh_ehmoq")

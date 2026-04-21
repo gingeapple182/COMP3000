@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://djfcphtc3nnbc"]
+
+[ext_resource type="Script" uid="uid://pteeei3h6tu0" path="res://Scripts/AssetScripts/desk_decorated.gd" id="1_rikxo"]
+[ext_resource type="PackedScene" uid="uid://bcvda3j05war8" path="res://Scenes/Assets/laptop_screen.tscn" id="2_ckcrn"]
+[ext_resource type="Texture2D" uid="uid://cikyvad78rc3b" path="res://Scenes/Assets/images/portraits/blue_screen.png" id="3_lfdak"]
+[ext_resource type="Texture2D" uid="uid://byj886e0vy7lm" path="res://Scenes/Assets/images/portraits/blue_screen_good.png" id="4_obg20"]
+
+[node name="Node3D" type="Node3D" unique_id=1063763626]
+script = ExtResource("1_rikxo")
+bad_path = NodePath("laptop")
+good_path = NodePath("laptop2")
+
+[node name="laptop" parent="." unique_id=217077123 instance=ExtResource("2_ckcrn")]
+portrait = ExtResource("3_lfdak")
+
+[node name="laptop2" parent="." unique_id=1718106627 instance=ExtResource("2_ckcrn")]
+portrait = ExtResource("4_obg20")

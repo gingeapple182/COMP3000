@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var animation_player: AnimationPlayer = $characterMedium/AnimationPlayer
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+@onready var sprite_3d: Sprite3D = $Sprite3D
 
 enum NPCType {
 	STATIC,
@@ -20,11 +21,26 @@ enum NPCType {
 @export var idle_wait_min := 1.5
 @export var idle_wait_max := 4.0
 
+@export_group("Marker")
+@export var use_marker: bool = true
+@export var marker_show_distance: float = 5.0
+@export var marker_type: MarkerType = MarkerType.NONE
+@export_subgroup("Target Marker")
+@export var target_marker_icon: Texture2D
+@export_subgroup("State Marker")
+@export var initial_marker_icon: Texture2D
+@export var secondary_marker_icon: Texture2D
+@export var linked_interactable_path: NodePath
+
 enum State {
 	IDLE,
 	MOVE
 }
-
+enum MarkerType {
+	NONE,
+	TARGET,
+	STATE
+}
 var can_roam: bool
 var current_state: State = State.IDLE
 var idle_timer := 0.0
@@ -32,9 +48,11 @@ var current_idle_wait := 0.0
 var walk_timer := 0.0
 var broken_path_timer := 0.0
 var broken_path_limit := 15.0
+var linked_interactable: Node = null
+var target_marker_active := true
+var player: Node3D = null
 
 signal follow_target_reached
-
 var follow_reached_emitted := false
 
 func _ready() -> void:
@@ -53,9 +71,16 @@ func _ready() -> void:
 		current_state = State.IDLE
 	navigation_agent_3d.target_desired_distance = 0.1
 	current_idle_wait = randf_range(idle_wait_min, idle_wait_max)
-
+	
+	player = get_tree().get_first_node_in_group("player")
+	if not linked_interactable_path.is_empty():
+		linked_interactable = get_node_or_null(linked_interactable_path)
+	
+	setup_marker()
 
 func _physics_process(delta: float) -> void:
+	update_marker_visibility()
+	
 	if navigation_agent_3d.is_navigation_finished():
 		current_state = State.IDLE
 	else:
@@ -182,3 +207,76 @@ func start_return() -> void:
 
 func start_static() -> void:
 	npc_type = NPCType.STATIC
+
+func setup_marker() -> void:
+	if sprite_3d == null:
+		return
+	
+	sprite_3d.visible = false
+	
+	if not use_marker:
+		sprite_3d.texture = null
+		return
+	
+	match marker_type:
+		MarkerType.NONE:
+			sprite_3d.texture = null
+		
+		MarkerType.TARGET:
+			sprite_3d.texture = target_marker_icon
+		
+		MarkerType.STATE:
+			sprite_3d.texture = get_state_marker_texture()
+
+
+func update_marker_visibility() -> void:
+	if sprite_3d == null:
+		return
+	
+	if not use_marker:
+		sprite_3d.visible = false
+		return
+	
+	match marker_type:
+		MarkerType.NONE:
+			sprite_3d.visible = false
+			return
+		
+		MarkerType.TARGET:
+			sprite_3d.texture = target_marker_icon
+			
+			if not target_marker_active:
+				sprite_3d.visible = false
+				return
+			
+			sprite_3d.visible = sprite_3d.texture != null
+			return
+		
+		MarkerType.STATE:
+			sprite_3d.texture = get_state_marker_texture()
+			
+			if sprite_3d.texture == null:
+				sprite_3d.visible = false
+				return
+			
+			if player == null:
+				player = get_tree().get_first_node_in_group("player")
+				if player == null:
+					sprite_3d.visible = false
+					return
+			
+			var distance_to_player = global_position.distance_to(player.global_position)
+			sprite_3d.visible = distance_to_player <= marker_show_distance
+
+func get_state_marker_texture() -> Texture2D:
+	if linked_interactable == null:
+		return initial_marker_icon
+	
+	if linked_interactable.visible:
+		return initial_marker_icon
+	
+	return secondary_marker_icon
+
+func disable_target_marker() -> void:
+	target_marker_active = false
+	update_marker_visibility()

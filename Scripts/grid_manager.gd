@@ -573,6 +573,10 @@ func propagate_from_slot(slot) -> Array:
 				print("  → blocked (invalid input direction)")
 				return new_signal
 		
+		if target.slot_role == SLOT_OUTPUT:
+			print("  → blocked (value blocks cannot feed output directly)")
+			return new_signal
+		
 		target.set_signal(slot.signal_value)
 		print("  → propagated to", target.grid_position, "value =", target.signal_value)
 		new_signal.append(target)

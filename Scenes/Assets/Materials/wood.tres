@@ -1,5 +1,8 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://s1d6xwnxcy80"]
 
+[ext_resource type="Texture2D" uid="uid://hfegj3kqnvd6" path="res://Scenes/Assets/Textures/360_F_453297770_kyaksmgo08lTTAPIDPTU5yALSCW2alKi.jpg" id="1_my7l5"]
+
 [resource]
 albedo_color = Color(0.624692, 0.390935, 0.24467, 1)
+albedo_texture = ExtResource("1_my7l5")
 roughness = 0.5
