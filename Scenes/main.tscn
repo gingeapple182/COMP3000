@@ -759,6 +759,10 @@ transform = Transform3D(0.4195948, 0, 0.9077115, 0, 1, 0, -0.9077115, 0, 0.41959
 [node name="chairDesk6" parent="OfficeHub01/Tutorial/Furniture" unique_id=8243201 instance=ExtResource("23_mgrvf")]
 transform = Transform3D(-0.8248176, 0, 0.56539917, 0, 1, 0, -0.56539917, 0, -0.8248176, -5.2255287, 9.536743e-07, -10.604605)
 
+[node name="Node3D" parent="OfficeHub01/Tutorial/Furniture" unique_id=1063763626 instance=ExtResource("79_fd3ed")]
+transform = Transform3D(0.50503993, 0, 0.863096, 0, 1, 0, -0.863096, 0, 0.50503993, -11.852909, 1.1472907, -3.1133318)
+linked_interactable_path = NodePath("../../Interactables/Level_05")
+
 [node name="chairDesk9" parent="OfficeHub01/Tutorial/Furniture" unique_id=407374114 instance=ExtResource("23_mgrvf")]
 transform = Transform3D(0.7241718, 0, -0.6896198, 0, 1, 0, 0.6896198, 0, 0.7241718, -4.100395, 9.536743e-07, -12.738441)
 
@@ -1329,8 +1333,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9
 [node name="laptop" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=495066721 instance=ExtResource("40_jut3y")]
 transform = Transform3D(-0.8192922, 0, -0.57337636, 0, 1, 0, 0.57337636, 0, -0.8192922, -6.2594194, 0.68999994, 0.43955612)
 
-[node name="rugRectangle" parent="OfficeHub01/ManagersOffice" unique_id=703301107 instance=ExtResource("47_ovafv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.946465, -0.008117676, 9.990775)
+[node name="rugRound" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=795569733 instance=ExtResource("31_r65h5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.182087, 9.536743e-07, 1.2136357)
+
+[node name="rugRectangle" parent="OfficeHub01/ManagersOffice/Furniture" unique_id=703301107 instance=ExtResource("47_ovafv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.946465, -0.008117676, 9.990776)
 
 [node name="Backroom" parent="OfficeHub01" unique_id=1592453983 instance=ExtResource("12_w4s6r")]
 transform = Transform3D(1, 0, -2.26082e-14, 0, 1, 0, 2.26082e-14, 0, 1, -19.7, 0.5, -16.885)
@@ -1543,6 +1550,12 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.87
 text = "XOR/XNOR Room
 "
 
+[node name="doorway" parent="OfficeHub01/AlwaysLoaded/Hallways" unique_id=1034345719 instance=ExtResource("68_owhal")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 0.8, 0, 1, 0, -4.371139e-08, -10.102354, 0.49999714, -6.8601313)
+
+[node name="doorway2" parent="OfficeHub01/AlwaysLoaded/Hallways" unique_id=1497143828 instance=ExtResource("68_owhal")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 0.8, 0, 1, 0, -4.371139e-08, -5.964542, 0.49999714, -6.8601313)
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1227670475]
 visible = false
 navigation_mesh = SubResource("NavigationMesh_tab3y")
@@ -1591,19 +1604,6 @@ marker_type = 2
 initial_marker_icon = ExtResource("74_jekl6")
 secondary_marker_icon = ExtResource("73_fg68e")
 linked_interactable_path = NodePath("../../OfficeHub01/Tutorial/Interactables/Level_05")
-
-[node name="rugRound" parent="." unique_id=795569733 instance=ExtResource("31_r65h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0308237, 0.50000095, 6.053461)
-
-[node name="doorway" parent="." unique_id=1034345719 instance=ExtResource("68_owhal")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 0.8, 0, 1, 0, -4.371139e-08, -10.102354, 0.49999714, -6.8601313)
-
-[node name="doorway2" parent="." unique_id=1497143828 instance=ExtResource("68_owhal")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 0.8, 0, 1, 0, -4.371139e-08, -5.964542, 0.49999714, -6.8601313)
-
-[node name="Node3D" parent="." unique_id=1063763626 instance=ExtResource("79_fd3ed")]
-transform = Transform3D(0.50503993, 0, 0.863096, 0, 1, 0, -0.863096, 0, 0.50503993, -31.55291, 1.6472907, 4.001708)
-linked_interactable_path = NodePath("../OfficeHub01/Tutorial/Interactables/Level_05")
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="pressed" from="CanvasLayer/Introduction/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_intro_button_pressed"]

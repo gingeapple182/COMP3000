@@ -10,7 +10,6 @@ class_name LevelData
 enum OutputGoals {
 	TRUE,
 	FALSE
-	# Extendable further
 }
 @export var expected_output: OutputGoals = OutputGoals.TRUE
 
