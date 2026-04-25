@@ -1,727 +1,124 @@
-# **[Working Title Placeholder] – Game Design Document**
+# Project Mismanagement
+
+**Project Mismanagement** is a 3D puzzle game developed in **Godot 4.6** for my COMP3000 final year project.
+
+The game is set in a chaotic office environment where the player takes on the role of a new IT technician responsible for fixing broken office systems. These systems are represented through grid-based logic puzzles, where the player places signal blocks, connectors, and logic gates to produce the required output.
+
+The project combines a first-person office hub with interactive puzzle scenes designed around digital logic concepts such as signal flow, Boolean values, and logic gates.
 
 ---
 
-## **Executive Summary**
+## Project Overview
 
+The main gameplay loop involves exploring the office, interacting with broken systems, and completing logic-based puzzle boards.
 
-### **Concept Statement**
+In each puzzle, the player must arrange available components on a grid so that the correct signal reaches the output node. Components include:
 
-[Game name] puts you in place of the office's newest (and only competent) technician. Unfortunately the previous techie left everything in a state of absolute chaos: the printer only works while the kettle is brewing, light switches controlling the microwave and security systems only working on a tuesday! Your job? Move about the office, find these ridiculous issues and patch it all back together using whatever the old techie left behind.
-The game combines first-person exploration with top-down, grid-based logic puzzles grounded in real computer science concepts. Each issue is solved through using logic gate components -- AND, OR, XNOR and more -- to produce correct outputs and restoring the broken systems. Through trial and error, visual feedback and escalating complexity, players will develop a thorough understanding of Boolean logic, signal flow and problem solving while gradually bringing the most dysfunctional office back to life.
+- TRUE and FALSE value blocks
+- Connectors for routing signals
+- Logic gates such as AND, OR, NOT, NAND, NOR, XOR, and XNOR
+- Output nodes with a required target result
 
-
----
-
-## **Game Overview and Concept**
-
-<details>
-<summary>Click to expand</summary>
-
-### **Working Title**
-
-
-### **Genre**
-
-* Puzzle
-* Educational
-* Top-down 3D
-* Absurd comedy
-
-### **Target Audience**
-
-#### Who will play
-  * Computing students
-  * People who enjoy puzzle games
-  * People who enjoy tech humour
-#### Why they play
-  * challenge themselves with tech puzzles
-  * fix the office
-#### Age range
-  * 8+
-#### Accessibility
-  * Tutorial system
-  * Toggle between words/symbols
-  * Actions have audio feedback
-  * Control remapping (stretch)
-  * UI readability
-#### Intended play session duration
-  * 10-20 minutes minimum
-#### Target age rating
-  * PEGI 7
-
-### **USP**
-
-* Interactive implementation of AND/NOT/XOR logic gates
-* Puzzles mirroring computing logic
-* Grid based puzzle layout
-* Constant and immediate feedback on puzzle solutions
-* Light physics involved for more *active* environment
-* Humourous/absurd setting making logic concepts more digestible
-* Hybrid presentation (first person + top down) adds visual variety
-* Scalable by adding extra office environments
-
-### **Player experience**
-
-Describe intended experience from playing the game
-
-#### Who is the player:   
- Office tech left to inherit old system
-#### Player fantasy:      
- Feeling like the only person with any sense
-#### How its presented:
-  * (Hub): First-person 3D
-  * (Puzzles): Top-down 3D
-#### What emotions do i want
-  * Satisfaction
-  * Curiosity
-  * Revelations (figuring out difficult puzzles)
-#### Why does the player return
-  * Progress puzzles
-  * Fix office chaos
-  * Learn new concepts
-  * Player interest
-    * Growing absurdity
-    * Sense of achievement
-    * Variety of puzzles
-    * Combination of puzzle types
-
-#### Intended learning outcomes
-Players engaging in the puzzles should develop:
-- Good understanding of boolean values
-- Recognition of common logic gates
-- Ability to use gates in expressions
-- Visual reasoning about signal flows
-- Intuition of circuit building and computer science thinking
-Supporting material will be available in game to provide more details about components of the game
-
-</details>
+The aim of the project is to turn abstract computing logic into a more interactive and visual experience, allowing players to test solutions, observe signal behaviour, and iterate on their layouts.
 
 ---
 
-## **Gameplay Mechanics**
+## Downloading the Playable Release
 
-<details>
-<summary>Click to expand</summary>
+A standalone Windows build is available from the **Releases** section of this repository.
 
-### **Core Loop**
+### Latest Release
 
-Primary loop:
+Download the latest `.exe` file from the release page:
 
-* Hub -> Puzzle -> Hub
+[Download Project Mismanagement Release](../../releases)
 
-Puzzle loop:
+The current release uses an embedded `.pck`, so the game should run as a standalone executable without requiring any additional files.
 
-* Assess problem
-* Place/move logic component blocks
-* Test solution
-* Adjust and repeat until solved
-* Hints/resetting available
+### Running the Release Build
 
-Why is the loop engaging?
+1. Go to the repository's **Releases** page.
+2. Download the latest `ProjectMismanagement_*.exe` file.
+3. Run the downloaded executable.
 
-* Absurd humour
-* Engaging puzzles
-* Completing/fixing the office environments
-
-How it helps learning
-
-* Teaches core computing concepts in a fun and digestible way that encourages the players to learn through experimentation, and positively reinforced upon correct solutions though direct positive feedback and long term *fixing* of the office environment being satisfying for the players
-
-### **Objectives and progression**
-
-Players short term goals
-Players long term goals
-
-Level flow
-
-* Tutorial -> Single output challenges -> Multi-layered challenge -> truth table challenges
-
-Every few stages can introduce a new concept/gate
-
-* first few puzzles use AND gates only
-* next few add in OR gates
-* next few add in NOT gates
-  Logic builds slowly across multiple puzzles to not overwhelm players with too many new concepts at once
-
-End goal: fix the office systems
-
-Players are able to pick their puzzles from a few available.
-
-* several available puzzles at each stage
-* complete 75% to unlock new mechanic/variation
-* new puzzles unlocked with a popup/notification upon returning to hub
-  * New floating warning signs above newly broken objects
-* After enough completed puzzles (75% of total in room) you get a notification from your manager thanking you and telling you about new room with new issues
-
-### **Game systems**
-
-List all systems for the game - explain each
-
-1. Logic gate system
-2. Connector system
-3. Puzzle manager
-4. Player hub interaction
-5. Level manager
-
-### **Puzzle System Design**
-
-#### Overview
-The puzzle is designed to introduce and teach foundational computer science logic conpects like **AND, OR, NOT, XOR** and truth-tables. <br/>
-Players will solve logic puzzles by placing and rearranging logic blocks on a grid-based board (circuit board?), and utilise input signals to produce a desired end result. <br/>
-The system will be designed in a way to be scalable, from simple tutorial sections with basic logic to more complex logic chains.
-
-#### Puzzle environment
-Each puzzle will be within its own puzzle scene, contextually placed within the main "office" hub. <br/>
-The puzzle scene placed before the player will contain:
- - A grid board with tiles avilable for snapping objects to
- - Logic pieces (AND, NOT, XOR etc)
- - Input pieces with fixed binary signal values
- - An output monitor displaying the final result
- - Puzzle specific objects
-
-The grid will be viewable from a static top-down camera, with tiles highlighting when an object is hovering above them to provide tactile feedback for the player as they move the pices around the board.
-
-### Logic Gate Selection and Scope
-
-The game focuses on a set of logical operators that are commonly used in digital logic and introductory computer science education.
-
-The following logic gates are included as interactive puzzle components:
-| Gate Name | Connective Name        | Symbol | Behaviour Summary                                   |
-|-----------|------------------------|--------|-----------------------------------------------------|
-| AND       | Conjunction            | ∧      | Outputs true only when all input signals are true   |
-| OR        | Disjunction            | ∨      | Outputs true when at least one input signal is true |
-| NOT       | Negation               | ¬      | Outputs the opposite of its single input signal     |
-| NAND      | Alternative denial     | ⊼      | Outputs false only when all input signals are true  |
-| NOR       | Joint denial           | ⊽      | Outputs true only when all input signals are false  |
-| XOR       | Exclusive disjunction  | ⊕     | Outputs true when an odd number of inputs are true  |
-| XNOR      | Biconditional          | ↔      | Outputs true when all input signals are the same    |
-
-
-These gates were selected due to their relevance to real-world logic circuits, their recognisability to players, and their suitability for visual, grid-based puzzle mechanics. More formal propositional logic operators such as implication and non-implication are intentionally excluded, as they are less commonly used in practical computing contexts and are poorly suited to intuitive, visual puzzle mechanics. {1}
-
-
-#### Grid-snap
-The visible grid will be made up of multiple slot nodes arranged in rows and columns. <br/>
-Each slot will be a snap point that a logic piece can be placed into. <br/>
-Functionality:
- - Detects wether a piece is placed inside it
- - Detects pieces in adjacent slots
- - Detects pieces held by the player above the slot
- - Passes boolean signals through the grid
- - Visuals highlight free/occupied/blocked states
- - Slots can be enabled/disabled depending on specific puzzles
-
-#### Inputs/Outputs
-Input pieces:
- - Represented with boolean values
- - Placed on leftmost column
- - (Puzzle specific) Pre-placed or freely movable within first row
- - Serves as the starting point for the puzzle
-
-Output:
- - Displays final boolean value
- - Determines puzzle goals (unlocking a door, powering the computer)
- - Visual feedback throughout puzzle interaction
-
-#### Logic pieces
-These serve as the primary interaction for the player representing boolean logic
- - Types: AND, OR, NOT, NAND, NOR, XOR, XNOR
- - Number of input ports up to 2
- - One output port
- - Can use visual graphic representation or words (toggleable)
- - When placed, connects to adjacent slots
- - Inputs are read from the leftmost slots
- - Ouput is sent to rightmost slots
-
-#### Logic gate behaviours
-Signal collections rules
- - Logic gates may receive input signals from adjacent slots only
- - Valid input directions
-   - LEFT
-   - UP
-   - DOWN
- - Diagonals are not permitted
- - Inactive slots block signals
- - Slots may only store ONE signal
- - Signals cannot merge
-Gate input collection
- - Valid incoming siganls collected before *evaluation*
- - Evaluatin occurs after signal propogation stabilised
-Gate arity
-| Gate Type | Required Inputs |
-|----------|-----------------|
-| NOT      | Exactly 1       |
-| AND      | 2 or more       |
-| OR       | 2 or more       |
-| XOR      | 2 or more       |
-| NAND     | 2 or more       |
-| NOR      | 2 or more       |
-| XNOR     | 2 or more       |
-If a gate does not meet its input requirements, it produces no output
-- **AND** → true if *all* inputs are true  
-- **OR** → true if *any* input is true  
-- **XOR** → true if an odd number of inputs are true  
-- **NAND** → inverse of AND  
-- **NOR** → inverse of OR  
-- **XNOR** → inverse of XOR  
-- **NOT** → logical inversion of its single input  
-
-All gate behaviour mirrors real-world logic circuits and truth tables.
-
-Gate output rules
- - Gates output signals only to the RIGHT
- - Output occurs based on normal propogation rules
- - Gates only output one signal
-
-Validation
- - Validation is synchronous
- - Propogation occurs first
- - Gate evaluation comes after propgation stabilises
- - Gates push another wave of propgation once evaluated
- - Succesful validation to output changes puzzle into SOLVED state
-
-
-#### Goals
-Each puzzle will have its own context specific goals such as:
- - Produce an output of 1
- - Create a specific truth table configuration
- - Block a signal
- - Convert multiple inpts for a specific output
- - combine gates for a multi-step output
-
-Outputs will be displayed visually throughout the puzzle, success will *solve* the issue (unlock a door, power a computer etc)
-
-#### Example
-Level: "Unlock desk drawer" <br/>
-Inputs:
- - A = 1
- - B = 0
-
-Goal: Output must equal 1 to unlock the cabinet and at least 1 block must be used <br/>
-
-Pieces available:
- - AND
- - OR
- - NOT
-
-Correct solution:
-Place the OR gate between inputs and outputs
-A (1) → [ OR ] → Output (1)
-B (0)
-
-Output light turns green, and unlocks the drawer.
-
-#### Progression + difficulty
-Puzzle difficulty increases gradually <br/>
-Level 1 -- Tutorial
- - Single gate soltion
- - One or two inputs
- - Single output value
-Level 2 -- Beginner
- - Multi gate solutions
- - Changing outputs
- - Introduction of more gate types
-Level 3 -- Intermediate
- - Three or more gate solutiions
- - Disabled grid slots
- - Multiple possible solutions
- - Multiple outputs
-Level 4 -- Advanced
- - Complex gate solutions
- - Complex routing
- - Limited block amounts allowed
- - And further challenges
-
-### **Interactivity**
-
-How the player moves in the hub
-
-* Player moves freely in the office space, can walk between desks/obstacles
-* Player can pick up some physics enabled 3d objects (coffee mug, stack of paper, bucket)
-
-How the player moves in the levels
-
-* Top down so player can use mouse to select and pick up logic components
-
-Feedback system
-
-* In hub:
-
-  * Puzzle objects highlighted/glowing - possible just for floating/spinning warning symbol above to show interactivity
-
-* In puzzles:
-
-  * Moveable objects: lighter colour scheme
-  * Inactive objects: darker colour scheme
-  * slots for puzzle objects have inner lit red lights?
-  * Once objects in slots the corners turn blue/green to show connection
-  * Red warning lights in screen corner to show problem zone
-  * Warning lights turn green/yellow upon successful completion
-
-* use UI sketches?
-
-</details>
+Depending on Windows security settings, you may need to confirm that you want to run the file.
 
 ---
 
-## Testing
+## Running the Project in Godot
 
-<details>
- <summary>Click to expand</summary>
+Markers or developers can also download the full project repository and run it directly in Godot.
 
-### Testing overview and rationale
-Testing is treated as a continuous and iterative process throughout development, ensuring that core gameplay systems behave consistently, reliably, and in alignment with the project’s educational goals.
+This project was developed using:
 
-Given the logic-driven nature of the puzzle mechanics, particular emphasis is placed on validating correctness of Boolean operations, signal propagation, and puzzle completion conditions before higher-level gameplay and presentation features are introduced.
+**Godot 4.6 stable**
 
-### Early system testing (logical)
-Early testing focuses on the foundational logic systems underpinning the game, specifically the behaviour of logic gates, grid-based signal propagation, and validation sequencing.
+Godot 4.6 stable can be downloaded from the official Godot archive:
 
-During this stage, logic behaviour is tested in isolation using abstract grid representations rather than full in-engine visualisations. This approach allows signal flow, gate evaluation, and propagation order to be reasoned about deterministically, reducing ambiguity and aiding debugging during early development.
-A consistent symbolic notation is used across testing documentation to visualise grid states, logic components, and signal flow.
-Key:
-[ ] = Active slot
-[X] = Inactive slot
+https://godotengine.org/download/archive/4.6-stable/
 
-[↑] = Signal propagates up
-[→] = Signal propagates right
-[↓] = Signal propagates down
+### Steps to Run from Source
 
-[V] = Value block: TRUE
-[F] = Value block: FALSE
-[O] = Output block
+1. Download or clone this repository.
+2. Open **Godot 4.6 stable**.
+3. Select **Import** from the Godot Project Manager.
+4. Browse to the downloaded repository folder.
+5. Select the `project.godot` file.
+6. Open the project.
+7. Press **Run Project** from the Godot editor.
 
-[∧] = Logic block: AND
-[¬] = Logic block: NOT
-[∨] = Logic block: OR
-[⊼] = Logic block: NAND
-[⊽] = Logic block: NOR
-[⊕] = Logic block: XOR
-[↔] = Logic block: XNOR
-
-Logical testing example:
-```
-Test 1: Valid AND gate evaluation
-[V] [→] [↓] [ ] [ ]
-[X] [X] [∧] [→] [O]
-[V] [→] [↑] [ ] [ ]
-Console:
-[PUZZLE BOARD] Validation started
-[Value Block](0, 0)value =true
-[Value Block](2, 0)value =true
-  → propagated to(0, 1)value =true
-  → propagated to(2, 1)value =true
-  → propagated to(0, 2)value =true
-  → propagated to(2, 2)value =true
-  → propagated to(1, 2)value =true
-[GATE OUTPUT] AND at (1, 2) → (1, 3) value = true
-[GATE VALID] AND at (1, 2) inputs = [true, true]
-[PUZZLE] State →EDITING
-Result: Test SUCCESS
-
-Test 2: Incomplete AND gate evaluation
-[V] [→] [↓] [ ] [ ]
-[X] [X] [∧] [→] [O]
-[V] [→] [ ] [ ] [ ]
-Console:
-[PUZZLE BOARD] Validation started
-[Value Block](0, 0)value =true
-[Value Block](2, 0)value =true
-  → propagated to(0, 1)value =true
-  → propagated to(2, 1)value =true
-  → propagated to(0, 2)value =true
-  → propagated to(2, 2)value =true
-  → propagated to(1, 2)value =true
-[GATE OUTPUT] AND at (1, 2) → (1, 3) value = true
-[GATE VALID] AND at (1, 2) inputs = [true, true]
-[PUZZLE] State →EDITING
-Result: test FAILED
-```
-This test revealed a flaw in the signal flow where it was allowing a signal to enter an unoccupied slot. This behaviour is incorrect and was subsequently corrected
-After resolving the issue and rerunning Test 2:
-```
-Test 2: Incomplete AND gate evaluation
-[V] [→] [↓] [ ] [ ]
-[X] [X] [∧] [→] [O]
-[V] [→] [ ] [ ] [ ]
-Console:
-[PUZZLE BOARD] Validation started
-[Value Block](0, 0)value =true
-[Value Block](2, 0)value =true
- → propagated to(0, 1)value =true
- → propagated to(2, 1)value =true
- → propagated to(0, 2)value =true
- → propagated to(2, 2)value =true
- → propagated to(1, 2)value =true
-[GATE INVALID] AND at (1, 2): too few inputs (1)
-[PUZZLE] State →EDITING
-Result: test SUCCESS
-```
-### Functional testing
-
-### Usability testing
-
-### Testing scope/limitations
- 
-</details>
-
-## **Story and Narrative Elements**
-
-<details>
-<summary>Click to expand</summary>
-
-### **Game world lore**
-
-* why does the world exist - Office tech staff - Future could have different environments (other offices? different types of locations)
-* Basic framing
-
-  * office tech
-  * hired after last tech abruptly left for incompetence
-  * left with responsibility to make the office function
-  * office set up so badly weird problems exist
-    Puzzles exist as the inner tech world behind the scenes of the absurd issues
-    Progress through different rooms/different office locations
-
-</details>
+The project should run directly from the Godot editor once imported.
 
 ---
 
-## **Art Style and Visual Direction**
+## Repository Download Instructions
 
-<details>
-<summary>Click to expand</summary>
+If downloading the repository manually:
 
-### **Visual/audio style**
+1. Click the green **Code** button on this GitHub page.
+2. Select **Download ZIP**.
+3. Extract the downloaded ZIP file.
+4. Open Godot 4.6 stable.
+5. Import the extracted folder using the `project.godot` file.
 
-`For now: describe vibes`
-`When ready: concept/actual art`
+Alternatively, the repository can be cloned using Git:
 
-# Vibes
-
-* Minimalist environment, cluttered design
-* Simple textures
-* Lights to show puzzles progress (red warning light = incomplete, green light = success)
-* Distinct differences in office hub style vs puzzle style
-
-  * Warm colour scheme for office environment (chill+absurd vibes)
-  * Cold/ darker colour scheme for puzzle screen (to show in the flow tech vibes)
-  * Office audio - (soft background)printer beeps, coffee pot brewing, keyboard typing
-  * Puzzle audio - harsher beeps for incorrect, light trills for successes
-
-# Assets needed
-| **Urgent (Core Gameplay)** | Done | **Essential (Readability / Flow)** | Done | **Nice to Haves (Polish)** | Done | **UI / Usability** | Done |
-|----------------------------|------|------------------------------------|------|---------------------------|------|--------------------|------|
-| Logic block – AND          | [ ]  | Logic block – OR                   | [ ]  | Logic block – XOR         | [ ]  | Interact prompt    | [ ]  |
-| Logic block – NOT          | [ ]  | Input block (0 / 1)                | [ ]  | NAND / NOR blocks         | [ ]  | Hover highlight    | [ ]  |
-| Puzzle grid / board        | [ ]  | Output indicator (light/screen)    | [ ]  | Cable / wire visuals      | [ ]  | Success indicator | [ ]  |
-| Puzzle desk base           | [ ]  | Desk interaction hotspot           | [ ]  | Animated door (later)     | [ ]  | Failure indicator | [ ]  |
-| Block snap points          | [ ]  | Door placeholder (open/closed)     | [ ]  | Powered doors             | [ ]  | Tutorial arrows   | [ ]  |
-| Puzzle completion trigger | [ ]  | Level unlock logic                 | [ ]  | Ambient props (plants)    | [ ]  | Tutorial signage  | [ ]  |
-
-| **Clutter / Environment (Usability Dressing)** | Done | **Structural / World Assets** | Done | **Lighting / Mood** | Done | **Audio (Placeholder)** | Done |
-|-----------------------------------------------|------|-------------------------------|------|---------------------|------|-------------------------|------|
-| Office chair                                  | [ ]  | Walls material                | [ ]  | Ceiling light prefab| [ ]  | Button click sound      | [ ]  |
-| Filing cabinet                               | [ ]  | Carpet material               | [ ]  | Desk lamp           | [ ]  | Puzzle success sound    | [ ]  |
-| Photo frames                                 | [ ]  | Ceiling tile material         | [ ]  | Emergency light     | [ ]  | Puzzle fail sound       | [ ]  |
-| Side desks                                   | [ ]  | Door material                 | [ ]  | Indicator glow      | [ ]  | Door open/close sound   | [ ]  |
-| Shelving units                               | [ ]  | Window glass material         | [ ]  | Highlight light     | [ ]  | Ambient office hum      | [ ]  |
-| Whiteboards / notice boards                  | [ ]  | Skirting / trim               | [ ]  | Room fill light     | [ ]  | UI confirm sound        | [ ]  |
-
-
-### **References**
-
-![alt text](image.png)
-
-</details>
-
----
-
-## **Sound Design and Music**
-
-<details>
-<summary>Click to expand</summary>
-
-*(Already included in your “Visual/audio style” section – preserved exactly as-is)*
-
-* Office audio - (soft background)printer beeps, coffee pot brewing, keyboard typing
-* Puzzle audio - harsher beeps for incorrect, light trills for successes
-
-</details>
-
----
-
-## **Technical Specifications**
-
-<details>
-<summary>Click to expand</summary>
-
-### **Tech scope**
-
-* Platform: PC
-* Engine:   Godot
-* Style:    3D top-down
-* Scope:
-
-  * Solo developer
-  * 10-20 Levels
-
-    * first person physics enabled hub
-    * top down grid system puzzles
-  * Custom assets
-
-    * Low polygon assets
-    * Simple textures
-  * Mouse and keyboard interactivity
-* Expected MVP date: Christmas
-
-### **Risks**
-Risk assessment carried out using a risk score matrix as provided here:
-| Likelihood ↓ / Severity → | Insignificant (1) | Minor (2) | Moderate (3) | Major (4) | Fatal (5) |
-| ------------------------- | ----------------- | --------- | ------------ | --------- | --------- |
-| **Very Unlikely (1)**     | 1                 | 2         | 3            | 4         | 5         |
-| **Unlikely (2)**          | 2                 | 4         | 6            | 8         | 10        |
-| **Possible (3)**          | 3                 | 6         | 9            | 12        | 15        |
-| **Likely (4)**            | 4                 | 8         | 12           | 16        | 20        |
-| **Almost Certain (5)**    | 5                 | 10        | 15           | 20        | 25        |
-
-| Score     | Level     | Category     | Action Required           |
-| --------- | --------- | ------------ | ------------------------- |
-| **1–4**   | Low       | Acceptable   | No further action needed  |
-| **5–9**   | Medium    | Adequate     | Review and monitor        |
-| **10–15** | High      | Undesirable  | Address and mitigate      |
-| **16–25** | Very High | Unacceptable | Immediate action required |
-
-| Category           | Description | Likelihood (1–5) | Severity (1–5) | Risk Score | Level | Mitigation |
-| ------------------ | ----------- | ---------------- | -------------- | ---------- | ----- | ---------- |
-| Design             |  Player misunderstanding mechanics  | 3 | 3 | 9 | Medium |  Include a thorough tuturial system and Guide players may refer to at any time  |
-| Design             |  Overly-complex puzzles  | 3 | 3 | 9 | Medium |  Start with single-gate puzzles, apply complexity one block at a time, give several levels with new blocks to ensure understanding  |
-| Design             |  Learning curve inappropriately steep  | 3 | 2 | 6 | Medium |  Lock advanced mechanics behind earlier puzzle completion, dont require 100% level completiong to move on if too easy  |
-| Design             |  Tutorial not clear  | 2 | 3 | 6 | Medium |  Use focussed instructions explaining mechanics one at a time, include visual cues, and guided optional initial interactions  |
-| Design             |  Readability issues | 2 | 2 | 4 | Low |  Use contrasting colours, colour-blind safe pallete, descriptions on hover  |
-| Technical          |  Grid-snapping complexity  | 3 | 3 | 9 | Medium |  Snapping tolerance zones, clear visual indication on valid slots  |
-| Technical          |  Logic gate evaluation logic  | 3 | 4 | 12 | High |  Frequent unit testing on indivisual blocks  |
-| Technical          |  Scene switching issues  | 2 | 4 | 8 | Medium |  Preload scenes, ensure clear player state updating on scene change  |
-| Technical          |  Physics unpredictability  | 3 | 1 | 3 | Low |  Limit physics interactions during puzzles, clamp movement  |
-| Technical          |  Performance issues  | 2 | 4 | 8 | Medium |  Avoid unnecessary physics, use simple models  |
-| Scope / Production |  Too many puzzles planned  | 3 | 2 | 6 | Medium |  Prioritise required puzzles before extras  |
-| Scope / Production |  Feature creep  | 4 | 3 | 12 | High |  Define MVP requirements, regularly review progress (sprints/gantt/kanban)  |
-| Scope / Production |  Custom assets take longer than expected  | 3 | 4 | 12 | High |  Create reusable core assets, plan asset requirements before needed  |
-| Scope / Production |  Hub design taking away from puzzles  | 2 | 3 | 6 | Medium |  Implement minimum functionall fidelity, only add details once core gameplay loop is stable  |
-| User Experience    |  Unintuitive controls  | 2 | 2 | 4 | Low |  Provide instructions regardless of personal understanding, add on-screen guidance  |
-| User Experience    |  Camera switching issues  | 2 | 3 | 6 | Medium |  Frequent testing with users to ensure switching feels suitable  |
-| User Experience    |  Accessibility issues  | 2 | 3 | 6 | Medium |  Use readable fonts, make UI scalable, colour-blind suitable palettes, clear sound cues  |
-| User Experience    |  UI not clear  | 3 | 2 | 6 | Medium |  Use consistent layout, highlight interactable objects, use tooltips to assist players  |
-| Content            |  Insufficient variety  | 3 | 2 | 6 | Medium |  Introduce multiple gate types, add constraints (disabled tiles, limited uses of blocks), environmental variations  |
-| Content            |  Concepts not taught properly  | 2 | 4 | 8 | Medium |  Use structured progression, provide accessible guide explaining concepts and usage, research learning pedagogy  |
-| Content            |  Humour innapropriate  | 1 | 2 | 2 | Low |  Keep humour light-hearted, avoid sensitive topics, focus humour on office environment, not on people  |
-
-### File structure
-```text
-res://
-├─ addons/
-│  └─ proto_controller/
-│     ├─ proto_controller.gd
-│     └─ proto_controller.tscn
-│
-├─ Scenes/
-│  ├─ Assets/
-│  │  ├─ Assets/
-│  │  │  ├─ ceiling_light.tscn
-│  │  │  ├─ desk.tscn
-│  │  │  ├─ door_placeholder.tscn
-│  │  │  ├─ grid_slot_active.tscn
-│  │  │  ├─ grid_slot_inactive.tscn
-│  │  │  ├─ logic_block.tscn
-│  │  │  ├─ noticeboard.tscn
-│  │  │  ├─ notice_note.tscn
-│  │  │  ├─ photo_frame.tscn
-│  │  │  └─ window_placeholder.tscn
-│  │  │
-│  │  ├─ Fonts/
-│  │  │  ├─ AppleStormRg.otf
-│  │  │  ├─ Easy going stroke.ttf
-│  │  │  ├─ Thin Pencil Handwriting.otf
-│  │  │  └─ References.txt
-│  │  │
-│  │  ├─ images/
-│  │  │  └─ portraits/
-│  │  │
-│  │  ├─ Materials/
-│  │  │  ├─ carpet.tres
-│  │  │  ├─ ceiling.tres
-│  │  │  ├─ ceiling_light.tres
-│  │  │  ├─ metal.tres
-│  │  │  ├─ noticeboard.tres
-│  │  │  ├─ PhotoMaterial.tres
-│  │  │  ├─ walls.tres
-│  │  │  └─ wood.tres
-│  │  │
-│  │  ├─ Textures/
-│  │  │
-│  │  ├─ Button.tscn
-│  │  ├─ office_hub_01.tscn
-│  │  └─ References.txt
-│  │
-│  ├─ Menus/
-│  │
-│  ├─ Scenes/
-│  │  ├─ landing_menu.tscn
-│  │  ├─ main.tscn
-│  │  ├─ pause_menu.tscn
-│  │  ├─ puzzle_board.tscn
-│  │  └─ puzzle_test.tscn
-│
-├─ Scripts/
-│  ├─ AssetScripts/
-│  │  ├─ photo_frame.gd
-│  │  ├─ door_placeholder.gd
-│  │  ├─ grid_manager.gd
-│  │  ├─ Interactable.gd
-│  │  ├─ landing_menu.gd
-│  │  ├─ logic_block.gd
-│  │  ├─ main_scene.gd
-│  │  ├─ noticeboard.gd
-│  │  ├─ notice_note.gd
-│  │  ├─ pause_menu.gd
-│  │  ├─ PuzzleSceneController.gd
-│  │  ├─ puzzle_controller.gd
-│  │  └─ slots.gd
-│
-├─ icon.svg
-├─ image.png
-└─ README.md
+```bash
+git clone https://github.com/gingeapple182/COMP3000.git
 ```
 
-
-</details>
-
----
-
-## **Project Scope and Timeline**
-
-<details>
-<summary>Click to expand</summary>
-
-### **Monetisation**
-
-Initial:
-
-* No monetisation
-* Coursework prototype only
-
-</details>
+Then open the cloned folder in Godot 4.6 stable.
 
 ---
 
-## **References**
+## Controls
 
-<details>
-<summary>Click to expand</summary>
+Basic controls are:
 
-### **References**
+| Action | Input |
+|---|---|
+| Move | WASD |
+| Look Around | Mouse |
+| Interact | E |
+| Pause | Escape |
+| Test Puzzle Solution | On-screen button |
 
-{1} https://en.wikipedia.org/wiki/Logical_connective
+Some controls may vary slightly depending on the current scene or puzzle interaction.
 
+---
 
-</details>
+## Project Status
+
+This project is currently in a pre-release state and was created as part of a university final year project submission.
+
+A further release may be added before final submission, including final fixes, polish, or presentation improvements.
+
+---
+
+## Development
+
+Developed by **Oliver Cole**  
+Computer Science (Games Development)  
+University of Plymouth
+
+GitHub: [gingeapple182](https://github.com/gingeapple182)

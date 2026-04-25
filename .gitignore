@@ -1,3 +1,13 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+# exported playable builds
+/builds
+# Common Godot export files
+*.exe
+*.pck
+*.apk
+*.aab
+*.dmg
+*.app
+*.x86_64
